@@ -1,4 +1,4 @@
-FSP, a AirBnB clone, is a board booking application that allows users to:
+Paw-perty, a AirBnB clone, is a board booking application that allows users to:
 * freely explore listings in various cities
 * create a collection of favorite listings
 * book a stay of different location and date
