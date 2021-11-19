@@ -1,5 +1,5 @@
 {
-  "name": "paw-perty",
+  "name": "Pawperty",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
