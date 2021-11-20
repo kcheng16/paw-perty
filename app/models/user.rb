@@ -26,7 +26,10 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
-     # Class method for finding a user ONLY if we have the correct username and password
+    #Associations:============================================
+
+    #==========================================================
+    # Class method for finding a user ONLY if we have the correct username and password
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user
