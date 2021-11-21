@@ -9,7 +9,7 @@
 
 User.destroy_all
 
-user1 = User.create(username: 'demo', password: 'password')
+user1 = User.create(username: 'demo', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!')
 user2 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password')
 user3 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password')
 user4 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password')

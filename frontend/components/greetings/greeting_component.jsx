@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ProfileComponent from "../profile/user_show_component"
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -16,8 +17,13 @@ class Greeting extends React.Component {
     {if (this.props.currentUser) {
       return (
         <div>
+          <h1>GREETING COMPONENT</h1>
           <h1>Welcome {this.props.currentUser.username}</h1>
           <button onClick={() => this.props.logout()}>Logout</button>
+
+          {/* <ProfileComponent 
+            currentUser={this.props.currentUser}
+          /> */}
         </div>
       )
     } else if(this.props.location.pathname === '/'){
