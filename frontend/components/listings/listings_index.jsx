@@ -1,4 +1,5 @@
 import React from "react";
+import ListingsIndexItem from "./listings_index_item";
 
 class ListingsIndex extends React.Component {
   constructor(props){
@@ -15,12 +16,10 @@ class ListingsIndex extends React.Component {
       <div>
         <h1>LISTINGS INDEX</h1>
         {this.props.listings.map( (listing, idx) => 
-          <li key={idx}>
-            <h2>{listing.title}</h2>
-            <h3>{listing.price} Dogecoins/night</h3>
-            <h3>{listing.city}</h3>
-            <h3>Cat {listing.cat_friendly ? "friendly" : "are not welcomed"}</h3>
-          </li>
+          <ListingsIndexItem 
+            listing={listing} 
+            key={idx}
+          />
         )}
       </div>
     )

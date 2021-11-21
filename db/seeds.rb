@@ -18,12 +18,12 @@ user5 = User.create(username: Faker::Movies::HarryPotter.character, password: 'p
 
 listing1 = Listing.create(
   id: 1,
-  title: 'Dog-out here!',
+  title: 'Dog-out, here!',
   description: 'Dynamic parks in the area! Come relax on our cozy beds!',
   host_id: 1,
-  street_address: '123 fake street',
-  city: 'dogville',
-  postal_code: '98765',
+  street_address: '123 fake street', #need to change to real address
+  city: 'San Francisco',
+  postal_code: '94111',
   country: 'USA',
   longitude: 37.798967,
   latitude: -122.403546,
@@ -37,9 +37,9 @@ listing2 = Listing.create(
   title: 'Dogtown in our town!',
   description: 'Let your dog explore and paint the town red!',
   host_id: 2,
-  street_address: '532 state street',
-  city: 'spotville',
-  postal_code: '94321',
+  street_address: '532 state street',#need to change to real address
+  city: 'San Francisco',
+  postal_code: '94111',
   country: 'USA',
   longitude: 37.7988248,
   latitude: -122.4019536,
