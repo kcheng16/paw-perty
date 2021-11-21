@@ -1,5 +1,5 @@
 import React from "react";
-import GreetingContainer from "./greetings/greeting_container";
+import SplashContainer from "./splash/splash_container";
 import SignupContainer from "./sessions/signup_contatiner";
 import LoginContainer from "./sessions/login_container";
 import { Route } from "react-router-dom";
@@ -10,11 +10,12 @@ const App = () => (
     <header>
       <h1>Paw-perty</h1>
     </header>
-
-      <GreetingContainer />
+      <SplashContainer />
       <AuthRoute exact path="/signup" component={SignupContainer} />
       <AuthRoute exact path="/login" component={LoginContainer} />
 
+      <Route path='/listings'/>
+      <Route path='/listings/create'/>
 
   </div>
 );

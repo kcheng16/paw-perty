@@ -38,7 +38,6 @@ class SessionForm extends React.Component {
             <input type="password" value={this.state.password} onChange={this.update('password')} /></label>
           <button type='submit'>{this.props.formType}</button>
         </form>
-        {/* Demo User Login */}
         
         {/* show buttons for: sign-up, login */}
         {this.props.location.pathname === '/login' ? <Link to='/signup'>Signup</Link> : <Link to='/login'>Login</Link> }

@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ProfileComponent from "../profile/user_show_component"
 
-class Greeting extends React.Component {
+class Splash extends React.Component {
   constructor(props) {
     super(props)
     this.demoUser = {username: 'demo', password: 'password'}
@@ -17,13 +16,9 @@ class Greeting extends React.Component {
     {if (this.props.currentUser) {
       return (
         <div>
-          <h1>GREETING COMPONENT</h1>
-          <h1>Welcome {this.props.currentUser.username}</h1>
+          <h1>SPLASH COMPONENT</h1>
           <button onClick={() => this.props.logout()}>Logout</button>
-
-          {/* <ProfileComponent 
-            currentUser={this.props.currentUser}
-          /> */}
+          
         </div>
       )
     } else if(this.props.location.pathname === '/'){
@@ -34,7 +29,6 @@ class Greeting extends React.Component {
           </div>
         )
     } else {
-      // return ""
       return(
         <button className="demobutton" onClick={(e) => this.loginDemoUser(e)}>
             Demo User
@@ -44,4 +38,4 @@ class Greeting extends React.Component {
   }
 }
 
-export default Greeting;
+export default Splash;

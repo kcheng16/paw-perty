@@ -1,6 +1,6 @@
 import { logout, login } from "../../actions/session_actions";
 import { connect } from "react-redux";
-import Greeting from './greeting_component'
+import Splash from './splash_component'
 import { withRouter } from "react-router";
 
 const mSTP = (state, ownProps) => ({
@@ -12,4 +12,4 @@ const mDTP = dispatch => ({
   login: (formUser) => dispatch(login(formUser))
 })
 
-export default withRouter(connect(mSTP,mDTP)(Greeting))
+export default withRouter(connect(mSTP,mDTP)(Splash))
