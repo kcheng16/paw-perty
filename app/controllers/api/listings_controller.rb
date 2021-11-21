@@ -24,8 +24,11 @@
 #  index_listings_on_street_address  (street_address) UNIQUE
 #
 class ListingsController < ApplicationController
+  
   def index
-    
+    @listings = Listing.all
+
+    render :index
   end
 
   def create
@@ -46,7 +49,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find_by(id: params[:id])
     
     if @listing.update(listing_params)
-      render 'api/listings/show'
+      render :show
     else
       render json: @listing.errors.full_messages, status: 422
     end
@@ -56,7 +59,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
 
     if @listing.destroy
-      render 'api/listings' #not sure since user must be logged: user/listings??
+      render json: ['Successfully deleted the listing.']
     else
       render json: @listing.errors.full_messages, status: 422
     end
