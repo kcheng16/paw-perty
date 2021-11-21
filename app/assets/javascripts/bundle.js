@@ -298,14 +298,17 @@ var UserShowComponent = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, UserShowComponent);
 
     return _super.call(this, props);
-  } // componentDidMount(){
-  //   this.props.fetchUser(this.props.currentUser.id)
-  // }
-
+  }
 
   _createClass(UserShowComponent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchUser(this.props.currentUser.id);
+    }
+  }, {
     key: "render",
     value: function render() {
+      if (!this.props.currentUser) return null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Hi, I'm ", this.props.currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "Joined in ", this.props.currentUser.created_at), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         "class": "about"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "About"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, this.props.currentUser.bio)));

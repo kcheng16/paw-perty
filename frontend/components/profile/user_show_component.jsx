@@ -5,15 +5,18 @@ class UserShowComponent extends React.Component{
     super(props)
   }
 
-  // componentDidMount(){
-  //   this.props.fetchUser(this.props.currentUser.id)
-  // }
+  componentDidMount(){
+    this.props.fetchUser(this.props.currentUser.id)
+  }
 
   render(){
+
+    if (!this.props.currentUser) return null;
+
     return(
       <div>
         <h2>Hi, I'm {this.props.currentUser.username}</h2>
-        {/* edit profile Link */}
+        {/* Need an 'edit profile' <Link> */}
         <h5>Joined in {this.props.currentUser.created_at}</h5>
 
         <div class='about'>
