@@ -8,7 +8,7 @@
 
 
 User.destroy_all
-Listings.destroy_all
+# Listing.destroy_all
 
 user1 = User.create(username: 'demo', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!')
 user2 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password')
@@ -29,9 +29,7 @@ listing1 = Listing.create(
   latitude: -122.403546,
   price: 20,
   num_of_beds: 1,
-  cat_friendly: true,
-  created_at: Tue, 23 Apr 2021 00:03:21 +0430,
-  updated_at: Tue, 25 Apr 2021 00:10:05 +3001
+  cat_friendly: true
 )
 
 listing2 = Listing.create(
@@ -48,6 +46,4 @@ listing2 = Listing.create(
   price: 10,
   num_of_beds: 3,
   cat_friendly: false,
-  created_at: Wed, 2 Apr 2020 10:20:02 +1050,
-  updated_at: Fri, 15 Mar 2021 08:40:50 +4300
 )
