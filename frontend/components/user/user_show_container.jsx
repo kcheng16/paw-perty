@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { fetchUser } from '../../actions/user_actions'
-
 import UserShowComponent from "./user_show_component";
 
 

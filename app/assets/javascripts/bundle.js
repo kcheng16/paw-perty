@@ -86,8 +86,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _splash_splash_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./splash/splash_container */ "./frontend/components/splash/splash_container.jsx");
 /* harmony import */ var _sessions_signup_contatiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sessions/signup_contatiner */ "./frontend/components/sessions/signup_contatiner.jsx");
 /* harmony import */ var _sessions_login_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sessions/login_container */ "./frontend/components/sessions/login_container.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/Route.js");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _listings_listings_index_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./listings/listings_index_container */ "./frontend/components/listings/listings_index_container.jsx");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+
 
 
 
@@ -96,22 +97,153 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Paw-perty")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_splash_splash_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__.AuthRoute, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Paw-perty")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_splash_splash_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__.AuthRoute, {
     exact: true,
     path: "/signup",
     component: _sessions_signup_contatiner__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__.AuthRoute, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__.AuthRoute, {
     exact: true,
     path: "/login",
     component: _sessions_login_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    path: "/listings"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    path: "/listings/create"
-  }));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_listings_listings_index_container__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
+
+/***/ }),
+
+/***/ "./frontend/components/listings/listings_index.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/listings/listings_index.jsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var ListingsIndex = /*#__PURE__*/function (_React$Component) {
+  _inherits(ListingsIndex, _React$Component);
+
+  var _super = _createSuper(ListingsIndex);
+
+  function ListingsIndex(props) {
+    _classCallCheck(this, ListingsIndex);
+
+    return _super.call(this, props);
+  } //!<Uncomment when listings databse is created, otherwise, error>!
+  // componentDidMount(){
+  //   this.props.fetchListings()
+  // }
+
+
+  _createClass(ListingsIndex, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "LISTINGS INDEX"), this.props.listings.map(function (listing, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+          key: idx
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, listing.price, " Dogecoins/night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, listing.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Cat ", listing.cat_friendly ? "friendly" : "are not welcomed"));
+      }));
+    }
+  }]);
+
+  return ListingsIndex;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ListingsIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/listings/listings_index_container.jsx":
+/*!*******************************************************************!*\
+  !*** ./frontend/components/listings/listings_index_container.jsx ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _util_listings_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/listings_util */ "./frontend/util/listings_util.jsx");
+/* harmony import */ var _listings_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./listings_index */ "./frontend/components/listings/listings_index.jsx");
+
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    listings: [{
+      id: 1,
+      title: 'Dog-out, here!',
+      description: 'Dynamic parks in the area! Come relax on our cozy beds!',
+      host_id: 1,
+      street_address: '123 fake street',
+      city: 'dogville',
+      postal_code: '98765',
+      country: 'USA',
+      longitude: 37.798967,
+      latitude: -122.403546,
+      price: 20,
+      num_of_beds: 1,
+      cat_friendly: true
+    }, {
+      id: 5,
+      title: 'Dogtown in our town!',
+      description: 'Let your dog explore and paint the town red!',
+      host_id: 2,
+      street_address: '532 state street',
+      city: 'spotville',
+      postal_code: '94321',
+      country: 'USA',
+      longitude: 37.7988248,
+      latitude: -122.4019536,
+      price: 10,
+      num_of_beds: 3,
+      cat_friendly: false
+    }]
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    fetchListings: function fetchListings() {
+      return dispatch((0,_util_listings_util__WEBPACK_IMPORTED_MODULE_2__.fetchListings)());
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mSTP, mDTP)(_listings_index__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -683,6 +815,60 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/listings_util.jsx":
+/*!*****************************************!*\
+  !*** ./frontend/util/listings_util.jsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchListings": () => (/* binding */ fetchListings),
+/* harmony export */   "fetchListing": () => (/* binding */ fetchListing),
+/* harmony export */   "createListing": () => (/* binding */ createListing),
+/* harmony export */   "updateListing": () => (/* binding */ updateListing),
+/* harmony export */   "deleteListing": () => (/* binding */ deleteListing)
+/* harmony export */ });
+var fetchListings = function fetchListings() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/listings'
+  });
+};
+var fetchListing = function fetchListing(listingId) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/listings/".concat(listingId)
+  });
+};
+var createListing = function createListing(listing) {
+  return $.ajax({
+    method: 'POST',
+    url: "/api/listings",
+    data: {
+      listing: listing
+    }
+  });
+};
+var updateListing = function updateListing(listing) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "/api/listings/".concat(listing.id),
+    data: {
+      listing: listing
+    }
+  });
+};
+var deleteListing = function deleteListing(listingId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "/api/listings/".concat(listingId)
+  });
+};
 
 /***/ }),
 
