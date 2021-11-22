@@ -989,8 +989,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1027,28 +1025,35 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       dropdownhidden: true
     };
+    _this.toggleDropdown = _this.toggleDropdown.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(UserDropdown, [{
     key: "toggleDropdown",
     value: function toggleDropdown() {
-      var _this2 = this;
-
-      return function () {
-        if (_this2.state.dropdownhidden) {
-          _this2.setState(_defineProperty({}, dropdownhidden, false));
-        } else {
-          _this2.setState(_defineProperty({}, dropdownhidden, true));
-        }
-      };
+      if (this.state.dropdownhidden) {
+        this.setState({
+          dropdownhidden: false
+        });
+        console.log("set to false");
+      } else {
+        this.setState({
+          dropdownhidden: true
+        });
+        console.log("set to true");
+      }
     }
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         src: "https://res.cloudinary.com/de8carnhu/image/upload/v1637623686/user_dropdown_ruxk4o.png",
-        onClick: this.toggleDropdown
+        onClick: function onClick() {
+          return _this2.toggleDropdown();
+        }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "dropdown-ul",
         style: this.state.dropdownhidden ? {
