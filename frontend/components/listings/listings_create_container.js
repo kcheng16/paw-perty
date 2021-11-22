@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { createListing } from "../../actions/listing_actions";
-import ListingsCreateForm from "./listings_form";
+import ListingsCreateForm from "./listings_create_form";
 
 const mSTP = (state) => ({
   sessionId: state.session.id

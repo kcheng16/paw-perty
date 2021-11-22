@@ -231,7 +231,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/listing_actions */ "./frontend/actions/listing_actions.js");
-/* harmony import */ var _listings_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./listings_form */ "./frontend/components/listings/listings_form.jsx");
+/* harmony import */ var _listings_create_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./listings_create_form */ "./frontend/components/listings/listings_create_form.jsx");
 
 
 
@@ -250,14 +250,14 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_listings_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_listings_create_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
-/***/ "./frontend/components/listings/listings_form.jsx":
-/*!********************************************************!*\
-  !*** ./frontend/components/listings/listings_form.jsx ***!
-  \********************************************************/
+/***/ "./frontend/components/listings/listings_create_form.jsx":
+/*!***************************************************************!*\
+  !*** ./frontend/components/listings/listings_create_form.jsx ***!
+  \***************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -809,7 +809,9 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       username: "",
-      password: ""
+      password: "",
+      bio: "",
+      email: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -851,7 +853,21 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         type: "password",
         value: this.state.password,
         onChange: this.update('password')
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        htmlFor: "user-email"
+      }, "Email address"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        onChange: this.update('email'),
+        name: "user-email",
+        type: "text",
+        value: this.state.email
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        htmlFor: "user-bio"
+      }, "Tell us a little about yourself and your dog"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        onChange: this.update('bio'),
+        name: "user-bio",
+        type: "text",
+        value: this.state.bio
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: "submit"
       }, this.props.formType)), this.props.location.pathname === '/login' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
         to: "/signup"
