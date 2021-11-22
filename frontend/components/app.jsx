@@ -21,9 +21,8 @@ const App = () => (
       
       <Route exact path="/listings" render={props => <ListingsContainer {...props}/>}/>
       <Route path="/listings/:id" render={props => <ListingsShowContainer {...props}/>}/>
-
-      {/* <Route path='/listings' component={ListingsContainer}/> */}
-      {/* <Route path='/listings/create'/> */}
+      {/* need to make protected */}
+      <Route path="/listings/new" render={props => <ListingsShowContainer {...props}/>}/>
 
   </div>
 );

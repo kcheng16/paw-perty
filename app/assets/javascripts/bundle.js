@@ -201,6 +201,11 @@ var App = function App() {
     render: function render(props) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_listings_listings_show_container__WEBPACK_IMPORTED_MODULE_5__["default"], props);
     }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    path: "/listings/new",
+    render: function render(props) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_listings_listings_show_container__WEBPACK_IMPORTED_MODULE_5__["default"], props);
+    }
   }));
 };
 
