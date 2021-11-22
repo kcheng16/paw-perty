@@ -27,23 +27,28 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.processForm(user);
+    this.props.processForm(user).then(this.props.closeModal);
   }
+
 
   render() {
     return(
-      <div>
+      <div>        
+
         <form onSubmit={this.handleSubmit}>
           <label>Username
             <input type="text" value={this.state.username} onChange={this.update('username')} /></label>
           <label>Password
             <input type="password" value={this.state.password} onChange={this.update('password')} /></label>
-          <label htmlFor="user-email">Email address</label>
+
+          {/* {this.props.location.pathname === '/signup' ? 
+          return (<label htmlFor="user-email">Email address</label>
             <input onChange={this.update('email')} name="user-email" type="text" value={this.state.email} />
           <label htmlFor="user-bio">Tell us a little about yourself and your dog</label>
-            <input onChange={this.update('bio')} name="user-bio" type="text" value={this.state.bio} />
+            <input onChange={this.update('bio')} name="user-bio" type="text" value={this.state.bio} />) : "" } */}
           <button type='submit'>{this.props.formType}</button>
         </form>
+        {this.props.otherForm}
         
         {/* show buttons for: sign-up, login */}
         {this.props.location.pathname === '/login' ? <Link to='/signup'>Signup</Link> : <Link to='/login'>Login</Link> }

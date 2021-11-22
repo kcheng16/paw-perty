@@ -1,2 +1,2 @@
-json.extract! listing, :id, :host_id, :title, :description, :street_address, :city, :postal_code, :country, :longitude, :latitude, :price, :num_of_beds, :cat_friendly
+json.extract! listing, :id, :host_id, :title, :description, :street_address, :city, :postal_code, :country, :longitude, :latitude, :price, :num_of_beds
 # json.extract! pulls all the columns listed from the table 'listing'

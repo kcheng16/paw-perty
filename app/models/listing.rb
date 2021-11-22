@@ -23,7 +23,7 @@
 #  index_listings_on_street_address  (street_address) UNIQUE
 #
 class Listing < ApplicationRecord
-  validates :title, :description, :city, :postal_code, :country, :longitude, :latitude, :price, :num_of_beds, :cat_friendly, presence: true
+  validates :title, :description, :city, :postal_code, :country, :longitude, :latitude, :price, :num_of_beds, presence: true
   validates :host_id, presence: true, uniqueness: true
   validates :street_address, presence: true, uniqueness: true
 end

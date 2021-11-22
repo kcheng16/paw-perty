@@ -3,7 +3,6 @@
 # Table name: listings
 #
 #  id             :bigint           not null, primary key
-#  cat_friendly   :boolean          not null
 #  city           :string           not null
 #  country        :string           not null
 #  description    :text             not null
@@ -66,7 +65,7 @@ class Api::ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :street_address, :city, :postal_code, :country, :longitude, :latitude, :price, :num_of_beds, :cat_friendly)
+    params.require(:listing).permit(:title, :description, :street_address, :city, :postal_code, :country, :longitude, :latitude, :price, :num_of_beds)
     #not included: host_id
   end
 end

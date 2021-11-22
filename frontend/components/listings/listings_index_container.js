@@ -18,7 +18,6 @@ const mSTP = state => ({
   //     latitude: -122.403546,
   //     price: 20,
   //     num_of_beds: 1,
-  //     cat_friendly: true
   //   },
   //   {
   //     id: 5,
@@ -33,7 +32,6 @@ const mSTP = state => ({
   //     latitude: -122.4019536,
   //     price: 10,
   //     num_of_beds: 3,
-  //     cat_friendly: false,
   //   }
   // ]
 })

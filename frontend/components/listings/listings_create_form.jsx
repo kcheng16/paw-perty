@@ -11,11 +11,10 @@ class ListingsCreateForm extends React.Component{
       city: "",
       postal_code: "",
       country: "",
-      longitude: "",
-      latitude: "",
+      longitude: "37.798967",
+      latitude: "-122.403546",
       price: "",
       num_of_beds: "",
-      cat_friendly: ""
     }
     this.num1 = Math.floor(Math.random() * 30) + 1
     this.num2 = Math.floor(Math.random() * 100) + 30

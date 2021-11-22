@@ -30,7 +30,6 @@ listing1 = Listing.create([
   latitude: -122.403546,
   price: 20,
   num_of_beds: 1,
-  cat_friendly: true
 },
 {
   id: 2,
@@ -45,6 +44,5 @@ listing1 = Listing.create([
   latitude: -122.403546,
   price: 20,
   num_of_beds: 1,
-  cat_friendly: true
 }]
 )
