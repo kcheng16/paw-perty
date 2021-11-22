@@ -6,10 +6,9 @@ class ListingsIndex extends React.Component {
     super(props)
   }
 
-  //!<Uncomment when listings databse is created, otherwise, error>!
-  // componentDidMount(){
-  //   this.props.fetchListings()
-  // }
+  componentDidMount(){
+    this.props.requestListings()
+  }
 
   render(){
     return(

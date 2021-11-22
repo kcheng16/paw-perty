@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
 
-
-
 const mSTP = state => ({
     loggedIn: Boolean(state.session.id)
 })

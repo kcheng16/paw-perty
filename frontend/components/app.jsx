@@ -15,7 +15,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupContainer} />
       <AuthRoute exact path="/login" component={LoginContainer} />
       
-      <Route path="/listings" component={ListingsContainer}/>
+      <Route path="/listings" render={props => <ListingsContainer {...props}/>}/>
       {/* <Route path='/listings' component={ListingsContainer}/> */}
       {/* <Route path='/listings/create'/> */}
 

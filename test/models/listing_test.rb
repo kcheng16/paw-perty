@@ -20,7 +20,7 @@
 #
 # Indexes
 #
-#  index_listings_on_host_id         (host_id) UNIQUE
+#  index_listings_on_host_id         (host_id)
 #  index_listings_on_street_address  (street_address) UNIQUE
 #
 require 'test_helper'

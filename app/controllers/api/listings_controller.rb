@@ -23,7 +23,7 @@
 #  index_listings_on_host_id         (host_id) UNIQUE
 #  index_listings_on_street_address  (street_address) UNIQUE
 #
-class ListingsController < ApplicationController
+class Api::ListingsController < ApplicationController
   
   def index
     @listings = Listing.all

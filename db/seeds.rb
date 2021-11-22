@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.destroy_all
+# User.destroy_all
 # Listing.destroy_all
 
 user1 = User.create(username: 'demo', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!')
@@ -16,34 +16,33 @@ user3 = User.create(username: Faker::Movies::HarryPotter.character, password: 'p
 user4 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password')
 user5 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password')
 
-listing1 = Listing.create(
-  id: 1,
+listing1 = Listing.create([
+  {
   title: 'Dog-out, here!',
   description: 'Dynamic parks in the area! Come relax on our cozy beds!',
   host_id: 1,
-  street_address: '123 fake street', #need to change to real address
+  street_address: '1 fake street', #need to change to real address
   city: 'San Francisco',
-  postal_code: '94111',
+  postal_code: 94111,
   country: 'USA',
   longitude: 37.798967,
   latitude: -122.403546,
   price: 20,
   num_of_beds: 1,
   cat_friendly: true
-)
-
-listing2 = Listing.create(
-  id: 2,
-  title: 'Dogtown in our town!',
-  description: 'Let your dog explore and paint the town red!',
+},
+{
+  title: '#2!',
+  description: 'Dynamic parks in the area! Come relax on our cozy beds!',
   host_id: 2,
-  street_address: '532 state street',#need to change to real address
+  street_address: '2 fake street',
   city: 'San Francisco',
-  postal_code: '94111',
+  postal_code: 94111,
   country: 'USA',
-  longitude: 37.7988248,
-  latitude: -122.4019536,
-  price: 10,
-  num_of_beds: 3,
-  cat_friendly: false,
+  longitude: 37.798967,
+  latitude: -122.403546,
+  price: 20,
+  num_of_beds: 1,
+  cat_friendly: true
+}]
 )

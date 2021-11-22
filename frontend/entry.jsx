@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import configureStore from './store/store'
 import Root from './components/root'
 import { login, logout, signup } from './actions/session_actions'
+import { requestListings } from "./actions/listing_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
@@ -32,4 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = login;
   window.logout = logout;
   window.signup = signup;
+  window.requestListings = requestListings
+  window.store = store
+  window.subscribe = store.subscribe(()=>console.log("subscribing"))
 });

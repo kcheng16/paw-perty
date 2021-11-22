@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_004813) do
+ActiveRecord::Schema.define(version: 2021_11_22_002234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_11_20_004813) do
     t.boolean "cat_friendly", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["host_id"], name: "index_listings_on_host_id", unique: true
+    t.index ["host_id"], name: "index_listings_on_host_id"
     t.index ["street_address"], name: "index_listings_on_street_address", unique: true
   end
 

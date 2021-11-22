@@ -4,7 +4,7 @@ import {
   REMOVE_LISTING,
 } from "../actions/listing_actions";
 
-const listingsReducer = (state={}, action) => {
+export default (state={}, action) => {
   Object.freeze(state);
   let nextState;
 
@@ -24,5 +24,3 @@ const listingsReducer = (state={}, action) => {
       return state
   }
 }
-
-export default listingsReducer
