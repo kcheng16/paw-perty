@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ListingsIndexItem = (props) => {
-  console.log("index item")
-  console.log(props.listing)
   return(
   <div>
     <Link to={`/listings/${props.listing.id}`}>link</Link>

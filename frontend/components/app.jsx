@@ -3,10 +3,11 @@ import SplashContainer from "./splash/splash_container";
 import SignupContainer from "./sessions/signup_contatiner";
 import LoginContainer from "./sessions/login_container";
 //===============================
-import ListingsContainer from "./listings/listings_index_container";
+import ListingsIndexContainer from "./listings/listings_index_container";
 import ListingsShowContainer from "./listings/listings_show_container";
+import ListingsCreateContainer from "./listings/listings_create_container";
 //==============================
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 const App = () => (
@@ -18,12 +19,14 @@ const App = () => (
       <SplashContainer />
       <AuthRoute exact path="/signup" component={SignupContainer} />
       <AuthRoute exact path="/login" component={LoginContainer} />
-      
-      <Route exact path="/listings" render={props => <ListingsContainer {...props}/>}/>
-      <Route path="/listings/:id" render={props => <ListingsShowContainer {...props}/>}/>
-      {/* need to make protected */}
-      <Route path="/listings/new" render={props => <ListingsShowContainer {...props}/>}/>
 
+      <Switch>
+        {/* need to make below protected */}
+        <Route exact path="/listings/new" render={props => <ListingsCreateContainer {...props}/>}/>
+        {/* need to make above protected */}
+        <Route exact path="/listings/:id" render={props => <ListingsShowContainer {...props}/>}/>
+        <Route exact path="/listings" render={props => <ListingsIndexContainer {...props}/>}/>
+      </Switch>
   </div>
 );
 
