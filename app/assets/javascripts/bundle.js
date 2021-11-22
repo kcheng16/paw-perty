@@ -191,6 +191,7 @@ var App = function App() {
     path: "/login",
     component: _sessions_login_container__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    exact: true,
     path: "/listings",
     render: function render(props) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_listings_listings_index_container__WEBPACK_IMPORTED_MODULE_4__["default"], props);
@@ -421,14 +422,17 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ListingsShow);
 
     return _super.call(this, props);
-  } // componentdidMount(){
-  //   this.props.requestListing(this.props.listing.id)
-  // }
-
+  }
 
   _createClass(ListingsShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.requestListing(this.props.match.params.id);
+    }
+  }, {
     key: "render",
     value: function render() {
+      if (!this.props.listing) return "loading...";
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "listings show "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.listing.title));
     }
   }]);
@@ -459,7 +463,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  // debugger
   return {
     listing: state.entities.listings[ownProps.match.params.id]
   };
@@ -906,7 +909,7 @@ __webpack_require__.r(__webpack_exports__);
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
-  var nextState;
+  var nextState = Object.assign({}, state);
 
   switch (action.type) {
     case _actions_listing_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_LISTINGS:
@@ -914,7 +917,7 @@ __webpack_require__.r(__webpack_exports__);
 
     case _actions_listing_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_LISTING:
       nextState[action.listing.id] = action.listing;
-      return newState;
+      return nextState;
 
     case _actions_listing_actions__WEBPACK_IMPORTED_MODULE_0__.REMOVE_LISTING:
       delete nextState[action.listingId];

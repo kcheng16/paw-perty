@@ -13,12 +13,13 @@ const App = () => (
   <div>
     <header>
       <h1>Paw-perty</h1>
+
     </header>
       <SplashContainer />
       <AuthRoute exact path="/signup" component={SignupContainer} />
       <AuthRoute exact path="/login" component={LoginContainer} />
       
-      <Route path="/listings" render={props => <ListingsContainer {...props}/>}/>
+      <Route exact path="/listings" render={props => <ListingsContainer {...props}/>}/>
       <Route path="/listings/:id" render={props => <ListingsShowContainer {...props}/>}/>
 
       {/* <Route path='/listings' component={ListingsContainer}/> */}

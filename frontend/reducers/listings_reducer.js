@@ -6,7 +6,7 @@ import {
 
 export default (state={}, action) => {
   Object.freeze(state);
-  let nextState;
+  let nextState = Object.assign({}, state)
 
   switch (action.type) {
     case RECEIVE_LISTINGS:
@@ -14,7 +14,7 @@ export default (state={}, action) => {
 
     case RECEIVE_LISTING:
       nextState[action.listing.id] = action.listing
-      return newState
+      return nextState
 
     case REMOVE_LISTING:
       delete nextState[action.listingId]

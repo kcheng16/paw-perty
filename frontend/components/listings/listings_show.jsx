@@ -5,11 +5,12 @@ class ListingsShow extends React.Component{
     super(props)
   }
 
-  // componentdidMount(){
-  //   this.props.requestListing(this.props.listing.id)
-  // }
+  componentDidMount(){
+    this.props.requestListing(this.props.match.params.id)
+  }
 
   render(){
+    if(!this.props.listing) return "loading..."
     return(
       <div> 
         <h1>listings show </h1>
