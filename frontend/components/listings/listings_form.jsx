@@ -17,11 +17,14 @@ class ListingsCreateForm extends React.Component{
       num_of_beds: "",
       cat_friendly: ""
     }
+    this.num1 = Math.floor(Math.random() * 30) + 1
+    this.num2 = Math.floor(Math.random() * 100) + 30
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleSubmit(e){
     e.preventDefault()
+    this.setState({ host_id: this.props.sessionId })
     this.props.createListing(this.state)
   }
 
@@ -29,7 +32,7 @@ class ListingsCreateForm extends React.Component{
     return e => this.setState({[field]: e.currentTarget.value})
   }
 
-  render(){
+  render(){ //unable to submit 2/2 no longitude+latitude
     return(
       <form onSubmit={this.handleSubmit}>
         {/* TITLE */}
@@ -55,7 +58,7 @@ class ListingsCreateForm extends React.Component{
         <input onChange={this.update('price')} type="text" value={this.state.price} />
         <h5 className="cost-per-night">Doge Coins per night</h5>
         <h3>Places like yours usually range</h3>
-        <h3>from {Math.floor(Math.random() * 30) + 1} to {Math.floor(Math.random() * 100) + 30} Doge Coins</h3>
+        <h3>from {this.num1} to {this.num2} Doge Coins</h3>
         <button type="submit">Publish</button>
       </form>
     )

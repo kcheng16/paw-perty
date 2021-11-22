@@ -236,6 +236,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var mSTP = function mSTP(state) {
+  return {
+    sessionId: state.session.id
+  };
+};
+
 var mDTP = function mDTP(dispatch) {
   return {
     createListing: function createListing(listing) {
@@ -244,7 +250,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(null, mDTP)(_listings_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_listings_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -311,6 +317,8 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       num_of_beds: "",
       cat_friendly: ""
     };
+    _this.num1 = Math.floor(Math.random() * 30) + 1;
+    _this.num2 = Math.floor(Math.random() * 100) + 30;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -319,6 +327,9 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
+      this.setState({
+        host_id: this.props.sessionId
+      });
       this.props.createListing(this.state);
     }
   }, {
@@ -333,6 +344,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      //unable to submit 2/2 no longitude+latitude
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
@@ -390,7 +402,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.price
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", {
         className: "cost-per-night"
-      }, "Doge Coins per night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Places like yours usually range"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "from ", Math.floor(Math.random() * 30) + 1, " to ", Math.floor(Math.random() * 100) + 30, " Doge Coins"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, "Doge Coins per night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Places like yours usually range"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "from ", this.num1, " to ", this.num2, " Doge Coins"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: "submit"
       }, "Publish"));
     }
