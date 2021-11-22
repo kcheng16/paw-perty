@@ -303,7 +303,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       host_id: "",
       street_address: "",
       city: "",
-      postal_code: "94111",
+      postal_code: "",
       country: "",
       longitude: "",
       latitude: "",
@@ -377,7 +377,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         name: "listing-country",
         type: "text",
         value: this.state.country
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         htmlFor: "listing-num_of_beds"
       }, "Number of woofers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         onChange: this.update('num_of_beds'),
@@ -390,7 +390,9 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.price
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", {
         className: "cost-per-night"
-      }, "Doge Coins per night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Places like yours usually range"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "from ", Math.floor(Math.random() * 30) + 1, " to ", Math.floor(Math.random() * 100) + 30, " Doge Coins"));
+      }, "Doge Coins per night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Places like yours usually range"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "from ", Math.floor(Math.random() * 30) + 1, " to ", Math.floor(Math.random() * 100) + 30, " Doge Coins"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        type: "submit"
+      }, "Publish"));
     }
   }]);
 

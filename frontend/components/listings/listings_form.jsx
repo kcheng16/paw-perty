@@ -9,7 +9,7 @@ class ListingsCreateForm extends React.Component{
       host_id: "",
       street_address: "",
       city: "",
-      postal_code: "94111",
+      postal_code: "",
       country: "",
       longitude: "",
       latitude: "",
@@ -48,16 +48,15 @@ class ListingsCreateForm extends React.Component{
             <input onChange={this.update('postal_code')} name='listing-postal_code' type="text" value={this.state.postal_code}/>
           <label htmlFor="listing-country">Country/Region</label>
             <input onChange={this.update('country')} name='listing-country' type="text" value={this.state.country}/>
-        <br/>
         {/* GUESTS */}
         <label htmlFor="listing-num_of_beds">Number of woofers</label>
             <input onChange={this.update('num_of_beds')} name='listing-num_of_beds' type="text" value={this.state.num_of_beds}/>
-        
         {/* PRICE */}
         <input onChange={this.update('price')} type="text" value={this.state.price} />
         <h5 className="cost-per-night">Doge Coins per night</h5>
         <h3>Places like yours usually range</h3>
         <h3>from {Math.floor(Math.random() * 30) + 1} to {Math.floor(Math.random() * 100) + 30} Doge Coins</h3>
+        <button type="submit">Publish</button>
       </form>
     )
   }
