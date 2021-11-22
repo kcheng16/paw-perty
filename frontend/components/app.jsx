@@ -2,7 +2,10 @@ import React from "react";
 import SplashContainer from "./splash/splash_container";
 import SignupContainer from "./sessions/signup_contatiner";
 import LoginContainer from "./sessions/login_container";
+//===============================
 import ListingsContainer from "./listings/listings_index_container";
+import ListingsShowContainer from "./listings/listings_show_container";
+//==============================
 import { Route } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
@@ -16,6 +19,8 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginContainer} />
       
       <Route path="/listings" render={props => <ListingsContainer {...props}/>}/>
+      <Route path="/listings/:id" render={props => <ListingsShowContainer {...props}/>}/>
+
       {/* <Route path='/listings' component={ListingsContainer}/> */}
       {/* <Route path='/listings/create'/> */}
 

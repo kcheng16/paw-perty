@@ -18,6 +18,7 @@ user5 = User.create(username: Faker::Movies::HarryPotter.character, password: 'p
 
 listing1 = Listing.create([
   {
+  id: 1,
   title: 'Dog-out, here!',
   description: 'Dynamic parks in the area! Come relax on our cozy beds!',
   host_id: 1,
@@ -32,6 +33,7 @@ listing1 = Listing.create([
   cat_friendly: true
 },
 {
+  id: 2,
   title: '#2!',
   description: 'Dynamic parks in the area! Come relax on our cozy beds!',
   host_id: 2,
