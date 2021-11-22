@@ -561,7 +561,7 @@ __webpack_require__.r(__webpack_exports__);
 var ListingsIndexItem = function ListingsIndexItem(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
     to: "/listings/".concat(props.listing.id)
-  }, "link"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, props.listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, props.listing.price, " Dogecoins/night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, props.listing.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Cat's ", props.listing.cat_friendly ? "are welcomed!" : "are not welcomed"));
+  }, "link"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, props.listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, props.listing.price, " Doge Coins/night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, props.listing.city));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ListingsIndexItem);

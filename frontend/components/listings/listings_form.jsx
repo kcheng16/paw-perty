@@ -52,6 +52,7 @@ class ListingsCreateForm extends React.Component{
         {/* GUESTS */}
         <label htmlFor="listing-num_of_beds">Number of woofers</label>
             <input onChange={this.update('num_of_beds')} name='listing-num_of_beds' type="text" value={this.state.num_of_beds}/>
+        
         {/* PRICE */}
         <input onChange={this.update('price')} type="text" value={this.state.price} />
         <h5 className="cost-per-night">Doge Coins per night</h5>

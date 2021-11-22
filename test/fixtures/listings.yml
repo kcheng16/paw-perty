@@ -3,7 +3,6 @@
 # Table name: listings
 #
 #  id             :bigint           not null, primary key
-#  cat_friendly   :boolean          not null
 #  city           :string           not null
 #  country        :string           not null
 #  description    :text             not null
