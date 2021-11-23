@@ -16,7 +16,6 @@ class UserDropdown extends React.Component{
 
 
   render(){
-    console.log(this.props.currentUserId)
     return(
       <div>
         <img className="dropdown-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637623686/user_dropdown_ruxk4o.png"
@@ -28,12 +27,12 @@ class UserDropdown extends React.Component{
               <li onClick={() => {this.props.openLoginModal('login'); (this.toggleDropdown())}}>Login</li>
             </ul>
           ) : (
-              <button 
-                onClick={() => this.props.logout()} 
-                style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
-                Logout
-              </button>
-              )
+            <button 
+              onClick={() => this.props.logout()} 
+              style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
+              Logout
+            </button>
+            )
         }
       </div>
     )
