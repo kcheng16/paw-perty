@@ -10,25 +10,32 @@ class UserDropdown extends React.Component{
   }
 
   toggleDropdown(){
-    if (this.state.dropdownhidden){
-      this.setState({dropdownhidden: false})
-    } else {
-      this.setState({dropdownhidden: true})
-    }
-  }
+    this.setState({dropdownhidden: !this.state.dropdownhidden})
+  } 
+
+
 
   render(){
+    console.log(this.props.currentUserId)
     return(
       <div>
-        <img src="https://res.cloudinary.com/de8carnhu/image/upload/v1637623686/user_dropdown_ruxk4o.png"
+        <img className="dropdown-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637623686/user_dropdown_ruxk4o.png"
           onClick={() => this.toggleDropdown()} />
-{/* need modal to show */}
-        <ul className="dropdown-ul" style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}> 
-          <li onClick={() => dispatch(openModal('signup'))}>Sign Up</li>
-          <li onClick={() => dispatch(openModal('login'))}>Sign Up</li>
-        </ul>
+
+        {!this.props.currentUserId ? (
+            <ul className="dropdown-ul" style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}> 
+              <li onClick={() => {this.props.openSignupModal('signup'); (this.toggleDropdown())}}>Sign Up</li>
+              <li onClick={() => {this.props.openLoginModal('login'); (this.toggleDropdown())}}>Login</li>
+            </ul>
+          ) : (
+              <button 
+                onClick={() => this.props.logout()} 
+                style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
+                Logout
+              </button>
+              )
+        }
       </div>
-      
     )
   }
 }

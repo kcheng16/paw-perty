@@ -10,8 +10,14 @@ class SessionForm extends React.Component {
       bio: "",
       email: ""
     };
-
+    this.demoUser = {username: 'demo', password: 'password'}
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  loginDemoUser(e) {
+    e.preventDefault()
+    this.props.login(this.demoUser)
+    this.props.closeModal()
   }
 
   update(type) {
@@ -30,11 +36,9 @@ class SessionForm extends React.Component {
     this.props.processForm(user).then(this.props.closeModal);
   }
 
-
   render() {
     return(
       <div>        
-
         <form onSubmit={this.handleSubmit}>
           <label>Username
             <input type="text" value={this.state.username} onChange={this.update('username')} /></label>
@@ -47,11 +51,13 @@ class SessionForm extends React.Component {
           <label htmlFor="user-bio">Tell us a little about yourself and your dog</label>
             <input onChange={this.update('bio')} name="user-bio" type="text" value={this.state.bio} />) : "" } */}
           <button type='submit'>{this.props.formType}</button>
+          <button className="demobutton" onClick={(e) => this.loginDemoUser(e)}>
+            Demo User
+          </button>
         </form>
-        {this.props.otherForm}
         
         {/* show buttons for: sign-up, login */}
-        {this.props.location.pathname === '/login' ? <Link to='/signup'>Signup</Link> : <Link to='/login'>Login</Link> }
+        {/* {this.props.location.pathname === '/login' ? <Link to='/signup'>Signup</Link> : <Link to='/login'>Login</Link> } */}
 
         {/* rendering errors if any */}
         <ul> {Array.isArray(this.props.errors) ? this.props.errors.map((error, idx) => <li key={idx}>{error}</li>) : "" } </ul>
