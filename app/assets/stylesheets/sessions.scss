@@ -20,11 +20,14 @@
 
 .session-form-close-button {
   position: absolute;
-  top: -1vh;
+  top: 2vh;
+  width: 2vw;
+  height: 4vh;
 }
 
 .session-form-close-button:hover {
   cursor: pointer;
+  background-color: rgb(112, 111, 111);
 }
 
 .session-form-welcome {

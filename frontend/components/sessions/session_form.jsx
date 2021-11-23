@@ -44,7 +44,7 @@ class SessionForm extends React.Component {
     return(
       <div className="session-form"> 
         <h2 className="session-form-type">{this.props.formType}</h2>
-        <h3 className="session-form-close-button" onClick={()=> this.props.closeModal()}>X</h3> 
+        <p className="session-form-close-button" onClick={()=> this.props.closeModal()}>X</p> 
         <h2 className="session-form-welcome">Welcome to Paw-perty</h2>      
         <form className="session-form"onSubmit={this.handleSubmit}>
           <label>Username
@@ -55,13 +55,13 @@ class SessionForm extends React.Component {
           {this.props.formType === 'Sign Up' ? (
               <>
                 <label htmlFor="user-email">Email address</label>
-                  <input class="session-form-extra" onChange={this.update('email')} name="user-email" type="text" value={this.state.email} />
+                  <input className="session-form-extra" onChange={this.update('email')} name="user-email" type="text" value={this.state.email} />
                 <label htmlFor="user-bio">Tell us a little about you and your dog</label>
-                  <input class="session-form-extra" onChange={this.update('bio')} name="user-bio" type="textarea" value={this.state.bio} />
+                  <input className="session-form-extra" onChange={this.update('bio')} name="user-bio" type="textarea" value={this.state.bio} />
               </>
             ) : ("")
           }
-          <button class="submit-button" type='submit'>{this.props.formType}</button>
+          <button className="submit-button" type='submit'>{this.props.formType}</button>
     {/* DEMO USER */}
           <button 
             className="demobutton" 

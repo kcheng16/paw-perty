@@ -1,0 +1,25 @@
+.navbar-input {
+  border: 1px solid black;
+  border-radius: 22px;
+  position: absolute;
+  top: 2vh;
+  left: 34vw;
+  width: 32vw;
+  height: 2vh;
+  padding: 13px;
+}
+
+.navbar-input:hover {
+  box-shadow: 5px 5px 5px #888888
+}
+
+.navbar-img {
+  position: absolute;
+  top: 3vh;
+  left: 65vw;
+  width: 3vw;
+}
+
+.navbar-img:hover {
+  cursor: pointer;
+}
