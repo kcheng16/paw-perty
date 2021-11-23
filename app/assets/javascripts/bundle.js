@@ -849,18 +849,26 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Navbar);
 
     return _super.call(this, props);
-  } // search(){
-  // }
-
+  }
 
   _createClass(Navbar, [{
+    key: "goToListings",
+    value: function goToListings() {
+      this.props.history.push("/listings");
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         className: "navbar-input",
         type: "text"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "navbar-img",
+        onClick: function onClick() {
+          return _this.goToListings();
+        },
         src: "https://res.cloudinary.com/de8carnhu/image/upload/v1637696527/searchicon_tb3x3e.png"
       }));
     }
@@ -886,6 +894,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _navbar_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar_component */ "./frontend/components/navbar/navbar_component.jsx");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
+
 
 
 
@@ -897,7 +907,7 @@ var mDTP = function mDTP(dispatch) {
   return {};
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_navbar_component__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_2__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_navbar_component__WEBPACK_IMPORTED_MODULE_1__["default"])));
 
 /***/ }),
 
