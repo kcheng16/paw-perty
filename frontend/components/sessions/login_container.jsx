@@ -1,9 +1,10 @@
 import { login, logout } from "../../actions/session_actions"
 import { connect } from "react-redux"
 import { withRouter } from 'react-router-dom'
-import SessionForm from "./session_form"
 import { openModal, closeModal } from '../../actions/modal_actions';
+import SessionForm from "./session_form"
 import React from "react";
+import {clearErrors} from "../../actions/session_actions"
 
 const mSTP = (state, ownProps) => ({
   sessionId: state.session.id,
@@ -20,7 +21,8 @@ const mDTP = (dispatch, ownProps) => ({
   ),
   closeModal: () => dispatch(closeModal()),
   login: (formUser) => dispatch(login(formUser)),
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  clearErrors: () => dispatch(clearErrors())
 })
 
 export default withRouter(connect(mSTP,mDTP)(SessionForm));

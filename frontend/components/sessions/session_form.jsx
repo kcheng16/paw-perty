@@ -35,6 +35,11 @@ class SessionForm extends React.Component {
     this.props.processForm(user).then(this.props.closeModal);
   }
 
+  componentWillUnmount(){
+    console.log("UNMOUNTING")
+    this.props.clearErrors();
+  }
+
   render() {
     return(
       <div>        
@@ -61,9 +66,6 @@ class SessionForm extends React.Component {
             Demo User
           </button>
         </form>
-        
-        {/* show buttons for: sign-up, login */}
-        {/* {this.props.location.pathname === '/login' ? <Link to='/signup'>Signup</Link> : <Link to='/login'>Login</Link> } */}
 
         {/* rendering errors if any */}
         <ul> {Array.isArray(this.props.errors) ? this.props.errors.map((error, idx) => <li key={idx}>{error}</li>) : "" } </ul>
