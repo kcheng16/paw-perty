@@ -2,3 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.session-form > form > label > input {
+  border: black solid 1px;
+}
+
+.session-form-extra {
+  border: black solid 1px;
+}
+
+.submit-button {
+  border: black solid 2px;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+.demobutton {
+  border: black solid 2px;
+  border-radius: 2px;
+  padding: 5px;
+}

@@ -990,7 +990,9 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "session-form"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Username", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
@@ -1003,18 +1005,21 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       })), this.props.formType === 'Signup' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         htmlFor: "user-email"
       }, "Email address"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        "class": "session-form-extra",
         onChange: this.update('email'),
         name: "user-email",
         type: "text",
         value: this.state.email
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         htmlFor: "user-bio"
-      }, "Tell us a little about yourself and your dog"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, "Tell us a little about you and your dog"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        "class": "session-form-extra",
         onChange: this.update('bio'),
         name: "user-bio",
-        type: "text",
+        type: "textarea",
         value: this.state.bio
       })) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        "class": "submit-button",
         type: "submit"
       }, this.props.formType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "demobutton",
