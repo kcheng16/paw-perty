@@ -9,7 +9,7 @@ import {clearErrors} from "../../actions/session_actions"
 const mSTP = (state, ownProps) => ({
   sessionId: state.session.id,
   errors: state.errors.session,
-  formType: 'Signup'
+  formType: 'Sign Up'
 })
 
 const mDTP = (dispatch, ownProps) => ({

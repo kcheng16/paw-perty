@@ -28,6 +28,7 @@ class UserDropdown extends React.Component{
             </ul>
           ) : (
             <button 
+              className="dropdown-ul"
               onClick={() => this.props.logout()} 
               style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
               Logout

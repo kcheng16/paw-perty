@@ -21,3 +21,32 @@
   border-radius: 2px;
   padding: 5px;
 }
+
+.session-form-type {
+  position: absolute;
+  left: 20vw;
+  top: 2vh;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.session-form-close-button {
+  position: absolute;
+  top: -1vh;
+}
+
+.session-form-close-button:hover {
+  cursor: pointer;
+}
+
+.session-form-welcome {
+  padding-top: 4vh;
+  position: relative;
+  font-size: x-large;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+}
