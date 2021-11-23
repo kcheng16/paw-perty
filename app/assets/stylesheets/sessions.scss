@@ -10,18 +10,6 @@
   border: black solid 1px;
 }
 
-.submit-button {
-  border: black solid 2px;
-  border-radius: 2px;
-  padding: 5px;
-}
-
-.demobutton {
-  border: black solid 2px;
-  border-radius: 2px;
-  padding: 5px;
-}
-
 .session-form-type {
   position: absolute;
   left: 20vw;
@@ -49,4 +37,24 @@
   display: flex;
   flex-direction: column;
   width: 40vw;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+
+  border: black solid 2px;
+  border-radius: 2px;
+  padding: 5px;
+  margin-top: 20px;
+}
+
+.demobutton {
+  display: flex;
+  justify-content: center;
+
+  border: black solid 2px;
+  border-radius: 2px;
+  padding: 5px;
+  margin-top: 20px;
 }
