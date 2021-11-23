@@ -16,11 +16,12 @@ const App = () => (
   <div>
       <Modal />
     <header>
-      <h1>Paw-perty Logo</h1>
+      <img className="logo" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637652441/pawperty-logo_bemkc9.png"/>
       <UserDropdownContainer />
+      <SplashContainer/>
 
     </header>
-      {/* <SplashContainer /> */}
+
       {/* <AuthRoute exact path="/signup" component={SignupContainer} /> */}
       {/* <AuthRoute exact path="/login" component={LoginContainer} /> */}
 

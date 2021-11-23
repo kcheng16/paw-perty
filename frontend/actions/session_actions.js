@@ -35,7 +35,7 @@ export const login = formUser => dispatch => {
           errors => dispatch(receiveErrors(errors)))
 }
 
-export const logout = () => dispatch => 
+export const logout = () => dispatch => (
   deleteSession()
     .then(() => dispatch(logoutCurrentUser()))
-
+)

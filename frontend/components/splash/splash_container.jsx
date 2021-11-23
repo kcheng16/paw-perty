@@ -1,15 +1,12 @@
-// import { logout, login } from "../../actions/session_actions";
-// import { connect } from "react-redux";
-// import Splash from './splash_component'
-// import { withRouter } from "react-router";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import SplashComponent from './splash_component'
 
-// const mSTP = (state, ownProps) => ({
-//   currentUser: state.entities.users[state.session.id],
-// })
+const mSTP = (state, ownProps) => ({
+})
 
-// const mDTP = dispatch => ({
-//   logout: () => dispatch(logout()),
-//   login: (formUser) => dispatch(login(formUser))
-// })
+const mDTP = dispatch => ({
 
-// export default withRouter(connect(mSTP,mDTP)(Splash))
+})
+
+export default withRouter(connect(mSTP,mDTP)(SplashComponent))

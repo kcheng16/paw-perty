@@ -1,11 +1,24 @@
 .dropdown-img {
-  width: 20vw;
-  height: 15vh;
+  position: absolute;
+  right: 1vw;
+  top: -1vh;
+  width: 10vw;
+  height: 10vh;
+  
 }
 
 .dropdown-ul {
   position: absolute;
+  right: 8vw;
   z-index: 5;
   background-color: white;
-  border: 2px black solid;
+  font-size:  xx-large;
+  padding: 5px;
+
+  border-radius: 3px;
+}
+
+.dropdown-ul > li {
+  border-bottom: 2px black solid;
+
 }
