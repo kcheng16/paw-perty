@@ -35,5 +35,4 @@ document.addEventListener("DOMContentLoaded", () => {
   window.signup = signup;
   window.requestListings = requestListings
   window.store = store
-  window.subscribe = store.subscribe(()=>console.log("subscribing"))
 });

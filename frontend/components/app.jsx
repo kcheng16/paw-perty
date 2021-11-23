@@ -9,13 +9,13 @@ import ListingsCreateContainer from "./listings/listings_create_container";
 //==============================
 import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import UserDropdown from "./sessions/user_dropdown";
+import UserDropdownContainer from "./sessions/user_dropdown_container";
 
 const App = () => (
   <div>
     <header>
-      <h1>Paw-perty</h1>
-      <UserDropdown />
+      <h1>Paw-perty Logo</h1>
+      <UserDropdownContainer />
     </header>
       <SplashContainer />
       <AuthRoute exact path="/signup" component={SignupContainer} />
