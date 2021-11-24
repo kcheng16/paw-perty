@@ -8,17 +8,26 @@
 
 .dropdown-ul {
   position: absolute;
-  right: 8vw;
+  top: 10vh;
+  right: 2vw;
   z-index: 5;
   background-color: white;
-  font-size:  xx-large;
   padding: 5px;
+  border: black solid 2px;
+  border-radius: 10px;
+  font-family: sans-serif;
+  font-size: large;
+  padding: 19px;
+  width: 10vw;
 
-  border-radius: 3px;
-
-  li {
+  li:first-child {
     border-bottom: 2px black solid;
+    padding: 13px;
   }
+  li{
+    padding: 13px;
+  }
+
 }
 
 .dropdown-list {
