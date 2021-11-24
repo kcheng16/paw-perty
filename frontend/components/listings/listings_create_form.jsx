@@ -4,9 +4,9 @@ class ListingsCreateForm extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      title: '',
+      title: "",
       description: "",
-      host_id: "",
+      host_id: this.props.sessionId,
       street_address: "",
       city: "",
       postal_code: "",
@@ -22,16 +22,18 @@ class ListingsCreateForm extends React.Component{
   }
 
   handleSubmit(e){
-    e.preventDefault()
-    this.setState({ host_id: this.props.sessionId })
-    this.props.createListing(this.state)
+    e.preventDefault();
+    this.props.createListing(this.state).then(
+      (res) => this.props.history.replace(`/listing/${res.listing.id}`))
   }
 
   update(field){
     return e => this.setState({[field]: e.currentTarget.value})
   }
 
-  render(){ //unable to submit 2/2 no longitude+latitude
+  render(){
+    console.log("rendering")
+    console.log(this.props.sessionId)
     return(
       <div>
         <form onSubmit={this.handleSubmit} className="listings-new-form">
@@ -57,7 +59,7 @@ class ListingsCreateForm extends React.Component{
           {/* PRICE */}
           <textarea onChange={this.update('price')} type="text" value={this.state.price} />
           <h5 className="cost-per-night">Doge Coins per night</h5>
-          {this.state.country.length < 2 ? "" :
+          {this.state.num_of_beds === "" ? "" :
             <> 
               <h3 className="price-range">Places like yours usually range</h3>
               <h3 className="price-range">from {this.num1} to {this.num2} Doge Coins</h3>

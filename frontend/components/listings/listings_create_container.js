@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import { createListing } from "../../actions/listing_actions";
 import ListingsCreateForm from "./listings_create_form";
 
@@ -10,5 +11,5 @@ const mDTP = dispatch => ({
   createListing: listing => dispatch(createListing(listing))
 })
 
-export default connect(mSTP, mDTP)(ListingsCreateForm)
+export default withRouter(connect(mSTP, mDTP)(ListingsCreateForm))
 

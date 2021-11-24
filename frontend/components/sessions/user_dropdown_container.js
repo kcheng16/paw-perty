@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import {openModal, closeModal} from "../../actions/modal_actions"
 import UserDropdown from "./user_dropdown"
 import { logout } from "../../actions/session_actions"
+import { withRouter } from "react-router";
 
 const mSTP = state => ({
   currentUserId: state.session.id
@@ -14,4 +15,4 @@ const mDTP = dispatch => ({
   logout: () => dispatch(logout())
 })
 
-export default connect(mSTP, mDTP)(UserDropdown)
+export default withRouter(connect(mSTP, mDTP)(UserDropdown))

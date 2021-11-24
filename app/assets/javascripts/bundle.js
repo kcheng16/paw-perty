@@ -284,8 +284,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
 /* harmony import */ var _actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/listing_actions */ "./frontend/actions/listing_actions.js");
 /* harmony import */ var _listings_create_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./listings_create_form */ "./frontend/components/listings/listings_create_form.jsx");
+
 
 
 
@@ -304,7 +306,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_listings_create_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_listings_create_form__WEBPACK_IMPORTED_MODULE_2__["default"])));
 
 /***/ }),
 
@@ -358,9 +360,9 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      title: '',
+      title: "",
       description: "",
-      host_id: "",
+      host_id: _this.props.sessionId,
       street_address: "",
       city: "",
       postal_code: "",
@@ -379,25 +381,27 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
   _createClass(ListingsCreateForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this2 = this;
+
       e.preventDefault();
-      this.setState({
-        host_id: this.props.sessionId
+      this.props.createListing(this.state).then(function (res) {
+        return _this2.props.history.replace("/listing/".concat(res.listing.id));
       });
-      this.props.createListing(this.state);
     }
   }, {
     key: "update",
     value: function update(field) {
-      var _this2 = this;
+      var _this3 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
     key: "render",
     value: function render() {
-      //unable to submit 2/2 no longitude+latitude
+      console.log("rendering");
+      console.log(this.props.sessionId);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "listings-new-form"
@@ -456,7 +460,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.price
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", {
         className: "cost-per-night"
-      }, "Doge Coins per night"), this.state.country.length < 2 ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
+      }, "Doge Coins per night"), this.state.num_of_beds === "" ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
         className: "price-range"
       }, "Places like yours usually range"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
         className: "price-range"
@@ -1478,7 +1482,7 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
         className: "dropdown-list-item",
         onClick: function onClick() {
-          return _this2.props.logout();
+          return _this2.props.history.push("/listings/new");
         },
         style: this.state.dropdownhidden ? {
           display: "none"
@@ -1521,6 +1525,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _user_dropdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user_dropdown */ "./frontend/components/sessions/user_dropdown.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
+
 
 
 
@@ -1549,7 +1555,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_user_dropdown__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_4__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_user_dropdown__WEBPACK_IMPORTED_MODULE_2__["default"])));
 
 /***/ }),
 
