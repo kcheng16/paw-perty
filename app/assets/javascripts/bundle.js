@@ -829,8 +829,14 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       if (!this.props.listing) return "loading...";
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "listings show "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.listing.title));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "listings show "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.listing.title), this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          return _this.props.deleteListing(_this.props.listing.id);
+        }
+      }, "Delete Listing") : "");
     }
   }]);
 
@@ -854,14 +860,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/listing_actions */ "./frontend/actions/listing_actions.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
 /* harmony import */ var _listings_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./listings_show */ "./frontend/components/listings/listings_show.jsx");
+
+
 
 
 
 
 var mSTP = function mSTP(state, ownProps) {
   return {
-    listing: state.entities.listings[ownProps.match.params.id]
+    listing: state.entities.listings[ownProps.match.params.id],
+    session: state.session
   };
 };
 
@@ -869,11 +879,14 @@ var mDTP = function mDTP(dispatch) {
   return {
     requestListing: function requestListing(listingId) {
       return dispatch((0,_actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__.requestListing)(listingId));
+    },
+    deleteListing: function deleteListing(listingId) {
+      return dispatch((0,_actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__.deleteListing)(listingId));
     }
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_listings_show__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_listings_show__WEBPACK_IMPORTED_MODULE_2__["default"])));
 
 /***/ }),
 

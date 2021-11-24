@@ -17,7 +17,11 @@ class ListingsShow extends React.Component{
         <h1>listings show </h1>
         <h1>{this.props.listing.title}</h1>
         
-      </div>
+        {this.props.listing.host_id === this.props.session.id ?
+          (<button onClick={() => this.props.deleteListing(this.props.listing.id)}>
+            Delete Listing</button>) : ("")
+        }
+        </div>
     )
   }
 }
