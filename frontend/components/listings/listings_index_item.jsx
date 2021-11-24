@@ -5,9 +5,7 @@ import ListingsImages from "./listings_images";
 const ListingsIndexItem = (props) => {
   return(
     <div className="listings-index-item">
-      <Link to={`/listings/${props.listing.id}`} >
-        <ListingsImages images={props.listing.images}/>
-      </Link>
+      <ListingsImages images={props.listing.images} id={props.listing.id}/>
       
       <Link to={`/listings/${props.listing.id}`} className='listings-index-link'>
         <div className="city">{props.listing.city}</div>

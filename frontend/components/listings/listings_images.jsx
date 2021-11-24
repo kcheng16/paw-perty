@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class ListingsImages extends React.Component{
   constructor(props){
@@ -28,7 +29,9 @@ class ListingsImages extends React.Component{
   render(){
     return(
       <div className="carousel">
-        <img className="carousel-img" src={`${this.props.images[this.state.counter]}`}/>
+        <Link to={`/listings/${this.props.id}`} >
+          <img className="carousel-img" src={`${this.props.images[this.state.counter]}`}/>
+        </Link>
 
         <button onClick={() => this.subtract() } className="carousel-control-prev" type="button">
           Previous
