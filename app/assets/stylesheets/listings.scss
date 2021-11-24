@@ -4,6 +4,25 @@
 
 .listings-index {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+}
+
+.listings-index-link {
+  font-family: sans-serif;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  
+  .info{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .title {
+    font-size: 18px;
+    line-height: 1.43;
+    color: #484848;
+    font-weight: 600;
+  }
+  .price {
+    font-size: 17px;
+  }
 }
