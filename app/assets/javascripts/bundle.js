@@ -1456,7 +1456,7 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "dropdown-img",
-        src: "https://res.cloudinary.com/de8carnhu/image/upload/v1637623686/user_dropdown_ruxk4o.png",
+        src: "https://res.cloudinary.com/de8carnhu/image/upload/v1637780625/dropdown-user_hpvvu3.png",
         onClick: function onClick() {
           return _this2.toggleDropdown();
         }

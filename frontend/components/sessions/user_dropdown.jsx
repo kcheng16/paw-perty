@@ -18,7 +18,7 @@ class UserDropdown extends React.Component{
   render(){
     return(
       <div>
-        <img className="dropdown-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637623686/user_dropdown_ruxk4o.png"
+        <img className="dropdown-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637780625/dropdown-user_hpvvu3.png"
           onClick={() => this.toggleDropdown()} />
 
         {!this.props.currentUserId ? (
