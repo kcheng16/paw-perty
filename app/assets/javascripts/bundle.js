@@ -259,6 +259,12 @@ var App = function App() {
     render: function render(props) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_listings_listings_index_container__WEBPACK_IMPORTED_MODULE_4__["default"], props);
     }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    exact: true,
+    path: "/listings/new",
+    render: function render(props) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_listings_listings_create_container__WEBPACK_IMPORTED_MODULE_6__["default"], props);
+    }
   })));
 };
 
@@ -393,7 +399,8 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       //unable to submit 2/2 no longitude+latitude
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-        onSubmit: this.handleSubmit
+        onSubmit: this.handleSubmit,
+        className: "listings-new-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         htmlFor: "listing-title"
       }, "Create your title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
@@ -438,7 +445,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.country
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         htmlFor: "listing-num_of_beds"
-      }, "Number of woofers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, "Number of dogs you can take in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         onChange: this.update('num_of_beds'),
         name: "listing-num_of_beds",
         type: "text",
@@ -1405,6 +1412,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var UserDropdown = /*#__PURE__*/function (_React$Component) {
   _inherits(UserDropdown, _React$Component);
 
@@ -1460,8 +1468,10 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
 
           _this2.toggleDropdown();
         }
-      }, "Login")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "dropdown-ul",
+      }, "Login")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+        className: "dropdown-list"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        className: "dropdown-list-item",
         onClick: function onClick() {
           return _this2.props.logout();
         },
@@ -1470,7 +1480,17 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
         } : {
           display: "block"
         }
-      }, "Logout"));
+      }, "Host your home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        className: "dropdown-list-item",
+        onClick: function onClick() {
+          return _this2.props.logout();
+        },
+        style: this.state.dropdownhidden ? {
+          display: "none"
+        } : {
+          display: "block"
+        }
+      }, "Logout")));
     }
   }]);
 

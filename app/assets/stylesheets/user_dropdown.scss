@@ -16,9 +16,23 @@
   padding: 5px;
 
   border-radius: 3px;
+
+  li {
+    border-bottom: 2px black solid;
+  }
 }
 
-.dropdown-ul > li {
-  border-bottom: 2px black solid;
-
+.dropdown-list {
+  position: absolute;
+  right: 8vw;
+  z-index: 5;
+  background-color: white;
+  font-size:  xx-large;
+  padding: 5px;
+  // border: black solid 1px;
+  
+  li {
+    border: black 1px solid;
+    border-radius: 3px;
+  }
 }

@@ -15,7 +15,7 @@
  */
 
 @import "./reset.css";
-@import "./listings.scss";
+@import "./listings_index.scss";
 @import "./modal.scss";
 @import "./sessions.scss";
 @import "./static_pages.scss";

@@ -32,6 +32,7 @@ const App = () => (
         {/* need to make above protected */}
         <Route exact path="/listings/:id" render={props => <ListingsShowContainer {...props}/>}/>
         <Route exact path="/listings" render={props => <ListingsIndexContainer {...props}/>}/>
+        <Route exact path="/listings/new" render={props => <ListingsCreateContainer {...props}/>}/>
       </Switch>
   </div>
 );

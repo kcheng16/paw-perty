@@ -33,7 +33,7 @@ class ListingsCreateForm extends React.Component{
 
   render(){ //unable to submit 2/2 no longitude+latitude
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="listings-new-form">
         {/* TITLE */}
         <label htmlFor="listing-title">Create your title</label>
           <input onChange={this.update('title')} name='listing-title' type="text" value={this.state.title}/>
@@ -51,7 +51,7 @@ class ListingsCreateForm extends React.Component{
           <label htmlFor="listing-country">Country/Region</label>
             <input onChange={this.update('country')} name='listing-country' type="text" value={this.state.country}/>
         {/* GUESTS */}
-        <label htmlFor="listing-num_of_beds">Number of woofers</label>
+        <label htmlFor="listing-num_of_beds">Number of dogs you can take in</label>
             <input onChange={this.update('num_of_beds')} name='listing-num_of_beds' type="text" value={this.state.num_of_beds}/>
         {/* PRICE */}
         <input onChange={this.update('price')} type="text" value={this.state.price} />
