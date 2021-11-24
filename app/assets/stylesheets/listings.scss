@@ -11,12 +11,13 @@
   font-family: sans-serif;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin-left: 24px;
   
   .info{
     display: flex;
     justify-content: space-evenly;
   }
-  .title {
+  .city {
     font-size: 18px;
     line-height: 1.43;
     color: #484848;

@@ -735,18 +735,20 @@ __webpack_require__.r(__webpack_exports__);
 var ListingsIndexItem = function ListingsIndexItem(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "listings-index-item"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    to: "/listings/".concat(props.listing.id)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_listings_images__WEBPACK_IMPORTED_MODULE_1__["default"], {
     images: props.listing.images
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["default"], {
     to: "/listings/".concat(props.listing.id),
     className: "listings-index-link"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "title"
-  }, props.listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "city"
+  }, props.listing.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "price"
   }, props.listing.price, " Doge Coins/night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "city"
-  }, props.listing.city)));
+    className: "title"
+  }, props.listing.title)));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ListingsIndexItem);
