@@ -12,8 +12,7 @@ class ListingsIndex extends React.Component {
 
   render(){
     return(
-      <div>
-        <h1>LISTINGS INDEX</h1>
+      <div className="listings-index">
         {this.props.listings.map( (listing, idx) => 
           <ListingsIndexItem 
             listing={listing} 

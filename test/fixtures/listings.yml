@@ -6,6 +6,7 @@
 #  city           :string           not null
 #  country        :string           not null
 #  description    :text             not null
+#  images         :string           default([]), is an Array
 #  latitude       :float            not null
 #  longitude      :float            not null
 #  num_of_beds    :integer          not null
