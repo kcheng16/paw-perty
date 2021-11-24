@@ -1,6 +1,6 @@
 import React from "react";
 import SplashContainer from "./splash/splash_container";
-import SignupContainer from "./sessions/signup_contatiner";
+import SignupContainer from "./sessions/signup_container";
 import LoginContainer from "./sessions/login_container";
 //===============================
 import ListingsIndexContainer from "./listings/listings_index_container";

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class UserDropdown extends React.Component{
   constructor(props){
@@ -31,18 +30,23 @@ class UserDropdown extends React.Component{
             <ul className="dropdown-list">
               <li
                 className="dropdown-list-item"
-                onClick={() => this.props.history.push("/listings/new")} 
+                onClick={() => {this.props.history.push("/listings/new"); (this.toggleDropdown())}} 
                 style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
                 Host your home
               </li>
               <li 
-                // onClick={() => this.props.history.push("/listings/new")
+                // onClick={() => {this.props.history.push("/listings/new")}
                 style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
                 Manage your listings
               </li>
               <li
+                onClick={() => {this.props.history.push(`/users/${this.props.currentUserId}`); (this.toggleDropdown())}}
+                style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
+                Trips
+              </li>
+              <li
                 className="dropdown-list-item"
-                onClick={() => this.props.logout()} 
+                onClick={() => {this.props.logout(); (this.toggleDropdown())}} 
                 style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
                 Logout
               </li>

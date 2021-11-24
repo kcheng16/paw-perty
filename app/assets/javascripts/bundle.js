@@ -202,7 +202,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _splash_splash_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./splash/splash_container */ "./frontend/components/splash/splash_container.jsx");
-/* harmony import */ var _sessions_signup_contatiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sessions/signup_contatiner */ "./frontend/components/sessions/signup_contatiner.jsx");
+/* harmony import */ var _sessions_signup_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sessions/signup_container */ "./frontend/components/sessions/signup_container.jsx");
 /* harmony import */ var _sessions_login_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sessions/login_container */ "./frontend/components/sessions/login_container.jsx");
 /* harmony import */ var _listings_listings_index_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./listings/listings_index_container */ "./frontend/components/listings/listings_index_container.js");
 /* harmony import */ var _listings_listings_show_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./listings/listings_show_container */ "./frontend/components/listings/listings_show_container.js");
@@ -892,7 +892,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _sessions_login_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../sessions/login_container */ "./frontend/components/sessions/login_container.jsx");
-/* harmony import */ var _sessions_signup_contatiner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../sessions/signup_contatiner */ "./frontend/components/sessions/signup_contatiner.jsx");
+/* harmony import */ var _sessions_signup_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../sessions/signup_container */ "./frontend/components/sessions/signup_container.jsx");
 
 
 
@@ -915,7 +915,7 @@ function Modal(_ref) {
       break;
 
     case 'signup':
-      component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_sessions_signup_contatiner__WEBPACK_IMPORTED_MODULE_4__["default"], null);
+      component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_sessions_signup_container__WEBPACK_IMPORTED_MODULE_4__["default"], null);
       break;
 
     default:
@@ -1316,10 +1316,10 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./frontend/components/sessions/signup_contatiner.jsx":
-/*!************************************************************!*\
-  !*** ./frontend/components/sessions/signup_contatiner.jsx ***!
-  \************************************************************/
+/***/ "./frontend/components/sessions/signup_container.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/sessions/signup_container.jsx ***!
+  \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1424,7 +1424,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var UserDropdown = /*#__PURE__*/function (_React$Component) {
   _inherits(UserDropdown, _React$Component);
 
@@ -1485,7 +1484,9 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
         className: "dropdown-list-item",
         onClick: function onClick() {
-          return _this2.props.history.push("/listings/new");
+          _this2.props.history.push("/listings/new");
+
+          _this2.toggleDropdown();
         },
         style: this.state.dropdownhidden ? {
           display: "none"
@@ -1493,16 +1494,29 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
           display: "block"
         }
       }, "Host your home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-        // onClick={() => this.props.history.push("/listings/new")
+        // onClick={() => {this.props.history.push("/listings/new")}
         style: this.state.dropdownhidden ? {
           display: "none"
         } : {
           display: "block"
         }
       }, "Manage your listings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        onClick: function onClick() {
+          _this2.props.history.push("/users/".concat(_this2.props.currentUserId));
+
+          _this2.toggleDropdown();
+        },
+        style: this.state.dropdownhidden ? {
+          display: "none"
+        } : {
+          display: "block"
+        }
+      }, "Trips"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
         className: "dropdown-list-item",
         onClick: function onClick() {
-          return _this2.props.logout();
+          _this2.props.logout();
+
+          _this2.toggleDropdown();
         },
         style: this.state.dropdownhidden ? {
           display: "none"
@@ -1619,12 +1633,19 @@ var SplashComponent = /*#__PURE__*/function (_React$Component) {
   _createClass(SplashComponent, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "splash"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "splash-img",
-        src: "https://res.cloudinary.com/de8carnhu/image/upload/v1637652353/splash-1_hruimp.jpg"
-      }));
+        src: "https://res.cloudinary.com/de8carnhu/image/upload/v1637778888/splashpage_a5bq4v.jpg"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "splash-button",
+        onClick: function onClick() {
+          return _this.props.history.push("/listings");
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "I'm flexible")));
     }
   }]);
 

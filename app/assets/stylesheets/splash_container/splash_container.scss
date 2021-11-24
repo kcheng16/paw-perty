@@ -12,6 +12,29 @@
   background-color: black;
 }
 .splash-img {
-  width: 40vw;
-  height: 80vh;
+  width: 78vw;
+  height: 92vh;
+}
+
+.splash-button {
+  position: absolute;
+  top: 34vw;
+  left: 24vw;
+  width: 11vw;
+  height: 6vh;
+  background-color: white;
+  border-radius: 33px;
+    
+
+  h1{
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: 900;
+    font-size: larger;
+    padding-top: 12px;
+  }
+}
+
+.splash-button:hover{
+  cursor: pointer;
 }
