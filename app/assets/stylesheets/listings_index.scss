@@ -3,27 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .listings-index {
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 23vw);
 }
 
 .listings-index-link {
   font-family: sans-serif;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-left: 24px;
   
   .info{
     display: flex;
     justify-content: space-evenly;
   }
   .city {
-    font-size: 18px;
+    font-size: 1.3vw;
     line-height: 1.43;
     color: #484848;
     font-weight: 600;
   }
   .price {
-    font-size: 17px;
+    font-size: 1vw;
   }
 }

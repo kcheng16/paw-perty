@@ -29,13 +29,13 @@ class ListingsImages extends React.Component{
   render(){
     return(
       <div className="carousel">
-        <Link to={`/listings/${this.props.id}`} >
-          <img className="carousel-img" src={`${this.props.images[this.state.counter]}`}/>
-        </Link>
-
         <button onClick={() => this.subtract() } className="carousel-control-prev" type="button">
           Previous
         </button>
+
+        <Link to={`/listings/${this.props.id}`} >
+          <img className="carousel-img" src={`${this.props.images[this.state.counter]}`}/>
+        </Link>
 
         <button onClick={() => this.add() } className="carousel-control-next" type="button">
           Next

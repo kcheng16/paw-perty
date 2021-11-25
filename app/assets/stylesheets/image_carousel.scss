@@ -1,5 +1,8 @@
 .carousel{
   padding: 10px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
 
   .carousel-img {
     width: 19vw;
@@ -9,9 +12,17 @@
 }
   
 .carousel-control-prev{
-
+  z-index: 5;
+  position: absolute;
+  left: 1vw;
+  top: 10vw;
+  background-color: white;
 }
 
 .carousel-control-next{
-  
+  z-index: 5;
+  position: absolute;
+  right: 4vw;
+  top: 10vw;
+  background-color: white;
 }
