@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
-import { requestListing } from "../../actions/listing_actions";
-import { deleteListing } from "../../actions/listing_actions";
+import { requestListing, deleteListing } from "../../actions/listing_actions";
 import { withRouter } from "react-router";
 import ListingsShow from "./listings_show"
 

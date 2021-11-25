@@ -14,11 +14,13 @@ class ListingsShow extends React.Component{
     
     return(
       <div> 
-        <h1>listings show </h1>
+        <h1>listings show page</h1>
         <h1>{this.props.listing.title}</h1>
         
         {this.props.listing.host_id === this.props.session.id ?
-          (<button onClick={() => this.props.deleteListing(this.props.listing.id)}>
+          (<button onClick={() => 
+            {this.props.deleteListing(this.props.listing.id); 
+            this.props.history.push("/listings")}}>
             Delete Listing</button>) : ("")
         }
         </div>

@@ -36,12 +36,12 @@ export const createListing = (listing) => dispatch => (
     .then(listing => dispatch(receiveListing(listing)))
 )
 
-export const updateListing = (listing) => dispatch(
+export const updateListing = (listing) => dispatch => (
   listingApiUtil.updateListing(listing)
     .then(listing => dispatch(receiveListing(listing)))
 )
 
-export const deleteListing = (listingId) => dispatch (
+export const deleteListing = (listingId) => dispatch => (
   listingApiUtil.deleteListing(listingId)
     .then(() => dispatch(removeListing(listingId)))
 )

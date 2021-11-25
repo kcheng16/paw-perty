@@ -69,14 +69,18 @@ var createListing = function createListing(listing) {
   };
 };
 var updateListing = function updateListing(listing) {
-  return dispatch(_util_listings_util__WEBPACK_IMPORTED_MODULE_0__.updateListing(listing).then(function (listing) {
-    return dispatch(receiveListing(listing));
-  }));
+  return function (dispatch) {
+    return _util_listings_util__WEBPACK_IMPORTED_MODULE_0__.updateListing(listing).then(function (listing) {
+      return dispatch(receiveListing(listing));
+    });
+  };
 };
 var deleteListing = function deleteListing(listingId) {
-  return dispatch(_util_listings_util__WEBPACK_IMPORTED_MODULE_0__.deleteListing(listingId).then(function () {
-    return dispatch(removeListing(listingId));
-  }));
+  return function (dispatch) {
+    return _util_listings_util__WEBPACK_IMPORTED_MODULE_0__.deleteListing(listingId).then(function () {
+      return dispatch(removeListing(listingId));
+    });
+  };
 };
 
 /***/ }),
@@ -832,9 +836,11 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       if (!this.props.listing) return "loading...";
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "listings show "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.listing.title), this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "listings show page"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.listing.title), this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
-          return _this.props.deleteListing(_this.props.listing.id);
+          _this.props.deleteListing(_this.props.listing.id);
+
+          _this.props.history.push("/listings");
         }
       }, "Delete Listing") : "");
     }
@@ -862,7 +868,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/listing_actions */ "./frontend/actions/listing_actions.js");
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
 /* harmony import */ var _listings_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./listings_show */ "./frontend/components/listings/listings_show.jsx");
-
 
 
 
