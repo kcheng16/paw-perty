@@ -23,8 +23,9 @@ class ListingsCreateForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createListing(this.state).then(
-      (res) => this.props.history.replace(`/listing/${res.listing.id}`))
+    this.props.history.push("/listings/")
+    // this.props.createListing(this.state).then(
+    //   (res) => {this.props.history.push(`/listing/${res.listing.id}`)})
   }
 
   update(field){
@@ -32,8 +33,6 @@ class ListingsCreateForm extends React.Component{
   }
 
   render(){
-    console.log("rendering")
-    console.log(this.props.sessionId)
     return(
       <div>
         <form onSubmit={this.handleSubmit} className="listings-new-form">

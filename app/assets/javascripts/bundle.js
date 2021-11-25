@@ -385,27 +385,22 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
   _createClass(ListingsCreateForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this2 = this;
-
       e.preventDefault();
-      this.props.createListing(this.state).then(function (res) {
-        return _this2.props.history.replace("/listing/".concat(res.listing.id));
-      });
+      this.props.history.push("/listings/"); // this.props.createListing(this.state).then(
+      //   (res) => {this.props.history.push(`/listing/${res.listing.id}`)})
     }
   }, {
     key: "update",
     value: function update(field) {
-      var _this3 = this;
+      var _this2 = this;
 
       return function (e) {
-        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
     key: "render",
     value: function render() {
-      console.log("rendering");
-      console.log(this.props.sessionId);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "listings-new-form"

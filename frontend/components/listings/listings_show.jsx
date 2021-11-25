@@ -23,7 +23,7 @@ class ListingsShow extends React.Component{
             this.props.history.push("/listings")}}>
             Delete Listing</button>) : ("")
         }
-        </div>
+      </div>
     )
   }
 }
