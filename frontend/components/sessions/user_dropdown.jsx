@@ -13,8 +13,6 @@ class UserDropdown extends React.Component{
     this.setState({dropdownhidden: !this.state.dropdownhidden})
   } 
 
-
-
   render(){
     return(
       <div>
