@@ -2,27 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.session-form > form > label > input {
-  border: black solid 1px;
+.session-form > input {
+  height: 5vh;
+  border-radius: 4px;
+  border: 1px solid black;
 }
 
 .session-form-extra {
-  border: black solid 1px;
+  height: 5vh;
+  border-radius: 4px;
+  border: 1px solid black;
 }
 
 .session-form-type {
   position: absolute;
   left: 20vw;
   top: 2vh;
+  font-family: sans-serif;
   font-size: larger;
   font-weight: bold;
 }
 
 .session-form-close-button {
+  font-family: sans-serif;
   position: absolute;
   top: 2vh;
-  width: 2vw;
-  height: 4vh;
 }
 
 .session-form-close-button:hover {
@@ -31,9 +35,13 @@
 }
 
 .session-form-welcome {
+  padding: 2vw;
+  padding-left: 0vw;
   padding-top: 4vh;
-  position: relative;
-  font-size: x-large;
+  font-weight: 700;
+  font-family: sans-serif;
+  display: block;
+  font-size: x-large
 }
 
 .session-form {
@@ -47,9 +55,16 @@
   justify-content: center;
 
   border: black solid 2px;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 5px;
   margin-top: 20px;
+
+  font-family: sans-serif;
+  height: 3vh;
+
+  background-image: radial-gradient(circle at center center, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
+  color: white;
+  font-weight: 760;
 }
 
 .demobutton {
@@ -57,7 +72,13 @@
   justify-content: center;
 
   border: black solid 2px;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 5px;
   margin-top: 20px;
+  font-family: sans-serif;
+  height: 3vh;
+
+  background-image: radial-gradient(circle at center center, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
+  color: white;
+  font-weight: 760;
 }
