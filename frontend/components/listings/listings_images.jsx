@@ -30,7 +30,7 @@ class ListingsImages extends React.Component{
     return(
       <div className="carousel">
         <button onClick={() => this.subtract() } className="carousel-control-prev" type="button">
-          Previous
+          &lt;
         </button>
 
         <Link to={`/listings/${this.props.id}`} >
@@ -38,7 +38,7 @@ class ListingsImages extends React.Component{
         </Link>
 
         <button onClick={() => this.add() } className="carousel-control-next" type="button">
-          Next
+          &gt;
         </button>
       </div>
     )

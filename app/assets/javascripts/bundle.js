@@ -570,7 +570,7 @@ var ListingsImages = /*#__PURE__*/function (_React$Component) {
         },
         className: "carousel-control-prev",
         type: "button"
-      }, "Previous"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, "<"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
         to: "/listings/".concat(this.props.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "carousel-img",
@@ -581,7 +581,7 @@ var ListingsImages = /*#__PURE__*/function (_React$Component) {
         },
         className: "carousel-control-next",
         type: "button"
-      }, "Next"));
+      }, ">"));
     }
   }]);
 
