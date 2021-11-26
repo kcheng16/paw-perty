@@ -52,13 +52,17 @@
 }
 
 .user-listings{
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 23vw);
   margin: 2vw;
   margin-left: 3vw;
 
   .user-listing{
     font-size: 2vw;
+    width: 32vw;
+    border-radius: 17px;
+    box-shadow: 0px 2px 16px;
+    height: 64vh;
 
     .listing-img {
       width: 2vw;
@@ -66,4 +70,46 @@
     }
   }
 
+}
+
+.user-listing-icon{
+  width: 32vw;
+  height: 33vh;
+  border-radius: 17px;
+  padding-bottom: 18px;
+  object-fit: cover;
+}
+
+.user-listing-title{
+  padding-left: 2vw;
+  padding-bottom: 2vh;
+  font-size: 3vw;
+  font-weight: 600;
+}
+
+.user-listing-address{
+  font-size: 2vw;
+
+  .user-listing-street{
+    padding-left: 2vw;
+    font-weight: 700;
+  }
+
+  >p{
+    padding-left: 2vw;
+
+  }
+}
+
+.line{
+  background-color: rgb(204, 204, 204);
+  height: 0.2vh;
+  margin-bottom: 1vh;
+}
+
+.user-listing-price{
+  text-align: end;
+  padding-right: 1vw;
+  font-weight: 700;
+  font-size: large;
 }
