@@ -23,6 +23,7 @@ class ListingsCreateForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
+    this.props.createListing(this.state)
     this.props.history.push("/listings/")
     // this.props.createListing(this.state).then(
     //   (res) => {this.props.history.push(`/listing/${res.listing.id}`)})

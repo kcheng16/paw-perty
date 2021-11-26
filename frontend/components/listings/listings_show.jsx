@@ -11,7 +11,6 @@ class ListingsShow extends React.Component{
 
   render(){
     if(!this.props.listing) return "loading..."
-    
     return(
       <div> 
         <h1>listings show page</h1>

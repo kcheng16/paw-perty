@@ -9,7 +9,7 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = dispatch => ({
-  fetchUser = userId => dispatch(fetchUser(userId))
+  fetchUser: userId => dispatch(fetchUser(userId))
 })
 
 export default withRouter(connect(mSTP,mDTP)(UserShowComponent))

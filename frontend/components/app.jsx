@@ -12,6 +12,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import UserDropdownContainer from "./sessions/user_dropdown_container";
 import Modal from "./modals/modal";
 import NavbarContainer from "./navbar/navbar_container";
+import UserShowContainer from "./user/user_show_container";
 
 const App = () => (
   <div>
@@ -26,6 +27,8 @@ const App = () => (
     </header>
 
       <Switch>
+        <Route exact path="/user/:id" render={props => <UserShowContainer {...props}/>}/>
+
         <Route exact path="/" render={props => <SplashContainer {...props}/>}/>
         {/* need to make below protected */}
         <Route exact path="/listings/new" render={props => <ListingsCreateContainer {...props}/>}/>
