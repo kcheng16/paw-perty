@@ -3,6 +3,7 @@
   flex-direction: column;
 }
 
+//Personal Info================
 .personal-info{
   font-size: 32px;
   font-weight: 600;
@@ -15,7 +16,6 @@
   display: flex;
   flex-direction: column;
 
-  font-family: sans-serif;
   color: rgb(31, 30, 30)
 
 }
@@ -34,4 +34,36 @@
   padding-bottom: 2vw;
   border-bottom: 1px solid #d3d0d0;
   }
+
+  
+  
+  
+}
+//Reservations================
+.reservations{
+  background-color: red;
+}
+//Listings===================
+.listings{
+  margin: 3vw;
+  font-size: 32px;
+  font-weight: 600;
+  color: rgb(72, 72, 72);
+}
+
+.user-listings{
+  display: flex;
+  flex-direction: column;
+  margin: 2vw;
+  margin-left: 3vw;
+
+  .user-listing{
+    font-size: 2vw;
+
+    .listing-img {
+      width: 2vw;
+      height: 2vw;
+    }
+  }
+
 }

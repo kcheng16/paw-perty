@@ -5,6 +5,13 @@ export const fetchUser = (userId) => (
   })
 )
 
+export const createUser = (user) => (
+  $.ajax({
+    method: 'POST',
+    url: "/api/users"
+  })
+)
+
 // not within Backend Routes MVP
 // export const updateUser = user => (
 //   $.ajax({

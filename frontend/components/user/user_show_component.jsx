@@ -31,8 +31,8 @@ class UserShowComponent extends React.Component{
       <div className="user-show">
         <div className="user-personal-info">
           {/* Need an 'edit profile' <Link> */}
+{/* Personal Info */}
           <p className="personal-info">Personal info</p>
-
           <div className="user-username">
             <label>Username</label>
             <div>{this.props.currentUser.username}</div>
@@ -48,22 +48,25 @@ class UserShowComponent extends React.Component{
             <div>{this.props.currentUser.bio}</div>
           </div>
         </div>
-
+{/* Reservations */}
+        <p className="reservations">Upcoming visits</p>
         <div className="user-reservations">
-          <label>Reservations</label>
           
         </div>
-
+{/* Listings */}
+        <p className="listings">Listings</p>
         <div className="user-listings">
-          <label>Listings</label>
           {this.props.listings.map((listing, idx) => 
             <div key={idx} className="user-listing">
               <div >{listing.title}</div>
-              <div>{listing.description}</div>
-              <div>{listing.street_address}</div>
+              <div>
+
+                <div>{listing.description}</div>
+              </div>
+              {/* <div>{listing.street_address}</div>
               <div>{listing.postal_code}</div>
               <div>{listing.country}</div>
-              <div>{listing.price}</div>
+              <div>{listing.price}</div> */}
             </div>
           )}
           <div className="user-listing-images">
