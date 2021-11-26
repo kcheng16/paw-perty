@@ -29,7 +29,7 @@ class UserShowComponent extends React.Component{
     if (!this.props.currentUser) return "loading...";
     return(
       <div className="user-show">
-        <div className="user-personal-info">
+        <div className="user-personal-info-container">
           {/* Need an 'edit profile' <Link> */}
 {/* Personal Info */}
           <p className="personal-info">Personal info</p>
@@ -54,32 +54,33 @@ class UserShowComponent extends React.Component{
           
         </div>
 {/* Listings */}
-        <p className="listings">Listings</p>
-        <div className="user-listings">
-          {this.props.listings.map((listing, idx) => 
-            <div key={idx} className="user-listing">
-                                  {/* NEEED ROUTE TO EDIT LISTINGS */}
-              {/* <Link> */}
-                <img className="user-listing-icon" src={listing.images[0]}/>
-              {/* </Link> */}
-              <div className="user-listing-title">{listing.title}</div>
-              <div className="user-listing-address">
-                <div className="line"></div>
-                <div className="user-listing-street">{listing.street_address}</div>
-                <p>{listing.postal_code}</p>
-                <p>{listing.country}</p>
-                <div className="user-listing-price">{listing.price} Doge Coins/night</div>
+        <div className="listings-container">
+          <p className="listing-text">Listings</p>
+          <div className="user-listings">
+            {this.props.listings.map((listing, idx) => 
+              <div key={idx} className="user-listing">
+                                    {/* NEEED ROUTE TO EDIT LISTINGS */}
+                {/* <Link> */}
+                  <img className="user-listing-icon" src={listing.images[0]}/>
+                {/* </Link> */}
+                <div className="user-listing-title">{listing.title}</div>
+                <div className="user-listing-address">
+                  <div className="line"></div>
+                  <div className="user-listing-street">{listing.street_address}</div>
+                  <p>{listing.postal_code}</p>
+                  <p>{listing.country}</p>
+                  <div className="user-listing-price">{listing.price} Doge Coins/night</div>
+                </div>
               </div>
-              {/* <div>{listing.description}</div> */}
-            </div>
-          )}
-          {/* <div className="user-listing-images">
-            {this.props.listings.map((listing, idx) =>
-              listing.images.map( (imageUrl, idx) => 
-                <img className="user-listing-img" key={idx} src={`${imageUrl}`} />
-                )
             )}
-          </div> */}
+            {/* <div className="user-listing-images">
+              {this.props.listings.map((listing, idx) =>
+                listing.images.map( (imageUrl, idx) => 
+                  <img className="user-listing-img" key={idx} src={`${imageUrl}`} />
+                  )
+              )}
+            </div> */}
+            </div>
           </div>
         </div>
     )

@@ -12,17 +12,18 @@
 
 }
 
-.user-personal-info{
+.user-personal-info-container{
   display: flex;
   flex-direction: column;
-
-  color: rgb(31, 30, 30)
-
+  box-shadow: 0px 2px 16px;
+  border: 0.5px solid #d5d3d3;
+  border-radius: 15px;
+  margin: 1vw;
+  color: rgb(31, 30, 30);
 }
 
-.user-personal-info > div {
+.user-personal-info-container > div {
   color: rgb(15, 15, 15);
-  font-size: 2vw;
   margin-top: 1vw;
   margin-left: 3vw;
   font-weight: 600;
@@ -35,34 +36,39 @@
   border-bottom: 1px solid #d3d0d0;
   }
 
-  
-  
-  
 }
 //Reservations================
 .reservations{
   background-color: red;
 }
 //Listings===================
-.listings{
+.listings-container{
+  box-shadow: 0px 2px 16px;
+  border: 0.5px solid #d5d3d3;
+  border-radius: 15px;
+  margin: 1vw;
+}
+
+.listing-text{
   margin: 3vw;
   font-size: 32px;
   font-weight: 600;
   color: rgb(72, 72, 72);
+  
 }
 
 .user-listings{
   display: grid;
-  grid-template-columns: repeat(2, 23vw);
+  grid-template-columns: repeat(4, 23vw);
   margin: 2vw;
   margin-left: 3vw;
 
   .user-listing{
     font-size: 2vw;
-    width: 32vw;
+    width: 22vw;
     border-radius: 17px;
     box-shadow: 0px 2px 16px;
-    height: 64vh;
+    height: 60vh;
 
     .listing-img {
       width: 2vw;
@@ -73,7 +79,7 @@
 }
 
 .user-listing-icon{
-  width: 32vw;
+  width: 22vw;
   height: 33vh;
   border-radius: 17px;
   padding-bottom: 18px;
@@ -81,22 +87,23 @@
 }
 
 .user-listing-title{
-  padding-left: 2vw;
+  padding-left: 1.5vw;
   padding-bottom: 2vh;
-  font-size: 3vw;
+  font-size: 2vw;
   font-weight: 600;
 }
 
-.user-listing-address{
-  font-size: 2vw;
+.user-listing-street{
+  padding-left: 1.5vw;
+  font-weight: 700;
+  font-size: 1.5vw;
+}
 
-  .user-listing-street{
-    padding-left: 2vw;
-    font-weight: 700;
-  }
+.user-listing-address{
+  font-size: 1.5vw;
 
   >p{
-    padding-left: 2vw;
+    padding-left: 1.5vw;
 
   }
 }
@@ -105,11 +112,13 @@
   background-color: rgb(204, 204, 204);
   height: 0.2vh;
   margin-bottom: 1vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
 .user-listing-price{
   text-align: end;
   padding-right: 1vw;
   font-weight: 700;
-  font-size: large;
+  font-size: 1.5vw;
 }

@@ -1824,7 +1824,7 @@ var UserShowComponent = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-show"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "user-personal-info"
+        className: "user-personal-info-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "personal-info"
       }, "Personal info"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1837,8 +1837,10 @@ var UserShowComponent = /*#__PURE__*/function (_React$Component) {
         className: "reservations"
       }, "Upcoming visits"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-reservations"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-        className: "listings"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "listings-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "listing-text"
       }, "Listings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-listings"
       }, this.props.listings.map(function (listing, idx) {
@@ -1859,7 +1861,7 @@ var UserShowComponent = /*#__PURE__*/function (_React$Component) {
         }, listing.street_address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, listing.postal_code), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, listing.country), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "user-listing-price"
         }, listing.price, " Doge Coins/night")));
-      })));
+      }))));
     }
   }]);
 
