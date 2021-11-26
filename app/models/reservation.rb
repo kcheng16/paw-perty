@@ -17,4 +17,13 @@
 #  index_reservations_on_listing_id  (listing_id)
 #
 class Reservation < ApplicationRecord
+  belongs_to :guest,
+    foreign_key: :guest_id,
+    primary_key: :id,
+    class_name: :User
+
+  belongs_to :listing,
+    foreign_key: :listing_id,
+    primary_key: :id,
+    class_name: :Listing
 end

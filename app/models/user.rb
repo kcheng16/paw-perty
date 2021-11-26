@@ -27,6 +27,15 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
     #Associations:============================================
+    has_many :reservations,
+      foreign_key: :guest_id,
+      primary_key: :id,
+      class_name: :Reservation
+
+    has_many :listings,
+      foreign_key: :host_id,
+      primary_key: :id,
+      class_name: :Listing
 
     #==========================================================
     # Class method for finding a user ONLY if we have the correct username and password
