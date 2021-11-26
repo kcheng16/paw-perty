@@ -32,15 +32,11 @@ class UserDropdown extends React.Component{
                 style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
                 Host your home
               </li>
-              <li 
-                // onClick={() => {this.props.history.push("/listings/new")}
-                style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
-                Manage your listings
-              </li>
+              
               <li
-                onClick={() => {this.props.history.push(`/users/${this.props.currentUserId}`); (this.toggleDropdown())}}
+                onClick={() => {this.props.history.push(`/user/${this.props.currentUserId}`); (this.toggleDropdown())}}
                 style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
-                Trips
+                My Profile
               </li>
               <li
                 className="dropdown-list-item"

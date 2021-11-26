@@ -49,20 +49,34 @@ class UserShowComponent extends React.Component{
           </div>
         </div>
 {/* Reservations */}
-        <p className="reservations">Upcoming visits</p>
-        <div className="user-reservations">
-          
-        </div>
+        {/* <div className="user-reservations-container">
+          <p className="reservations-text">Upcoming visits</p>
+          <div>
+            {this.props.reservations.map((reservation, idx) => 
+              <div key={idx} className="user-reservation">
+                {/* <Link> */}
+                {/* <img className="user-reservation-icon" src={reservation.images[0]}/>
+                {/* </Link> */}
+                {/* <div className="user-reservation-title">{reservation.title}</div>
+                <div className="user-reservation-date">
+                  <div className="line"></div>
+                  <div className="user-reservation-start-date">{reservation.start_date}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div> */}
+
 {/* Listings */}
         <div className="listings-container">
           <p className="listing-text">Listings</p>
           <div className="user-listings">
             {this.props.listings.map((listing, idx) => 
+          <Link to={`/listings/${listing.id}`}>
               <div key={idx} className="user-listing">
                                     {/* NEEED ROUTE TO EDIT LISTINGS */}
-                {/* <Link> */}
                   <img className="user-listing-icon" src={listing.images[0]}/>
-                {/* </Link> */}
+                
                 <div className="user-listing-title">{listing.title}</div>
                 <div className="user-listing-address">
                   <div className="line"></div>
@@ -72,6 +86,7 @@ class UserShowComponent extends React.Component{
                   <div className="user-listing-price">{listing.price} Doge Coins/night</div>
                 </div>
               </div>
+            </Link>
             )}
             {/* <div className="user-listing-images">
               {this.props.listings.map((listing, idx) =>
