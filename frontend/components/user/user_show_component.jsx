@@ -26,12 +26,12 @@ class UserShowComponent extends React.Component{
 
   render(){
     if (!this.props.currentUser) return "loading...";
+
     return(
       <div className="user-show">
         <div className="user-personal-info">
           {/* Need an 'edit profile' <Link> */}
-          <p>Account</p>
-          <p>Personal info</p>
+          <p className="personal-info">Personal info</p>
 
           <div className="user-username">
             <label>Username</label>
@@ -56,20 +56,23 @@ class UserShowComponent extends React.Component{
 
         <div className="user-listings">
           <label>Listings</label>
-          {this.props.listings.map(listing => 
-            <div className="user-listing">
-              <div>{listing.title}</div>
+          {this.props.listings.map((listing, idx) => 
+            <div key={idx} className="user-listing">
+              <div >{listing.title}</div>
               <div>{listing.description}</div>
               <div>{listing.street_address}</div>
               <div>{listing.postal_code}</div>
               <div>{listing.country}</div>
               <div>{listing.price}</div>
-              <div>{listing.num_of_beds}</div>
             </div>
           )}
-          {/* {this.props.listing.images.map(image => 
-            <img src={`${image}`} />
-          )} */}
+          <div className="user-listing-images">
+            {this.props.listings.map((listing, idx) =>
+              listing.images.map( (imageUrl, idx) => 
+                <img className="user-listing-img" key={idx} src={`${imageUrl}`} />
+                )
+            )}
+          </div>
           </div>
         </div>
     )

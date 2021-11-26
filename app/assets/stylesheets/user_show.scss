@@ -1,0 +1,37 @@
+.user-show {
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-info{
+  font-size: 32px;
+  font-weight: 600;
+  color: rgb(72, 72, 72);
+  margin: 3vw;
+
+}
+
+.user-personal-info{
+  display: flex;
+  flex-direction: column;
+
+  font-family: sans-serif;
+  color: rgb(31, 30, 30)
+
+}
+
+.user-personal-info > div {
+  color: rgb(15, 15, 15);
+  font-size: 2vw;
+  margin-top: 1vw;
+  margin-left: 3vw;
+  font-weight: 600;
+
+  >div{
+  font-weight: 0;
+  font-weight: 100;
+  padding-top: 1vw;
+  padding-bottom: 2vw;
+  border-bottom: 1px solid #d3d0d0;
+  }
+}
