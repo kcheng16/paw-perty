@@ -4,6 +4,8 @@ import {
   REMOVE_LISTING,
 } from "../actions/listing_actions";
 
+import { RECEIVE_CURRENT_USER } from "../actions/user_actions";
+
 export default (state={}, action) => {
   Object.freeze(state);
   let nextState = Object.assign({}, state)
@@ -20,6 +22,11 @@ export default (state={}, action) => {
       delete nextState[action.listingId]
       return nextState
 
+    case RECEIVE_CURRENT_USER:
+      let listings = Object.values(action.user.listings)
+      listings.forEach(listing => nextState[listing.id] = listing)
+      return nextState
+      
     default:
       return state
   }

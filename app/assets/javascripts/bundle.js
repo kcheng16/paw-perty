@@ -1834,7 +1834,11 @@ var UserShowComponent = /*#__PURE__*/function (_React$Component) {
         className: "user-reservations"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Reservations")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-listings"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Listings")));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Listings"), this.props.listings.map(function (listing) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "user-listing"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, listing.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, listing.street_address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, listing.postal_code), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, listing.country), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, listing.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, listing.num_of_beds));
+      })));
     }
   }]);
 
@@ -1867,7 +1871,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state, ownProps) {
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    listings: Object.values(state.entities.listings)
   };
 };
 
@@ -1940,6 +1945,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _actions_listing_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/listing_actions */ "./frontend/actions/listing_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -1957,6 +1964,13 @@ __webpack_require__.r(__webpack_exports__);
 
     case _actions_listing_actions__WEBPACK_IMPORTED_MODULE_0__.REMOVE_LISTING:
       delete nextState[action.listingId];
+      return nextState;
+
+    case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_CURRENT_USER:
+      var listings = Object.values(action.user.listings);
+      listings.forEach(function (listing) {
+        return nextState[listing.id] = listing;
+      });
       return nextState;
 
     default:

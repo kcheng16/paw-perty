@@ -6,6 +6,7 @@ import UserShowComponent from "./user_show_component";
 
 const mSTP = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
+  listings: Object.values(state.entities.listings)
 })
 
 const mDTP = dispatch => ({

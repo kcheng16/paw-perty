@@ -26,7 +26,6 @@ class UserShowComponent extends React.Component{
 
   render(){
     if (!this.props.currentUser) return "loading...";
-
     return(
       <div className="user-show">
         <div className="user-personal-info">
@@ -56,9 +55,23 @@ class UserShowComponent extends React.Component{
         </div>
 
         <div className="user-listings">
-        <label>Listings</label>
+          <label>Listings</label>
+          {this.props.listings.map(listing => 
+            <div className="user-listing">
+              <div>{listing.title}</div>
+              <div>{listing.description}</div>
+              <div>{listing.street_address}</div>
+              <div>{listing.postal_code}</div>
+              <div>{listing.country}</div>
+              <div>{listing.price}</div>
+              <div>{listing.num_of_beds}</div>
+            </div>
+          )}
+          {/* {this.props.listing.images.map(image => 
+            <img src={`${image}`} />
+          )} */}
+          </div>
         </div>
-      </div>
     )
   }
 }
