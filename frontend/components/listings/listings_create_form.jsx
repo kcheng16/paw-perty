@@ -35,34 +35,50 @@ class ListingsCreateForm extends React.Component{
 
   render(){
     return(
-      <div>
+      <div className="listings-create">
+        <div className="sidebar">
+          <div className="sidebar-bg">
+            <h1>Let's give your place a name</h1>
+            <h1>Now, let's describe your place</h1>
+            <h1>Where's your place located?</h1>
+            <h1>How many pets can you watch?</h1>
+            <h1>Now for the fun part - set your price</h1>
+          </div>
+        </div>
         <form onSubmit={this.handleSubmit} className="listings-new-form">
           {/* TITLE */}
-          <label htmlFor="listing-title">Create your title</label>
+          <label className="listing-title" htmlFor="listing-title">Create your title
             <textarea onChange={this.update('title')} name='listing-title' type="text" value={this.state.title}/>
+          </label>
           {/* DESCRIPTION */}
-          <label htmlFor="listing-description">Create your description</label>
-            <textarea onChange={this.update('description')} name='listing-title' type="text" value={this.state.description}/>
+          <label className="listing-description" htmlFor="listing-description">Create your description
+            <textarea onChange={this.update('description')} name='listing-description' type="text" value={this.state.description}/>
+          </label>
           {/* LCOCATION */}
-          <h2>Confirm your address</h2>
-            <label htmlFor="listing-street_address">Street Address</label>
+            <label className="listing-street-address" htmlFor="listing-street_address">Street Address
               <textarea onChange={this.update('street_address')} name='listing-street_address' type="text" value={this.state.street_address}/>
-            <label htmlFor="listing-city">City</label>
+            </label>
+            <label className="listing-city" htmlFor="listing-city">City
               <textarea onChange={this.update('city')} name='listing-city' type="text" value={this.state.city}/>
-            <label htmlFor="listing-postal_code">Zip Code</label>
+            </label>
+            <label className="listing-postal-code" htmlFor="listing-postal_code">Zip Code
               <textarea onChange={this.update('postal_code')} name='listing-postal_code' type="text" value={this.state.postal_code}/>
-            <label htmlFor="listing-country">Country/Region</label>
+            </label>
+            <label className="listing-country" htmlFor="listing-country">Country/Region
               <textarea onChange={this.update('country')} name='listing-country' type="text" value={this.state.country}/>
+            </label>
           {/* GUESTS */}
-          <label htmlFor="listing-num_of_beds">Number of dogs you can take in</label>
-              <textarea onChange={this.update('num_of_beds')} name='listing-num_of_beds' type="text" value={this.state.num_of_beds}/>
+          <label className="listing-num_of_beds" htmlFor="listing-num_of_beds">Number of dogs you can take in
+            <textarea onChange={this.update('num_of_beds')} name='listing-num_of_beds' type="text" value={this.state.num_of_beds}/>
+          </label>
           {/* PRICE */}
-          <textarea onChange={this.update('price')} type="text" value={this.state.price} />
+          <textarea className="cost-input" onChange={this.update('price')} type="text" value={this.state.price} />
           <h5 className="cost-per-night">Doge Coins per night</h5>
+
           {this.state.num_of_beds === "" ? "" :
             <> 
-              <h3 className="price-range">Places like yours usually range</h3>
-              <h3 className="price-range">from {this.num1} to {this.num2} Doge Coins</h3>
+              <h3 className="price-range1">Places like yours usually range</h3>
+              <h3 className="price-range2">from {this.num1} to {this.num2} Doge Coins</h3>
               <button className="finish-button" type="submit">Finish</button>
             </>
           }

@@ -1,36 +1,126 @@
-.listings-new-form{
-  position: absolute;
-  right: 25vw;
+.listings-create{
   display: flex;
+  position: relative;
+}
+
+.sidebar{
+  width: 50vw;
+
+  .sidebar-bg{
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    
+    > h1{
+      background-image: linear-gradient(#E61E4D 5.66%, #3B07BB 94.35%);
+
+      color: white;
+      font-weight: 600;
+      font-size: 2vw;
+      padding: 3vw;
+      padding-left: 3vw;
+      padding-top: 38vh;
+    }
+  }
+
+}
+// ===================================
+.listings-new-form{
+  display: flex;
+  align-items: flex-start;
   flex-direction: column;
+  position: relative;
+  right: -5vw;
   width: 22vw;
 
+  .listing-title{
+    position: absolute;
+    top: 20vh;
+  }
+
   label{
-    
-    font-size: 14px;
+    font-size: 1vw;
     font-family: sans-serif;
     font-weight: 550;
   }
 
   textarea{
+    width: 37vw;
     height: 8vh;
     border: 1px black solid;
     border-radius: 8px;
   }
 
-  .cost-per-night{
-    font-family: sans-serif;
-    margin: 0;
-    margin-bottom: 8px;
-  }
+  
+.listing-title{
+  position: absolute;
+  top: 20vh;
+}
 
-  .price-range{
-    font-family: sans-serif;
-    text-align: center;
-    margin: 0;
-  }
+.listing-description{
+  position: absolute;
+  top: 64vh;
+}
+// start of address==============
+
+.listing-street-address{
+  position: absolute;
+  top: 97vh;
+}
+
+.listing-city{
+  position: absolute;
+  top: 108vh;
+}
+
+.listing-postal-code{
+  position: absolute;
+  top: 120vh;
+  height: 5vh;
+}
+
+.listing-country{
+  position: absolute;
+  top: 131vh;
+  height: 5vh;
+}
+// end of address===============
+.listing-num_of_beds{
+  position: absolute;
+  top: 164vh;
+}
+
+.cost-input{
+  position: absolute;
+  top: 211vh;
+}
+
+.cost-per-night{
+  position: absolute;
+  top: 220vh;
+  font-family: sans-serif;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.price-range1{
+  position: absolute;
+  top: 228vh;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+}
+.price-range2{
+  position: absolute;
+  top: 230vh;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+}
 
   .finish-button{
+    position: absolute;
+    top: 235vh;
     font-family: sans-serif;
     border: black solid 1px;
     width: 5vw;
@@ -39,4 +129,5 @@
     font-weight: 600;
     background-color: #f7477b;
   }
+
 }
