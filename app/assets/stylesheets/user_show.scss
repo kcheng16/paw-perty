@@ -60,6 +60,7 @@
 .user-listings{
   display: grid;
   grid-template-columns: repeat(4, 23vw);
+  row-gap: 2vh;
   margin: 2vw;
   margin-left: 3vw;
 
