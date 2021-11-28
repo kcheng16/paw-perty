@@ -36,4 +36,10 @@ class Listing < ApplicationRecord
     foreign_key: :host_id,
     primary_key: :id,
     class_name: :User
+
+  def host_name
+    person = User.find(self.host_id)
+    person.username
+  end
+
 end
