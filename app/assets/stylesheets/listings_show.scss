@@ -18,6 +18,12 @@
     width: 590vw;
     height: 61vh;
     object-fit: cover;
+    padding-right: 0.5vw;
+  }
+
+  .images-1:hover{
+    filter: brightness(80%);
+    transition: all 1s ease
   }
 
   .images-4{
@@ -25,5 +31,16 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 285px);
     column-gap: 10px;
+
+    >img{
+      width: 15vw;
+      height: 30vh;
+    }
+
+    >img:hover{
+      filter: brightness(80%);
+      transition: all 1s ease;
+    }
   }
+
 }
