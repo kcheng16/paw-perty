@@ -1,0 +1,29 @@
+.show-page{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20vw;
+  margin-right: 20vw;
+}
+
+.listing-title{
+  font-family: sans-serif;
+  font-size: 1.5vw;
+  font-weight: bold;
+}
+
+.listing-images{
+  display: flex;
+
+  .images-1{
+    width: 590vw;
+    height: 61vh;
+    object-fit: cover;
+  }
+
+  .images-4{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 285px);
+    column-gap: 10px;
+  }
+}

@@ -935,34 +935,34 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       if (!this.props.listing) return "loading...";
-      return (
-        /*#__PURE__*/
-        // flex + column
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          onClick: function onClick() {
-            _this.props.deleteListing(_this.props.listing.id);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "show-page"
+      }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          _this.props.deleteListing(_this.props.listing.id);
 
-            _this.props.history.push("/listings");
-          }
-        }, "Delete Listing") : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-          className: "listing-title"
-        }, this.props.listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "listing-images"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-          className: "images-1",
-          src: this.props.listing.images[0],
-          alt: ""
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "images-4"
-        }, this.props.listing.images.map(function (imageURL, idx) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-            key: idx,
-            src: "".concat(imageURL)
-          });
-        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "listing-info"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Cozy home hosted by ", this.props.listing.host_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Hosts up to ", this.props.listing.num_of_beds, " dog/s"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.listing.description)))
-      );
+          _this.props.history.push("/listings");
+        }
+      }, "Delete Listing") : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+        className: "listing-title"
+      }, this.props.listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+        className: "listing-city"
+      }, this.props.listing.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "listing-images"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "images-1",
+        src: this.props.listing.images[0],
+        alt: ""
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "images-4"
+      }, this.props.listing.images.slice(1, 4).map(function (imageURL, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          key: idx,
+          src: "".concat(imageURL)
+        });
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "listing-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Cozy home hosted by ", this.props.listing.host_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Hosts up to ", this.props.listing.num_of_beds, " dog/s"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.listing.description)));
     }
   }]);
 
