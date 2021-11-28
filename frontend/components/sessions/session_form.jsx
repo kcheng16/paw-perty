@@ -36,7 +36,6 @@ class SessionForm extends React.Component {
   }
 
   componentWillUnmount(){
-    console.log("UNMOUNTING")
     this.props.clearErrors();
   }
 
@@ -57,6 +56,9 @@ class SessionForm extends React.Component {
               </>
             ) : ("")
           }
+        {/* rendering errors if any */}
+        <ul> {Array.isArray(this.props.errors) ? this.props.errors.map((error, idx) => <li key={idx}>{error}</li>) : "" } </ul>
+
           <button className="submit-button" type='submit'>{this.props.formType}</button>
     {/* DEMO USER */}
           <button 
@@ -66,8 +68,6 @@ class SessionForm extends React.Component {
           </button>
         </form>
 
-        {/* rendering errors if any */}
-        <ul> {Array.isArray(this.props.errors) ? this.props.errors.map((error, idx) => <li key={idx}>{error}</li>) : "" } </ul>
       </div>
     )
   }

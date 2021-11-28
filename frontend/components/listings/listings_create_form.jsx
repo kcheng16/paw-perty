@@ -23,14 +23,21 @@ class ListingsCreateForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createListing(this.state)
-    this.props.history.push("/listings/")
-    // this.props.createListing(this.state).then(
-    //   (res) => {this.props.history.push(`/listing/${res.listing.id}`)})
+
+    // this.props.createListing(
+    //   this.state, () => console.log('hello world')
+    //   // () => this.props.history.push(`/user/${this.props.sessionId}`)
+    // )
+    this.props.createListing(this.state).then(
+      (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
   }
 
   update(field){
     return e => this.setState({[field]: e.currentTarget.value})
+  }
+
+  componentWillUnmount(){
+    this.props.clearErrors();
   }
 
   render(){
@@ -48,11 +55,11 @@ class ListingsCreateForm extends React.Component{
         <form onSubmit={this.handleSubmit} className="listings-new-form">
           {/* TITLE */}
           <label className="listing-title" htmlFor="listing-title">Create your title
-            <textarea onChange={this.update('title')} name='listing-title' type="text" value={this.state.title}/>
+            <textarea onChange={this.update('title')} name='listing-title' type="text" placeholder="Relax your paws with us!" value={this.state.title}/>
           </label>
           {/* DESCRIPTION */}
           <label className="listing-description" htmlFor="listing-description">Create your description
-            <textarea onChange={this.update('description')} name='listing-description' type="text" value={this.state.description}/>
+            <textarea onChange={this.update('description')} name='listing-description' type="text" placeholder="We provide pacious area for zoomies, and natural delicious treats. " value={this.state.description}/>
           </label>
           {/* LCOCATION */}
             <label className="listing-street-address" htmlFor="listing-street_address">Street Address
@@ -83,6 +90,11 @@ class ListingsCreateForm extends React.Component{
             </>
           }
         </form>
+
+        <ul className="listing-create-errors"> 
+          {Array.isArray(this.props.errors) ? this.props.errors.map((error, idx) => <li key={idx}>{error}</li>) : "" } 
+        </ul>
+
       </div>
     )
   }
