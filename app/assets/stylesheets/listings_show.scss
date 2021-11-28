@@ -19,11 +19,12 @@
     height: 61vh;
     object-fit: cover;
     padding-right: 0.5vw;
+    border-radius: 10px;
   }
 
   .images-1:hover{
     filter: brightness(80%);
-    transition: all 1s ease
+    transition: all 1s ease;
   }
 
   .images-4{
@@ -33,6 +34,7 @@
     column-gap: 10px;
 
     >img{
+      object-fit: cover;
       width: 15vw;
       height: 30vh;
     }
@@ -40,6 +42,14 @@
     >img:hover{
       filter: brightness(80%);
       transition: all 1s ease;
+    }
+
+    >img:nth-child(2){
+      border-radius: 0px 10px 0px 0px;
+    }
+
+    >img:nth-child(4){
+      border-radius: 0px 0px 10px 0px;
     }
   }
 
