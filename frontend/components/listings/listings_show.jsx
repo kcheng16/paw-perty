@@ -27,10 +27,8 @@ class ListingsShow extends React.Component{
         <h1 className="listing-title">{this.props.listing.title}</h1>
         <h1 className="listing-city">{this.props.listing.city}</h1>
 
-{/* flex + row  */}
         <div className="listing-images">
           <img className="images-1" src={this.props.listing.images[0]} alt="" />
-      {/* flex grid 2x2 */}
           <div className="images-4">
             {this.props.listing.images.slice(1, 4).map((imageURL, idx) => 
               <img key={idx} src={`${imageURL}`} />
@@ -39,12 +37,34 @@ class ListingsShow extends React.Component{
         </div>
 
         <div className="listing-info">
-          <div>Loving home hosted by {this.props.listing.host_name}</div>
-          <div>Hosts up to {this.props.listing.num_of_beds} dog/s</div>
-          <div className="line"></div>
-          <div>{this.props.listing.description}</div>
+          <div className='listing-info2'>
+            <div>Loving home hosted by {this.props.listing.host_name}</div>
+            <div>Hosts up to {this.props.listing.num_of_beds} dog/s</div>
+            <div className="line"></div>
+            <div>{this.props.listing.description}</div>
+          </div>
+          
+          <div className="sticky-parent">
+            <div className="reservation-info">
+              <div className="price">{this.props.listing.price}Doge Coins/night</div>
+              <div className="check-in-out">
+                  <div>CHECK-IN
+                    <div>calendar</div>
+                  </div>
+                  <div>CHECK-OUT
+                    <div>calendar</div>
+                  </div>
+              </div>
+              <div className="select-dogs">Guests</div>
+              <div className="reserve-button">Reserve</div>
+              <div className="line"></div>
+              <div className="total">
+                <div>Total</div>
+                <div>$</div>
+              </div>
+            </div>
+          </div>
         </div>
-
         
       </div>
     )

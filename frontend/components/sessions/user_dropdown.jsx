@@ -6,7 +6,7 @@ class UserDropdown extends React.Component{
     this.state = {
       dropdownhidden: true
     }
-    this.toggleDropdown = this.toggleDropdown.bind(this)
+    this.toggleDropdown = this.toggleDropdown.bind(this);
   }
 
   toggleDropdown(){
@@ -16,8 +16,11 @@ class UserDropdown extends React.Component{
   render(){
     return(
       <div>
-        <img className="dropdown-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637780625/dropdown-user_hpvvu3.png"
-          onClick={() => this.toggleDropdown()} />
+        <img
+          className="dropdown-img" 
+          src="https://res.cloudinary.com/de8carnhu/image/upload/v1637780625/dropdown-user_hpvvu3.png"
+          onClick={() => this.toggleDropdown()} 
+        />
 
         {!this.props.currentUserId ? (
             <ul className="dropdown-ul" style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}> 

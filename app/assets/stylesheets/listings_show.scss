@@ -69,26 +69,64 @@
 }
 
 .listing-info{
+  display: flex;
 
-  div:first-child{
+
+  .listing-info2 {
     font-size: 1.2vw;
     font-weight: 600;
     padding-top: 5vh;
     padding-bottom: 1vh;
-    height: 0.1vh;
-  }
+    width: 45vw;
 
-  div:nth-child(2){
-    padding: 3vh;
-    padding-left: 0vh;
-    padding-bottom: 2vh;
+    div:nth-child(2){
+      font-size: 1vw;
+      font-weight: 100;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    div:last-child{
+      font-size: 1vw;
+      font-weight: 100;
+    }
   }
 
   .line{
     background-color: #cbcaca;
     margin-bottom: 2vh;
     margin-left: 0vh;
-    margin-right: 23vw;
+    margin-right: 7vw;
     height: 0.05vw;
+  }
+
+}
+
+.sticky-parent{
+  position: relative;
+
+  .reservation-info{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 5vh;
+    padding-top: 5vh;
+    border: 0.5px solid #c7c7c7;
+    border-radius: 10px;
+    width: 16vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 5vw;
+    box-shadow: 0px 2px 3px 3px rgb(153 153 153 / 20%);
+    
+    .check-in-out{
+      display: flex;
+    }
+
+    .price{
+      padding-bottom: 2vh;
+      font-size: 2.5vh;
+    }
   }
 }
