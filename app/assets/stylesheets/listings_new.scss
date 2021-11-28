@@ -118,16 +118,29 @@
   margin: 0;
 }
 
-  .finish-button{
-    position: absolute;
-    top: 235vh;
-    font-family: sans-serif;
-    border: black solid 1px;
-    width: 5vw;
-    height: 4vh;
-    text-align: center;
-    font-weight: 600;
-    background-color: #f7477b;
-  }
+}
 
+.finish-button{
+  position: absolute;
+  top: 236vh;
+  left: 32vw;
+  font-family: sans-serif;
+  border: black solid 1px;
+  border-radius: 8px;
+  width: 5vw;
+  height: 4vh;
+  text-align: center;
+  font-weight: 600;
+  background-color: #f7477b;
+}
+
+.listing-create-errors{
+  position: absolute;
+  bottom: -139vh;
+  top: 222vh;
+  left: 86vw;
+  display: flex;
+  flex-direction: column;
+  color: red;
+  list-style: square;
 }

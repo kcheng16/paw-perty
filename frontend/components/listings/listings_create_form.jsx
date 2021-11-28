@@ -24,10 +24,6 @@ class ListingsCreateForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
 
-    // this.props.createListing(
-    //   this.state, () => console.log('hello world')
-    //   // () => this.props.history.push(`/user/${this.props.sessionId}`)
-    // )
     this.props.createListing(this.state).then(
       (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
   }
@@ -86,9 +82,9 @@ class ListingsCreateForm extends React.Component{
             <> 
               <h3 className="price-range1">Places like yours usually range</h3>
               <h3 className="price-range2">from {this.num1} to {this.num2} Doge Coins</h3>
-              <button className="finish-button" type="submit">Finish</button>
             </>
           }
+        { this.state.price === "" ? "" : <button className="finish-button" type="submit">Finish</button>}
         </form>
 
         <ul className="listing-create-errors"> 
