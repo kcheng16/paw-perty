@@ -3,6 +3,18 @@
   flex-direction: column;
   margin-left: 20vw;
   margin-right: 20vw;
+
+  .delete-button{
+    background-color: rgb(99, 99, 99);
+    border-radius: 10px;
+    font-size: 1vw;
+    position: absolute;
+    left: 73vw;
+    color: white;
+    width: 7vw;
+    height: 4vh;
+    text-align: center;
+  }
 }
 
 .listing-title{
@@ -53,4 +65,30 @@
     }
   }
 
+  
+}
+
+.listing-info{
+
+  div:first-child{
+    font-size: 1.2vw;
+    font-weight: 600;
+    padding-top: 5vh;
+    padding-bottom: 1vh;
+    height: 0.1vh;
+  }
+
+  div:nth-child(2){
+    padding: 3vh;
+    padding-left: 0vh;
+    padding-bottom: 2vh;
+  }
+
+  .line{
+    background-color: #cbcaca;
+    margin-bottom: 2vh;
+    margin-left: 0vh;
+    margin-right: 23vw;
+    height: 0.05vw;
+  }
 }
