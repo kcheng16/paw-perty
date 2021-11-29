@@ -16,6 +16,7 @@ class ListingsCreateForm extends React.Component{
       price: "",
       num_of_beds: "",
     }
+    this.pageIndex = 0;
     this.num1 = Math.floor(Math.random() * 30) + 1
     this.num2 = Math.floor(Math.random() * 100) + 30
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -36,6 +37,14 @@ class ListingsCreateForm extends React.Component{
     this.props.clearErrors();
   }
 
+  addPageIndex(){
+    if (this.pageIndex < 5) this.pageIndex++
+  }
+
+  subPageIndex(){
+    if (this.pageIndex > 0) this.pageIndex--
+  }
+
   render(){
     return(
       <div className="listings-create">
@@ -48,17 +57,31 @@ class ListingsCreateForm extends React.Component{
             <h1>Now for the fun part - set your price</h1>
           </div>
         </div>
+        
         <form onSubmit={this.handleSubmit} className="listings-new-form">
           {/* TITLE */}
-          <label className="listing-title" htmlFor="listing-title">Create your title
+          <label 
+            style={this.pageIndex === 0 ? { display: "block" } : { display: "none" }}
+            className="listing-title" 
+            htmlFor="listing-title">
+              Create your title
+
             <textarea onChange={this.update('title')} name='listing-title' type="text" placeholder="Relax your paws with us!" value={this.state.title}/>
           </label>
           {/* DESCRIPTION */}
-          <label className="listing-description" htmlFor="listing-description">Create your description
+          <label style={this.pageIndex === 0 ? { display: "block" } : { display: "none" }}
+            className="listing-description" 
+            htmlFor="listing-description">
+              Create your description
+
             <textarea onChange={this.update('description')} name='listing-description' type="text" placeholder="We provide pacious area for zoomies, and natural delicious treats. " value={this.state.description}/>
           </label>
+
           {/* LCOCATION */}
-            <label className="listing-street-address" htmlFor="listing-street_address">Street Address
+            <label style={this.pageIndex === 1 ? { display: "block" } : { display: "none" }}
+              className="listing-street-address" 
+              htmlFor="listing-street_address">
+                Street Address
               <textarea onChange={this.update('street_address')} name='listing-street_address' type="text" value={this.state.street_address}/>
             </label>
             <label className="listing-city" htmlFor="listing-city">City
@@ -86,6 +109,9 @@ class ListingsCreateForm extends React.Component{
           }
         { this.state.price === "" ? "" : <button className="finish-button" type="submit">Finish</button>}
         </form>
+
+        <button className="back-button" onClick={() => this.addPageIndex()}>Back</button>
+        <button className="next-button" onClick={() => this.subPageIndex()}>Next</button>
 
         <ul className="listing-create-errors"> 
           {Array.isArray(this.props.errors) ? this.props.errors.map((error, idx) => <li key={idx}>{error}</li>) : "" } 

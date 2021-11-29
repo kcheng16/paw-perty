@@ -460,6 +460,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       price: "",
       num_of_beds: ""
     };
+    _this.pageIndex = 0;
     _this.num1 = Math.floor(Math.random() * 30) + 1;
     _this.num2 = Math.floor(Math.random() * 100) + 30;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -491,8 +492,20 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       this.props.clearErrors();
     }
   }, {
+    key: "addPageIndex",
+    value: function addPageIndex() {
+      if (this.pageIndex < 5) this.pageIndex++;
+    }
+  }, {
+    key: "subPageIndex",
+    value: function subPageIndex() {
+      if (this.pageIndex > 0) this.pageIndex--;
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this4 = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -503,6 +516,11 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         onSubmit: this.handleSubmit,
         className: "listings-new-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        style: this.pageIndex === 0 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
         className: "listing-title",
         htmlFor: "listing-title"
       }, "Create your title", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
@@ -512,6 +530,11 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "Relax your paws with us!",
         value: this.state.title
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        style: this.pageIndex === 0 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
         className: "listing-description",
         htmlFor: "listing-description"
       }, "Create your description", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
@@ -521,6 +544,11 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "We provide pacious area for zoomies, and natural delicious treats. ",
         value: this.state.description
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        style: this.pageIndex === 1 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
         className: "listing-street-address",
         htmlFor: "listing-street_address"
       }, "Street Address", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
@@ -574,7 +602,17 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       }, "from ", this.num1, " to ", this.num2, " Doge Coins")), this.state.price === "" ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "finish-button",
         type: "submit"
-      }, "Finish")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      }, "Finish")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "back-button",
+        onClick: function onClick() {
+          return _this4.addPageIndex();
+        }
+      }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "next-button",
+        onClick: function onClick() {
+          return _this4.subPageIndex();
+        }
+      }, "Next"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "listing-create-errors"
       }, Array.isArray(this.props.errors) ? this.props.errors.map(function (error, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
@@ -1050,37 +1088,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    listings: Object.values(state.entities.listings) // [
-    //   {
-    //     id: 1,
-    //     title: 'Dog-out, here!',
-    //     description: 'Dynamic parks in the area! Come relax on our cozy beds!',
-    //     host_id: 1,
-    //     street_address: '123 fake street',
-    //     city: 'dogville',
-    //     postal_code: '98765',
-    //     country: 'USA',
-    //     longitude: 37.798967,
-    //     latitude: -122.403546,
-    //     price: 20,
-    //     num_of_beds: 1,
-    //   },
-    //   {
-    //     id: 5,
-    //     title: 'Dogtown in our town!',
-    //     description: 'Let your dog explore and paint the town red!',
-    //     host_id: 2,
-    //     street_address: '532 state street',
-    //     city: 'spotville',
-    //     postal_code: '94321',
-    //     country: 'USA',
-    //     longitude: 37.7988248,
-    //     latitude: -122.4019536,
-    //     price: 10,
-    //     num_of_beds: 3,
-    //   }
-    // ]
-
+    listings: Object.values(state.entities.listings)
   };
 };
 

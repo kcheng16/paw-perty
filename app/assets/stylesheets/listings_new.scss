@@ -19,7 +19,8 @@
       font-size: 2vw;
       padding: 3vw;
       padding-left: 3vw;
-      padding-top: 38vh;
+      padding-top: 71vh;
+      padding-bottom: 16vh;
     }
   }
 
@@ -34,28 +35,25 @@
   width: 22vw;
 
   .listing-title{
-    position: absolute;
-    top: 20vh;
+    padding-top: 28vh;
+    padding-left: 3vw;
   }
-
+  
   label{
     font-size: 1vw;
     font-family: sans-serif;
     font-weight: 550;
   }
-
-  textarea{
-    width: 37vw;
-    height: 8vh;
-    border: 1px black solid;
-    border-radius: 8px;
-  }
-
   
-.listing-title{
-  position: absolute;
-  top: 20vh;
-}
+  textarea{
+    width: 29vw;
+    height: 12vh;
+    border: 1px rgb(119, 119, 119) solid;
+    border-radius: 8px;
+    padding: 1vw;
+    font-weight: 100;
+    margin-top: 3vh;
+  }
 
 .listing-description{
   position: absolute;
