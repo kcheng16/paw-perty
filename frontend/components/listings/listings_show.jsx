@@ -48,14 +48,16 @@ class ListingsShow extends React.Component{
             <div className="reservation-info">
               <div className="price">{this.props.listing.price}Doge Coins/night</div>
               <div className="check-in-out">
-                  <div>CHECK-IN
+                <div className='check-in-out-container'>
+                  <div id="check-in">CHECK-IN
                     <div>calendar</div>
                   </div>
                   <div>CHECK-OUT
                     <div>calendar</div>
                   </div>
+                </div>
+                <div className="select-guests">Guests</div>
               </div>
-              <div className="select-dogs">Guests</div>
               <div className="reserve-button">Reserve</div>
               <div className="line"></div>
               <div className="total">

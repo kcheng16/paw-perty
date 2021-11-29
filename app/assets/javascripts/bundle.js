@@ -975,9 +975,13 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         className: "price"
       }, this.props.listing.price, "Doge Coins/night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "check-in-out"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-IN", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "calendar")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-OUT", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "calendar"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "select-dogs"
-      }, "Guests"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "check-in-out-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "check-in"
+      }, "CHECK-IN", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "calendar")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-OUT", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "calendar"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "select-guests"
+      }, "Guests")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "reserve-button"
       }, "Reserve"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "line"

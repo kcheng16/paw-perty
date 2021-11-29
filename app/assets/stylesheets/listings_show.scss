@@ -109,19 +109,40 @@
     position: sticky;
     position: -webkit-sticky;
     top: 5vh;
-    padding-top: 5vh;
+    padding-top: 3vh;
     border: 0.5px solid #c7c7c7;
     border-radius: 10px;
-    width: 16vw;
+    width: 15vw;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin-left: 5vw;
-    box-shadow: 0px 2px 3px 3px rgb(153 153 153 / 20%);
-    
+    box-shadow: 0px 2px 3px 3px rgb(204, 204, 204);
+
     .check-in-out{
-      display: flex;
+      text-align: center;
+      border: 1px solid gray;
+      border-radius: 4px;
+      width: 11vw;
+      height: 11vh;
+
+      .check-in-out-container{
+        display: flex;
+        justify-content: space-evenly;
+        height: 6vh;
+
+        #check-in{
+          border-right: 1px solid gray;
+          width: 5vw;
+        }
+
+      }
+
+      .select-guests{
+        padding-top: 2vh;
+        border-top: 1px solid gray;
+      }
     }
 
     .price{
