@@ -14,12 +14,16 @@
  */
 
 @import "./reset.css";
-@import "./listings_index.scss";
+@import "./splash_container/splash_container.scss";
 @import "./modal.scss";
 @import "./sessions.scss";
 @import "./static_pages.scss";
+
 @import "./user_dropdown.scss";
 @import "./navbar.scss";
+
 @import "./image_carousel.scss";
+
+@import "./listings_index.scss";
 @import "./listings_show.scss";
-@import "./splash_container/splash_container.scss";
+@import "./listings_new.scss";
