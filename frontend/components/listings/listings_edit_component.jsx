@@ -89,7 +89,7 @@ class ListingEditComponent extends React.Component{
               <h3 className="price-range2">from {this.num1} to {this.num2} Doge Coins</h3>
             </>
           }
-        { this.state.price === "" ? "" : <button className="finish-button" type="submit">Finish</button>}
+        { this.state.price === "" ? "" : <button className="finish-button" type="submit">Save and exit</button>}
         </form>
 
         <ul className="listing-create-errors"> 

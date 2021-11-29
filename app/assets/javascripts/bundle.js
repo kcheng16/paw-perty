@@ -512,51 +512,60 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         className: "sidebar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "sidebar-bg"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Let's give your place a name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Now, let's describe your place"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Where's your place located?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "How many pets can you watch?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Now for the fun part - set your price"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+        style: this.pageIndex === 0 ? {
+          display: "block"
+        } : {
+          display: "none"
+        }
+      }, "Let's give your place a name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+        style: this.pageIndex === 1 ? {
+          display: "block"
+        } : {
+          display: "none"
+        }
+      }, "Now, let's describe your place"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Where's your place located?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "How many pets can you watch?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Now for the fun part - set your price"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "listings-new-form"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         style: this.pageIndex === 0 ? {
           display: "block"
         } : {
           display: "none"
         },
-        className: "listing-title",
-        htmlFor: "listing-title"
-      }, "Create your title", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
+        className: "listing-title"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Create your title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         onChange: this.update('title'),
         name: "listing-title",
         type: "text",
         placeholder: "Relax your paws with us!",
         value: this.state.title
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-        style: this.pageIndex === 0 ? {
-          display: "block"
-        } : {
-          display: "none"
-        },
-        className: "listing-description",
-        htmlFor: "listing-description"
-      }, "Create your description", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
-        onChange: this.update('description'),
-        name: "listing-description",
-        type: "text",
-        placeholder: "We provide pacious area for zoomies, and natural delicious treats. ",
-        value: this.state.description
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         style: this.pageIndex === 1 ? {
           display: "block"
         } : {
           display: "none"
         },
-        className: "listing-street-address",
-        htmlFor: "listing-street_address"
+        className: "listing-title"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Create your description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
+        onChange: this.update('description'),
+        name: "listing-description",
+        type: "text",
+        placeholder: "We provide pacious area for zoomies, and natural delicious treats. ",
+        value: this.state.description
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        style: this.pageIndex === 2 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        className: "listing-street-address"
       }, "Street Address", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         onChange: this.update('street_address'),
         name: "listing-street_address",
         type: "text",
         value: this.state.street_address
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "listing-city",
         htmlFor: "listing-city"
       }, "City", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
@@ -580,7 +589,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         name: "listing-country",
         type: "text",
         value: this.state.country
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "listing-num_of_beds",
         htmlFor: "listing-num_of_beds"
       }, "Number of dogs you can take in", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
@@ -602,17 +611,17 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       }, "from ", this.num1, " to ", this.num2, " Doge Coins")), this.state.price === "" ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "finish-button",
         type: "submit"
-      }, "Finish")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "back-button",
-        onClick: function onClick() {
-          return _this4.addPageIndex();
-        }
-      }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "next-button",
+      }, "Finish"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "buttons"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this4.subPageIndex();
         }
-      }, "Next"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          return _this4.addPageIndex();
+        }
+      }, "Next"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "listing-create-errors"
       }, Array.isArray(this.props.errors) ? this.props.errors.map(function (error, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
@@ -815,7 +824,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
       }, "from ", this.num1, " to ", this.num2, " Doge Coins")), this.state.price === "" ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "finish-button",
         type: "submit"
-      }, "Finish")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      }, "Save and exit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "listing-create-errors"
       }, Array.isArray(this.props.errors) ? this.props.errors.map(function (error, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {

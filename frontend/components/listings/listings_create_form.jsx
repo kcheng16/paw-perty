@@ -50,49 +50,48 @@ class ListingsCreateForm extends React.Component{
       <div className="listings-create">
         <div className="sidebar">
           <div className="sidebar-bg">
-            <h1>Let's give your place a name</h1>
-            <h1>Now, let's describe your place</h1>
+            <h1 style={this.pageIndex === 0 ? { display: "block" } : { display: "none" }}>Let's give your place a name</h1>
+            <h1 style={this.pageIndex === 1 ? { display: "block" } : { display: "none" }}>Now, let's describe your place</h1>
             <h1>Where's your place located?</h1>
             <h1>How many pets can you watch?</h1>
             <h1>Now for the fun part - set your price</h1>
           </div>
         </div>
-        
+
         <form onSubmit={this.handleSubmit} className="listings-new-form">
           {/* TITLE */}
-          <label 
+          <div 
             style={this.pageIndex === 0 ? { display: "block" } : { display: "none" }}
-            className="listing-title" 
-            htmlFor="listing-title">
-              Create your title
+            className="listing-title" >
+              <h1>Create your title</h1>
+              <textarea onChange={this.update('title')} name='listing-title' type="text" placeholder="Relax your paws with us!" value={this.state.title}/>
+          </div>
 
-            <textarea onChange={this.update('title')} name='listing-title' type="text" placeholder="Relax your paws with us!" value={this.state.title}/>
-          </label>
           {/* DESCRIPTION */}
-          <label style={this.pageIndex === 0 ? { display: "block" } : { display: "none" }}
-            className="listing-description" 
-            htmlFor="listing-description">
-              Create your description
-
-            <textarea onChange={this.update('description')} name='listing-description' type="text" placeholder="We provide pacious area for zoomies, and natural delicious treats. " value={this.state.description}/>
-          </label>
+          <div 
+            style={this.pageIndex === 1 ? { display: "block" } : { display: "none" }}
+            className="listing-title">
+              <h1>Create your description</h1>
+              <textarea onChange={this.update('description')} name='listing-description' type="text" placeholder="We provide pacious area for zoomies, and natural delicious treats. " value={this.state.description}/>
+          </div>
 
           {/* LCOCATION */}
-            <label style={this.pageIndex === 1 ? { display: "block" } : { display: "none" }}
-              className="listing-street-address" 
-              htmlFor="listing-street_address">
+            <div 
+              style={this.pageIndex === 2 ? { display: "block" } : { display: "none" }}
+              className="listing-street-address">
                 Street Address
               <textarea onChange={this.update('street_address')} name='listing-street_address' type="text" value={this.state.street_address}/>
-            </label>
-            <label className="listing-city" htmlFor="listing-city">City
-              <textarea onChange={this.update('city')} name='listing-city' type="text" value={this.state.city}/>
-            </label>
-            <label className="listing-postal-code" htmlFor="listing-postal_code">Zip Code
-              <textarea onChange={this.update('postal_code')} name='listing-postal_code' type="text" value={this.state.postal_code}/>
-            </label>
-            <label className="listing-country" htmlFor="listing-country">Country/Region
-              <textarea onChange={this.update('country')} name='listing-country' type="text" value={this.state.country}/>
-            </label>
+            
+              <label className="listing-city" htmlFor="listing-city">City
+                <textarea onChange={this.update('city')} name='listing-city' type="text" value={this.state.city}/>
+              </label>
+              <label className="listing-postal-code" htmlFor="listing-postal_code">Zip Code
+                <textarea onChange={this.update('postal_code')} name='listing-postal_code' type="text" value={this.state.postal_code}/>
+              </label>
+              <label className="listing-country" htmlFor="listing-country">Country/Region
+                <textarea onChange={this.update('country')} name='listing-country' type="text" value={this.state.country}/>
+              </label>
+            </div>
           {/* GUESTS */}
           <label className="listing-num_of_beds" htmlFor="listing-num_of_beds">Number of dogs you can take in
             <textarea onChange={this.update('num_of_beds')} name='listing-num_of_beds' type="text" value={this.state.num_of_beds}/>
@@ -108,10 +107,15 @@ class ListingsCreateForm extends React.Component{
             </>
           }
         { this.state.price === "" ? "" : <button className="finish-button" type="submit">Finish</button>}
-        </form>
+        
+          <div className="buttons">
+            <button onClick={() => this.subPageIndex()}>Back</button>
+            <div></div>
+            <button onClick={() => this.addPageIndex()}>Next</button>
+          </div>
 
-        <button className="back-button" onClick={() => this.addPageIndex()}>Back</button>
-        <button className="next-button" onClick={() => this.subPageIndex()}>Next</button>
+        </form>
+        
 
         <ul className="listing-create-errors"> 
           {Array.isArray(this.props.errors) ? this.props.errors.map((error, idx) => <li key={idx}>{error}</li>) : "" } 
