@@ -10,10 +10,10 @@
 User.destroy_all
 Listing.destroy_all
 
-user1 = User.create(username: 'demo', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!')
+user1 = User.create!(username: 'demo', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!')
 
 
-listing1 = Listing.create([
+listing1 = Listing.create!([
   {
   id: 1,
   title: 'Dog-out, here!',
