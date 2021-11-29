@@ -15,10 +15,9 @@ user1 = User.create!(username: 'demo', password: 'password', email: 'demo@pawper
 
 listing1 = Listing.create!([
   {
-  id: 1,
   title: 'Dog-out, here!',
   description: 'Dynamic parks in the area! Come relax on our cozy beds!',
-  host_id: 1,
+  host_id: User.first.id,
   street_address: '1 fake street', #need to change to real address
   city: 'San Francisco',
   postal_code: 94111,
@@ -30,10 +29,9 @@ listing1 = Listing.create!([
   images: ["https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/amy-humphries-AllEP6K_TAg-unsplash_ovptsl.jpg", "https://res.cloudinary.com/de8carnhu/image/upload/v1638154900/cdc-SAwxJ8PHY3Q-unsplash_w1aqqi.jpg", "https://res.cloudinary.com/de8carnhu/image/upload/v1638155032/beatrice-selly-d5YEmZknHIs-unsplash_rb5mp8.jpg", "https://res.cloudinary.com/de8carnhu/image/upload/v1638155409/mathew-coulton-zxqaAkkayP8-unsplash_npk6ow.jpg", "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/francesca-tosolini-tHkJAMcO3QE-unsplash_rbjwck.jpg", "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/aaron-huber-G7sE2S4Lab4-unsplash_jkrdps.jpg" ]
 },
 {
-  id: 2,
   title: '#2!',
   description: 'Dynamic parks in the area! Come relax on our cozy beds!',
-  host_id: 2,
+  host_id: User.first.id,
   street_address: '2 fake street',
   city: 'San Francisco',
   postal_code: 94111,
