@@ -80,6 +80,7 @@ class ListingsCreateForm extends React.Component{
               style={this.pageIndex === 2 ? { display: "block" } : { display: "none" }}
               className="listing-address-bg">
                 <div className="listing-box">
+                  <h2>Confirm your address</h2>
                   <div className="listing-info">
                     <div className="address">
                       <h5>Street</h5>
@@ -116,6 +117,7 @@ class ListingsCreateForm extends React.Component{
           }
         { this.state.price === "" ? "" : <button className="finish-button" type="submit">Finish</button>}
         
+
           <div className="buttons">
             <button onClick={() => this.subPageIndex()}>Back</button>
             <div></div>
