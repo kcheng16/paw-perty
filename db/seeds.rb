@@ -11,10 +11,10 @@
 # Listing.destroy_all
 
 user1 = User.create(username: 'demo', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!')
-user2 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password', email: '1@pawpertymail.com', bio: "bio1" )
-user3 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password', email: '2@pawpertymail.com', bio: "bio2")
-user4 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password', email: '3@pawpertymail.com', bio: "bio3")
-user5 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password', email: '4@pawpertymail.com', bio: "bio4")
+# user2 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password', email: '1@pawpertymail.com', bio: "bio1" )
+# user3 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password', email: '2@pawpertymail.com', bio: "bio2")
+# user4 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password', email: '3@pawpertymail.com', bio: "bio3")
+# user5 = User.create(username: Faker::Movies::HarryPotter.character, password: 'password', email: '4@pawpertymail.com', bio: "bio4")
 
 listing1 = Listing.create([
   {
