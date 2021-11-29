@@ -21,7 +21,7 @@ class ListingsShow extends React.Component{
               onClick={() => 
                 {this.props.deleteListing(this.props.listing.id); 
                 this.props.history.push("/listings")}}>
-              Delete Listing</button>) : ("")
+          Delete Listing</button>) : ("")
         }
 
         <h1 className="listing-title">{this.props.listing.title}</h1>
@@ -30,7 +30,7 @@ class ListingsShow extends React.Component{
         <div className="listing-images">
           <img className="images-1" src={this.props.listing.images[0]} alt="" />
           <div className="images-4">
-            {this.props.listing.images.slice(1, 4).map((imageURL, idx) => 
+            {this.props.listing.images.slice(1, 5).map((imageURL, idx) => 
               <img key={idx} src={`${imageURL}`} />
             )}
           </div>

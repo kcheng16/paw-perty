@@ -956,7 +956,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         alt: ""
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "images-4"
-      }, this.props.listing.images.slice(1, 4).map(function (imageURL, idx) {
+      }, this.props.listing.images.slice(1, 5).map(function (imageURL, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           key: idx,
           src: "".concat(imageURL)
