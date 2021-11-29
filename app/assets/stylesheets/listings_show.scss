@@ -71,6 +71,10 @@
 .listing-info{
   display: flex;
 
+  .price{
+    padding-bottom: 2vh;
+    font-size: 2.5vh;
+  }
 
   .listing-info2 {
     font-size: 1.2vw;
@@ -136,7 +140,6 @@
           border-right: 1px solid gray;
           width: 5vw;
         }
-
       }
 
       .select-guests{
@@ -145,9 +148,28 @@
       }
     }
 
-    .price{
-      padding-bottom: 2vh;
-      font-size: 2.5vh;
+      .reserve-button{
+        margin: 1vw;
+        padding: 0.7vw;
+        border-radius: 10px;
+        width: 9vw;
+        background-color: rgb(255, 56, 92);
+        text-align: center;
+        color: white;
+        font-size: 0.8vw;
+        font-weight: bold;
+      }
+  }
+
+    .line {
+      width: 12vw;
+      margin-left: 7vw;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-evenly;
     }
   }
 }
+
