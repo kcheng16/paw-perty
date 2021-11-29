@@ -10,7 +10,7 @@ const mSTP = (state,ownProps) =>({
 
 const mDTP = (dispatch) => ({
   requestListing: listingId => dispatch(requestListing(listingId)),
-  deleteListing: (listingId) => dispatch(deleteListing(listingId))
+  deleteListing: listingId => dispatch(deleteListing(listingId))
 })
 
 export default withRouter(connect(mSTP, mDTP)(ListingsShow))

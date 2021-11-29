@@ -1,14 +1,16 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-import { updateListing, clearErrors } from "../../actions/listing_actions";
+import { requestListing, updateListing, clearErrors } from "../../actions/listing_actions";
 import ListingEditComponent from "./listings_edit_component";
 
 const mSTP = (state, ownProps) => ({
   sessionId: state.session.id,
-  errors: state.errors.listing
+  errors: state.errors.listing,
+  listing: state.entities.listings[ownProps.match.params.id]
 })
 
 const mDTP = dispatch => ({
+  requestListing: listingId => dispatch(requestListing(listingId)),
   updateListing: listing => dispatch(updateListing(listing)),
   clearErrors: () => dispatch(clearErrors())
 })

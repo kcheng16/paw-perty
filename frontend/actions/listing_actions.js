@@ -51,7 +51,8 @@ export const createListing = (listing) => dispatch => (
 
 export const updateListing = (listing) => dispatch => (
   listingApiUtil.updateListing(listing)
-    .then(listing => dispatch(receiveListing(listing)))
+    .then(listing => dispatch(receiveListing(listing)),
+    errors => dispatch(receiveErrors(errors)))
 )
 
 export const deleteListing = (listingId) => dispatch => (

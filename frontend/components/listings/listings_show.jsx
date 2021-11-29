@@ -16,12 +16,22 @@ class ListingsShow extends React.Component{
       <div className="show-page"> 
         {/* need to add edit posting */}
         {this.props.listing.host_id === this.props.session.id ?
-          (<button 
-              className="delete-button"
+          (<div>
+            <button 
+              className="update-button"
               onClick={() => 
-                {this.props.deleteListing(this.props.listing.id); 
-                this.props.history.push("/listings")}}>
-          Delete Listing</button>) : ("")
+                this.props.history.push(`/listings/${this.props.listing.id}/edit`)}> 
+              Update Listing
+            </button>
+
+            <button 
+                className="delete-button"
+                onClick={() => 
+                  {this.props.deleteListing(this.props.listing.id); 
+                  this.props.history.push("/listings")}}>
+                Delete Listing
+            </button>
+          </div>) : ("")
         }
 
         <h1 className="listing-title">{this.props.listing.title}</h1>

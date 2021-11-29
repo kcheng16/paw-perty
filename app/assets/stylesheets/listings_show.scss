@@ -4,12 +4,23 @@
   margin-left: 20vw;
   margin-right: 20vw;
 
+  .update-button{
+    background-color: rgb(99, 99, 99);
+    border-radius: 10px;
+    font-size: 1vw;
+    position: absolute;
+    left: 63vw;
+    color: white;
+    width: 7vw;
+    height: 4vh;
+    text-align: center;
+  }
   .delete-button{
     background-color: rgb(99, 99, 99);
     border-radius: 10px;
     font-size: 1vw;
     position: absolute;
-    left: 73vw;
+    left: 71vw;
     color: white;
     width: 7vw;
     height: 4vh;
