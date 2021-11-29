@@ -78,19 +78,27 @@ class ListingsCreateForm extends React.Component{
           {/* LCOCATION */}
             <div 
               style={this.pageIndex === 2 ? { display: "block" } : { display: "none" }}
-              className="listing-street-address">
-                Street Address
-              <textarea onChange={this.update('street_address')} name='listing-street_address' type="text" value={this.state.street_address}/>
-            
-              <label className="listing-city" htmlFor="listing-city">City
-                <textarea onChange={this.update('city')} name='listing-city' type="text" value={this.state.city}/>
-              </label>
-              <label className="listing-postal-code" htmlFor="listing-postal_code">Zip Code
-                <textarea onChange={this.update('postal_code')} name='listing-postal_code' type="text" value={this.state.postal_code}/>
-              </label>
-              <label className="listing-country" htmlFor="listing-country">Country/Region
-                <textarea onChange={this.update('country')} name='listing-country' type="text" value={this.state.country}/>
-              </label>
+              className="listing-address-bg">
+                <div className="listing-box">
+                  <div className="listing-info">
+                    <div className="address">
+                      <h5>Street</h5>
+                      <input onChange={this.update('street_address')} name='listing-street_address' type="text" value={this.state.street_address}/>
+                    </div>
+                    <div className="city">
+                      <h5>City</h5>
+                      <input onChange={this.update('city')} name='listing-city' type="text" value={this.state.city}/>
+                    </div>
+                    <div className="postal-code">
+                      <h5>Zip Code</h5>
+                      <input onChange={this.update('postal_code')} name='listing-postal_code' type="text" value={this.state.postal_code}/>
+                    </div>
+                    <div className="country">
+                      <h5>Country/Region</h5>
+                      <input onChange={this.update('country')} name='listing-country' type="text" value={this.state.country}/>
+                    </div>
+                  </div>
+              </div>
             </div>
           {/* GUESTS */}
           <label className="listing-num_of_beds" htmlFor="listing-num_of_beds">Number of dogs you can take in
