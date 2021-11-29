@@ -148,17 +148,17 @@
       }
     }
 
-      .reserve-button{
-        margin: 1vw;
-        padding: 0.7vw;
-        border-radius: 10px;
-        width: 9vw;
-        background-color: rgb(255, 56, 92);
-        text-align: center;
-        color: white;
-        font-size: 0.8vw;
-        font-weight: bold;
-      }
+    .reserve-button{
+      margin: 1vw;
+      padding: 0.7vw;
+      border-radius: 10px;
+      width: 9vw;
+      background-color: rgb(255, 56, 92);
+      text-align: center;
+      color: white;
+      font-size: 0.8vw;
+      font-weight: bold;
+    }
   }
 
     .line {
@@ -168,8 +168,9 @@
 
     .total {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
+      width: 10vw;
     }
-  }
 }
+
 
