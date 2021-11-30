@@ -13,9 +13,11 @@
     
     > h1{
       background-image: linear-gradient(#E61E4D 5.66%, #3B07BB 94.35%);
-      text-shadow: 1px 1px 0px #1b1b1b;
-
+      background-size: cover;
+      background-repeat: no-repeat;
+    
       color: white;
+      text-shadow: 1px 1px 0px #1b1b1b;
       font-weight: 600;
       font-size: 2vw;
       padding: 3vw;

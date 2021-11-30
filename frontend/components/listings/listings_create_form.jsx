@@ -19,6 +19,11 @@ class ListingsCreateForm extends React.Component{
         pageIndex: 0
       }
     }
+    this.style1 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)`}
+    this.style2 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638257975/alvan-nee-T-0EW-SEbsE-unsplash_jlyvgo.jpg)`}
+    this.style3 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638259085/chris-osmond-v3vQRPbiwL8-unsplash_kp9gzl.jpg)`}
+    this.style4 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638258964/hannah-lim-U6nlG0Y5sfs-unsplash_rdz9wu.jpg)`}
+    this.style5 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638258925/avi-naim-JfpjgnVhpmM-unsplash_g4eovt.jpg)`}
     this.num1 = Math.floor(Math.random() * 30) + 1
     this.num2 = Math.floor(Math.random() * 100) + 30
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -85,11 +90,11 @@ class ListingsCreateForm extends React.Component{
       <div className="listings-create">
         <div className="sidebar">
           <div className="sidebar-bg">
-            <h1 style={this.state.localState.pageIndex === 0 ? { display: "block" } : { display: "none" }}>Let's give your place a name</h1>
-            <h1 style={this.state.localState.pageIndex === 1 ? { display: "block" } : { display: "none" }}>Now, let's describe your place</h1>
-            <h1 style={this.state.localState.pageIndex === 2 ? { display: "block" } : { display: "none" }}>Where's your place located?</h1>
-            <h1 style={this.state.localState.pageIndex === 3 ? { display: "block" } : { display: "none" }}>How many dogs would you like to welcome?</h1>
-            <h1 style={this.state.localState.pageIndex === 4 ? { display: "block" } : { display: "none" }}>Now for the fun part - set your price</h1>
+            <h1 style={this.state.localState.pageIndex === 0 ? this.style1 : { display: "none" }}>Let's give your place a name</h1>
+            <h1 style={this.state.localState.pageIndex === 1 ? this.style2 : { display: "none" }}>Now, let's describe your place</h1>
+            <h1 style={this.state.localState.pageIndex === 2 ? this.style3 : { display: "none" }}>Where's your place located?</h1>
+            <h1 style={this.state.localState.pageIndex === 3 ? this.style4 : { display: "none" }}>How many dogs would you like to welcome?</h1>
+            <h1 style={this.state.localState.pageIndex === 4 ? this.style5 : { display: "none" }}>Now for the fun part - set your price</h1>
           </div>
         </div>
 
