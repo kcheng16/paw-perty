@@ -13,7 +13,7 @@ class ListingsCreateForm extends React.Component{
       country: "",
       longitude: "37.798967",
       latitude: "-122.403546",
-      price: "",
+      price: 0,
       num_of_beds: 0,
       localState: {
         pageIndex: 0
@@ -161,7 +161,7 @@ class ListingsCreateForm extends React.Component{
             >
               <div className="price-counter">
                 <div id="subtract" onClick={() => this.subPrice()}>&#8722;</div>
-                <div>{this.price}</div>
+                <div>{this.state.price}</div>
                 <div id="add" onClick={() => this.addPrice()}>&#43;</div>
               </div>
               

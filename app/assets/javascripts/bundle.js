@@ -461,7 +461,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       country: "",
       longitude: "37.798967",
       latitude: "-122.403546",
-      price: "",
+      price: 0,
       num_of_beds: 0,
       localState: {
         pageIndex: 0
@@ -697,7 +697,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this4.subPrice();
         }
-      }, "\u2212"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "\u2212"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "add",
         onClick: function onClick() {
           return _this4.addPrice();
