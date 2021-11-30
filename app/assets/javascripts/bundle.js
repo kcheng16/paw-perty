@@ -458,8 +458,9 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       longitude: "37.798967",
       latitude: "-122.403546",
       price: "",
-      num_of_beds: ""
+      num_of_beds: 0
     };
+    _this.dogCount = 0;
     _this.pageIndex = 0;
     _this.num1 = Math.floor(Math.random() * 30) + 1;
     _this.num2 = Math.floor(Math.random() * 100) + 30;
@@ -502,6 +503,26 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       if (this.pageIndex > 0) this.pageIndex--;
     }
   }, {
+    key: "addDogs",
+    value: function addDogs() {
+      if (this.dogCount < 10) {
+        this.dogCount++;
+        this.setState({
+          num_of_beds: this.dogCount
+        });
+      }
+    }
+  }, {
+    key: "subDogs",
+    value: function subDogs() {
+      if (this.dogCount > 0) {
+        --this.dogCount;
+        this.setState({
+          num_of_beds: this.dogCount
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this4 = this;
@@ -524,7 +545,25 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         } : {
           display: "none"
         }
-      }, "Now, let's describe your place"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Where's your place located?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "How many pets can you watch?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Now for the fun part - set your price"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+      }, "Now, let's describe your place"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+        style: this.pageIndex === 2 ? {
+          display: "block"
+        } : {
+          display: "none"
+        }
+      }, "Where's your place located?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+        style: this.pageIndex === 3 ? {
+          display: "block"
+        } : {
+          display: "none"
+        }
+      }, "How many dogs would you like to welcome?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+        style: this.pageIndex === 4 ? {
+          display: "block"
+        } : {
+          display: "none"
+        }
+      }, "Now for the fun part - set your price"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "listings-new-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -592,15 +631,24 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         name: "listing-country",
         type: "text",
         value: this.state.country
-      }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-        className: "listing-num_of_beds",
-        htmlFor: "listing-num_of_beds"
-      }, "Number of dogs you can take in", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
-        onChange: this.update('num_of_beds'),
-        name: "listing-num_of_beds",
-        type: "text",
-        value: this.state.num_of_beds
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
+      }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        style: this.pageIndex === 3 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        className: "add-guest"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Dogs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "dog-count"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        onClick: function onClick() {
+          return _this4.subDogs();
+        }
+      }, "\u2212"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.num_of_beds), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        onClick: function onClick() {
+          return _this4.addDogs();
+        }
+      }, "+"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         className: "cost-input",
         onChange: this.update('price'),
         type: "text",
