@@ -107,6 +107,10 @@
           font-weight: 100;
           color: #4e4e4e;
         }
+
+        >input{
+          width: inherit;
+        }
       }
       
       >div:last-child{
