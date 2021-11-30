@@ -412,6 +412,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -458,11 +462,11 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       longitude: "37.798967",
       latitude: "-122.403546",
       price: "",
-      num_of_beds: 0
+      num_of_beds: 0,
+      localState: {
+        pageIndex: 0
+      }
     };
-    _this.price = 0;
-    _this.dogCount = 0;
-    _this.pageIndex = 0;
     _this.num1 = Math.floor(Math.random() * 30) + 1;
     _this.num2 = Math.floor(Math.random() * 100) + 30;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -496,48 +500,56 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "addPageIndex",
     value: function addPageIndex() {
-      if (this.pageIndex < 5) this.pageIndex++;
+      if (this.state.localState.pageIndex < 5) {
+        this.setState(_objectSpread(_objectSpread({}, this.state), {}, {
+          localState: _objectSpread(_objectSpread({}, this.state.localState), {}, {
+            pageIndex: this.state.localState.pageIndex + 1
+          })
+        }));
+      }
     }
   }, {
     key: "subPageIndex",
     value: function subPageIndex() {
-      if (this.pageIndex > 0) this.pageIndex--;
+      if (this.state.localState.pageIndex > 0) {
+        this.setState(_objectSpread(_objectSpread({}, this.state), {}, {
+          localState: _objectSpread(_objectSpread({}, this.state.localState), {}, {
+            pageIndex: this.state.localState.pageIndex - 1
+          })
+        }));
+      }
     }
   }, {
     key: "addDogs",
     value: function addDogs() {
-      if (this.dogCount < 10) {
-        this.dogCount++;
+      if (this.state.num_of_beds < 10) {
         this.setState({
-          num_of_beds: this.dogCount
+          num_of_beds: this.state.num_of_beds + 1
         });
       }
     }
   }, {
     key: "subDogs",
     value: function subDogs() {
-      if (this.dogCount > 0) {
-        --this.dogCount;
+      if (this.state.num_of_beds > 0) {
         this.setState({
-          num_of_beds: this.dogCount
+          num_of_beds: this.state.num_of_beds - 1
         });
       }
     }
   }, {
     key: "addPrice",
     value: function addPrice() {
-      this.price++;
       this.setState({
-        price: this.price
+        price: this.state.price + 1
       });
     }
   }, {
     key: "subPrice",
     value: function subPrice() {
-      if (this.price > 0) {
-        --this.price;
+      if (this.state.price > 0) {
         this.setState({
-          price: this.price
+          price: this.state.price - 1
         });
       }
     }
@@ -553,40 +565,42 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "sidebar-bg"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-        style: this.pageIndex === 0 ? {
+        style: this.state.localState.pageIndex === 0 ? {
           display: "block"
         } : {
           display: "none"
         }
       }, "Let's give your place a name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-        style: this.pageIndex === 1 ? {
+        style: this.state.localState.pageIndex === 1 ? {
           display: "block"
         } : {
           display: "none"
         }
       }, "Now, let's describe your place"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-        style: this.pageIndex === 2 ? {
+        style: this.state.localState.pageIndex === 2 ? {
           display: "block"
         } : {
           display: "none"
         }
       }, "Where's your place located?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-        style: this.pageIndex === 3 ? {
+        style: this.state.localState.pageIndex === 3 ? {
           display: "block"
         } : {
           display: "none"
         }
       }, "How many dogs would you like to welcome?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-        style: this.pageIndex === 4 ? {
+        style: this.state.localState.pageIndex === 4 ? {
           display: "block"
         } : {
           display: "none"
         }
       }, "Now for the fun part - set your price"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-        onSubmit: this.handleSubmit,
+        onSubmit: function onSubmit(e) {
+          return e.preventDefault();
+        },
         className: "listings-new-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        style: this.pageIndex === 0 ? {
+        style: this.state.localState.pageIndex === 0 ? {
           display: "block"
         } : {
           display: "none"
@@ -599,7 +613,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "Relax your paws with us!",
         value: this.state.title
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        style: this.pageIndex === 1 ? {
+        style: this.state.localState.pageIndex === 1 ? {
           display: "block"
         } : {
           display: "none"
@@ -612,7 +626,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "We provide pacious area for zoomies, and natural delicious treats. ",
         value: this.state.description
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        style: this.pageIndex === 2 ? {
+        style: this.state.localState.pageIndex === 2 ? {
           display: "block"
         } : {
           display: "none"
@@ -651,7 +665,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: this.state.country
       }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        style: this.pageIndex === 3 ? {
+        style: this.state.localState.pageIndex === 3 ? {
           display: "grid"
         } : {
           display: "none"
@@ -670,7 +684,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
           return _this4.addDogs();
         }
       }, "+"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        style: this.pageIndex === 4 ? {
+        style: this.state.localState.pageIndex === 4 ? {
           display: "flex"
         } : {
           display: "none"
@@ -699,18 +713,14 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
           return _this4.subPageIndex();
         }
       }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        style: this.pageIndex === 4 ? {
-          display: "none"
-        } : {
-          display: ""
-        },
-        onClick: function onClick() {
-          return _this4.addPageIndex();
+        onClick: function onClick(e) {
+          if (_this4.state.localState.pageIndex !== 4) {
+            _this4.addPageIndex();
+          } else {
+            _this4.handleSubmit(e);
+          }
         }
-      }, "Next"))), this.state.price === "" ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "finish-button",
-        type: "submit"
-      }, "Finish")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      }, this.state.localState.pageIndex !== 4 ? "Next" : "Submit")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "listing-create-errors"
       }, Array.isArray(this.props.errors) ? this.props.errors.map(function (error, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {

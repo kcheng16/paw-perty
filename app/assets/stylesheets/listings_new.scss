@@ -201,7 +201,7 @@
   justify-content: space-between;
   position: fixed;
   top: 91vh;
-  padding-left: 6vw;
+  padding-left: 4vw;
 
   >div{
     width: 33vw;
@@ -217,7 +217,7 @@
     border-radius: 8px;
     background-color: rgb(0, 0, 0);
     color: white;
-    width: 3vw;
+    width: 5vw;
     text-align: center;
   }
 }
@@ -238,6 +238,9 @@
 }
 
 .listing-create-errors{
+  position: absolute;
+  top: 68vh;
+  left: 87vw;
   display: flex;
   flex-direction: column;
   color: red;

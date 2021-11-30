@@ -15,10 +15,10 @@ class ListingsCreateForm extends React.Component{
       latitude: "-122.403546",
       price: "",
       num_of_beds: 0,
+      localState: {
+        pageIndex: 0
+      }
     }
-    this.price = 0;
-    this.dogCount = 0;
-    this.pageIndex = 0;
     this.num1 = Math.floor(Math.random() * 30) + 1
     this.num2 = Math.floor(Math.random() * 100) + 30
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,7 +26,6 @@ class ListingsCreateForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-
     this.props.createListing(this.state).then(
       (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
   }
@@ -40,35 +39,44 @@ class ListingsCreateForm extends React.Component{
   }
 
   addPageIndex(){
-    if (this.pageIndex < 5) this.pageIndex++
-  }
-
-  subPageIndex(){
-    if (this.pageIndex > 0) this.pageIndex--
-  }
-
-  addDogs(){
-    if (this.dogCount < 10) {
-      this.dogCount++
-      this.setState({num_of_beds: this.dogCount})
-  }}
-
-  subDogs(){
-    if (this.dogCount > 0){
-      --this.dogCount
-      this.setState({num_of_beds: this.dogCount})
+    if (this.state.localState.pageIndex < 5) {
+      this.setState({
+        ...this.state,
+        localState: {
+          ...this.state.localState,
+          pageIndex: (this.state.localState.pageIndex + 1)
+      }});
     }
   }
 
+  subPageIndex(){
+    if (this.state.localState.pageIndex > 0) {
+      this.setState({
+        ...this.state,
+        localState: {
+          ...this.state.localState,
+          pageIndex: (this.state.localState.pageIndex - 1)
+      }});
+    }
+  }
+
+  addDogs(){
+    if (this.state.num_of_beds < 10) {
+      this.setState({num_of_beds: this.state.num_of_beds + 1})
+  }}
+
+  subDogs(){
+    if (this.state.num_of_beds > 0) {
+      this.setState({num_of_beds: this.state.num_of_beds - 1})
+  }}
+
   addPrice(){
-    this.price++
-    this.setState({price: this.price})
+    this.setState({price: this.state.price + 1})
   }
 
   subPrice(){
-    if (this.price > 0) {
-      --this.price
-      this.setState({price: this.price})
+    if (this.state.price > 0) {
+      this.setState({price: this.state.price - 1})
     }
   }
 
@@ -77,18 +85,20 @@ class ListingsCreateForm extends React.Component{
       <div className="listings-create">
         <div className="sidebar">
           <div className="sidebar-bg">
-            <h1 style={this.pageIndex === 0 ? { display: "block" } : { display: "none" }}>Let's give your place a name</h1>
-            <h1 style={this.pageIndex === 1 ? { display: "block" } : { display: "none" }}>Now, let's describe your place</h1>
-            <h1 style={this.pageIndex === 2 ? { display: "block" } : { display: "none" }}>Where's your place located?</h1>
-            <h1 style={this.pageIndex === 3 ? { display: "block" } : { display: "none" }}>How many dogs would you like to welcome?</h1>
-            <h1 style={this.pageIndex === 4 ? { display: "block" } : { display: "none" }}>Now for the fun part - set your price</h1>
+            <h1 style={this.state.localState.pageIndex === 0 ? { display: "block" } : { display: "none" }}>Let's give your place a name</h1>
+            <h1 style={this.state.localState.pageIndex === 1 ? { display: "block" } : { display: "none" }}>Now, let's describe your place</h1>
+            <h1 style={this.state.localState.pageIndex === 2 ? { display: "block" } : { display: "none" }}>Where's your place located?</h1>
+            <h1 style={this.state.localState.pageIndex === 3 ? { display: "block" } : { display: "none" }}>How many dogs would you like to welcome?</h1>
+            <h1 style={this.state.localState.pageIndex === 4 ? { display: "block" } : { display: "none" }}>Now for the fun part - set your price</h1>
           </div>
         </div>
 
-        <form onSubmit={this.handleSubmit} className="listings-new-form">
+        <form 
+          onSubmit={(e)=> e.preventDefault()}
+          className="listings-new-form">
           {/* TITLE */}
           <div 
-            style={this.pageIndex === 0 ? { display: "block" } : { display: "none" }}
+            style={this.state.localState.pageIndex === 0 ? { display: "block" } : { display: "none" }}
             className="listing-title"
           >
               <h1>Create your title</h1>
@@ -97,7 +107,7 @@ class ListingsCreateForm extends React.Component{
 
           {/* DESCRIPTION */}
           <div 
-            style={this.pageIndex === 1 ? { display: "block" } : { display: "none" }}
+            style={this.state.localState.pageIndex === 1 ? { display: "block" } : { display: "none" }}
             className="listing-title">
               <h1>Create your description</h1>
               <textarea onChange={this.update('description')} name='listing-description' type="text" placeholder="We provide pacious area for zoomies, and natural delicious treats. " value={this.state.description}/>
@@ -105,7 +115,7 @@ class ListingsCreateForm extends React.Component{
 
           {/* LOCATION */}
             <div 
-              style={this.pageIndex === 2 ? { display: "block" } : { display: "none" }}
+              style={this.state.localState.pageIndex === 2 ? { display: "block" } : { display: "none" }}
               className="listing-address-bg"
             >
               <div className="listing-box">
@@ -132,7 +142,7 @@ class ListingsCreateForm extends React.Component{
             </div>
           {/* GUESTS */}
             <div 
-              style={this.pageIndex === 3 ? { display: "grid" } : { display: "none" }}
+              style={this.state.localState.pageIndex === 3 ? { display: "grid" } : { display: "none" }}
               className="add-guest"
             >
               <h1>Dogs</h1>
@@ -146,7 +156,7 @@ class ListingsCreateForm extends React.Component{
 
             {/* PRICE */}
             <div
-              style={this.pageIndex === 4 ? { display: "flex" } : { display: "none" }}
+              style={this.state.localState.pageIndex === 4 ? { display: "flex" } : { display: "none" }}
               className="price"
             >
               <div className="price-counter">
@@ -167,11 +177,18 @@ class ListingsCreateForm extends React.Component{
               <button onClick={() => this.subPageIndex()}>Back</button>
               <div></div>
               <button 
-                style={this.pageIndex === 4 ? { display: "none" } : { display: "" }}
-                onClick={() => this.addPageIndex()}>Next</button>
+                onClick={(e) => {
+                  if (this.state.localState.pageIndex !== 4 ) {
+                    this.addPageIndex();
+                  } else {
+                    this.handleSubmit(e);
+                  }
+                }}
+              >
+                {this.state.localState.pageIndex !== 4 ? "Next" : "Submit"}
+              </button> 
             </div>
           </div>
-          {this.state.price === "" ? "" : <button className="finish-button" type="submit">Finish</button>}
         </form>
         
 
