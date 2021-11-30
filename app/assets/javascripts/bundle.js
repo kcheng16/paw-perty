@@ -633,7 +633,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.country
       }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         style: this.pageIndex === 3 ? {
-          display: "block"
+          display: "grid"
         } : {
           display: "none"
         },

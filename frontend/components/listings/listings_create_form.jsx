@@ -119,7 +119,7 @@ class ListingsCreateForm extends React.Component{
             </div>
           {/* GUESTS */}
             <div 
-              style={this.pageIndex === 3 ? { display: "block" } : { display: "none" }}
+              style={this.pageIndex === 3 ? { display: "grid" } : { display: "none" }}
               className="add-guest"
             >
               <h1>Dogs</h1>
