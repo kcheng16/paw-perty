@@ -460,6 +460,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       price: "",
       num_of_beds: 0
     };
+    _this.price = 0;
     _this.dogCount = 0;
     _this.pageIndex = 0;
     _this.num1 = Math.floor(Math.random() * 30) + 1;
@@ -519,6 +520,24 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         --this.dogCount;
         this.setState({
           num_of_beds: this.dogCount
+        });
+      }
+    }
+  }, {
+    key: "addPrice",
+    value: function addPrice() {
+      this.price++;
+      this.setState({
+        price: this.price
+      });
+    }
+  }, {
+    key: "subPrice",
+    value: function subPrice() {
+      if (this.price > 0) {
+        --this.price;
+        this.setState({
+          price: this.price
         });
       }
     }
@@ -641,38 +660,57 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Dogs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dog-count"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "subtract",
         onClick: function onClick() {
           return _this4.subDogs();
         }
       }, "\u2212"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.num_of_beds), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "add",
         onClick: function onClick() {
           return _this4.addDogs();
         }
-      }, "+"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
-        className: "cost-input",
-        onChange: this.update('price'),
-        type: "text",
-        value: this.state.price
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", {
-        className: "cost-per-night"
-      }, "Doge Coins per night"), this.state.num_of_beds === "" ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
-        className: "price-range1"
-      }, "Places like yours usually range"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
-        className: "price-range2"
-      }, "from ", this.num1, " to ", this.num2, " Doge Coins")), this.state.price === "" ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "finish-button",
-        type: "submit"
-      }, "Finish"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "+"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        style: this.pageIndex === 4 ? {
+          display: "flex"
+        } : {
+          display: "none"
+        },
+        className: "price"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "price-counter"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "subtract",
+        onClick: function onClick() {
+          return _this4.subPrice();
+        }
+      }, "\u2212"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "add",
+        onClick: function onClick() {
+          return _this4.addPrice();
+        }
+      }, "+")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "price-range"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "per night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Places like yours usually range from"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, this.num1, " to ", this.num2, " Doge Coins."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "buttons-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "buttons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this4.subPageIndex();
         }
       }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        style: this.pageIndex === 4 ? {
+          display: "none"
+        } : {
+          display: ""
+        },
         onClick: function onClick() {
           return _this4.addPageIndex();
         }
-      }, "Next"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      }, "Next"))), this.state.price === "" ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "finish-button",
+        type: "submit"
+      }, "Finish")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "listing-create-errors"
       }, Array.isArray(this.props.errors) ? this.props.errors.map(function (error, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {

@@ -16,6 +16,7 @@ class ListingsCreateForm extends React.Component{
       price: "",
       num_of_beds: 0,
     }
+    this.price = 0;
     this.dogCount = 0;
     this.pageIndex = 0;
     this.num1 = Math.floor(Math.random() * 30) + 1
@@ -56,6 +57,18 @@ class ListingsCreateForm extends React.Component{
     if (this.dogCount > 0){
       --this.dogCount
       this.setState({num_of_beds: this.dogCount})
+    }
+  }
+
+  addPrice(){
+    this.price++
+    this.setState({price: this.price})
+  }
+
+  subPrice(){
+    if (this.price > 0) {
+      --this.price
+      this.setState({price: this.price})
     }
   }
 
@@ -124,32 +137,41 @@ class ListingsCreateForm extends React.Component{
             >
               <h1>Dogs</h1>
               <div className="dog-count">
-                <div onClick={() => this.subDogs()}>&#8722;</div>
+                <div id="subtract" onClick={() => this.subDogs()}>&#8722;</div>
                 <div>{this.state.num_of_beds}</div>
-                <div onClick={() => this.addDogs()}>&#43;</div>
+                <div id="add" onClick={() => this.addDogs()}>&#43;</div>
               </div>
 
             </div>
+
             {/* PRICE */}
-            <textarea className="cost-input" onChange={this.update('price')} type="text" value={this.state.price} />
-            <h5 className="cost-per-night">Doge Coins per night</h5>
-
-            {this.state.num_of_beds === "" ? "" :
-              <> 
-                <h3 className="price-range1">Places like yours usually range</h3>
-                <h3 className="price-range2">from {this.num1} to {this.num2} Doge Coins</h3>
-              </>
-            }
-          
-        { this.state.price === "" ? "" : <button className="finish-button" type="submit">Finish</button>}
+            <div
+              style={this.pageIndex === 4 ? { display: "flex" } : { display: "none" }}
+              className="price"
+            >
+              <div className="price-counter">
+                <div id="subtract" onClick={() => this.subPrice()}>&#8722;</div>
+                <div>{this.price}</div>
+                <div id="add" onClick={() => this.addPrice()}>&#43;</div>
+              </div>
+              
+              <div className="price-range"> 
+                <h5>per night</h5>
+                <h3>Places like yours usually range from</h3>
+                <h3>{this.num1} to {this.num2} Doge Coins.</h3>
+              </div>
+            </div>
         
-
-          <div className="buttons">
-            <button onClick={() => this.subPageIndex()}>Back</button>
-            <div></div>
-            <button onClick={() => this.addPageIndex()}>Next</button>
+          <div className="buttons-container">
+            <div className="buttons">
+              <button onClick={() => this.subPageIndex()}>Back</button>
+              <div></div>
+              <button 
+                style={this.pageIndex === 4 ? { display: "none" } : { display: "" }}
+                onClick={() => this.addPageIndex()}>Next</button>
+            </div>
           </div>
-
+          {this.state.price === "" ? "" : <button className="finish-button" type="submit">Finish</button>}
         </form>
         
 

@@ -131,83 +131,77 @@
       >div{
         margin-right: 1vw;
       }
-      >div:first-child{
-        border: 1px solid black;
-        border-radius: 50%;
-        width: 1.5vw;
-        height: 3vh;
-        text-align: center;
-      }
-      >div:last-child{
-        border: 1px solid black;
-        border-radius: 50%;
-        width: 1.5vw;
-        height: 3vh;
-        text-align: center;
-      }
+      
     }
   }
 
-  .cost-input{
-    position: absolute;
-    top: 211vh;
-  }
+  .price{
+    flex-direction: column;
+    margin-top: 33vh;
+    margin-left: 10vw;
+    width: max-content;
 
-  .cost-per-night{
-    position: absolute;
-    top: 220vh;
-    font-family: sans-serif;
-    margin: 0;
-    margin-bottom: 8px;
-  }
+    .price-counter{
+      display: flex;
+      justify-content: space-between;
 
-  .price-range1{
-    position: absolute;
-    top: 228vh;
-    font-family: sans-serif;
-    text-align: center;
-    margin: 0;
-  }
-  .price-range2{
-    position: absolute;
-    top: 230vh;
-    font-family: sans-serif;
-    text-align: center;
-    margin: 0;
-  }
+      div:nth-child(2){
+        border: 1px solid gray;
+        font-weight: 600;
+        font-size: 3vw;
+        padding-left: 6vw;
+        padding-right: 6vw;
+        border-radius: 10px;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+      }
 
+      #subtract{
+        font-size: 1.5vw;
+        width: 2.5vw;
+        height: 4.5vh;
+        margin-top: 1vh;
+        padding-top: 0.5vh;
+        margin-right: 1vw;
+      }
+      #add{
+        font-size: 1.5vw;
+        width: 2.5vw;
+        height: 4.5vh;
+        margin-top: 1vh;
+        padding-top: 0.5vh;
+        margin-left: 1vw;
+      }
+
+    }
+
+    .price-range{
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0;
+
+      >h5{
+        font-size: 1vw;
+        font-weight: 100;
+        margin-top: 0;
+      }
+    }
+  }
 }
 
-.finish-button{
-  position: absolute;
-  top: 236vh;
-  left: 32vw;
-  font-family: sans-serif;
-  border: black solid 1px;
-  border-radius: 8px;
-  width: 5vw;
-  height: 4vh;
-  text-align: center;
-  font-weight: 600;
-  background-color: #f7477b;
+.buttons-container{
+  border-top: 1px solid gray;
+  width: -webkit-fill-available;
+  margin-top: 80vh;
+  margin-left: -5vw;
+  position: fixed;
 }
-
-.listing-create-errors{
-  position: absolute;
-  bottom: -139vh;
-  top: 222vh;
-  left: 86vw;
-  display: flex;
-  flex-direction: column;
-  color: red;
-  list-style: square;
-}
-
 .buttons{
   display: flex;
   justify-content: space-between;
   position: fixed;
   top: 91vh;
+  padding-left: 6vw;
 
   >div{
     width: 33vw;
@@ -216,14 +210,50 @@
   >button:first-child{
     text-decoration: underline;
     font-weight: 600;
+    padding: 1vw;
   }
 
   >button:last-child{
     border-radius: 8px;
-    padding: 1vw;
     background-color: rgb(0, 0, 0);
     color: white;
     width: 3vw;
     text-align: center;
   }
+}
+
+#subtract{
+  border: 1px solid gray;
+  border-radius: 50%;
+  width: 1.5vw;
+  height: 3vh;
+  text-align: center;
+}
+#add{
+  border: 1px solid gray;
+  border-radius: 50%;
+  width: 1.5vw;
+  height: 3vh;
+  text-align: center;
+}
+
+.listing-create-errors{
+  display: flex;
+  flex-direction: column;
+  color: red;
+  list-style: square;
+}
+
+.finish-button{
+  position: absolute;
+  top: 82.5vh;
+  left: 38vw;
+  font-family: sans-serif;
+  border: black solid 1px;
+  border-radius: 8px;
+  width: 5vw;
+  height: 5.5vh;
+  text-align: center;
+  font-weight: 600;
+  background-color: #f7477b;
 }
