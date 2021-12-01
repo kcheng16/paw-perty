@@ -38,11 +38,16 @@ class ListingsShow extends React.Component{
         <h1 className="listing-city">{this.props.listing.city}</h1>
 
         <div className="listing-images">
-          <img className="images-1" src={this.props.listing.images[0]} alt="" />
+          <img className="images-1" src={this.props.listing.images !== [] ? this.props.listing.images[0] : this.props.listing.photos[0]}/>
           <div className="images-4">
-            {this.props.listing.images.slice(1, 5).map((imageURL, idx) => 
+            {this.props.listing.images[0] ? 
+              (this.props.listing.images.slice(1, 5).map((imageURL, idx) => 
               <img key={idx} src={`${imageURL}`} />
-            )}
+              )) : (
+                this.props.listing.photos.map((img, idx) => 
+                <img src={img} key={idx}/>
+              ))
+            }
           </div>
         </div>
 

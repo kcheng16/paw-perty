@@ -1614,14 +1614,18 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         className: "listing-images"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "images-1",
-        src: this.props.listing.images[0],
-        alt: ""
+        src: this.props.listing.images !== [] ? this.props.listing.images[0] : this.props.listing.photos[0]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "images-4"
-      }, this.props.listing.images.slice(1, 5).map(function (imageURL, idx) {
+      }, this.props.listing.images[0] ? this.props.listing.images.slice(1, 5).map(function (imageURL, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           key: idx,
           src: "".concat(imageURL)
+        });
+      }) : this.props.listing.photos.map(function (img, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          src: img,
+          key: idx
         });
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listing-info"
@@ -2334,6 +2338,8 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
           _this2.props.logout();
 
           _this2.toggleDropdown();
+
+          _this2.props.history.push("/");
         },
         style: this.state.dropdownhidden ? {
           display: "none"
@@ -2602,7 +2608,7 @@ var UserShowComponent = /*#__PURE__*/function (_React$Component) {
           className: "user-listing"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           className: "user-listing-icon",
-          src: listing.images[0]
+          src: listing.images[0] ? listing.images[0] : listing.photos[0]
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "user-listing-title"
         }, listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {

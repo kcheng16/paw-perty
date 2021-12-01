@@ -31,7 +31,7 @@ class UserDropdown extends React.Component{
             <ul className="dropdown-list">
               <li
                 className="dropdown-list-item"
-                onClick={() => {this.props.history.push("/listings/new"); (this.toggleDropdown())}} 
+                onClick={() => {this.props.history.push("/listings/new"); this.toggleDropdown()}} 
                 style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
                 Host your home
               </li>
@@ -43,7 +43,7 @@ class UserDropdown extends React.Component{
               </li>
               <li
                 className="dropdown-list-item"
-                onClick={() => {this.props.logout(); (this.toggleDropdown())}} 
+                onClick={() => {this.props.logout(); this.toggleDropdown(); this.props.history.push("/")}} 
                 style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
                 Logout
               </li>

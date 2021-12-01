@@ -75,7 +75,7 @@ class UserShowComponent extends React.Component{
               <Link key={idx} to={`/listings/${listing.id}`}>
                   <div key={idx} className="user-listing">
                                         {/* NEEED ROUTE TO EDIT LISTINGS */}
-                      <img className="user-listing-icon" src={listing.images[0]}/>
+                      <img className="user-listing-icon" src={listing.images[0] ? listing.images[0] : listing.photos[0]}/>
                     
                     <div className="user-listing-title">{listing.title}</div>
                     <div className="user-listing-address">
