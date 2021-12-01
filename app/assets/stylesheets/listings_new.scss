@@ -267,3 +267,19 @@
   font-weight: 600;
   background-color: #f7477b;
 }
+
+.photos{
+  display: flex;
+  margin-top: 30vh;
+
+  .inner-photo{
+    display: flex;
+    flex-direction: column;
+
+    h1{
+      font-weight: 600;
+      font-size: 1vw;
+      margin: 1vw;
+    }
+  }
+}

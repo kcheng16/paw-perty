@@ -21,6 +21,7 @@ class ListingsCreateForm extends React.Component{
       },
       photoFile: []
     }
+    this.photos = [];
     this.style1 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)`}
     this.style2 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638257975/alvan-nee-T-0EW-SEbsE-unsplash_jlyvgo.jpg)`}
     this.style3 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638259085/chris-osmond-v3vQRPbiwL8-unsplash_kp9gzl.jpg)`}
@@ -31,6 +32,7 @@ class ListingsCreateForm extends React.Component{
     this.num1 = Math.floor(Math.random() * 30) + 1
     this.num2 = Math.floor(Math.random() * 100) + 30
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleFile = this.handleFile.bind(this)
   }
 
 
@@ -60,6 +62,13 @@ class ListingsCreateForm extends React.Component{
     this.props.createListing(formData).then(
       (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
 
+  }
+  
+  handleFile(e){
+    this.photos.push(e.currentTarget.files)
+    this.setState({photoFile: [...this.state.photoFile, e.currentTarget.files]})
+    console.log(this.photos)
+    console.log(this.photos[0][0].name)
   }
 
   update(field){
@@ -112,9 +121,6 @@ class ListingsCreateForm extends React.Component{
     }
   }
 
-  handleFile(e){
-    this.setState({photoFile: e.currentTarget.files})
-  }
 
   render(){
     return(
@@ -191,18 +197,23 @@ class ListingsCreateForm extends React.Component{
               </div>
             </div>
 
-            {/* Photos */}
+            {/* PHOTOS */}
             <div 
-              style={this.state.localState.pageIndex === 4 ? { display: "grid" } : { display: "none" }}
+              style={this.state.localState.pageIndex === 4 ? { display: "flex" } : { display: "none" }}
               className="photos"
             >
               <div className="inner-photo">
                 <h1>Add up to 5 photos</h1>
                 <input
                   type="file"
-                  onChange={this.handleFile.bind(this)}
+                  onChange={e => this.handleFile(e)}
                   multiple
                 />
+                {this.photos.map((photo, idx) => 
+                  <div key={idx}>
+                    {photo[0].name}
+                  </div>
+                  )}
               </div>
             </div>
             {/* PRICE */}
@@ -229,7 +240,7 @@ class ListingsCreateForm extends React.Component{
               <div></div>
               <button 
                 onClick={(e) => {
-                  if (this.state.localState.pageIndex !== 4 ) {
+                  if (this.state.localState.pageIndex !== 5 ) {
                     this.addPageIndex();
                   } else {
                     this.handleSubmit(e);
