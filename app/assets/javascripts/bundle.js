@@ -741,7 +741,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         className: "photos"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "inner-photo"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Add up to 5 photos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Add photos here!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "file",
         onChange: function onChange(e) {
           return _this4.handleFile(e);
@@ -1155,18 +1155,20 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         className: "photos"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "inner-photo"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Add up to 5 photos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Add photos here!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "file",
         onChange: function onChange(e) {
           return _this4.handleFile(e);
         },
         multiple: true
-      }), this.state.photos.map(function (photo, idx) {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "imgs"
+      }, this.state.photos.map(function (photo, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           key: idx,
           src: photo
         });
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         style: this.state.localState.pageIndex === 5 ? {
           display: "flex"
         } : {

@@ -200,7 +200,7 @@ class ListingsCreateForm extends React.Component{
               className="photos"
             >
               <div className="inner-photo">
-                <h1>Add up to 5 photos</h1>
+                <h1>Add photos here!</h1>
                 <input
                   type="file"
                   onChange={e => this.handleFile(e)}

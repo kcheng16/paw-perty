@@ -270,7 +270,7 @@
 
 .photos{
   display: flex;
-  margin-top: 30vh;
+  margin-top: 10vh;
 
   .inner-photo{
     display: flex;
@@ -280,6 +280,16 @@
       font-weight: 600;
       font-size: 1vw;
       margin: 1vw;
+    }
+
+    .imgs{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      >img{
+        width: 10vw;
+        height: 10vh;
+      }
     }
   }
 }

@@ -201,19 +201,27 @@ console.log(this.state)
               className="photos"
             >
               <div className="inner-photo">
-                <h1>Add up to 5 photos</h1>
+                <h1>Add photos here!</h1>
                 <input
                   type="file"
                   onChange={e => this.handleFile(e)}
                   multiple
                 />
-                {this.state.photos.map((photo, idx) => 
-                  <img 
-                    key={idx}
-                    src={photo}
-                  >
-                  </img>
-                  )}
+                <div className="imgs">
+                  {this.state.photos.map((photo, idx) => 
+                    <img 
+                      key={idx}
+                      src={photo}
+                    >
+                    </img>
+                    )}
+                </div>
+                {/* <button 
+                  className="delete-img"
+                  onClick={() => this.setState({photoFile: []})}
+                >
+                  Delete images
+                </button> */}
               </div>
             </div>
             {/* PRICE */}
