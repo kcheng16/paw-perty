@@ -28,3 +28,7 @@
 @import "./listings_index.scss";
 @import "./listings_show.scss";
 @import "./listings_new.scss";
+
+.sidebar-bg > input {
+  position: absolute;
+}

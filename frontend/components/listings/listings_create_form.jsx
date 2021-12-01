@@ -1,3 +1,4 @@
+import { $dataMetaSchema } from "ajv";
 import React from "react";
 
 class ListingsCreateForm extends React.Component{
@@ -17,7 +18,8 @@ class ListingsCreateForm extends React.Component{
       num_of_beds: 0,
       localState: {
         pageIndex: 0
-      }
+      },
+      photoFile: []
     }
     this.style1 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)`}
     this.style2 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638257975/alvan-nee-T-0EW-SEbsE-unsplash_jlyvgo.jpg)`}
@@ -29,10 +31,46 @@ class ListingsCreateForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  debugger
   handleSubmit(e){
+    console.log("handle-submit")
     e.preventDefault();
-    this.props.createListing(this.state).then(
-      (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
+
+    const formData = new FormData();
+          formData.append("listing[host_id]", this.state.host_id);
+          formData.append("listing[title]", this.state.title);
+          formData.append("listing[description]", this.state.description);
+          formData.append("listing[street_address]", this.state.street_address);
+          formData.append("listing[city]", this.state.city);
+          formData.append("listing[country]", this.state.country);
+          formData.append("listing[price]", this.state.price);
+          formData.append("listing[num_of_beds]", this.state.num_of_beds);
+          formData.append("listing[longitude]", this.state.longitude);
+          formData.append("listing[latitude]", this.state.latitude);
+          formData.append("listing[postal_code]", this.state.postal_code);
+          // formData.append("listing[photos]", this.state.photoFile[0]);
+
+    if (this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
+      for (let i = 0; i < this.state.photoFile.length; i++) {
+        formData.append("listing[photos][]", this.state.photoFile[i]);
+      }
+    }
+      this.props.createListing(formData).then(
+        (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
+
+    // $.ajax({
+    //   url: '/api/listings',
+    //   method: "POST",
+    //   data: formData,
+    //   contentType: false,
+    //   processData: false
+    // }).then(
+    //   response => console.log("worked"),
+    //   response => console.log(response.responseJSON)
+    // )
+
+    // this.props.createListing(this.state)
+    // .then( (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
   }
 
   update(field){
@@ -85,11 +123,20 @@ class ListingsCreateForm extends React.Component{
     }
   }
 
+  handleFile(e){
+    this.setState({photoFile: e.currentTarget.files})
+  }
+
   render(){
     return(
       <div className="listings-create">
         <div className="sidebar">
           <div className="sidebar-bg">
+          <input
+            type="file"
+            onChange={this.handleFile.bind(this)}
+            multiple
+          />
             <h1 style={this.state.localState.pageIndex === 0 ? this.style1 : { display: "none" }}>Let's give your place a name</h1>
             <h1 style={this.state.localState.pageIndex === 1 ? this.style2 : { display: "none" }}>Now, let's describe your place</h1>
             <h1 style={this.state.localState.pageIndex === 2 ? this.style3 : { display: "none" }}>Where's your place located?</h1>
