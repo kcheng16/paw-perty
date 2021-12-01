@@ -56,6 +56,36 @@ class ListingsShow extends React.Component{
             <div>Loving home hosted by {this.props.listing.host_name}</div>
             <div>Hosts up to {this.props.listing.num_of_beds} dog/s</div>
             <div className="line"></div>
+            <div className="icons">
+              <div className="icon1">
+                <i className="fas fa-home"></i>
+                <div>
+                  <h5>Your dog will have access to the whole home</h5>
+                  <h7>Free to roam inside or out.</h7>
+                </div>
+              </div>
+              <div className="icon2">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <h5>Scheduled meal times</h5>
+                  <h7>The Host committed to Paw-perty's 5-step food service process.</h7>
+                </div>
+              </div>
+              <div className="icon3">
+                <i class="fas fa-eye"></i>
+                <div>
+                  <h5>24-hour supervision</h5>
+                  <h7>Make sure they're always playing safe.</h7>
+                </div>
+              </div>
+              <div className="icon4">
+                <i class="fas fa-calendar"></i>
+                <div>
+                  <h5>Free cancellation for 48 hours</h5>
+                </div>
+              </div>
+            </div>
+            <div className="line"></div>
             <div>{this.props.listing.description}</div>
           </div>
           

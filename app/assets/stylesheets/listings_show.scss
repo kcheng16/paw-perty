@@ -38,7 +38,7 @@
   display: flex;
 
   .images-1{
-    width: 590vw;
+    width: 28vw;
     height: 61vh;
     object-fit: cover;
     padding-right: 0.5vw;
@@ -104,6 +104,41 @@
     div:last-child{
       font-size: 1vw;
       font-weight: 100;
+    }
+  }
+
+  .icons > div{
+    display: flex;
+    margin: -38px;
+    margin-left: 0;
+
+    i{
+      padding-top: 1.5vw;
+    }
+
+      >div{
+        display: flex;
+        flex-direction: column;
+        padding-left: 1vw;
+
+      >h5{
+        font-size: 0.9vw;
+        margin-bottom: 0vh;
+        margin-top: 2vh;
+      }
+      
+      >h7{
+        font-size: 0.8vw;
+        color: gray;
+      }
+    }
+  }
+
+  .icons > div:last-child{
+    margin-bottom: 0;
+
+    >div>h5{
+      margin-left: 0.5vw;
     }
   }
 
