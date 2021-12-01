@@ -31,6 +31,7 @@ class Api::ListingsController < ApplicationController
   end
 
   def create
+    debugger
     @listing = Listing.new(listing_params)
     
     if @listing.save
@@ -41,7 +42,7 @@ class Api::ListingsController < ApplicationController
   end
 
   def show
-    @listing = Listing.find_by(id: params[:id])
+    @listing = Listing.with_attached_photos.find_by(id: params[:id])
   end
 
   def update
@@ -65,6 +66,20 @@ class Api::ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:host_id, :title, :description, :street_address, :city, :postal_code, :country, :longitude, :latitude, :price, :num_of_beds, photos: [])
+    params.require(:listing).permit(
+      :host_id, 
+      :title, 
+      :description, 
+      :street_address, 
+      :city, 
+      :postal_code, 
+      :country, 
+      :longitude, 
+      :latitude, 
+      :price, 
+      :num_of_beds, 
+      photos: []
+    )
   end
+
 end

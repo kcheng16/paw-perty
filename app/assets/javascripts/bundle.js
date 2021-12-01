@@ -418,18 +418,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -480,7 +468,6 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       },
       photoFile: []
     };
-    _this.photos = [];
     _this.style1 = {
       display: "block",
       backgroundImage: "url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)"
@@ -540,16 +527,14 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       this.props.createListing(formData).then(function (res) {
         _this2.props.history.push("/listings/".concat(res.listing.id));
       });
+      console.log(this.state);
     }
   }, {
     key: "handleFile",
     value: function handleFile(e) {
-      this.photos.push(e.currentTarget.files);
       this.setState({
-        photoFile: [].concat(_toConsumableArray(this.state.photoFile), [e.currentTarget.files])
+        photoFile: e.currentTarget.files
       });
-      console.log(this.photos);
-      console.log(this.photos[0][0].name);
     }
   }, {
     key: "update",
@@ -838,18 +823,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -886,12 +859,10 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
     var localState = {
       localState: {
         pageIndex: 0
-      },
-      photoFile: []
+      }
     };
     var newState = Object.assign({}, _this.props.listing, localState);
     _this.state = newState;
-    _this.photos = [];
     _this.style1 = {
       display: "block",
       backgroundImage: "url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)"
@@ -968,12 +939,9 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleFile",
     value: function handleFile(e) {
-      this.photos.push(e.currentTarget.files);
       this.setState({
-        photoFile: [].concat(_toConsumableArray(this.state.photoFile), [e.currentTarget.files])
+        photoFile: e.currentTarget.files
       });
-      console.log(this.photos);
-      console.log(this.photos[0][0].name);
     }
   }, {
     key: "update",
@@ -1191,10 +1159,11 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
           return _this4.handleFile(e);
         },
         multiple: true
-      }), this.photos.map(function (photo, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          key: idx
-        }, photo[0].name);
+      }), this.state.photos.map(function (photo, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          key: idx,
+          src: photo
+        });
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         style: this.state.localState.pageIndex === 5 ? {
           display: "flex"
@@ -3082,7 +3051,6 @@ var createListing = function createListing(listing) {
   });
 };
 var updateListing = function updateListing(listing) {
-  console.log(listing.get('id'));
   return $.ajax({
     method: 'PATCH',
     url: "/api/listings/".concat(listing.get('id')),

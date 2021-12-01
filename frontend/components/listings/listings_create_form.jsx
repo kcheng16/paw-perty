@@ -20,7 +20,6 @@ class ListingsCreateForm extends React.Component{
       },
       photoFile: []
     }
-    this.photos = [];
     this.style1 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)`}
     this.style2 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638257975/alvan-nee-T-0EW-SEbsE-unsplash_jlyvgo.jpg)`}
     this.style3 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638259085/chris-osmond-v3vQRPbiwL8-unsplash_kp9gzl.jpg)`}
@@ -59,14 +58,11 @@ class ListingsCreateForm extends React.Component{
 
     this.props.createListing(formData).then(
       (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
-
+      console.log(this.state)
   }
   
   handleFile(e){
-    this.photos.push(e.currentTarget.files)
-    this.setState({photoFile: [...this.state.photoFile, e.currentTarget.files]})
-    console.log(this.photos)
-    console.log(this.photos[0][0].name)
+    this.setState({photoFile: e.currentTarget.files})
   }
 
   update(field){

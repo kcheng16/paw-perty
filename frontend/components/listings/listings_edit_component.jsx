@@ -3,11 +3,10 @@ import React from "react";
 class ListingEditComponent extends React.Component{
   constructor(props){
     super(props)
-    const localState = {localState: {pageIndex: 0}, photoFile: []}
+    const localState = {localState: {pageIndex: 0}}
     const newState = Object.assign({}, this.props.listing, localState)
     this.state = newState
 
-    this.photos = [];
     this.style1 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)`}
     this.style2 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638257975/alvan-nee-T-0EW-SEbsE-unsplash_jlyvgo.jpg)`}
     this.style3 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638259085/chris-osmond-v3vQRPbiwL8-unsplash_kp9gzl.jpg)`}
@@ -58,10 +57,7 @@ class ListingEditComponent extends React.Component{
   }
 
   handleFile(e){
-    this.photos.push(e.currentTarget.files)
-    this.setState({photoFile: [...this.state.photoFile, e.currentTarget.files]})
-    console.log(this.photos)
-    console.log(this.photos[0][0].name)
+    this.setState({photoFile: e.currentTarget.files})
   }
 
   update(field){
@@ -211,10 +207,12 @@ console.log(this.state)
                   onChange={e => this.handleFile(e)}
                   multiple
                 />
-                {this.photos.map((photo, idx) => 
-                  <div key={idx}>
-                    {photo[0].name}
-                  </div>
+                {this.state.photos.map((photo, idx) => 
+                  <img 
+                    key={idx}
+                    src={photo}
+                  >
+                  </img>
                   )}
               </div>
             </div>
