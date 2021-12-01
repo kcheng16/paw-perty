@@ -468,6 +468,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       },
       photoFile: []
     };
+    _this.photos = [];
     _this.style1 = {
       display: "block",
       backgroundImage: "url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)"
@@ -532,6 +533,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleFile",
     value: function handleFile(e) {
+      this.photos.push(e.currentTarget.files);
       this.setState({
         photoFile: e.currentTarget.files
       });
