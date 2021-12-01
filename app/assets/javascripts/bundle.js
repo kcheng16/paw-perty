@@ -1592,6 +1592,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       if (!this.props.listing) return "loading...";
+      console.log(this.props.listing.photos[0]);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page"
       }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -1614,7 +1615,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         className: "listing-images"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "images-1",
-        src: this.props.listing.images !== [] ? this.props.listing.images[0] : this.props.listing.photos[0]
+        src: this.props.listing.photos[0] ? this.props.listing.photos[0] : this.props.listing.images[0]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "images-4"
       }, this.props.listing.images[0] ? this.props.listing.images.slice(1, 5).map(function (imageURL, idx) {
@@ -1622,7 +1623,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
           key: idx,
           src: "".concat(imageURL)
         });
-      }) : this.props.listing.photos.map(function (img, idx) {
+      }) : this.props.listing.photos.slice(1, 5).map(function (img, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           src: img,
           key: idx
