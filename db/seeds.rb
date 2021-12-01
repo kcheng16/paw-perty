@@ -45,6 +45,12 @@ listing1 = Listing.create!([
   latitude: -122.403546,
   price: 20,
   num_of_beds: 1,
-  images: ["https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/daniil-silantev-nBuiLbz_j4A-unsplash_aotovo.jpg", "https://res.cloudinary.com/de8carnhu/image/upload/v1637704692/magdalena-smolnicka-h0D5AycJxxc-unsplash_hmedpf.jpg"]
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1637704692/magdalena-smolnicka-h0D5AycJxxc-unsplash_hmedpf.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/daniil-silantev-nBuiLbz_j4A-unsplash_aotovo.jpg", 
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1638397527/francesca-tosolini-lIVK3z606og-unsplash_hsyhyk.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1638397527/jason-briscoe-UV81E0oXXWQ-unsplash_qvii1d.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1638397527/outsite-co-R-LK3sqLiBw-unsplash_espmsw.jpg"
+        ]
 }]
 )
