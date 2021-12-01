@@ -6131,6 +6131,8 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -6151,8 +6153,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -6167,9 +6167,6 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ListingsCreateForm);
 
     _this = _super.call(this, props);
-
-    _defineProperty(_assertThisInitialized(_this), "debugger", void 0);
-
     _this.state = {
       title: "",
       description: "",
@@ -6205,6 +6202,10 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     };
     _this.style5 = {
       display: "block",
+      backgroundImage: "url(http://res.cloudinary.com/de8carnhu/image/upload/v1638322488/sarandy-westfall-fLKRaBoa4-E-unsplash_jw2zee.jpg)"
+    };
+    _this.style6 = {
+      display: "block",
       backgroundImage: "url(https://res.cloudinary.com/de8carnhu/image/upload/v1638258925/avi-naim-JfpjgnVhpmM-unsplash_g4eovt.jpg)"
     };
     _this.num1 = Math.floor(Math.random() * 30) + 1;
@@ -6231,7 +6232,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       formData.append("listing[num_of_beds]", this.state.num_of_beds);
       formData.append("listing[longitude]", this.state.longitude);
       formData.append("listing[latitude]", this.state.latitude);
-      formData.append("listing[postal_code]", this.state.postal_code); // formData.append("listing[photos]", this.state.photoFile[0]);
+      formData.append("listing[postal_code]", this.state.postal_code);
 
       if (this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
         for (var i = 0; i < this.state.photoFile.length; i++) {
@@ -6241,18 +6242,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
 
       this.props.createListing(formData).then(function (res) {
         _this2.props.history.push("/listings/".concat(res.listing.id));
-      }); // $.ajax({
-      //   url: '/api/listings',
-      //   method: "POST",
-      //   data: formData,
-      //   contentType: false,
-      //   processData: false
-      // }).then(
-      //   response => console.log("worked"),
-      //   response => console.log(response.responseJSON)
-      // )
-      // this.props.createListing(this.state)
-      // .then( (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
+      });
     }
   }, {
     key: "update",
@@ -6342,11 +6332,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         className: "sidebar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
         className: "sidebar-bg"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", {
-        type: "file",
-        onChange: this.handleFile.bind(this),
-        multiple: true
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("h1", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("h1", {
         style: this.state.localState.pageIndex === 0 ? this.style1 : {
           display: "none"
         }
@@ -6364,6 +6350,10 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         }
       }, "How many dogs would you like to welcome?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("h1", {
         style: this.state.localState.pageIndex === 4 ? this.style5 : {
+          display: "none"
+        }
+      }, "Next, let's add some photos of your place"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("h1", {
+        style: this.state.localState.pageIndex === 5 ? this.style6 : {
           display: "none"
         }
       }, "Now for the fun part - set your price"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("form", {
@@ -6457,6 +6447,19 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         }
       }, "+"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
         style: this.state.localState.pageIndex === 4 ? {
+          display: "grid"
+        } : {
+          display: "none"
+        },
+        className: "photos"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+        className: "inner-photo"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("h1", null, "Add up to 5 photos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", {
+        type: "file",
+        onChange: this.handleFile.bind(this),
+        multiple: true
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+        style: this.state.localState.pageIndex === 5 ? {
           display: "flex"
         } : {
           display: "none"

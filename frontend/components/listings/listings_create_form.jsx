@@ -25,13 +25,15 @@ class ListingsCreateForm extends React.Component{
     this.style2 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638257975/alvan-nee-T-0EW-SEbsE-unsplash_jlyvgo.jpg)`}
     this.style3 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638259085/chris-osmond-v3vQRPbiwL8-unsplash_kp9gzl.jpg)`}
     this.style4 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638258964/hannah-lim-U6nlG0Y5sfs-unsplash_rdz9wu.jpg)`}
-    this.style5 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638258925/avi-naim-JfpjgnVhpmM-unsplash_g4eovt.jpg)`}
+    this.style5 = { display: "block", backgroundImage: `url(http://res.cloudinary.com/de8carnhu/image/upload/v1638322488/sarandy-westfall-fLKRaBoa4-E-unsplash_jw2zee.jpg)`}
+    this.style6 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638258925/avi-naim-JfpjgnVhpmM-unsplash_g4eovt.jpg)`}
+    
     this.num1 = Math.floor(Math.random() * 30) + 1
     this.num2 = Math.floor(Math.random() * 100) + 30
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  debugger
+
   handleSubmit(e){
     console.log("handle-submit")
     e.preventDefault();
@@ -48,29 +50,16 @@ class ListingsCreateForm extends React.Component{
           formData.append("listing[longitude]", this.state.longitude);
           formData.append("listing[latitude]", this.state.latitude);
           formData.append("listing[postal_code]", this.state.postal_code);
-          // formData.append("listing[photos]", this.state.photoFile[0]);
 
     if (this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
       for (let i = 0; i < this.state.photoFile.length; i++) {
         formData.append("listing[photos][]", this.state.photoFile[i]);
       }
     }
-      this.props.createListing(formData).then(
-        (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
 
-    // $.ajax({
-    //   url: '/api/listings',
-    //   method: "POST",
-    //   data: formData,
-    //   contentType: false,
-    //   processData: false
-    // }).then(
-    //   response => console.log("worked"),
-    //   response => console.log(response.responseJSON)
-    // )
+    this.props.createListing(formData).then(
+      (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
 
-    // this.props.createListing(this.state)
-    // .then( (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
   }
 
   update(field){
@@ -132,16 +121,12 @@ class ListingsCreateForm extends React.Component{
       <div className="listings-create">
         <div className="sidebar">
           <div className="sidebar-bg">
-          <input
-            type="file"
-            onChange={this.handleFile.bind(this)}
-            multiple
-          />
             <h1 style={this.state.localState.pageIndex === 0 ? this.style1 : { display: "none" }}>Let's give your place a name</h1>
             <h1 style={this.state.localState.pageIndex === 1 ? this.style2 : { display: "none" }}>Now, let's describe your place</h1>
             <h1 style={this.state.localState.pageIndex === 2 ? this.style3 : { display: "none" }}>Where's your place located?</h1>
             <h1 style={this.state.localState.pageIndex === 3 ? this.style4 : { display: "none" }}>How many dogs would you like to welcome?</h1>
-            <h1 style={this.state.localState.pageIndex === 4 ? this.style5 : { display: "none" }}>Now for the fun part - set your price</h1>
+            <h1 style={this.state.localState.pageIndex === 4 ? this.style5 : { display: "none" }}>Next, let's add some photos of your place</h1>
+            <h1 style={this.state.localState.pageIndex === 5 ? this.style6 : { display: "none" }}>Now for the fun part - set your price</h1>
           </div>
         </div>
 
@@ -192,6 +177,7 @@ class ListingsCreateForm extends React.Component{
                 </div>
               </div>
             </div>
+
           {/* GUESTS */}
             <div 
               style={this.state.localState.pageIndex === 3 ? { display: "grid" } : { display: "none" }}
@@ -203,12 +189,25 @@ class ListingsCreateForm extends React.Component{
                 <div>{this.state.num_of_beds}</div>
                 <div id="add" onClick={() => this.addDogs()}>&#43;</div>
               </div>
-
             </div>
 
+            {/* Photos */}
+            <div 
+              style={this.state.localState.pageIndex === 4 ? { display: "grid" } : { display: "none" }}
+              className="photos"
+            >
+              <div className="inner-photo">
+                <h1>Add up to 5 photos</h1>
+                <input
+                  type="file"
+                  onChange={this.handleFile.bind(this)}
+                  multiple
+                />
+              </div>
+            </div>
             {/* PRICE */}
             <div
-              style={this.state.localState.pageIndex === 4 ? { display: "flex" } : { display: "none" }}
+              style={this.state.localState.pageIndex === 5 ? { display: "flex" } : { display: "none" }}
               className="price"
             >
               <div className="price-counter">
