@@ -1,4 +1,3 @@
-import { $dataMetaSchema } from "ajv";
 import React from "react";
 
 class ListingsCreateForm extends React.Component{
@@ -37,7 +36,6 @@ class ListingsCreateForm extends React.Component{
 
 
   handleSubmit(e){
-    console.log("handle-submit")
     e.preventDefault();
 
     const formData = new FormData();
@@ -247,7 +245,7 @@ class ListingsCreateForm extends React.Component{
                   }
                 }}
               >
-                {this.state.localState.pageIndex !== 4 ? "Next" : "Submit"}
+                {this.state.localState.pageIndex !== 5 ? "Next" : "Submit"}
               </button> 
             </div>
           </div>
