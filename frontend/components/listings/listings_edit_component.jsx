@@ -51,7 +51,7 @@ class ListingEditComponent extends React.Component{
         formData.append("listing[photos][]", this.state.photoFile[i]);
       }
     }
-
+    // this.props.updateListing(formData)
     this.props.updateListing(formData).then(
       (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
       console.log(this.state)
@@ -140,6 +140,7 @@ console.log(this.state)
         <form 
           onSubmit={(e)=> e.preventDefault()}
           className="listings-new-form">
+
           {/* TITLE */}
           <div 
             style={this.state.localState.pageIndex === 0 ? { display: "block" } : { display: "none" }}

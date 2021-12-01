@@ -957,7 +957,8 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         for (var i = 0; i < this.state.photoFile.length; i++) {
           formData.append("listing[photos][]", this.state.photoFile[i]);
         }
-      }
+      } // this.props.updateListing(formData)
+
 
       this.props.updateListing(formData).then(function (res) {
         _this2.props.history.push("/listings/".concat(res.listing.id));
@@ -3075,20 +3076,17 @@ var createListing = function createListing(listing) {
   return $.ajax({
     method: 'POST',
     url: "/api/listings",
-    data: {
-      listing: listing
-    },
+    data: listing,
     contentType: false,
     processData: false
   });
 };
 var updateListing = function updateListing(listing) {
+  console.log(listing.get('id'));
   return $.ajax({
     method: 'PATCH',
-    url: "/api/listings/".concat(listing.id),
-    data: {
-      listing: listing
-    },
+    url: "/api/listings/".concat(listing.get('id')),
+    data: listing,
     contentType: false,
     processData: false
   });
