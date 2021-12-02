@@ -22,10 +22,10 @@ export const removeReview = (reviewId) => ({
 
 //================================================
 
-// export const requestReviews = () => dispatch => (
-//   reviewApiUtil.fetchReviews()
-//     .then(reviews => dispatch(receiveReviews(reviews)))
-// )
+export const requestReviews = () => dispatch => (
+  reviewApiUtil.fetchReviews()
+    .then(reviews => dispatch(receiveReviews(reviews)))
+)
 
 // export const requestReview = (reviewId) => dispatch => (
 //   reviewApiUtil.fetchReview(reviewId)

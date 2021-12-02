@@ -63,6 +63,7 @@ class Api::ListingsController < ApplicationController
       render json: @listing.errors.full_messages, status: 422
     end
   end
+  private
 
   def listing_params
     params.require(:listing).permit(

@@ -16,6 +16,15 @@
 #  index_reviews_on_reviewer_id  (reviewer_id) UNIQUE
 #
 class Api::ReviewsController < ApplicationController
+  def index
+    @reviews = Review.all
+    render :index
+  end
+
+  def show 
+    @review = Review.find(params[:id])
+    render :show
+  end
 
   def create
     @review = Review.new(review_params)
@@ -34,6 +43,7 @@ class Api::ReviewsController < ApplicationController
       render :show
     else
       render json: @review.errors.full_messages, status: 422
+    end
   end
 
   def destroy
@@ -44,8 +54,10 @@ class Api::ReviewsController < ApplicationController
     else
       render json: @review.errors.full_messages, status: 422
     end
+
   end
 
+  private
   def review_params
     params.require(:review).permit(:body, :rating, :listing_id, :reviewer_id)
   end

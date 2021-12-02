@@ -1,4 +1,7 @@
 import React from "react";
+import ReviewsCreateContainer from "../reviews/reviews_create_container";
+import ReviewsIndexContainer from "../reviews/reviews_index_container";
+import ReviewsIndexItem from "../reviews/reviews_index_item";
 
 class ListingsShow extends React.Component{
   constructor(props){
@@ -11,7 +14,7 @@ class ListingsShow extends React.Component{
 
   render(){
     if(!this.props.listing) return "loading..."
-    
+    console.log(this.props)
     return(
       <div className="show-page"> 
         {/* need to add edit posting */}
@@ -93,21 +96,21 @@ class ListingsShow extends React.Component{
 
             <h3 className="offers-title">What this place offers</h3>
             <div className="offers">
-              <i class="fas fa-bone"></i>
+              <i className="fas fa-bone"></i>
               <h5>Food provided</h5>
-              <i class="fas fa-bed"></i>
+              <i className="fas fa-bed"></i>
               <h5>Comfy beds</h5>
-              <i class="fas fa-hand-sparkles"></i>
+              <i className="fas fa-hand-sparkles"></i>
               <h5>Lots of petting</h5>
-              <i class="fas fa-images"></i>
+              <i className="fas fa-images"></i>
               <h5>Update images and video</h5>
-              <i class="fas fa-capsules"></i>
+              <i className="fas fa-capsules"></i>
               <h5>Oral medication administration</h5>
-              <i class="fas fa-gamepad"></i>
+              <i className="fas fa-gamepad"></i>
               <h5>Stimulating games</h5>
-              <i class="fas fa-bath"></i>
+              <i className="fas fa-bath"></i>
               <h5>Baths</h5>
-              <i class="fas fa-heart"></i>
+              <i className="fas fa-heart"></i>
               <h5>Love and affection</h5>
             </div>
 
@@ -115,10 +118,16 @@ class ListingsShow extends React.Component{
 
             <div className="reviews">
               <div className="reviews-title">
-                <i class="fas fa-star"></i>
+                <i className="fas fa-star"></i>
                 <h4>4.82</h4>
                 <h1 className="dot">   &#183;   </h1>
                 <h4>32 reviews</h4>
+                <div>
+                  {this.props.reviews.map((review, idx) =>
+                    <ReviewsIndexItem review={review} key={idx}/>
+                  )}
+                </div>
+                <ReviewsCreateContainer listing={this.props.listing}/>
               </div>
 
             </div>
@@ -144,6 +153,7 @@ class ListingsShow extends React.Component{
                 <div>Total</div>
                 <div>$</div>
               </div>
+              
             </div>
           </div>
         </div>
