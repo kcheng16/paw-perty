@@ -1588,7 +1588,6 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       if (!this.props.listing) return "loading...";
-      console.log(this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page"
       }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -1664,7 +1663,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         "class": "fas fa-bed"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "Comfy beds"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
         "class": "fas fa-hand-sparkles"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "Lots of pets"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "Lots of petting"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
         "class": "fas fa-images"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "Update images and video"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
         "class": "fas fa-capsules"
@@ -1690,7 +1689,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         className: "reservation-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "price"
-      }, this.props.listing.price, "Doge Coins/night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, this.props.listing.price, " Doge Coins/night"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "check-in-out"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "check-in-out-container"
@@ -1738,8 +1737,8 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   return {
     listing: state.entities.listings[ownProps.match.params.id],
-    session: state.session,
-    reviews: Object.values(state.entities.reviews)
+    session: state.session // reviews: Object.values(state.entities.reviews)
+
   };
 };
 

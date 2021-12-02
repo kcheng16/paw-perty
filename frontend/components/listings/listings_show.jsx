@@ -11,7 +11,6 @@ class ListingsShow extends React.Component{
 
   render(){
     if(!this.props.listing) return "loading..."
-    console.log(this.props)
     
     return(
       <div className="show-page"> 
@@ -99,7 +98,7 @@ class ListingsShow extends React.Component{
               <i class="fas fa-bed"></i>
               <h5>Comfy beds</h5>
               <i class="fas fa-hand-sparkles"></i>
-              <h5>Lots of pets</h5>
+              <h5>Lots of petting</h5>
               <i class="fas fa-images"></i>
               <h5>Update images and video</h5>
               <i class="fas fa-capsules"></i>
@@ -127,7 +126,7 @@ class ListingsShow extends React.Component{
           
           <div className="sticky-parent">
             <div className="reservation-info">
-              <div className="price">{this.props.listing.price}Doge Coins/night</div>
+              <div className="price">{this.props.listing.price} Doge Coins/night</div>
               <div className="check-in-out">
                 <div className='check-in-out-container'>
                   <div id="check-in">CHECK-IN
