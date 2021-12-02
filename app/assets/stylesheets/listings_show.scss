@@ -101,7 +101,7 @@
       padding-bottom: 10px;
     }
 
-    div:last-child{
+    .description{
       font-size: 1vw;
       font-weight: 100;
       white-space: pre-wrap;
@@ -158,6 +158,38 @@
 
 }
 
+.offers-title{
+  font-size: 1.2vw;
+}
+
+.offers{
+  display: grid;
+  grid-template-columns: 1fr 15fr 1fr 15fr;
+  row-gap: 1vh;
+  column-gap: 1vw;
+
+  >h5{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+// ==========================================REVIEWS
+.reviews-title{
+  display: flex;
+
+  h4{
+    margin-top: 0;
+  }
+
+  .dot{
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+  }
+}
+
+
+
+//========================================STICKY
 .sticky-parent{
   position: relative;
 
@@ -229,4 +261,6 @@
     }
 }
 
-
+.line{
+  margin-top: 3vh;
+}

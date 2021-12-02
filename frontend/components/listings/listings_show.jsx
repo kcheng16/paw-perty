@@ -86,7 +86,42 @@ class ListingsShow extends React.Component{
               </div>
             </div>
             <div className="line"></div>
-            <div>{this.props.listing.description}</div>
+
+            <div className="description">{this.props.listing.description}</div>
+            
+            <div className="line"></div>
+
+            <h3 className="offers-title">What this place offers</h3>
+            <div className="offers">
+              <i class="fas fa-bone"></i>
+              <h5>Food provided</h5>
+              <i class="fas fa-bed"></i>
+              <h5>Comfy beds</h5>
+              <i class="fas fa-hand-sparkles"></i>
+              <h5>Lots of pets</h5>
+              <i class="fas fa-images"></i>
+              <h5>Update images and video</h5>
+              <i class="fas fa-capsules"></i>
+              <h5>Oral medication administration</h5>
+              <i class="fas fa-gamepad"></i>
+              <h5>Stimulating games</h5>
+              <i class="fas fa-bath"></i>
+              <h5>Baths</h5>
+              <i class="fas fa-heart"></i>
+              <h5>Love and affection</h5>
+            </div>
+
+            <div className="line"></div>
+
+            <div className="reviews">
+              <div className="reviews-title">
+                <i class="fas fa-star"></i>
+                <h4>4.82</h4>
+                <h1 className="dot">   &#183;   </h1>
+                <h4>32 reviews</h4>
+              </div>
+
+            </div>
           </div>
           
           <div className="sticky-parent">
