@@ -61,25 +61,25 @@ class ListingsShow extends React.Component{
                 <i className="fas fa-home"></i>
                 <div>
                   <h5>Your dog will have access to the whole home</h5>
-                  <h7>Free to roam inside or out.</h7>
+                  <h4>Free to roam inside or out.</h4>
                 </div>
               </div>
               <div className="icon2">
-                <i class="fas fa-clock"></i>
+                <i className="fas fa-clock"></i>
                 <div>
                   <h5>Scheduled meal times</h5>
-                  <h7>The Host committed to Paw-perty's 5-step food service process.</h7>
+                  <h4>The Host committed to Paw-perty's 5-step food service process.</h4>
                 </div>
               </div>
               <div className="icon3">
-                <i class="fas fa-eye"></i>
+                <i className="fas fa-eye"></i>
                 <div>
                   <h5>24-hour supervision</h5>
-                  <h7>Make sure they're always playing safe.</h7>
+                  <h4>Make sure they're always playing safe.</h4>
                 </div>
               </div>
               <div className="icon4">
-                <i class="fas fa-calendar"></i>
+                <i className="fas fa-calendar"></i>
                 <div>
                   <h5>Free cancellation for 48 hours</h5>
                 </div>

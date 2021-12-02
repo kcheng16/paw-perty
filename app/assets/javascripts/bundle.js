@@ -925,8 +925,10 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
       formData.append("listing[latitude]", this.state.latitude);
       formData.append("listing[postal_code]", this.state.postal_code);
       formData.append("id", this.state.id);
+      console.log(this.state);
+      console.log(this.state.photoFile);
 
-      if (this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
+      if (this.state.photoFile && this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
         for (var i = 0; i < this.state.photoFile.length; i++) {
           formData.append("listing[photos][]", this.state.photoFile[i]);
         }
@@ -936,7 +938,6 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
       this.props.updateListing(formData).then(function (res) {
         _this2.props.history.push("/listings/".concat(res.listing.id));
       });
-      console.log(this.state);
     }
   }, {
     key: "handleFile",
@@ -1014,19 +1015,13 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
           price: this.state.price - 1
         });
       }
-    } // updateState(){
-    //   this.setState({title: this.props.listing.title});
-    //   this.setState({description: this.props.listing.description});
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
       var _this4 = this;
 
-      // if(!this.props.listing) return "loading";
       if (!this.state) return "loading";
-      console.log(this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1640,18 +1635,18 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         className: "icon1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
         className: "fas fa-home"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "Your dog will have access to the whole home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h7", null, "Free to roam inside or out."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "Your dog will have access to the whole home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Free to roam inside or out."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "icon2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-        "class": "fas fa-clock"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "Scheduled meal times"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h7", null, "The Host committed to Paw-perty's 5-step food service process."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "fas fa-clock"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "Scheduled meal times"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "The Host committed to Paw-perty's 5-step food service process."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "icon3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-        "class": "fas fa-eye"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "24-hour supervision"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h7", null, "Make sure they're always playing safe."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "fas fa-eye"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "24-hour supervision"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Make sure they're always playing safe."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "icon4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-        "class": "fas fa-calendar"
+        className: "fas fa-calendar"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "Free cancellation for 48 hours")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "line"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.listing.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
