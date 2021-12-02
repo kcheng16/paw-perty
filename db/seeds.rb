@@ -16,7 +16,12 @@ user1 = User.create!(username: 'demo', password: 'password', email: 'demo@pawper
 listing1 = Listing.create!([
   {
   title: 'Dog-out, here!',
-  description: 'Dynamic parks in the area! Come relax on our cozy beds!',
+  description: "I've cared for dogs for a long time! I've fostered many dogs throughout high school and as an dult. I currently have 1 dog that is friendly with everybody. I am originally from the Bay Area. My parents are also home all day to care for your pet! \n
+  I've worked with caring for dogs for about 5 years and love every single one of them. You can trust in me and my family to provide your dog a lot of love and affection while they're in our care. Your pup will also get to play with our dog in the backyard!
+  \n
+  We take frequent walks (3 times a day), and occasionally visit parks. 
+  \n
+  Please let us know if your pup has any special needs. Such as: medication, dietary restrictions, allergies. We would also like to know how much your pup eats and what times you prefer them to be fed. We provide healthy organic food if you're unable to provide your own. Please let us know if they're house trained or not. We can also accomodate for any interest quirks your pup may have, just let us know! Thanks",
   host_id: User.first.id,
   street_address: '1 fake street', #need to change to real address
   city: 'San Francisco',
@@ -54,3 +59,5 @@ listing1 = Listing.create!([
         ]
 }]
 )
+
+
