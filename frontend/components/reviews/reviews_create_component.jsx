@@ -30,35 +30,36 @@ class ReviewsCreateComponent extends React.Component{
     return(
       <form className="reviews-form" onSubmit={this.handleSubmit}>
         <div className="review-rating">
-        <label>
-          <input className='radio' type='radio' value='1' onClick={this.update('rating')}/>
-          <FaStar key='1' size={30}
-            color={(this.state.rating) >= 1 ? 'gold' : 'gray'} />
-        </label>
-        <label>
-          <input className='radio' type='radio' value='2' onClick={this.update('rating')} />
-          <FaStar key='2' size={30}
-            color={(this.state.rating) >= 2 ? 'gold' : 'gray'} />
-        </label>
-        <label>
-          <input className='radio' type='radio' value='3' onClick={this.update('rating')} />
-          <FaStar key='3' size={30}
-            color={(this.state.rating) >= 3 ? 'gold' : 'gray'} />
-        </label>
-        <label>
-          <input className='radio' type='radio' value='4' onClick={this.update('rating')} />
-          <FaStar key='4' size={30}
-            color={(this.state.rating) >= 4 ? 'gold' : 'gray'} />
-        </label>
-        <label>
-          <input className='radio' type='radio' value='5' onClick={this.update('rating')} />
-          <FaStar key='5' size={30}
-            color={(this.state.rating) >= 5 ? 'gold' : 'gray'} />
-        </label>
+          <label>
+            <input className='radio' type='radio' value='1' onClick={this.update('rating')}/>
+            <FaStar key='1' size={30}
+              color={(this.state.rating) >= 1 ? 'gold' : 'gray'} />
+          </label>
+          <label>
+            <input className='radio' type='radio' value='2' onClick={this.update('rating')} />
+            <FaStar key='2' size={30}
+              color={(this.state.rating) >= 2 ? 'gold' : 'gray'} />
+          </label>
+          <label>
+            <input className='radio' type='radio' value='3' onClick={this.update('rating')} />
+            <FaStar key='3' size={30}
+              color={(this.state.rating) >= 3 ? 'gold' : 'gray'} />
+          </label>
+          <label>
+            <input className='radio' type='radio' value='4' onClick={this.update('rating')} />
+            <FaStar key='4' size={30}
+              color={(this.state.rating) >= 4 ? 'gold' : 'gray'} />
+          </label>
+          <label>
+            <input className='radio' type='radio' value='5' onClick={this.update('rating')} />
+            <FaStar key='5' size={30}
+              color={(this.state.rating) >= 5 ? 'gold' : 'gray'} />
+          </label>
         </div>
-
-        <textarea onChange={this.update('body')} placeholder="Type your review here" className="reviews-body"/>
-        <button type="submit">Submit</button>
+        <div className="review-body1">
+          <textarea onChange={this.update('body')} placeholder="Type your review here" className="reviews-body"/>
+          <button type="submit">Submit</button>
+        </div>
       </form>
     )
   }

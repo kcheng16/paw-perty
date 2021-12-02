@@ -50,4 +50,8 @@ class Listing < ApplicationRecord
     person.username
   end
 
+  def average_rating
+    reviews.average(:rating).round(1)
+  end
+
 end

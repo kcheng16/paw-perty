@@ -39,10 +39,10 @@ var receiveListings = function receiveListings(listings) {
     listings: listings
   };
 };
-var receiveListing = function receiveListing(listing) {
+var receiveListing = function receiveListing(payload) {
   return {
     type: RECEIVE_LISTING,
-    listing: listing
+    payload: payload
   };
 };
 var removeListing = function removeListing(listingId) {
@@ -74,8 +74,8 @@ var requestListings = function requestListings() {
 };
 var requestListing = function requestListing(listingId) {
   return function (dispatch) {
-    return _util_listings_util__WEBPACK_IMPORTED_MODULE_0__.fetchListing(listingId).then(function (listing) {
-      return dispatch(receiveListing(listing));
+    return _util_listings_util__WEBPACK_IMPORTED_MODULE_0__.fetchListing(listingId).then(function (payload) {
+      return dispatch(receiveListing(payload));
     });
   };
 };
@@ -1623,8 +1623,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _reviews_reviews_create_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reviews/reviews_create_container */ "./frontend/components/reviews/reviews_create_container.js");
-/* harmony import */ var _reviews_reviews_index_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reviews/reviews_index_container */ "./frontend/components/reviews/reviews_index_container.js");
-/* harmony import */ var _reviews_reviews_index_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../reviews/reviews_index_item */ "./frontend/components/reviews/reviews_index_item.jsx");
+/* harmony import */ var _reviews_reviews_index_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reviews/reviews_index_item */ "./frontend/components/reviews/reviews_index_item.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1646,7 +1645,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 
 
 
@@ -1674,7 +1672,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       if (!this.props.listing) return "loading...";
-      console.log(this.props);
+      console.log(this.props.reviews.length);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page"
       }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -1768,16 +1766,20 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         className: "reviews-title"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
         className: "fas fa-star"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "4.82"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, this.props.listing.average_rating), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
         className: "dot"
-      }, "   \xB7   "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "32 reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.reviews.map(function (review, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_index_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, "   \xB7   "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, this.props.reviews.length, " reviews")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "reviews-grid"
+      }, this.props.reviews.map(function (review, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           review: review,
           key: idx
         });
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_create_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "line"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_create_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         listing: this.props.listing
-      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "sticky-parent"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "reservation-info"
@@ -2161,13 +2163,15 @@ var ReviewsCreateComponent = /*#__PURE__*/function (_React$Component) {
         key: "5",
         size: 30,
         color: this.state.rating >= 5 ? 'gold' : 'gray'
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-body1"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         onChange: this.update('body'),
         placeholder: "Type your review here",
         className: "reviews-body"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: "submit"
-      }, "Submit"));
+      }, "Submit")));
     }
   }]);
 
@@ -2217,119 +2221,6 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
-/***/ "./frontend/components/reviews/reviews_index_component.jsx":
-/*!*****************************************************************!*\
-  !*** ./frontend/components/reviews/reviews_index_component.jsx ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _reviews_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reviews_index_item */ "./frontend/components/reviews/reviews_index_item.jsx");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-var ReviewsIndexComponent = /*#__PURE__*/function (_React$Component) {
-  _inherits(ReviewsIndexComponent, _React$Component);
-
-  var _super = _createSuper(ReviewsIndexComponent);
-
-  function ReviewsIndexComponent(props) {
-    _classCallCheck(this, ReviewsIndexComponent);
-
-    return _super.call(this, props);
-  }
-
-  _createClass(ReviewsIndexComponent, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.requestReviews();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "reviews-index"
-      }, this.props.reviews.map(function (review, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          review: review,
-          key: idx
-        });
-      }));
-    }
-  }]);
-
-  return ReviewsIndexComponent;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReviewsIndexComponent);
-
-/***/ }),
-
-/***/ "./frontend/components/reviews/reviews_index_container.js":
-/*!****************************************************************!*\
-  !*** ./frontend/components/reviews/reviews_index_container.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
-/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
-/* harmony import */ var _reviews_index_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reviews_index_component */ "./frontend/components/reviews/reviews_index_component.jsx");
-
-
-
-
-
-var mSTP = function mSTP(state, ownProps) {
-  return {
-    reviews: Object.values(state.entities.reviews)
-  };
-};
-
-var mDTP = function mDTP(dispatch) {
-  return {
-    requestReviews: function requestReviews(review) {
-      return dispatch((0,_actions_review_actions__WEBPACK_IMPORTED_MODULE_1__.requestReviews)(review));
-    }
-  };
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_reviews_index_component__WEBPACK_IMPORTED_MODULE_2__["default"])));
-
-/***/ }),
-
 /***/ "./frontend/components/reviews/reviews_index_item.jsx":
 /*!************************************************************!*\
   !*** ./frontend/components/reviews/reviews_index_item.jsx ***!
@@ -2342,12 +2233,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+
 
 
 var ReviewsIndexItem = function ReviewsIndexItem(props) {
+  var stars = [];
+
+  for (var i = 0; i < props.review.rating; i++) {
+    stars.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaStar, {
+      key: i,
+      size: 20,
+      color: 'gold'
+    }));
+  }
+
+  while (stars.length < 5) {
+    var _i = stars.length;
+    stars.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaStar, {
+      key: _i,
+      size: 20,
+      color: '#e9e9e9'
+    }));
+  }
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "reviews-index-item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, props.review.rating), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, props.review.body));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "rating"
+  }, stars), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "body"
+  }, props.review.body));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReviewsIndexItem);
@@ -3357,7 +3273,7 @@ __webpack_require__.r(__webpack_exports__);
       return action.listings;
 
     case _actions_listing_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_LISTING:
-      nextState[action.listing.id] = action.listing;
+      nextState[action.payload.listing.id] = action.payload.listing;
       return nextState;
 
     case _actions_listing_actions__WEBPACK_IMPORTED_MODULE_0__.REMOVE_LISTING:
@@ -3421,6 +3337,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var _actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/listing_actions */ "./frontend/actions/listing_actions.js");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -3432,13 +3350,16 @@ __webpack_require__.r(__webpack_exports__);
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ALL_REVIEWS:
       return action.reviews;
 
-    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_REVIEW:
-      newState[action.review.id] = action.review;
-      return newState;
+    case _actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_LISTING:
+      if (action.payload.reviews) {
+        return action.payload.reviews;
+      } else {
+        return {};
+      }
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__.REMOVE_REVIEW:
       delete newState[action.reviewId];
-      return nextState;
+      return newState;
 
     default:
       return state;

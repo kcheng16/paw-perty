@@ -1,3 +1,34 @@
-// Place all the styles related to the Reviews controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.reviews-index-item{
+
+  .body{
+    font-size: 0.9vw;
+  }
+}
+
+.review-body1{
+  display: flex;
+  flex-direction: column;
+
+  >textarea{
+    border: solid gray 1px;
+    border-radius: 10px;
+    height: 19vh;
+    width: 32vw;
+  }
+
+  >button{
+    background-color: #ff4949;
+    width: 5vw;
+    height: 5vh;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: white;
+  }
+}
+
+
+
+.review-rating > label > input{
+  display: none;
+}

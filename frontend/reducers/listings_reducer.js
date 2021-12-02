@@ -15,7 +15,7 @@ export default (state={}, action) => {
       return action.listings;
 
     case RECEIVE_LISTING:
-      nextState[action.listing.id] = action.listing
+      nextState[action.payload.listing.id] = action.payload.listing
       return nextState
 
     case REMOVE_LISTING:

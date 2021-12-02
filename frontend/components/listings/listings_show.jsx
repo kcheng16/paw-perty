@@ -1,6 +1,5 @@
 import React from "react";
 import ReviewsCreateContainer from "../reviews/reviews_create_container";
-import ReviewsIndexContainer from "../reviews/reviews_index_container";
 import ReviewsIndexItem from "../reviews/reviews_index_item";
 
 class ListingsShow extends React.Component{
@@ -12,9 +11,10 @@ class ListingsShow extends React.Component{
     this.props.requestListing(this.props.match.params.id)
   }
 
+
   render(){
     if(!this.props.listing) return "loading..."
-    console.log(this.props)
+    console.log(this.props.reviews.length)
     return(
       <div className="show-page"> 
         {/* need to add edit posting */}
@@ -119,19 +119,21 @@ class ListingsShow extends React.Component{
             <div className="reviews">
               <div className="reviews-title">
                 <i className="fas fa-star"></i>
-                <h4>4.82</h4>
+                <h4>{this.props.listing.average_rating}</h4>
                 <h1 className="dot">   &#183;   </h1>
-                <h4>32 reviews</h4>
-                <div>
-                  {this.props.reviews.map((review, idx) =>
-                    <ReviewsIndexItem review={review} key={idx}/>
-                  )}
-                </div>
-                <ReviewsCreateContainer listing={this.props.listing}/>
+                <h4>{this.props.reviews.length} reviews</h4>
               </div>
 
+              <div className="reviews-grid">
+                {this.props.reviews.map((review, idx) =>
+                  <ReviewsIndexItem review={review} key={idx}/>
+                  )}
+              </div>
+
+              <div className="line"></div>
+              <ReviewsCreateContainer listing={this.props.listing}/>
             </div>
-          </div>
+        </div>
           
           <div className="sticky-parent">
             <div className="reservation-info">
