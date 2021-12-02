@@ -33,11 +33,17 @@ class Listing < ApplicationRecord
     foreign_key: :listing_id,
     primary_key: :id,
     class_name: :Reservation
+  
+  has_many :reviews,
+    primary_key: :id,
+    foreign_key: :listing_id,
+    class_name: :Review
 
   belongs_to :host,
     foreign_key: :host_id,
     primary_key: :id,
     class_name: :User
+
 
   def host_name
     person = User.find(self.host_id)

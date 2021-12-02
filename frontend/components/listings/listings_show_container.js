@@ -5,7 +5,8 @@ import ListingsShow from "./listings_show"
 
 const mSTP = (state,ownProps) =>({
   listing: state.entities.listings[ownProps.match.params.id],
-  session: state.session
+  session: state.session,
+  reviews: Object.values(state.entities.reviews)
 })
 
 const mDTP = (dispatch) => ({

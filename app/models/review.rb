@@ -16,4 +16,14 @@
 #  index_reviews_on_reviewer_id  (reviewer_id) UNIQUE
 #
 class Review < ApplicationRecord
+
+  belongs_to :user,
+    primary_key: :id,
+    foreign_key: :reviewer_id,
+    class_name: :User
+
+  belongs_to :listing,
+    primary_key: :id,
+    foreign_key: :listing_id,
+    class_name: :Listing
 end

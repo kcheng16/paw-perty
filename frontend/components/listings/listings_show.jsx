@@ -11,7 +11,8 @@ class ListingsShow extends React.Component{
 
   render(){
     if(!this.props.listing) return "loading..."
-    console.log(this.props.listing.photos[0])
+    console.log(this.props)
+    
     return(
       <div className="show-page"> 
         {/* need to add edit posting */}

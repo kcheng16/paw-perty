@@ -29,12 +29,12 @@ const App = () => (
     </header>
 
       <Switch>
+        <Route path="/user/:id/listings" render={props => <UserListingsContainer {...props}/>}/>
         <Route exact path="/user/:id" render={props => <UserShowContainer {...props}/>}/>
         <Route exact path="/" render={props => <SplashContainer {...props}/>}/>
-        <Route exact path="/user/:id/listings" render={props => <UserListingsContainer {...props}/>}/>
-
-        <ProtectedRoute exact path="/listings/new" render={props => <ListingsCreateContainer {...props}/>}/>
-        <ProtectedRoute exact path="/listings/:id/edit" render={props => <ListingsEditContainer {...props}/>}/>
+{/* unable to use ProtectedRoute: new and update */}
+        <Route exact path="/listings/new" render={props => <ListingsCreateContainer {...props}/>}/>
+        <Route exact path="/listings/:id/edit" render={props => <ListingsEditContainer {...props}/>}/>
 
         <Route exact path="/listings/:id" render={props => <ListingsShowContainer {...props}/>}/>
         <Route exact path="/listings" render={props => <ListingsIndexContainer {...props}/>}/>

@@ -37,6 +37,10 @@ class User < ApplicationRecord
       primary_key: :id,
       class_name: :Listing
 
+    has_many :reviews,
+      primary_key: :id,
+      foreign_key: :reviewer_id,
+      class_name: :Review
     #==========================================================
     # Class method for finding a user ONLY if we have the correct username and password
   def self.find_by_credentials(username, password)
