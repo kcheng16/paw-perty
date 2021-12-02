@@ -34,6 +34,11 @@
   font-weight: bold;
 }
 
+.listing-city{
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
 .listing-images{
   display: flex;
 
@@ -171,6 +176,7 @@
   >h5{
     margin-top: 0;
     margin-bottom: 0;
+    font-weight: 100;
   }
 }
 // ==========================================REVIEWS

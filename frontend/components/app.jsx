@@ -14,6 +14,7 @@ import UserDropdownContainer from "./sessions/user_dropdown_container";
 import Modal from "./modals/modal";
 import NavbarContainer from "./navbar/navbar_container";
 import UserShowContainer from "./user/user_show_container";
+import UserListingsContainer from "./user/user_listings_container";
 
 const App = () => (
   <div>
@@ -29,15 +30,15 @@ const App = () => (
 
       <Switch>
         <Route exact path="/user/:id" render={props => <UserShowContainer {...props}/>}/>
-
         <Route exact path="/" render={props => <SplashContainer {...props}/>}/>
-        {/* need to make below protected */}
-        <Route exact path="/listings/new" render={props => <ListingsCreateContainer {...props}/>}/>
-        {/* need to make above protected */}
-        <Route exact path="/listings/:id/edit" render={props => <ListingsEditContainer {...props}/>}/>
+        <Route exact path="/user/:id/listings" render={props => <UserListingsContainer {...props}/>}/>
+
+        <ProtectedRoute exact path="/listings/new" render={props => <ListingsCreateContainer {...props}/>}/>
+        <ProtectedRoute exact path="/listings/:id/edit" render={props => <ListingsEditContainer {...props}/>}/>
+
         <Route exact path="/listings/:id" render={props => <ListingsShowContainer {...props}/>}/>
         <Route exact path="/listings" render={props => <ListingsIndexContainer {...props}/>}/>
-        <Route exact path="/listings/new" render={props => <ListingsCreateContainer {...props}/>}/>
+
       </Switch>
   </div>
 );
