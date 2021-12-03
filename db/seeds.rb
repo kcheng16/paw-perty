@@ -31,12 +31,14 @@ listing1 = Listing.create!([
   latitude: -122.403546,
   price: 20,
   num_of_beds: 1,
-  images: ["https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/amy-humphries-AllEP6K_TAg-unsplash_ovptsl.jpg", 
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/amy-humphries-AllEP6K_TAg-unsplash_ovptsl.jpg", 
           "https://res.cloudinary.com/de8carnhu/image/upload/v1638154900/cdc-SAwxJ8PHY3Q-unsplash_w1aqqi.jpg", 
           "https://res.cloudinary.com/de8carnhu/image/upload/v1638155032/beatrice-selly-d5YEmZknHIs-unsplash_rb5mp8.jpg", 
           "https://res.cloudinary.com/de8carnhu/image/upload/v1638155409/mathew-coulton-zxqaAkkayP8-unsplash_npk6ow.jpg", 
           "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/francesca-tosolini-tHkJAMcO3QE-unsplash_rbjwck.jpg", 
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/aaron-huber-G7sE2S4Lab4-unsplash_jkrdps.jpg" ]
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/aaron-huber-G7sE2S4Lab4-unsplash_jkrdps.jpg"
+        ]
 },
 {
   title: 'Flex those paws!',
