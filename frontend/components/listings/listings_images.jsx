@@ -15,7 +15,6 @@ class ListingsImages extends React.Component{
       this.index++
       this.setState({counter: (this.index)})
     }
-    console.log(this.state.counter)
   }
 
   subtract(){
@@ -23,7 +22,6 @@ class ListingsImages extends React.Component{
       this.index--
       this.setState({counter: (this.index)})
     }
-    console.log(this.state.counter)
   }
 
   render(){

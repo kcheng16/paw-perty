@@ -44,9 +44,7 @@ class ListingEditComponent extends React.Component{
           formData.append("listing[latitude]", this.state.latitude);
           formData.append("listing[postal_code]", this.state.postal_code);
           formData.append("id", this.state.id);
-          
-          console.log(this.state)
-          console.log(this.state.photoFile)
+
     if (this.state.photoFile && this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
       for (let i = 0; i < this.state.photoFile.length; i++) {
         formData.append("listing[photos][]", this.state.photoFile[i]);

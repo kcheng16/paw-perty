@@ -59,7 +59,6 @@ class ListingsCreateForm extends React.Component{
 
     this.props.createListing(formData).then(
       (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
-      console.log(this.state)
   }
   
   handleFile(e){

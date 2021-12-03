@@ -14,7 +14,6 @@ class ListingsShow extends React.Component{
 
   render(){
     if(!this.props.listing) return "loading..."
-    console.log(this.props.reviews.length)
     return(
       <div className="show-page"> 
         {/* need to add edit posting */}
