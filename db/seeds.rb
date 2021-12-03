@@ -49,8 +49,7 @@ I only take one dog at a time for boarding or daycare because I want to make sur
 
 Our house is always kept clean and we also have a beautiful backyard where the dogs can play together. Moreover, I will also take your dogs for at least two 15 minutes walks during their stay with us. Your dog will be stimulated mentally and physically and come home happy.
 
-Feel free to schedule a meet and greet with us, to see if your dog is comfortable with the environment. We will definitely treat your dog like a family 
-  ',
+Feel free to schedule a meet and greet with us, to see if your dog is comfortable with the environment. We will definitely treat your dog like a family ',
   host_id: User.first.id,
   street_address: '2 fake street',
   city: 'San Francisco',
@@ -61,12 +60,11 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
   price: 20,
   num_of_beds: 1,
   images: [
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1637704692/magdalena-smolnicka-h0D5AycJxxc-unsplash_hmedpf.jpg",
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/daniil-silantev-nBuiLbz_j4A-unsplash_aotovo.jpg", 
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1638397527/francesca-tosolini-lIVK3z606og-unsplash_hsyhyk.jpg",
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1638397527/jason-briscoe-UV81E0oXXWQ-unsplash_qvii1d.jpg",
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1638397527/outsite-co-R-LK3sqLiBw-unsplash_espmsw.jpg"
-        ]
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1638507625/house-2a/josue-michel-x8y0mJCVs6g-unsplash_iutzov.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1638507541/house-2a/shaun-montero-ZxDX8D9HHNM-unsplash_hqa4ao.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1638507726/house-2a/mathew-coulton-ZnHEa8mHOxw-unsplash_xjftj5.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1638507541/house-2a/oskar-kadaksoo-1Vg-PKmvbEY-unsplash_rxs1wk.jpg"
+          ]
 },
 {
   title: "Your dog can sit with us!",

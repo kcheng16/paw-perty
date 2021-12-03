@@ -609,7 +609,6 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       this.props.createListing(formData).then(function (res) {
         _this2.props.history.push("/listings/".concat(res.listing.id));
       });
-      console.log(this.state);
     }
   }, {
     key: "handleFile",
@@ -1006,8 +1005,6 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
       formData.append("listing[latitude]", this.state.latitude);
       formData.append("listing[postal_code]", this.state.postal_code);
       formData.append("id", this.state.id);
-      console.log(this.state);
-      console.log(this.state.photoFile);
 
       if (this.state.photoFile && this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
         for (var i = 0; i < this.state.photoFile.length; i++) {
@@ -1409,8 +1406,6 @@ var ListingsImages = /*#__PURE__*/function (_React$Component) {
           counter: this.index
         });
       }
-
-      console.log(this.state.counter);
     }
   }, {
     key: "subtract",
@@ -1421,8 +1416,6 @@ var ListingsImages = /*#__PURE__*/function (_React$Component) {
           counter: this.index
         });
       }
-
-      console.log(this.state.counter);
     }
   }, {
     key: "render",
@@ -1672,7 +1665,6 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       var _this = this;
 
       if (!this.props.listing) return "loading...";
-      console.log(this.props.reviews.length);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page"
       }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
