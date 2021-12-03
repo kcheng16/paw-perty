@@ -140,10 +140,10 @@ class ListingsShow extends React.Component{
               <div className="check-in-out">
                 <div className='check-in-out-container'>
                   <div id="check-in">CHECK-IN
-                    <div>calendar</div>
+                    <div>12/01/21</div>
                   </div>
                   <div>CHECK-OUT
-                    <div>calendar</div>
+                    <div>12/02/21</div>
                   </div>
                 </div>
                 <div className="select-guests">Guests</div>

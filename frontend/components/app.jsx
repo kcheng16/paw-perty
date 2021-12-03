@@ -20,11 +20,7 @@ const App = () => (
   <div>
       <Modal />
     <header>
-      <Link to="/">
-        <img className="logo" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637652441/pawperty-logo_bemkc9.png"/>
-      </Link>
       <NavbarContainer />
-      
       <UserDropdownContainer />
     </header>
 
