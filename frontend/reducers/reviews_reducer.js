@@ -13,7 +13,11 @@ export default (state = {}, action) => {
     case  RECEIVE_ALL_REVIEWS:
       return action.reviews;
 
-      case RECEIVE_LISTING:
+    case RECEIVE_REVIEW:
+      newState[action.review.id] = action.review
+      return newState;
+
+    case RECEIVE_LISTING:
       if (action.payload.reviews){
         return action.payload.reviews
       } else {

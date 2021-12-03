@@ -3350,6 +3350,10 @@ __webpack_require__.r(__webpack_exports__);
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ALL_REVIEWS:
       return action.reviews;
 
+    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_REVIEW:
+      newState[action.review.id] = action.review;
+      return newState;
+
     case _actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_LISTING:
       if (action.payload.reviews) {
         return action.payload.reviews;

@@ -39,8 +39,16 @@ listing1 = Listing.create!([
           "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/aaron-huber-G7sE2S4Lab4-unsplash_jkrdps.jpg" ]
 },
 {
-  title: '#2!',
-  description: 'Dynamic parks in the area! Come relax on our cozy beds!',
+  title: 'Flex those paws!',
+  description: 'Dynamic parks in the area! Come relax on our cozy beds!
+  I am a full time stay home mom and have more than 20 years experience of caring and training dogs.
+
+I only take one dog at a time for boarding or daycare because I want to make sure your dog will have my full attention.
+
+Our house is always kept clean and we also have a beautiful backyard where the dogs can play together. Moreover, I will also take your dogs for at least two 15 minutes walks during their stay with us. Your dog will be stimulated mentally and physically and come home happy.
+
+Feel free to schedule a meet and greet with us, to see if your dog is comfortable with the environment. We will definitely treat your dog like a family 
+  ',
   host_id: User.first.id,
   street_address: '2 fake street',
   city: 'San Francisco',
