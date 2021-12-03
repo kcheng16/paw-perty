@@ -131,7 +131,7 @@ class ListingsShow extends React.Component{
               </div>
 
               <div className="line"></div>
-              <ReviewsCreateContainer listing={this.props.listing}/>
+              {this.props.session ? <ReviewsCreateContainer listing={this.props.listing}/> : ""}
             </div>
         </div>
           
