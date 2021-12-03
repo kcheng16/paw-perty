@@ -20,12 +20,12 @@ class Navbar extends React.Component {
           <img className="logo" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637652441/pawperty-logo_bemkc9.png"/>
         </Link>
 
-        <a to="https://www.linkedin.com/in/kcheng16/">
+        <a href="https://www.linkedin.com/in/kcheng16/">
           <img className="linked-in" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/linkedinbutton_r8xeco.png"/>
         </a>
 
-        <a className="github" to="https://github.com/kcheng16">
-          <img src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/githubicon_w6ympq.png"/>
+        <a href="https://github.com/kcheng16">
+          <img className="github" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/githubicon_w6ympq.png"/>
         </a>
 
       </div>

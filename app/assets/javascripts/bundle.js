@@ -601,7 +601,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       }
 
       this.props.createListing(formData).then(function (res) {
-        _this2.props.history.push("/listings/".concat(res.listing.id));
+        _this2.props.history.push("/listings/".concat(res.payload.listing.id));
       });
     }
   }, {
@@ -1004,11 +1004,10 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         for (var i = 0; i < this.state.photoFile.length; i++) {
           formData.append("listing[photos][]", this.state.photoFile[i]);
         }
-      } // this.props.updateListing(formData)
-
+      }
 
       this.props.updateListing(formData).then(function (res) {
-        _this2.props.history.push("/listings/".concat(res.listing.id));
+        _this2.props.history.push("/listings/".concat(res.payload.listing.id));
       });
     }
   }, {
@@ -1987,14 +1986,14 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
         className: "logo",
         src: "https://res.cloudinary.com/de8carnhu/image/upload/v1637652441/pawperty-logo_bemkc9.png"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        to: "https://www.linkedin.com/in/kcheng16/"
+        href: "https://www.linkedin.com/in/kcheng16/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "linked-in",
         src: "https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/linkedinbutton_r8xeco.png"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        className: "github",
-        to: "https://github.com/kcheng16"
+        href: "https://github.com/kcheng16"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "github",
         src: "https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/githubicon_w6ympq.png"
       })));
     }

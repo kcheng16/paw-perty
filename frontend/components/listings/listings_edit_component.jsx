@@ -50,9 +50,8 @@ class ListingEditComponent extends React.Component{
         formData.append("listing[photos][]", this.state.photoFile[i]);
       }
     }
-    // this.props.updateListing(formData)
     this.props.updateListing(formData).then(
-      (res) => {this.props.history.push(`/listings/${res.listing.id}`)})
+      (res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
   }
 
   handleFile(e){
