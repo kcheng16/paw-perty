@@ -106,7 +106,7 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
   price: 30,
   num_of_beds: 2,
   images: [
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1638499584/house3/devn-JmmXKlJ8MKQ-unsplash_d3udjg.jpg"
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1638499584/house3/devn-JmmXKlJ8MKQ-unsplash_d3udjg.jpg",
           "https://res.cloudinary.com/de8carnhu/image/upload/v1638493297/house3/bonnie-kittle-sYVncFdbAIA-unsplash_ju248w.jpg",
           "https://res.cloudinary.com/de8carnhu/image/upload/v1638493429/house3/res-console.cloudinary_wxc1ai.jpg",
           "https://res.cloudinary.com/de8carnhu/image/upload/v1638493232/house3/martin-edholm-JrMj65DGH00-unsplash_rq0fr1.jpg",
