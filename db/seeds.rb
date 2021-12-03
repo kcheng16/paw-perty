@@ -63,7 +63,8 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
           "https://res.cloudinary.com/de8carnhu/image/upload/v1638507625/house-2a/josue-michel-x8y0mJCVs6g-unsplash_iutzov.jpg",
           "https://res.cloudinary.com/de8carnhu/image/upload/v1638507541/house-2a/shaun-montero-ZxDX8D9HHNM-unsplash_hqa4ao.jpg",
           "https://res.cloudinary.com/de8carnhu/image/upload/v1638507726/house-2a/mathew-coulton-ZnHEa8mHOxw-unsplash_xjftj5.jpg",
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1638507541/house-2a/oskar-kadaksoo-1Vg-PKmvbEY-unsplash_rxs1wk.jpg"
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1638507541/house-2a/oskar-kadaksoo-1Vg-PKmvbEY-unsplash_rxs1wk.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1638508404/house-2a/david-saw-dawg-guarino-xy0cdItRhDU-unsplash_iwvwjt.jpg"
           ]
 },
 {

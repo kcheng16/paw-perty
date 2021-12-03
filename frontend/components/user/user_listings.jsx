@@ -25,7 +25,6 @@ class UserListings extends React.Component{
                     <div className="user-listing-address">
                       <div className="line"></div>
                       <div className="user-listing-street">{listing.street_address}</div>
-                      <p>{listing.postal_code}</p>
                       <p>{listing.country}</p>
                       <div className="user-listing-price">{listing.price} Doge Coins/night</div>
                     </div>

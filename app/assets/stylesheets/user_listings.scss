@@ -44,23 +44,22 @@
 
 .user-listing-icon{
   width: 22vw;
-  height: 33vh;
+  height: 37vh;
   border-radius: 17px;
   padding-bottom: 18px;
   object-fit: cover;
 }
 
 .user-listing-title{
-  padding-left: 1.5vw;
-  padding-bottom: 2vh;
-  font-size: 2vw;
+  padding-left: 1vw;
+  font-size: 1.2vw;
   font-weight: 600;
 }
 
 .user-listing-street{
   padding-left: 1.5vw;
   font-weight: 700;
-  font-size: 1.5vw;
+  font-size: 1vw;
 }
 
 .user-listing-address{
@@ -68,7 +67,7 @@
 
   >p{
     padding-left: 1.5vw;
-
+    font-size: 1vw;
   }
 }
 
@@ -84,5 +83,6 @@
   text-align: end;
   padding-right: 1vw;
   font-weight: 700;
-  font-size: 1.5vw;
+  font-size: 1vw;
+  padding-top: 10px;
 }
