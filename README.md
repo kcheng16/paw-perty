@@ -1,7 +1,9 @@
-Paw-perty, a AirBnB clone, is a board booking application that allows users to:
-* freely explore listings in various cities
-* create a collection of favorite listings
-* book a stay of different location and date
+[Paw-perty Live](http://paw-perty.herokuapp.com/)
+![pawperty-logo](https://user-images.githubusercontent.com/88124383/144649187-d67083c0-881b-448a-b0e3-0fda1888359c.png)
+Paw-perty, an AirBnB clone, is a dog-sit booking application that allows users to:
+* Freely explore listings in various cities
+* Become a host by creating your own listing
+* Leave behind ratings and reviews of a listing
 
 # Technologies Used
 ### Frontend
@@ -10,6 +12,9 @@ Paw-perty, a AirBnB clone, is a board booking application that allows users to:
 * Javascript
 * HTML5
 * CSS
+* AWS
+* JQuery
+* JBuilder
 
 ### Backend
 * Ruby on Rails
@@ -19,3 +24,9 @@ Paw-perty, a AirBnB clone, is a board booking application that allows users to:
 * Webpack
 * Git
 * Babel
+
+# Features
+* Create a personal account
+* Log in using a demo user
+* Create new listings and upload pictures
+* Create and delete a review on a listing
