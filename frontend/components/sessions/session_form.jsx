@@ -44,15 +44,14 @@ class SessionForm extends React.Component {
       <div className="session-form"> 
         <h2 className="session-form-type">{this.props.formType}</h2>
         <p className="session-form-close-button" onClick={()=> this.props.closeModal()}>X</p> 
-        <h2 className="session-form-welcome">Welcome to Paw-perty</h2>      
         <form className="session-form"onSubmit={this.handleSubmit}>
-            <input type="text" value={this.state.username} onChange={this.update('username')} placeholder="   Username"/>
-            <input type="password" value={this.state.password} onChange={this.update('password')} placeholder="   Password"/>
+            <input type="text" value={this.state.username} onChange={this.update('username')} placeholder="Username"/>
+            <input type="password" value={this.state.password} onChange={this.update('password')} placeholder="Password"/>
 
           {this.props.formType === 'Sign Up' ? (
               <>
-                  <input className="session-form-extra" onChange={this.update('email')} name="user-email" type="text" placeholder="   Email address" value={this.state.email} />
-                  <input className="session-form-extra" onChange={this.update('bio')} name="user-bio" type="textarea" placeholder="   Tell us a little about your dog" value={this.state.bio} />
+                  <input className="session-form-extra" onChange={this.update('email')} name="user-email" type="text" placeholder="Email address" value={this.state.email} />
+                  <input className="session-form-extra" onChange={this.update('bio')} name="user-bio" type="textarea" placeholder="Tell us a little about your dog" value={this.state.bio} />
               </>
             ) : ("")
           }
