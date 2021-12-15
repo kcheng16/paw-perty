@@ -1766,7 +1766,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         className: "line"
       }), this.props.reviews.some(function (review) {
         return review.reviewer_id === _this.props.session.id;
-      }) ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_create_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }) || this.props.listing.host_id === this.props.session.id ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_create_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         listing: this.props.listing
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "sticky-parent"

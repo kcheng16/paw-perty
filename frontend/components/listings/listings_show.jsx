@@ -131,7 +131,7 @@ class ListingsShow extends React.Component{
               </div>
               <div className="line"></div>
 
-              {this.props.reviews.some(review => review.reviewer_id === this.props.session.id) ? 
+              {this.props.reviews.some(review => review.reviewer_id === this.props.session.id) || this.props.listing.host_id === this.props.session.id ? 
                 "" : <ReviewsCreateContainer listing={this.props.listing}/>
               }
             </div>
