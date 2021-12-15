@@ -56,7 +56,7 @@ class ListingsShow extends React.Component{
         <div className="listing-info">
           <div className='listing-info2'>
             <div>Loving home hosted by {this.props.listing.host_name}</div>
-            <div>Hosts up to {this.props.listing.num_of_beds} dog/s</div>
+            <div className="up-to">Hosts up to {this.props.listing.num_of_beds} dog/s</div>
             <div className="line"></div>
             <div className="icons">
               <div className="icon1">
@@ -139,14 +139,25 @@ class ListingsShow extends React.Component{
               <div className="price">{this.props.listing.price} Doge Coins/night</div>
               <div className="check-in-out">
                 <div className='check-in-out-container'>
-                  <div id="check-in">CHECK-IN
+                  <div id="check-in">
+                    <div>CHECK-IN</div>
                     <div>12/01/21</div>
                   </div>
-                  <div>CHECK-OUT
-                    <div>12/02/21</div>
+                  <div id="check-out">
+                    <div>CHECK-OUT</div>
+                    <div className="calendar">
+
+                    </div>
                   </div>
                 </div>
-                <div className="select-guests">Guests</div>
+                <div className="select-guests">
+                  <div className="title">Guests</div>
+                  <select className="guest-dropdown">
+                    <option value="1">1 Dog</option>
+                    <option value="2">2 Dogs</option>
+                    <option value="3">3 Dogs</option>
+                  </select>
+                </div>
               </div>
               <div className="reserve-button">Reserve</div>
               <div className="line"></div>

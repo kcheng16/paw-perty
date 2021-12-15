@@ -3,6 +3,7 @@
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(4, 23vw);
+
 }
 
 .listings-index-link {
@@ -22,5 +23,13 @@
   }
   .price {
     font-size: 1vw;
+  }
+  
+}
+
+.user-listing-address{
+  .line{
+    width: 90%;
+    margin-left: 20px;
   }
 }

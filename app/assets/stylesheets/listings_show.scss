@@ -99,7 +99,7 @@
     padding-bottom: 1vh;
     width: 45vw;
 
-    div:nth-child(2){
+    .up-to{
       font-size: 1vw;
       font-weight: 100;
       padding-top: 10px;
@@ -159,6 +159,7 @@
     margin-left: 0vh;
     margin-right: 7vw;
     height: 0.05vw;
+    width: 90%;
   }
 
 }
@@ -246,9 +247,21 @@
       }
 
       .select-guests{
-        padding-top: 2vh;
         border-top: 1px solid gray;
+
+        .title{
+        text-align: start;
+        font-size: 12px;
+        font-weight: 700;
+        }
       }
+    }
+    }
+
+    .guest-dropdown{
+      width: 100%;
+      text-align: center;
+      height: 30px;
     }
 
     .reserve-button{
@@ -274,8 +287,10 @@
       justify-content: space-between;
       width: 10vw;
     }
-}
+
 
 .line{
   margin-top: 3vh;
 }
+
+//===========================
