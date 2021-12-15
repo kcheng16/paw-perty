@@ -14,6 +14,7 @@ class ListingsShow extends React.Component{
 
   render(){
     if(!this.props.listing) return "loading..."
+
     return(
       <div className="show-page"> 
         {/* need to add edit posting */}
@@ -128,9 +129,11 @@ class ListingsShow extends React.Component{
                   <ReviewsIndexItem review={review} key={idx}/>
                   )}
               </div>
-
               <div className="line"></div>
-              {this.props.session ? <ReviewsCreateContainer listing={this.props.listing}/> : ""}
+
+              {this.props.reviews.some(review => review.reviewer_id === this.props.session.id) ? 
+                "" : <ReviewsCreateContainer listing={this.props.listing}/>
+              }
             </div>
         </div>
           
