@@ -51,7 +51,7 @@ class Listing < ApplicationRecord
   end
 
   def average_rating
-    reviews.average(:rating).round(1)
+    reviews.average(:rating)
   end
 
 end

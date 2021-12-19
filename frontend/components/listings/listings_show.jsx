@@ -9,6 +9,7 @@ class ListingsShow extends React.Component{
 
   componentDidMount(){
     this.props.requestListing(this.props.match.params.id)
+
   }
 
 
@@ -131,7 +132,7 @@ class ListingsShow extends React.Component{
               </div>
               <div className="line"></div>
 
-              {this.props.reviews.some(review => review.reviewer_id === this.props.session.id) || this.props.listing.host_id === this.props.session.id ? 
+              {this.props.reviews.some(review => review.reviewer_id === this.props.session.id) || this.props.listing.host_id === this.props.session.id || this.props.session.id !== null ? 
                 "" : <ReviewsCreateContainer listing={this.props.listing}/>
               }
             </div>
