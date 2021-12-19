@@ -2472,9 +2472,15 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this3 = this;
+
       e.preventDefault();
       var user = this.state;
-      this.props.processForm(user).then(this.props.closeModal);
+      this.props.processForm(user).then(function (res) {
+        console.log(res);
+
+        _this3.props.closeModal();
+      });
     }
   }, {
     key: "componentWillUnmount",
@@ -2484,7 +2490,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "session-form"
@@ -2493,7 +2499,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       }, this.props.formType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "session-form-close-button",
         onClick: function onClick() {
-          return _this3.props.closeModal();
+          return _this4.props.closeModal();
         }
       }, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         className: "session-form",
@@ -2522,7 +2528,9 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         type: "textarea",
         placeholder: "Tell us a little about your dog",
         value: this.state.bio
-      })) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, " ", Array.isArray(this.props.errors) ? this.props.errors.map(function (error, idx) {
+      })) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+        className: "session-errors"
+      }, " ", Array.isArray(this.props.errors) ? this.props.errors.map(function (error, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
           key: idx
         }, error);
@@ -2532,7 +2540,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       }, this.props.formType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "demobutton",
         onClick: function onClick(e) {
-          return _this3.loginDemoUser(e);
+          return _this4.loginDemoUser(e);
         }
       }, "Demo User")));
     }
@@ -3299,10 +3307,13 @@ __webpack_require__.r(__webpack_exports__);
       return nextState;
 
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_CURRENT_USER:
-      var listings = Object.values(action.user.listings);
-      listings.forEach(function (listing) {
-        return nextState[listing.id] = listing;
-      });
+      if (action.user.listings === null) {
+        var listings = Object.values(action.user.listings);
+        listings.forEach(function (listing) {
+          return nextState[listing.id] = listing;
+        });
+      }
+
       return nextState;
 
     default:

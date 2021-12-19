@@ -23,8 +23,10 @@ export default (state={}, action) => {
       return nextState
 
     case RECEIVE_CURRENT_USER:
-      let listings = Object.values(action.user.listings)
-      listings.forEach(listing => nextState[listing.id] = listing)
+      if (action.user.listings === null){
+        let listings = Object.values(action.user.listings)
+        listings.forEach(listing => nextState[listing.id] = listing)
+      }
       return nextState
       
     default:

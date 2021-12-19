@@ -32,7 +32,8 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.processForm(user).then(this.props.closeModal);
+    this.props.processForm(user)
+      .then((res) => {console.log(res); this.props.closeModal()});
   }
 
   componentWillUnmount(){
@@ -56,7 +57,7 @@ class SessionForm extends React.Component {
             ) : ("")
           }
         {/* rendering errors if any */}
-        <ul> {Array.isArray(this.props.errors) ? this.props.errors.map((error, idx) => <li key={idx}>{error}</li>) : "" } </ul>
+        <ul className="session-errors"> {Array.isArray(this.props.errors) ? this.props.errors.map((error, idx) => <li key={idx}>{error}</li>) : "" } </ul>
 
           <button className="submit-button" type='submit'>{this.props.formType}</button>
     {/* DEMO USER */}
