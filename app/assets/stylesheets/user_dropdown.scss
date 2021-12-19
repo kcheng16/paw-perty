@@ -17,7 +17,6 @@
 
 .dropdown-ul {
   position: absolute;
-  top: 10vh;
   right: 2vw;
   z-index: 5;
   background-color: white;
@@ -69,3 +68,16 @@
   }
 
 }
+
+.dropdown-list:hover{
+  cursor: pointer;
+}
+
+.dropdown-img:hover{
+  cursor: pointer;
+}
+
+.dropdown-ul:hover{
+  cursor: pointer;
+}
+
