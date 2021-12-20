@@ -8,16 +8,9 @@ class ReviewsIndexItem extends React.Component{
     console.log("STATE:", this.state)
 
     this.stars = [];
-    for (let i = 0; i < props.review.rating; i++) {
-      this.stars.push(<FaStar key={i} size={20} color={'gold'} />)
-    }
-  
-    while (this.stars.length < 5) {
-      let i = this.stars.length
-      this.stars.push(<FaStar key={i} size={20} color={'#e9e9e9'} />)
-    }
 
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.toggleEdit = this.toggleEdit.bind(this)
   }
 
   update(field) {
@@ -29,14 +22,30 @@ class ReviewsIndexItem extends React.Component{
   handleSubmit(e){
     e.preventDefault()
     this.props.updateReview(this.state)
+      .then(this.toggleEdit)
   }
   
   toggleEdit(){
     this.setState({editable: (!this.state.editable)})
   }
 
+  populateStars(){
+    this.stars = []
+    // populate gold stars
+    for (let i = 0; i < this.props.review.rating; i++) {
+      this.stars.push(<FaStar key={i} size={20} color={'gold'} />)
+    }
+  
+    // populate empty stars
+    while (this.stars.length < 5) {
+      let i = this.stars.length
+      this.stars.push(<FaStar key={i} size={20} color={'#e9e9e9'} />)
+    }
+  }
+
   render(){
-    console.log("editable:", this.state.editable)
+    console.log("RATING:", this.state.rating)
+    this.populateStars()
     return(
       <div className="reviews-index-item">
         
@@ -69,10 +78,12 @@ class ReviewsIndexItem extends React.Component{
                   color={(this.state.rating) >= 5 ? 'gold' : 'gray'} />
               </label>
             </div>
-            <div className="review-body1">
-              <textarea onChange={this.update('body')} className="reviews-body" value={this.state.body}/>
-              <button type="submit">Update</button>
-              <button onClick={() => this.toggleEdit()}>Close Edit</button>
+            <div className="review-body-edit">
+              <textarea onChange={this.update('body')} className="body" value={this.state.body}/>
+              <div className="reviews-buttons">
+                <button className="close" onClick={() => this.toggleEdit()}>Close</button>
+                <button className="update" type="submit" onClick={(e) => this.handleSubmit(e)}>Update</button>
+              </div>
             </div>
           </form>
           :
@@ -83,7 +94,7 @@ class ReviewsIndexItem extends React.Component{
             <div className="body">{this.props.review.body}</div>
           
             {this.props.sessionId === this.props.reviewerId ?
-              <button onClick={() => this.toggleEdit()}>Edit</button> : ""
+              <button className="reviews-edit" onClick={() => this.toggleEdit()}>Edit</button> : ""
             }
           </div>
         }

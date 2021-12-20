@@ -2310,26 +2310,8 @@ var ReviewsIndexItem = /*#__PURE__*/function (_React$Component) {
     });
     console.log("STATE:", _this.state);
     _this.stars = [];
-
-    for (var i = 0; i < props.review.rating; i++) {
-      _this.stars.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaStar, {
-        key: i,
-        size: 20,
-        color: 'gold'
-      }));
-    }
-
-    while (_this.stars.length < 5) {
-      var _i = _this.stars.length;
-
-      _this.stars.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaStar, {
-        key: _i,
-        size: 20,
-        color: '#e9e9e9'
-      }));
-    }
-
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.toggleEdit = _this.toggleEdit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2346,7 +2328,7 @@ var ReviewsIndexItem = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      this.props.updateReview(this.state);
+      this.props.updateReview(this.state).then(this.toggleEdit);
     }
   }, {
     key: "toggleEdit",
@@ -2356,11 +2338,35 @@ var ReviewsIndexItem = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "populateStars",
+    value: function populateStars() {
+      this.stars = []; // populate gold stars
+
+      for (var i = 0; i < this.props.review.rating; i++) {
+        this.stars.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaStar, {
+          key: i,
+          size: 20,
+          color: 'gold'
+        }));
+      } // populate empty stars
+
+
+      while (this.stars.length < 5) {
+        var _i = this.stars.length;
+        this.stars.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaStar, {
+          key: _i,
+          size: 20,
+          color: '#e9e9e9'
+        }));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
-      console.log("editable:", this.state.editable);
+      console.log("RATING:", this.state.rating);
+      this.populateStars();
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "reviews-index-item"
       }, this.state.editable ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
@@ -2414,22 +2420,30 @@ var ReviewsIndexItem = /*#__PURE__*/function (_React$Component) {
         size: 30,
         color: this.state.rating >= 5 ? 'gold' : 'gray'
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "review-body1"
+        className: "review-body-edit"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         onChange: this.update('body'),
-        className: "reviews-body",
+        className: "body",
         value: this.state.body
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        type: "submit"
-      }, "Update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "reviews-buttons"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "close",
         onClick: function onClick() {
           return _this3.toggleEdit();
         }
-      }, "Close Edit"))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Close"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "update",
+        type: "submit",
+        onClick: function onClick(e) {
+          return _this3.handleSubmit(e);
+        }
+      }, "Update")))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "rating"
       }, this.stars), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body"
       }, this.props.review.body), this.props.sessionId === this.props.reviewerId ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "reviews-edit",
         onClick: function onClick() {
           return _this3.toggleEdit();
         }

@@ -17,19 +17,44 @@
     width: 32vw;
   }
 
-  >button{
-    background-color: #ff4949;
-    width: 5vw;
-    height: 5vh;
-    text-align: center;
-    border-radius: 5px;
-    margin-top: 10px;
-    color: white;
-  }
 }
 
-
+.reviews-edit{
+  font-size: small;
+  color: blue;
+}
 
 .review-rating > label > input{
   display: none;
+}
+
+.review-body-edit{
+  >.body{
+    width: 90%;
+    border: solid gray 1px;
+    border-radius: 10px;
+    height: 10vh;
+    padding: 10px;
+  }
+
+  .reviews-buttons{
+    font-size: initial;
+    display: flex;
+    justify-content: flex-end;
+  
+    .update{
+      background-color: #ff4949;
+      width: 4vw;
+      height: 4vh;
+      text-align: center;
+      border-radius: 5px;
+      margin-top: 10px;
+      color: white;
+    }
+
+    .close{
+      margin: 20px;
+    }
+  }
+
 }
