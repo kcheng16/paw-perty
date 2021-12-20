@@ -4,9 +4,10 @@ import { FaStar } from 'react-icons/fa'
 class ReviewsIndexItem extends React.Component{
   constructor(props){
     super(props)
-    this.state = this.props.review
-    this.stars = [];
+    this.state = {...this.props.review, editable: false}
     console.log("STATE:", this.state)
+
+    this.stars = [];
     for (let i = 0; i < props.review.rating; i++) {
       this.stars.push(<FaStar key={i} size={20} color={'gold'} />)
     }
@@ -30,12 +31,16 @@ class ReviewsIndexItem extends React.Component{
     this.props.updateReview(this.state)
   }
   
+  toggleEdit(){
+    this.setState({editable: (!this.state.editable)})
+  }
+
   render(){
-    console.log("RENDER-STATE:",this.state)
+    console.log("editable:", this.state.editable)
     return(
       <div className="reviews-index-item">
         
-        {this.props.sessionId === this.props.reviewerId ? 
+        {this.state.editable ?
           <form className="reviews-form" onSubmit={this.handleSubmit}>
             <div className="review-rating">
               <label>
@@ -67,14 +72,19 @@ class ReviewsIndexItem extends React.Component{
             <div className="review-body1">
               <textarea onChange={this.update('body')} className="reviews-body" value={this.state.body}/>
               <button type="submit">Update</button>
+              <button onClick={() => this.toggleEdit()}>Close Edit</button>
             </div>
           </form>
-        :
+          :
           <div>
             <div className="rating">
               {this.stars}
             </div>
             <div className="body">{this.props.review.body}</div>
+          
+            {this.props.sessionId === this.props.reviewerId ?
+              <button onClick={() => this.toggleEdit()}>Edit</button> : ""
+            }
           </div>
         }
       </div>
