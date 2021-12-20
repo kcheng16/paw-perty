@@ -133,6 +133,7 @@ class ListingsShow extends React.Component{
                     sessionId={this.props.session.id}
                     reviewerId={review.reviewer_id}
                     updateReview={this.props.updateReview}
+                    deleteReview={this.props.deleteReview}
                   />
                 )}
               </div>

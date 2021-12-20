@@ -31,6 +31,7 @@ class ReviewsIndexItem extends React.Component{
 
   populateStars(){
     this.stars = []
+
     // populate gold stars
     for (let i = 0; i < this.props.review.rating; i++) {
       this.stars.push(<FaStar key={i} size={20} color={'gold'} />)
@@ -44,7 +45,6 @@ class ReviewsIndexItem extends React.Component{
   }
 
   render(){
-    console.log("RATING:", this.state.rating)
     this.populateStars()
     return(
       <div className="reviews-index-item">
@@ -94,7 +94,11 @@ class ReviewsIndexItem extends React.Component{
             <div className="body">{this.props.review.body}</div>
           
             {this.props.sessionId === this.props.reviewerId ?
-              <button className="reviews-edit" onClick={() => this.toggleEdit()}>Edit</button> : ""
+              <div>
+                <button className="reviews-edit" onClick={() => this.toggleEdit()}>Edit</button> 
+                <button className="reviews-delete" onClick={() => this.props.deleteReview(this.props.review.id)}>Delete</button>
+              </div>
+              : ""
             }
           </div>
         }

@@ -1764,7 +1764,8 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
           key: idx,
           sessionId: _this.props.session.id,
           reviewerId: review.reviewer_id,
-          updateReview: _this.props.updateReview
+          updateReview: _this.props.updateReview,
+          deleteReview: _this.props.deleteReview
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "line"
@@ -1857,6 +1858,9 @@ var mDTP = function mDTP(dispatch) {
     },
     updateReview: function updateReview(review) {
       return dispatch((0,_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__.updateReview)(review));
+    },
+    deleteReview: function deleteReview(reviewId) {
+      return dispatch((0,_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__.deleteReview)(reviewId));
     }
   };
 };
@@ -2365,7 +2369,6 @@ var ReviewsIndexItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      console.log("RATING:", this.state.rating);
       this.populateStars();
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "reviews-index-item"
@@ -2442,12 +2445,17 @@ var ReviewsIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "rating"
       }, this.stars), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "body"
-      }, this.props.review.body), this.props.sessionId === this.props.reviewerId ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, this.props.review.body), this.props.sessionId === this.props.reviewerId ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "reviews-edit",
         onClick: function onClick() {
           return _this3.toggleEdit();
         }
-      }, "Edit") : ""));
+      }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "reviews-delete",
+        onClick: function onClick() {
+          return _this3.props.deleteReview(_this3.props.review.id);
+        }
+      }, "Delete")) : ""));
     }
   }]);
 

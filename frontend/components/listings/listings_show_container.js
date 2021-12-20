@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { requestListing, deleteListing } from "../../actions/listing_actions";
-import { updateReview } from "../../actions/review_actions";
+import { deleteReview, updateReview } from "../../actions/review_actions";
 import { withRouter } from "react-router";
 import ListingsShow from "./listings_show"
 
@@ -15,7 +15,8 @@ const mSTP = (state,ownProps) =>{
 const mDTP = (dispatch) => ({
   requestListing: listingId => dispatch(requestListing(listingId)),
   deleteListing: listingId => dispatch(deleteListing(listingId)),
-  updateReview: review => dispatch(updateReview(review))
+  updateReview: review => dispatch(updateReview(review)),
+  deleteReview: reviewId => dispatch(deleteReview(reviewId))
 })
 
 export default withRouter(connect(mSTP, mDTP)(ListingsShow))

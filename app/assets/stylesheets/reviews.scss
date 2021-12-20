@@ -17,11 +17,15 @@
     width: 32vw;
   }
 
-}
-
-.reviews-edit{
+}.reviews-edit{
   font-size: small;
   color: blue;
+}
+
+.reviews-delete{
+  font-size: small;
+  color: rgb(95, 95, 95);
+  margin-left: 20px;
 }
 
 .review-rating > label > input{
