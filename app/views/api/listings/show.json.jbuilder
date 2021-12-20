@@ -16,7 +16,7 @@ end
 @listing.reviews.each do |review|
     json.reviews do
         json.set! review.id do 
-            json.extract! review, :body, :rating, :listing_id, :reviewer_id
+            json.extract! review, :id, :body, :rating, :listing_id, :reviewer_id
         end
     end
 end

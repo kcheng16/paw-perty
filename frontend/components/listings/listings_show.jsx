@@ -15,7 +15,7 @@ class ListingsShow extends React.Component{
 
   render(){
     if(!this.props.listing) return "loading..."
-
+    console.log("LISTING SHOW REVIEWS:",this.props.reviews)
     return(
       <div className="show-page"> 
         {/* need to add edit posting */}
@@ -127,8 +127,14 @@ class ListingsShow extends React.Component{
 
               <div className="reviews-grid">
                 {this.props.reviews.map((review, idx) =>
-                  <ReviewsIndexItem review={review} key={idx}/>
-                  )}
+                  <ReviewsIndexItem 
+                    review={review} 
+                    key={idx} 
+                    sessionId={this.props.session.id}
+                    reviewerId={review.reviewer_id}
+                    updateReview={this.props.updateReview}
+                  />
+                )}
               </div>
               <div className="line"></div>
 
