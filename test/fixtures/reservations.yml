@@ -6,6 +6,7 @@
 #  end_date      :datetime         not null
 #  num_of_guests :integer          not null
 #  start_date    :datetime         not null
+#  total_price   :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  guest_id      :integer          not null

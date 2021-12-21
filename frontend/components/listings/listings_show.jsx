@@ -15,10 +15,17 @@ class ListingsShow extends React.Component{
 
   render(){
     if(!this.props.listing) return "loading..."
-    console.log("LISTING SHOW REVIEWS:",this.props.reviews)
+
+    let date = new Date()
+    let day = date.getDate();
+    let month = date.getMonth()+1;
+    let year = date.getFullYear();
+
+    let today = month + '/' + day + '/' + year;
+    let tomorrow = month + '/' + (day + 1) + '/' + year;
+
     return(
       <div className="show-page"> 
-        {/* need to add edit posting */}
         {this.props.listing.host_id === this.props.session.id ?
           (<div>
             <button 
@@ -152,10 +159,11 @@ class ListingsShow extends React.Component{
                 <div className='check-in-out-container'>
                   <div id="check-in">
                     <div>CHECK-IN</div>
-                    <div>12/01/21</div>
+                    <div>{today}</div>
                   </div>
                   <div id="check-out">
                     <div>CHECK-OUT</div>
+                    <div>{tomorrow}</div>
                     <div className="calendar">
 
                     </div>

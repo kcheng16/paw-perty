@@ -6,6 +6,7 @@
 #  end_date      :datetime         not null
 #  num_of_guests :integer          not null
 #  start_date    :datetime         not null
+#  total_price   :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  guest_id      :integer          not null
@@ -17,6 +18,8 @@
 #  index_reservations_on_listing_id  (listing_id)
 #
 class Reservation < ApplicationRecord
+  validates :start_date, :end_date, :guest_id, :listing_id, :total_price, presence: true
+  
   belongs_to :guest,
     foreign_key: :guest_id,
     primary_key: :id,
