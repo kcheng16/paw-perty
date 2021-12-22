@@ -1760,6 +1760,8 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
     key: "createReservation",
     value: function createReservation() {
       e.preventDefault();
+      console.log("CREATING RESERVATION");
+      this.props.createReservation(this.state.reservation); // .then( () => this.props.history.push(`/reservations/${this.props.session.id}`))
     }
   }, {
     key: "render",

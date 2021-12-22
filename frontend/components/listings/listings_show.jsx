@@ -30,7 +30,9 @@ class ListingsShow extends React.Component{
 
   createReservation(){
     e.preventDefault()
-    
+    console.log("CREATING RESERVATION")
+    this.props.createReservation(this.state.reservation)
+      // .then( () => this.props.history.push(`/reservations/${this.props.session.id}`))
   }
 
   render(){
