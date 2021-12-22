@@ -9,3 +9,12 @@ json.set! 'listings' do
     end
   end
 end
+
+json.set! 'reservations' do
+  @user.reservations.each do |reservation|
+    json.set! reservation.id do
+      json.extract! reservation, :id, :start_date, :end_date, :listing_id, :guest_id, :total_price, :num_of_guests
+    end
+  end
+end
+

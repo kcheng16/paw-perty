@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { requestListing, deleteListing } from "../../actions/listing_actions";
 import { deleteReview, updateReview } from "../../actions/review_actions";
+import { createReservation } from "../../actions/reservation_actions";
 import { withRouter } from "react-router";
 import ListingsShow from "./listings_show"
 
@@ -16,7 +17,8 @@ const mDTP = (dispatch) => ({
   requestListing: listingId => dispatch(requestListing(listingId)),
   deleteListing: listingId => dispatch(deleteListing(listingId)),
   updateReview: review => dispatch(updateReview(review)),
-  deleteReview: reviewId => dispatch(deleteReview(reviewId))
+  deleteReview: reviewId => dispatch(deleteReview(reviewId)),
+  createReservation: reservation => dispatch(createReservation(reservation))
 })
 
 export default withRouter(connect(mSTP, mDTP)(ListingsShow))

@@ -137,6 +137,82 @@ var closeModal = function closeModal() {
 
 /***/ }),
 
+/***/ "./frontend/actions/reservation_actions.js":
+/*!*************************************************!*\
+  !*** ./frontend/actions/reservation_actions.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RECEIVE_RESERVATIONS": () => (/* binding */ RECEIVE_RESERVATIONS),
+/* harmony export */   "RECEIVE_RESERVATION": () => (/* binding */ RECEIVE_RESERVATION),
+/* harmony export */   "REMOVE_RESERVATION": () => (/* binding */ REMOVE_RESERVATION),
+/* harmony export */   "receiveReservations": () => (/* binding */ receiveReservations),
+/* harmony export */   "receiveReservation": () => (/* binding */ receiveReservation),
+/* harmony export */   "removeReservation": () => (/* binding */ removeReservation),
+/* harmony export */   "requestReservations": () => (/* binding */ requestReservations),
+/* harmony export */   "requestReservation": () => (/* binding */ requestReservation),
+/* harmony export */   "createReservation": () => (/* binding */ createReservation),
+/* harmony export */   "deleteReservation": () => (/* binding */ deleteReservation)
+/* harmony export */ });
+/* harmony import */ var _util_reservation_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/reservation_util */ "./frontend/util/reservation_util.jsx");
+
+var RECEIVE_RESERVATIONS = 'RECEIVE_RESERVATIONS';
+var RECEIVE_RESERVATION = 'RECEIVE_RESERVATION';
+var REMOVE_RESERVATION = 'REMOVE_RESERVATION'; //===========================================================
+
+var receiveReservations = function receiveReservations(reservations) {
+  return {
+    type: RECEIVE_RESERVATIONS,
+    reservations: reservations
+  };
+};
+var receiveReservation = function receiveReservation(reservation) {
+  return {
+    type: RECEIVE_RESERVATION,
+    reservation: reservation
+  };
+};
+var removeReservation = function removeReservation(reservationId) {
+  return {
+    type: REMOVE_RESERVATION,
+    reservationId: reservationId
+  };
+}; //===========================================================
+
+var requestReservations = function requestReservations() {
+  return function (dispatch) {
+    return _util_reservation_util__WEBPACK_IMPORTED_MODULE_0__.fetchReservations().then(function (reservations) {
+      return dispatch(receiveReservations(reservations));
+    });
+  };
+};
+var requestReservation = function requestReservation(reservationId) {
+  return function (dispatch) {
+    return _util_reservation_util__WEBPACK_IMPORTED_MODULE_0__.fetchReservation(reservationId).then(function (reservation) {
+      return dispatch(receiveReservation(reservation));
+    });
+  };
+};
+var createReservation = function createReservation(reservation) {
+  return function (dispatch) {
+    return _util_reservation_util__WEBPACK_IMPORTED_MODULE_0__.createReservation(reservation).then(function (reservation) {
+      return dispatch(receiveReservation(reservation));
+    });
+  };
+};
+var deleteReservation = function deleteReservation(reservationId) {
+  return function (dispatch) {
+    return _util_reservation_util__WEBPACK_IMPORTED_MODULE_0__.deleteReservation(reservationId).then(function () {
+      return dispatch(removeReservation(reservationId));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/review_actions.js":
 /*!********************************************!*\
   !*** ./frontend/actions/review_actions.js ***!
@@ -1612,6 +1688,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reviews_reviews_index_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reviews/reviews_index_item */ "./frontend/components/reviews/reviews_index_item.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1642,9 +1724,23 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(ListingsShow);
 
   function ListingsShow(props) {
+    var _this;
+
     _classCallCheck(this, ListingsShow);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      reservation: {
+        start_date: undefined,
+        end_date: undefined,
+        listing_id: undefined,
+        guest_id: undefined,
+        total_price: undefined,
+        num_of_guests: undefined
+      }
+    };
+    _this.setReservation = _this.setReservation.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ListingsShow, [{
@@ -1653,11 +1749,25 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       this.props.requestListing(this.props.match.params.id);
     }
   }, {
+    key: "setReservation",
+    value: function setReservation(field) {
+      this.setState({
+        reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, _defineProperty({}, field, e.currentTarget.value))
+      });
+      console.log("SETTING RESERVATION");
+    }
+  }, {
+    key: "createReservation",
+    value: function createReservation() {
+      e.preventDefault();
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       if (!this.props.listing) return "loading...";
+      console.log(this.state.reservation);
       var date = new Date();
       var day = date.getDate();
       var month = date.getMonth() + 1;
@@ -1669,14 +1779,14 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "update-button",
         onClick: function onClick() {
-          return _this.props.history.push("/listings/".concat(_this.props.listing.id, "/edit"));
+          return _this2.props.history.push("/listings/".concat(_this2.props.listing.id, "/edit"));
         }
       }, "Update Listing"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "delete-button",
         onClick: function onClick() {
-          _this.props.deleteListing(_this.props.listing.id);
+          _this2.props.deleteListing(_this2.props.listing.id);
 
-          _this.props.history.push("/listings");
+          _this2.props.history.push("/listings");
         }
       }, "Delete Listing")) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
         className: "listing-title"
@@ -1767,15 +1877,15 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           review: review,
           key: idx,
-          sessionId: _this.props.session.id,
+          sessionId: _this2.props.session.id,
           reviewerId: review.reviewer_id,
-          updateReview: _this.props.updateReview,
-          deleteReview: _this.props.deleteReview
+          updateReview: _this2.props.updateReview,
+          deleteReview: _this2.props.deleteReview
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "line"
       }), this.props.reviews.some(function (review) {
-        return review.reviewer_id === _this.props.session.id;
+        return review.reviewer_id === _this2.props.session.id;
       }) || this.props.listing.host_id === this.props.session.id || this.props.session.id === null ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_create_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         listing: this.props.listing
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1837,8 +1947,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/listing_actions */ "./frontend/actions/listing_actions.js");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
-/* harmony import */ var _listings_show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./listings_show */ "./frontend/components/listings/listings_show.jsx");
+/* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
+/* harmony import */ var _listings_show__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./listings_show */ "./frontend/components/listings/listings_show.jsx");
+
 
 
 
@@ -1866,11 +1978,14 @@ var mDTP = function mDTP(dispatch) {
     },
     deleteReview: function deleteReview(reviewId) {
       return dispatch((0,_actions_review_actions__WEBPACK_IMPORTED_MODULE_2__.deleteReview)(reviewId));
+    },
+    createReservation: function createReservation(reservation) {
+      return dispatch((0,_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_3__.createReservation)(reservation));
     }
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_4__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_listings_show__WEBPACK_IMPORTED_MODULE_3__["default"])));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_5__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_listings_show__WEBPACK_IMPORTED_MODULE_4__["default"])));
 
 /***/ }),
 
@@ -3376,18 +3491,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _listings_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./listings_reducer */ "./frontend/reducers/listings_reducer.js");
-/* harmony import */ var _reviews_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reviews_reducer */ "./frontend/reducers/reviews_reducer.js");
-/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _listings_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./listings_reducer */ "./frontend/reducers/listings_reducer.js");
+/* harmony import */ var _reviews_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reviews_reducer */ "./frontend/reducers/reviews_reducer.js");
+/* harmony import */ var _reservation_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reservation_reducer */ "./frontend/reducers/reservation_reducer.js");
 
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  listings: _listings_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
-  reviews: _reviews_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_4__.combineReducers)({
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
+  listings: _listings_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  reviews: _reviews_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  reservations: _reservation_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
 
 /***/ }),
@@ -3532,6 +3650,44 @@ function modalReducer() {
       return state;
   }
 }
+
+/***/ }),
+
+/***/ "./frontend/reducers/reservation_reducer.js":
+/*!**************************************************!*\
+  !*** ./frontend/reducers/reservation_reducer.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_RESERVATIONS:
+      return action.reservations;
+
+    case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_RESERVATION:
+      newState[action.reservations.id] = action.reservation;
+      return newState;
+
+    case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__.REMOVE_RESERVATION:
+      delete newState[action.reservationId];
+      return newState;
+
+    default:
+      return state;
+  }
+});
 
 /***/ }),
 
@@ -3822,6 +3978,62 @@ var deleteListing = function deleteListing(listingId) {
   return $.ajax({
     method: 'DELETE',
     url: "/api/listings/".concat(listingId)
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/reservation_util.jsx":
+/*!********************************************!*\
+  !*** ./frontend/util/reservation_util.jsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchReservations": () => (/* binding */ fetchReservations),
+/* harmony export */   "fetchReservation": () => (/* binding */ fetchReservation),
+/* harmony export */   "createReservation": () => (/* binding */ createReservation),
+/* harmony export */   "updateReservation": () => (/* binding */ updateReservation),
+/* harmony export */   "deleteReservation": () => (/* binding */ deleteReservation)
+/* harmony export */ });
+var fetchReservations = function fetchReservations() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/reservations'
+  });
+};
+var fetchReservation = function fetchReservation(reservationId) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/reservations/".concat(reservationId)
+  });
+};
+var createReservation = function createReservation(reservation) {
+  return $.ajax({
+    method: 'POST',
+    url: "/api/reservations",
+    data: {
+      reservation: reservation
+    } // contentType: false,
+    // processData: false
+
+  });
+};
+var updateReservation = function updateReservation(reservation) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "/api/reservations/".concat(reservation.get('id')),
+    data: listing // contentType: false,
+    // processData: false
+
+  });
+};
+var deleteReservation = function deleteReservation(reservationId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "/api/reservations/".concat(reservationId)
   });
 };
 

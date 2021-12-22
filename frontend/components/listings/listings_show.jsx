@@ -5,16 +5,37 @@ import ReviewsIndexItem from "../reviews/reviews_index_item";
 class ListingsShow extends React.Component{
   constructor(props){
     super(props)
+    this.state = {
+      reservation: {
+        start_date: undefined,
+        end_date: undefined,
+        listing_id: undefined,
+        guest_id: undefined,
+        total_price: undefined,
+        num_of_guests: undefined
+      }
+    }
+
+    this.setReservation = this.setReservation.bind(this)
   }
 
   componentDidMount(){
     this.props.requestListing(this.props.match.params.id)
-
   }
 
+  setReservation(field){
+    this.setState({reservation: {...this.state.reservation, [field]: e.currentTarget.value}})
+    console.log("SETTING RESERVATION")
+  }
+
+  createReservation(){
+    e.preventDefault()
+    
+  }
 
   render(){
     if(!this.props.listing) return "loading..."
+    console.log(this.state.reservation)
 
     let date = new Date()
     let day = date.getDate();
