@@ -9,13 +9,12 @@ class ListingsShow extends React.Component{
       reservation: {
         start_date: "",
         end_date: "",
-        listing_id: "",
-        guest_id: "",
+        listing_id: this.props.match.params.id,
+        guest_id: this.props.session.id,
         total_price: "",
-        num_of_guests: ""
+        num_of_guests: 0
       }
     }
-
     this.setReservation = this.setReservation.bind(this)
   }
 
@@ -47,6 +46,11 @@ class ListingsShow extends React.Component{
 
     let today = month + '-' + day + '-' + year;
     let tomorrow = month + '-' + (day + 1) + '-' + year;
+
+    let choices = []
+    for (let i = 1; i <= this.props.listing.num_of_beds; i++) {
+      choices.push(<option key={i} value={i} >{i} Dogs</option>)
+    }
 
     return(
       <div className="show-page"> 
@@ -179,33 +183,40 @@ class ListingsShow extends React.Component{
           <div className="sticky-parent">
             <div className="reservation-info">
               <div className="price">{this.props.listing.price} Doge Coins/night</div>
-              <div className="check-in-out">
+
+              <form className="check-in-out" onSubmit={this.createReservation}>
                 <div className='check-in-out-container'>
                   <div id="check-in">
-                    <label htmlFor="start_date">CHECK-IN
+                    <div>CHECK-IN</div>
+                    <label htmlFor="start_date">
                       <input type="date" name="start_date" onChange={this.setReservation('start_date')} value={this.state.reservation.start_date}/>
                     </label>
                   </div>
-                  {/* <div id="check-out">
-                    <div>CHECK-OUT</div>
-                    <div>{tomorrow}</div>
-                  </div> */}
+                  <div id="check-out">
+                    <div>CHECK-IN</div>
+                    <label htmlFor="start_date">
+                      <input type="date" name="start_date" onChange={this.setReservation('end_date')} value={this.state.reservation.end_date}/>
+                    </label>
+                  </div>
                 </div>
                 <div className="select-guests">
                   <div className="title">Guests</div>
-                  <select className="guest-dropdown">
-                    <option value="1">1 Dog</option>
-                    <option value="2">2 Dogs</option>
-                    <option value="3">3 Dogs</option>
+                  <select className="guest-dropdown" onChange={this.setReservation('num_of_guests')}>
+                    <option value="">select number of dogs</option>
+                    {choices}
                   </select>
                 </div>
-              </div>
-              <div className="reserve-button">Reserve</div>
-              <div className="line"></div>
-              <div className="total">
-                <div>Total</div>
-                <div>$</div>
-              </div>
+                {this.state.reservation.num_of_guests < 1 ? 
+                  <button type="button" className="reserve-button-inactive">Reserve</button>
+                  :
+                  <button type="submit" className="reserve-button">Reserve</button>
+                }
+                <div className="line"></div>
+                <div className="total">
+                  <div>Total</div>
+                  <div>$</div>
+                </div>
+              </form>
               
             </div>
           </div>

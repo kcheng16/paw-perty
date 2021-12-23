@@ -1,3 +1,101 @@
-// Place all the styles related to the Reservations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.sticky-parent{
+  position: relative;
+
+  .reservation-info{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 5vh;
+    margin-top: 5vh;
+    padding-top: 3vh;
+    border: 0.5px solid #c7c7c7;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+
+
+    .check-in-out{
+      text-align: center;
+      border: 1px solid gray;
+      border-radius: 4px;
+      width: 90%;
+      height: 11vh;
+
+      .check-in-out-container{
+        display: flex;
+        justify-content: space-evenly;
+        height: 6vh;
+
+        #check-in{
+          border-right: 1px solid gray;
+          width: 100%;
+        }
+
+        #check-out{
+          width: 100%;
+        }
+      }
+
+      .select-guests{
+        border-top: 1px solid gray;
+
+        .title{
+        text-align: start;
+        font-size: 12px;
+        font-weight: 700;
+        }
+      }
+    }
+    }
+
+    .guest-dropdown{
+      width: 100%;
+      text-align: center;
+      height: 30px;
+    }
+
+    .reserve-button{
+      margin: 1vw;
+      padding: 0.7vw;
+      border-radius: 10px;
+      width: 9vw;
+      background-color: rgb(255, 56, 92);
+      text-align: center;
+      color: white;
+      font-size: 0.8vw;
+      font-weight: bold;
+    }
+  }
+
+    .line {
+      width: 12vw;
+      margin-left: 7vw;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      width: 10vw;
+    }
+
+
+.line{
+  margin-top: 3vh;
+}
+
+.reserve-button-inactive{
+  margin: 1vw;
+  padding: 0.7vw;
+  border-radius: 10px;
+  width: 9vw;
+  background-color: rgb(151, 151, 151);
+  text-align: center;
+  color: white;
+  font-size: 0.8vw;
+  font-weight: bold;
+}
