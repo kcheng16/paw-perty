@@ -7,12 +7,12 @@ class ListingsShow extends React.Component{
     super(props)
     this.state = {
       reservation: {
-        start_date: undefined,
-        end_date: undefined,
-        listing_id: undefined,
-        guest_id: undefined,
-        total_price: undefined,
-        num_of_guests: undefined
+        start_date: "",
+        end_date: "",
+        listing_id: "",
+        guest_id: "",
+        total_price: "",
+        num_of_guests: ""
       }
     }
 
@@ -24,8 +24,9 @@ class ListingsShow extends React.Component{
   }
 
   setReservation(field){
-    this.setState({reservation: {...this.state.reservation, [field]: e.currentTarget.value}})
     console.log("SETTING RESERVATION")
+    return e =>
+      this.setState({reservation: {...this.state.reservation, [field]: e.currentTarget.value}})
   }
 
   createReservation(){
@@ -44,8 +45,8 @@ class ListingsShow extends React.Component{
     let month = date.getMonth()+1;
     let year = date.getFullYear();
 
-    let today = month + '/' + day + '/' + year;
-    let tomorrow = month + '/' + (day + 1) + '/' + year;
+    let today = month + '-' + day + '-' + year;
+    let tomorrow = month + '-' + (day + 1) + '-' + year;
 
     return(
       <div className="show-page"> 
@@ -181,16 +182,14 @@ class ListingsShow extends React.Component{
               <div className="check-in-out">
                 <div className='check-in-out-container'>
                   <div id="check-in">
-                    <div>CHECK-IN</div>
-                    <div>{today}</div>
+                    <label htmlFor="start_date">CHECK-IN
+                      <input type="date" name="start_date" onChange={this.setReservation('start_date')} value={this.state.reservation.start_date}/>
+                    </label>
                   </div>
-                  <div id="check-out">
+                  {/* <div id="check-out">
                     <div>CHECK-OUT</div>
                     <div>{tomorrow}</div>
-                    <div className="calendar">
-
-                    </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="select-guests">
                   <div className="title">Guests</div>

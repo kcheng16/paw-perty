@@ -1731,12 +1731,12 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       reservation: {
-        start_date: undefined,
-        end_date: undefined,
-        listing_id: undefined,
-        guest_id: undefined,
-        total_price: undefined,
-        num_of_guests: undefined
+        start_date: "",
+        end_date: "",
+        listing_id: "",
+        guest_id: "",
+        total_price: "",
+        num_of_guests: ""
       }
     };
     _this.setReservation = _this.setReservation.bind(_assertThisInitialized(_this));
@@ -1751,10 +1751,14 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "setReservation",
     value: function setReservation(field) {
-      this.setState({
-        reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, _defineProperty({}, field, e.currentTarget.value))
-      });
+      var _this2 = this;
+
       console.log("SETTING RESERVATION");
+      return function (e) {
+        return _this2.setState({
+          reservation: _objectSpread(_objectSpread({}, _this2.state.reservation), {}, _defineProperty({}, field, e.currentTarget.value))
+        });
+      };
     }
   }, {
     key: "createReservation",
@@ -1766,7 +1770,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (!this.props.listing) return "loading...";
       console.log(this.state.reservation);
@@ -1774,21 +1778,21 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       var day = date.getDate();
       var month = date.getMonth() + 1;
       var year = date.getFullYear();
-      var today = month + '/' + day + '/' + year;
-      var tomorrow = month + '/' + (day + 1) + '/' + year;
+      var today = month + '-' + day + '-' + year;
+      var tomorrow = month + '-' + (day + 1) + '-' + year;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page"
       }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "update-button",
         onClick: function onClick() {
-          return _this2.props.history.push("/listings/".concat(_this2.props.listing.id, "/edit"));
+          return _this3.props.history.push("/listings/".concat(_this3.props.listing.id, "/edit"));
         }
       }, "Update Listing"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "delete-button",
         onClick: function onClick() {
-          _this2.props.deleteListing(_this2.props.listing.id);
+          _this3.props.deleteListing(_this3.props.listing.id);
 
-          _this2.props.history.push("/listings");
+          _this3.props.history.push("/listings");
         }
       }, "Delete Listing")) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
         className: "listing-title"
@@ -1879,15 +1883,15 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           review: review,
           key: idx,
-          sessionId: _this2.props.session.id,
+          sessionId: _this3.props.session.id,
           reviewerId: review.reviewer_id,
-          updateReview: _this2.props.updateReview,
-          deleteReview: _this2.props.deleteReview
+          updateReview: _this3.props.updateReview,
+          deleteReview: _this3.props.deleteReview
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "line"
       }), this.props.reviews.some(function (review) {
-        return review.reviewer_id === _this2.props.session.id;
+        return review.reviewer_id === _this3.props.session.id;
       }) || this.props.listing.host_id === this.props.session.id || this.props.session.id === null ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_create_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         listing: this.props.listing
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1902,11 +1906,14 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         className: "check-in-out-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "check-in"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-IN"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, today)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        id: "check-out"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-OUT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, tomorrow), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "calendar"
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        htmlFor: "start_date"
+      }, "CHECK-IN", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        type: "date",
+        name: "start_date",
+        onChange: this.setReservation('start_date'),
+        value: this.state.reservation.start_date
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "select-guests"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "title"
