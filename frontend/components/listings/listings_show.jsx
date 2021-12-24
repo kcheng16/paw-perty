@@ -13,7 +13,8 @@ class ListingsShow extends React.Component{
         guest_id: this.props.session.id,
         total_price: 0,
         num_of_guests: 0
-      }
+      },
+      calculate: true
     }
     this.setReservation = this.setReservation.bind(this)
   }
@@ -22,17 +23,44 @@ class ListingsShow extends React.Component{
     this.props.requestListing(this.props.match.params.id)
   }
 
-  setReservation(field){
+  setReservation(field, e){
+    this.setState({
+      ...this.state.calculate,
+      reservation: {
+        ...this.state.reservation, 
+        [field]: e.currentTarget.value, 
+      }})
+
+    if (!this.state.calculate){
+      this.setState({
+        ...this.state.reservation,
+        calculate: !this.state.calculate
+      })
+    }
+  }
+
+  toggleCalculate(){
+    this.setPrice()
+    this.setState({
+      ...this.state.reservation,
+      calculate: !this.state.calculate
+    })
+  }
+
+  setPrice(){
     let startTime = new Date(this.state.reservation.start_date)
     let endTime = new Date(this.state.reservation.end_date)
     let differenceInDays = (endTime - startTime) / (1000 * 3600 * 24)
-    let pricePerDays = this.props.listing.price * differenceInDays
+    let pricePerDaysAndDogs = this.props.listing.price * differenceInDays * this.state.reservation.num_of_guests
+    console.log("pricePerDaysAndDogs:", pricePerDaysAndDogs)
 
-    return e =>
-      this.setState({reservation: {...this.state.reservation, [field]: e.currentTarget.value, total_price: pricePerDays * e.currentTarget.value}})
+    this.setState({reservation: {
+      ...this.state.reservation, 
+      total_price: pricePerDaysAndDogs 
+    }})
   }
 
-  createReservation(){
+  createReservation(e){
     e.preventDefault()
     console.log("CREATING RESERVATION")
     this.props.createReservation(this.state.reservation)
@@ -41,13 +69,13 @@ class ListingsShow extends React.Component{
 
   render(){
     if(!this.props.listing) return "loading..."
-    console.log("RESERVATION STATE",this.state.reservation)
 
     let choices = []
     for (let i = 1; i <= this.props.listing.num_of_beds; i++) {
       choices.push(<option key={i} value={i} >{i} Dogs</option>)
     }
 
+    console.log(this.state.reservation)
     return(
       <div className="show-page"> 
         {this.props.listing.host_id === this.props.session.id ?
@@ -185,32 +213,44 @@ class ListingsShow extends React.Component{
                   <div id="check-in">
                     <div>CHECK-IN</div>
                     <label htmlFor="start_date">
-                      <input type="date" name="start_date" onChange={this.setReservation('start_date')} value={this.state.reservation.start_date}/>
+                      <input type="date" name="start_date" onChange={ e => this.setReservation('start_date', e)} value={this.state.reservation.start_date}/>
                     </label>
                   </div>
                   <div id="check-out">
                     <div>CHECK-IN</div>
                     <label htmlFor="start_date">
-                      <input type="date" name="start_date" onChange={this.setReservation('end_date')} value={this.state.reservation.end_date}/>
+                      <input type="date" name="start_date" onChange={e => this.setReservation('end_date', e)} value={this.state.reservation.end_date}/>
                     </label>
                   </div>
                 </div>
                 <div className="select-guests">
                   <div className="title">Guests</div>
-                  <select className="guest-dropdown" onChange={this.setReservation('num_of_guests')}>
+                  <select className="guest-dropdown" onChange={e => this.setReservation('num_of_guests', e)}>
                     <option value="">select number of dogs</option>
                     {choices}
                   </select>
                 </div>
-                {this.state.reservation.num_of_guests < 1 ? 
-                  <button type="button" className="reserve-button-inactive">Reserve</button>
-                  :
-                  <button type="submit" className="reserve-button">Reserve</button>
-                }
+                {/* {this.state.calculate ? 
+                  <button type="button" className="reserve-button-inactive" onClick={() => this.toggleCalculate()}>Calculate Price</button>
+                  : */}
+                  <button 
+                    type={this.state.calculate ? "button" : "submit"} 
+                    className={this.state.calculate ? "reserve-button-inactive" : "reserve-button"}
+                    onClick={ (e) => {
+                      if (this.state.calculate){
+                        this.toggleCalculate();
+                      } else {
+                        this.createReservation(e)
+                      }
+                    }}
+                  > 
+                    {this.state.calculate ? "Calculate Price" : "Reserve"}
+                  </button>
+                {/* } */}
                 <div className="line"></div>
                 <div className="total">
                   <div>Total</div>
-                  <div>{this.state.reservation.total_price} Doge Coins</div>
+                  <div>{this.state.reservation.total_price ? this.state.reservation.total_price : "0"} Doge Coins</div>
                 </div>
               </form>
               

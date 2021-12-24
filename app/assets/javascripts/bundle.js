@@ -1737,7 +1737,8 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         guest_id: _this.props.session.id,
         total_price: 0,
         num_of_guests: 0
-      }
+      },
+      calculate: true
     };
     _this.setReservation = _this.setReservation.bind(_assertThisInitialized(_this));
     return _this;
@@ -1750,24 +1751,42 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "setReservation",
-    value: function setReservation(field) {
-      var _this2 = this;
+    value: function setReservation(field, e) {
+      this.setState(_objectSpread(_objectSpread({}, this.state.calculate), {}, {
+        reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, _defineProperty({}, field, e.currentTarget.value))
+      }));
 
+      if (!this.state.calculate) {
+        this.setState(_objectSpread(_objectSpread({}, this.state.reservation), {}, {
+          calculate: !this.state.calculate
+        }));
+      }
+    }
+  }, {
+    key: "toggleCalculate",
+    value: function toggleCalculate() {
+      this.setPrice();
+      this.setState(_objectSpread(_objectSpread({}, this.state.reservation), {}, {
+        calculate: !this.state.calculate
+      }));
+    }
+  }, {
+    key: "setPrice",
+    value: function setPrice() {
       var startTime = new Date(this.state.reservation.start_date);
       var endTime = new Date(this.state.reservation.end_date);
       var differenceInDays = (endTime - startTime) / (1000 * 3600 * 24);
-      var pricePerDays = this.props.listing.price * differenceInDays;
-      return function (e) {
-        var _objectSpread2;
-
-        return _this2.setState({
-          reservation: _objectSpread(_objectSpread({}, _this2.state.reservation), {}, (_objectSpread2 = {}, _defineProperty(_objectSpread2, field, e.currentTarget.value), _defineProperty(_objectSpread2, "total_price", pricePerDays * e.currentTarget.value), _objectSpread2))
-        });
-      };
+      var pricePerDaysAndDogs = this.props.listing.price * differenceInDays * this.state.reservation.num_of_guests;
+      console.log("pricePerDaysAndDogs:", pricePerDaysAndDogs);
+      this.setState({
+        reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, {
+          total_price: pricePerDaysAndDogs
+        })
+      });
     }
   }, {
     key: "createReservation",
-    value: function createReservation() {
+    value: function createReservation(e) {
       e.preventDefault();
       console.log("CREATING RESERVATION");
       this.props.createReservation(this.state.reservation); // .then( () => this.props.history.push(`/reservations/${this.props.session.id}`))
@@ -1775,10 +1794,9 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       if (!this.props.listing) return "loading...";
-      console.log("RESERVATION STATE", this.state.reservation);
       var choices = [];
 
       for (var i = 1; i <= this.props.listing.num_of_beds; i++) {
@@ -1788,19 +1806,20 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         }, i, " Dogs"));
       }
 
+      console.log(this.state.reservation);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page"
       }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "update-button",
         onClick: function onClick() {
-          return _this3.props.history.push("/listings/".concat(_this3.props.listing.id, "/edit"));
+          return _this2.props.history.push("/listings/".concat(_this2.props.listing.id, "/edit"));
         }
       }, "Update Listing"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "delete-button",
         onClick: function onClick() {
-          _this3.props.deleteListing(_this3.props.listing.id);
+          _this2.props.deleteListing(_this2.props.listing.id);
 
-          _this3.props.history.push("/listings");
+          _this2.props.history.push("/listings");
         }
       }, "Delete Listing")) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
         className: "listing-title"
@@ -1891,15 +1910,15 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           review: review,
           key: idx,
-          sessionId: _this3.props.session.id,
+          sessionId: _this2.props.session.id,
           reviewerId: review.reviewer_id,
-          updateReview: _this3.props.updateReview,
-          deleteReview: _this3.props.deleteReview
+          updateReview: _this2.props.updateReview,
+          deleteReview: _this2.props.deleteReview
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "line"
       }), this.props.reviews.some(function (review) {
-        return review.reviewer_id === _this3.props.session.id;
+        return review.reviewer_id === _this2.props.session.id;
       }) || this.props.listing.host_id === this.props.session.id || this.props.session.id === null ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_create_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         listing: this.props.listing
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1920,7 +1939,9 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "date",
         name: "start_date",
-        onChange: this.setReservation('start_date'),
+        onChange: function onChange(e) {
+          return _this2.setReservation('start_date', e);
+        },
         value: this.state.reservation.start_date
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "check-out"
@@ -1929,7 +1950,9 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "date",
         name: "start_date",
-        onChange: this.setReservation('end_date'),
+        onChange: function onChange(e) {
+          return _this2.setReservation('end_date', e);
+        },
         value: this.state.reservation.end_date
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "select-guests"
@@ -1937,20 +1960,26 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         className: "title"
       }, "Guests"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
         className: "guest-dropdown",
-        onChange: this.setReservation('num_of_guests')
+        onChange: function onChange(e) {
+          return _this2.setReservation('num_of_guests', e);
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: ""
-      }, "select number of dogs"), choices)), this.state.reservation.num_of_guests < 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        type: "button",
-        className: "reserve-button-inactive"
-      }, "Reserve") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        type: "submit",
-        className: "reserve-button"
-      }, "Reserve"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "select number of dogs"), choices)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        type: this.state.calculate ? "button" : "submit",
+        className: this.state.calculate ? "reserve-button-inactive" : "reserve-button",
+        onClick: function onClick(e) {
+          if (_this2.state.calculate) {
+            _this2.toggleCalculate();
+          } else {
+            _this2.createReservation(e);
+          }
+        }
+      }, this.state.calculate ? "Calculate Price" : "Reserve"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "line"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "total"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Total"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.reservation.total_price, " Doge Coins")))))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Total"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.reservation.total_price ? this.state.reservation.total_price : "0", " Doge Coins")))))));
     }
   }]);
 
@@ -3705,7 +3734,7 @@ __webpack_require__.r(__webpack_exports__);
       return action.reservations;
 
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_RESERVATION:
-      newState[action.reservations.id] = action.reservation;
+      newState[action.reservation.id] = action.reservation;
       return newState;
 
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__.REMOVE_RESERVATION:

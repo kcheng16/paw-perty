@@ -13,7 +13,7 @@ export default (state={}, action) => {
       return action.reservations;
 
     case RECEIVE_RESERVATION:
-      newState[action.reservations.id] = action.reservation
+      newState[action.reservation.id] = action.reservation
       return newState
 
     case REMOVE_RESERVATION:
