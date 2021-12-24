@@ -1,6 +1,7 @@
 import React from "react";
 import ReviewsCreateContainer from "../reviews/reviews_create_container";
 import ReviewsIndexItem from "../reviews/reviews_index_item";
+import { FaStar } from 'react-icons/fa'
 
 class ListingsShow extends React.Component{
   constructor(props){
@@ -206,7 +207,17 @@ class ListingsShow extends React.Component{
           
           <div className="sticky-parent">
             <div className="reservation-info">
-              <div className="price">{this.props.listing.price} Doge Coins/night</div>
+              <div className="sticky-header">
+                <div className="price">{this.props.listing.price}</div>
+                <div className="price-per-night"> Doge Coins/night</div>
+                <div className="sticky-header-review">
+                  <div>
+                    <FaStar size={20} color={'gold'} />
+                    {this.props.listing.average_rating}
+                  </div>
+                  <div>{this.props.reviews.length} reviews</div>
+                </div>
+              </div>
 
               <form className="check-in-out" onSubmit={this.createReservation}>
                 <div className='check-in-out-container'>
