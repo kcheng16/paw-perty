@@ -1735,7 +1735,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         end_date: "",
         listing_id: _this.props.match.params.id,
         guest_id: _this.props.session.id,
-        total_price: "",
+        total_price: 0,
         num_of_guests: 0
       }
     };
@@ -1753,10 +1753,15 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
     value: function setReservation(field) {
       var _this2 = this;
 
-      console.log("SETTING RESERVATION");
+      var startTime = new Date(this.state.reservation.start_date);
+      var endTime = new Date(this.state.reservation.end_date);
+      var differenceInDays = (endTime - startTime) / (1000 * 3600 * 24);
+      var pricePerDays = this.props.listing.price * differenceInDays;
       return function (e) {
+        var _objectSpread2;
+
         return _this2.setState({
-          reservation: _objectSpread(_objectSpread({}, _this2.state.reservation), {}, _defineProperty({}, field, e.currentTarget.value))
+          reservation: _objectSpread(_objectSpread({}, _this2.state.reservation), {}, (_objectSpread2 = {}, _defineProperty(_objectSpread2, field, e.currentTarget.value), _defineProperty(_objectSpread2, "total_price", pricePerDays * e.currentTarget.value), _objectSpread2))
         });
       };
     }
@@ -1773,13 +1778,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       if (!this.props.listing) return "loading...";
-      console.log(this.state.reservation);
-      var date = new Date();
-      var day = date.getDate();
-      var month = date.getMonth() + 1;
-      var year = date.getFullYear();
-      var today = month + '-' + day + '-' + year;
-      var tomorrow = month + '-' + (day + 1) + '-' + year;
+      console.log("RESERVATION STATE", this.state.reservation);
       var choices = [];
 
       for (var i = 1; i <= this.props.listing.num_of_beds; i++) {
@@ -1951,7 +1950,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         className: "line"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "total"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Total"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "$")))))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Total"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.reservation.total_price, " Doge Coins")))))));
     }
   }]);
 

@@ -11,7 +11,7 @@ class ListingsShow extends React.Component{
         end_date: "",
         listing_id: this.props.match.params.id,
         guest_id: this.props.session.id,
-        total_price: "",
+        total_price: 0,
         num_of_guests: 0
       }
     }
@@ -23,9 +23,13 @@ class ListingsShow extends React.Component{
   }
 
   setReservation(field){
-    console.log("SETTING RESERVATION")
+    let startTime = new Date(this.state.reservation.start_date)
+    let endTime = new Date(this.state.reservation.end_date)
+    let differenceInDays = (endTime - startTime) / (1000 * 3600 * 24)
+    let pricePerDays = this.props.listing.price * differenceInDays
+
     return e =>
-      this.setState({reservation: {...this.state.reservation, [field]: e.currentTarget.value}})
+      this.setState({reservation: {...this.state.reservation, [field]: e.currentTarget.value, total_price: pricePerDays * e.currentTarget.value}})
   }
 
   createReservation(){
@@ -37,15 +41,7 @@ class ListingsShow extends React.Component{
 
   render(){
     if(!this.props.listing) return "loading..."
-    console.log(this.state.reservation)
-
-    let date = new Date()
-    let day = date.getDate();
-    let month = date.getMonth()+1;
-    let year = date.getFullYear();
-
-    let today = month + '-' + day + '-' + year;
-    let tomorrow = month + '-' + (day + 1) + '-' + year;
+    console.log("RESERVATION STATE",this.state.reservation)
 
     let choices = []
     for (let i = 1; i <= this.props.listing.num_of_beds; i++) {
@@ -214,7 +210,7 @@ class ListingsShow extends React.Component{
                 <div className="line"></div>
                 <div className="total">
                   <div>Total</div>
-                  <div>$</div>
+                  <div>{this.state.reservation.total_price} Doge Coins</div>
                 </div>
               </form>
               
