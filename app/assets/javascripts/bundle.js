@@ -1767,10 +1767,12 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "toggleCalculate",
     value: function toggleCalculate() {
-      this.setPrice();
-      this.setState(_objectSpread(_objectSpread({}, this.state.reservation), {}, {
-        calculate: !this.state.calculate
-      }));
+      if (this.state.reservation.start_date && this.state.reservation.end_date && this.state.reservation.num_of_guests) {
+        this.setPrice();
+        this.setState(_objectSpread(_objectSpread({}, this.state.reservation), {}, {
+          calculate: !this.state.calculate
+        }));
+      }
     }
   }, {
     key: "setPrice",
