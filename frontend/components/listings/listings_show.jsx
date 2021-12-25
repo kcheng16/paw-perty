@@ -241,9 +241,6 @@ class ListingsShow extends React.Component{
                     {choices}
                   </select>
                 </div>
-                {/* {this.state.calculate ? 
-                  <button type="button" className="reserve-button-inactive" onClick={() => this.toggleCalculate()}>Calculate Price</button>
-                  : */}
                   <button 
                     type={this.state.calculate ? "button" : "submit"} 
                     className={this.state.calculate ? "reserve-button-inactive" : "reserve-button"}
@@ -257,7 +254,6 @@ class ListingsShow extends React.Component{
                   > 
                     {this.state.calculate ? "Calculate Price" : "Reserve"}
                   </button>
-                {/* } */}
                 <div className="line"></div>
                 <div className="total">
                   <div>Total</div>
