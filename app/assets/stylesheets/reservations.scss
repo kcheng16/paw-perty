@@ -1,18 +1,24 @@
 .sticky-parent{
   position: relative;
 
+  .price{
+    padding-bottom: 2vh;
+    font-size: 35px;
+  }
+
   .sticky-header{
     display: flex;
     width: 90%;
 
     .price-per-night{
-      padding-top: 5px;
+      padding-top: 17px;
     }
 
     .sticky-header-review{
       display: flex;
       justify-content: flex-end;
       width: 45%;
+      padding-top: 10px;
 
       >div:first-child{
         padding-right: 8px;
@@ -32,7 +38,7 @@
     border: 0.5px solid #c7c7c7;
     border-radius: 10px;
     height: 30%;
-    width: 100%;
+    width: 110%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -45,20 +51,22 @@
       border: 1px solid gray;
       border-radius: 4px;
       width: 90%;
-      height: 11vh;
+      height: 100px;
 
       .check-in-out-container{
         display: flex;
-        justify-content: space-evenly;
-        height: 6vh;
+        // justify-content: space-evenly;
+        height: 50%;
 
         #check-in{
           border-right: 1px solid gray;
           width: 100%;
+          padding: 5px;
         }
 
         #check-out{
           width: 100%;
+          padding: 5px;
         }
       }
 
@@ -69,6 +77,7 @@
         text-align: start;
         font-size: 12px;
         font-weight: 700;
+        margin: 5px 0 5px 0;
         }
       }
     }
@@ -78,7 +87,8 @@
       width: 100%;
       text-align: center;
       height: 30px;
-      border-radius: 5px;
+      height: 33px;
+      border-radius: 3px;
     }
 
     .reserve-button{
