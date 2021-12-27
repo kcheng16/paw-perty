@@ -15,7 +15,8 @@ class ListingsShow extends React.Component{
         total_price: 0,
         num_of_guests: 0
       },
-      calculate: true
+      calculate: true,
+      days: 0
     }
     this.setReservation = this.setReservation.bind(this)
   }
@@ -55,17 +56,18 @@ class ListingsShow extends React.Component{
     let endTime = new Date(this.state.reservation.end_date)
     let differenceInDays = (endTime - startTime) / (1000 * 3600 * 24)
     let pricePerDaysAndDogs = this.props.listing.price * differenceInDays * this.state.reservation.num_of_guests
-    console.log("pricePerDaysAndDogs:", pricePerDaysAndDogs)
 
-    this.setState({reservation: {
-      ...this.state.reservation, 
-      total_price: pricePerDaysAndDogs 
-    }})
+    this.setState({
+      days: differenceInDays, 
+      reservation: {
+        ...this.state.reservation, 
+        total_price: pricePerDaysAndDogs 
+      }
+    })
   }
 
   createReservation(e){
     e.preventDefault()
-    console.log("CREATING RESERVATION")
     this.props.createReservation(this.state.reservation)
       // .then( () => this.props.history.push(`/reservations/${this.props.session.id}`))
   }
@@ -78,7 +80,6 @@ class ListingsShow extends React.Component{
       choices.push(<option key={i} value={i} >{i} Dogs</option>)
     }
 
-    console.log(this.state.reservation)
     return(
       <div className="show-page"> 
         {this.props.listing.host_id === this.props.session.id ?
@@ -256,6 +257,10 @@ class ListingsShow extends React.Component{
                   > 
                     {this.state.calculate ? "Calculate Price" : "Reserve"}
                   </button>
+                <div className="cost-calculation">
+                  <div>{this.props.listing.price} coins x {this.state.days} nights</div>
+                  <div>{this.state.reservation.total_price}</div>
+                </div>
                 <div className="line"></div>
                 <div className="total">
                   <div>Total</div>

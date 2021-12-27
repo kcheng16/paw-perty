@@ -1740,7 +1740,8 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         total_price: 0,
         num_of_guests: 0
       },
-      calculate: true
+      calculate: true,
+      days: 0
     };
     _this.setReservation = _this.setReservation.bind(_assertThisInitialized(_this));
     return _this;
@@ -1781,8 +1782,8 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       var endTime = new Date(this.state.reservation.end_date);
       var differenceInDays = (endTime - startTime) / (1000 * 3600 * 24);
       var pricePerDaysAndDogs = this.props.listing.price * differenceInDays * this.state.reservation.num_of_guests;
-      console.log("pricePerDaysAndDogs:", pricePerDaysAndDogs);
       this.setState({
+        days: differenceInDays,
         reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, {
           total_price: pricePerDaysAndDogs
         })
@@ -1792,7 +1793,6 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
     key: "createReservation",
     value: function createReservation(e) {
       e.preventDefault();
-      console.log("CREATING RESERVATION");
       this.props.createReservation(this.state.reservation); // .then( () => this.props.history.push(`/reservations/${this.props.session.id}`))
     }
   }, {
@@ -1810,7 +1810,6 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         }, i, " Dogs"));
       }
 
-      console.log(this.state.reservation);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page"
       }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -1989,6 +1988,8 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
           }
         }
       }, this.state.calculate ? "Calculate Price" : "Reserve"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cost-calculation"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.listing.price, " coins x ", this.state.days, " nights"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.reservation.total_price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "line"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "total"

@@ -49,8 +49,6 @@
 
     .check-in-out{
       text-align: center;
-      border: 1px solid gray;
-      border-radius: 4px;
 
       .check-in-out-container{
         display: flex;
@@ -61,16 +59,31 @@
         #check-in{
           border-right: 1px solid gray;
           padding: 5px;
+
+          >div:first-child{
+            text-align: left;
+            font-size: 10px;
+            font-weight: 600;
+          }
+          
           >label >input{
             font-size: small;
+            text-align: start;
           }
         }
 
         #check-out{
           padding: 5px;
 
+          >div:first-child{
+            text-align: left;
+            font-size: 10px;
+            font-weight: 600;
+          }
+
           >label >input{
             font-size: small;
+            text-align: start;
           }
         }
       }
@@ -108,21 +121,22 @@
     }
   }
 
+  .cost-calculation{
+    display: flex;
+    justify-content: space-between;
+  }
+
     .line {
       width: 12vw;
       margin-left: 7vw;
+      margin-top: 1vh;
     }
 
     .total {
       display: flex;
       justify-content: space-between;
-      width: 10vw;
+      font-weight: 600;
     }
-
-
-.line{
-  margin-top: 3vh;
-}
 
 .reserve-button-inactive{
   margin: 1vw;
