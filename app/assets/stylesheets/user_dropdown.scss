@@ -52,25 +52,26 @@
   0px 6px 10px 0px rgba(0, 0, 0, 0.14),
   0px 1px 18px 0px rgba(0, 0, 0, 0.12);
   
-  li {
+  div {
     border-radius: 3px;
     font-size: 1vw;
     color: rgb(49, 49, 49);
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-    margin-left: 1vw;
+    padding: 15px;
   }
 
   .dropdown-list-logout{
-    border-top: 1px solid gray;
+    border-top: 1px solid #e7e7e7;
     padding-top: 1vh;
-    width: 82%;
   }
 
 }
 
 .dropdown-list:hover{
   cursor: pointer;
+}
+
+.dropdown-list > div:hover{
+  background-color: rgb(243, 243, 243);
 }
 
 .dropdown-img:hover{

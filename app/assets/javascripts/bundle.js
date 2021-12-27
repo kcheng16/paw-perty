@@ -3083,9 +3083,9 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
 
           _this2.toggleDropdown();
         }
-      }, "Login")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      }, "Login")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dropdown-list"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         onClick: function onClick() {
           _this2.props.history.push("/user/".concat(_this2.props.currentUserId, "/listings"));
 
@@ -3096,7 +3096,7 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
         } : {
           display: "block"
         }
-      }, "Manage listings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+      }, "Manage listings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dropdown-list-item",
         onClick: function onClick() {
           _this2.props.history.push("/listings/new");
@@ -3108,7 +3108,7 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
         } : {
           display: "block"
         }
-      }, "Host your home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+      }, "Host your home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         onClick: function onClick() {
           _this2.props.history.push("/user/".concat(_this2.props.currentUserId));
 
@@ -3119,7 +3119,7 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
         } : {
           display: "block"
         }
-      }, "Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+      }, "Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dropdown-list-logout",
         onClick: function onClick() {
           _this2.props.logout();

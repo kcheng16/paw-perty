@@ -28,32 +28,32 @@ class UserDropdown extends React.Component{
               <li onClick={() => {this.props.openLoginModal('login'); (this.toggleDropdown())}}>Login</li>
             </ul>
           ) : (
-            <ul className="dropdown-list">
-              <li
+            <div className="dropdown-list">
+              <div
                 onClick={() => {this.props.history.push(`/user/${this.props.currentUserId}/listings`); (this.toggleDropdown())}}
                 style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
                 Manage listings
-              </li>
+              </div>
 
-              <li
+              <div
                 className="dropdown-list-item"
                 onClick={() => {this.props.history.push("/listings/new"); this.toggleDropdown()}} 
                 style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
                 Host your home
-              </li>
+              </div>
               
-              <li
+              <div
                 onClick={() => {this.props.history.push(`/user/${this.props.currentUserId}`); (this.toggleDropdown())}}
                 style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
                 Account
-              </li>
-              <li
+              </div>
+              <div
                 className="dropdown-list-logout"
                 onClick={() => {this.props.logout(); this.toggleDropdown(); this.props.history.push("/")}} 
                 style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
                 Logout
-              </li>
-            </ul>
+              </div>
+            </div>
             )
         }
       </div>
