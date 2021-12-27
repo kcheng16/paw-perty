@@ -38,7 +38,7 @@
     padding-top: 3vh;
     border: 0.5px solid #c7c7c7;
     border-radius: 10px;
-    height: 30%;
+    height: 25%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -51,11 +51,13 @@
       text-align: center;
       border: 1px solid gray;
       border-radius: 4px;
-      height: 100px;
 
       .check-in-out-container{
         display: flex;
         justify-content: space-evenly;
+        border: 1px solid black;
+        border-radius: 5px;
+
         #check-in{
           border-right: 1px solid gray;
           padding: 5px;
@@ -74,7 +76,6 @@
       }
 
       .select-guests{
-        border-top: 1px solid gray;
 
         .title{
         text-align: start;
