@@ -17,11 +17,11 @@ class UserReservation extends React.Component{
               <Link key={idx} to={`/listings/${reservation.listing_id}`}>
                 <div key={idx} className="user-listing">
                                       {/* NEEED ROUTE TO EDIT LISTINGS BUTTON */}    
-                  <img className="user-listing-icon" src={reservation.images[0] ? reservation.images[0] : reservation.photos[0]}/>
-                  <div>Start: {reservation.start_date.split("T")[0]}</div>
-                  <div>End: {reservation.end_date.split("T")[0]}</div>
+                  {/* <img className="user-listing-icon" src={reservation.images[0] ? reservation.images[0] : reservation.photos[0]}/> */}
+                  <div>{reservation.listing.city}</div>
+                  <div>{reservation.listing.street_address}</div>
+                  <div>{reservation.start_date.split("T")[0]} - {reservation.end_date.split("T")[0]}</div>
                   <div>{reservation.num_of_guests} Dogs</div>
-                  <div className="user-listing-price">{reservation.total_price} Doge Coins/night</div>
                 </div>
               </Link>
             )}

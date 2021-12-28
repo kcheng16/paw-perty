@@ -3519,12 +3519,7 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: idx,
           className: "user-listing"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-          className: "user-listing-icon",
-          src: reservation.images[0] ? reservation.images[0] : reservation.photos[0]
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Start: ", reservation.start_date.split("T")[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "End: ", reservation.end_date.split("T")[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reservation.num_of_guests, " Dogs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "user-listing-price"
-        }, reservation.total_price, " Doge Coins/night")));
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reservation.listing.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reservation.listing.street_address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reservation.start_date.split("T")[0], " - ", reservation.end_date.split("T")[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reservation.num_of_guests, " Dogs")));
       })));
     }
   }]);
@@ -3557,8 +3552,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  console.log("USER:", state.entities.users[state.session.id]); // console.log(Object.values(state.entities.users[state.session.id].reservations))
-
   return {
     currentUser: state.entities.users[state.session.id],
     reservations: Object.values(state.entities.users[state.session.id].reservations)
