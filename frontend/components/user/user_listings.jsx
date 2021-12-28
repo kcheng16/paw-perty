@@ -5,10 +5,7 @@ class UserListings extends React.Component{
   constructor(props){
     super(props)
   }
-
-  componentDidMount(){
-    this.props.fetchUser(this.props.currentUser.id)
-  }
+  // No longer need componentDidMount 2/2 putting listing+reservations within partial
 
   render(){
     

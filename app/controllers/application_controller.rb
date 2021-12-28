@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     return nil unless session[:session_token]
 
     # Return the user associated with the session_token (if token is valid)
-    @current_user ||= User.find_by_session_token(session[:session_token])
+    @current_user ||= User.includes(:reservations, :listings).find_by(session_token: session[:session_token])
   end
 
   def logged_in?

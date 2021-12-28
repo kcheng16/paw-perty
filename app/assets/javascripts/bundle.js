@@ -3371,14 +3371,10 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, UserListings);
 
     return _super.call(this, props);
-  }
+  } // No longer need componentDidMount 2/2 putting listing+reservations within partial
+
 
   _createClass(UserListings, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchUser(this.props.currentUser.id);
-    }
-  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3504,14 +3500,10 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, UserReservation);
 
     return _super.call(this, props);
-  }
+  } // No longer need componentDidMount 2/2 putting listing+reservations within partial
+
 
   _createClass(UserReservation, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchUser(this.props.currentUser.id);
-    }
-  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3520,14 +3512,17 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
         className: "listing-text"
       }, "Upcoming Trips:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-listings"
-      }, Object.values(this.props.currentUser.reservations).map(function (reservation, idx) {
+      }, this.props.reservations.map(function (reservation, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: idx,
           to: "/listings/".concat(reservation.listing_id)
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: idx,
           className: "user-listing"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Start: ", reservation.start_date.split("T")[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "End: ", reservation.end_date.split("T")[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reservation.num_of_guests, " Dogs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "user-listing-icon",
+          src: reservation.images[0] ? reservation.images[0] : reservation.photos[0]
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Start: ", reservation.start_date.split("T")[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "End: ", reservation.end_date.split("T")[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reservation.num_of_guests, " Dogs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "user-listing-price"
         }, reservation.total_price, " Doge Coins/night")));
       })));
@@ -3562,8 +3557,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
+  console.log("USER:", state.entities.users[state.session.id]); // console.log(Object.values(state.entities.users[state.session.id].reservations))
+
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    reservations: Object.values(state.entities.users[state.session.id].reservations)
   };
 };
 
