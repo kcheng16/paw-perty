@@ -1800,7 +1800,8 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
     key: "createReservation",
     value: function createReservation(e) {
       e.preventDefault();
-      this.props.createReservation(this.state.reservation); // .then( () => this.props.history.push(`/reservations/${this.props.session.id}`))
+      this.props.createReservation(this.state.reservation);
+      this.props.history.push("/user/".concat(this.props.session.id, "/reservations/"));
     }
   }, {
     key: "render",
@@ -1964,7 +1965,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         value: this.state.reservation.start_date
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "check-out"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-IN"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-OUT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         htmlFor: "start_date"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "date",
@@ -3100,6 +3101,17 @@ var UserDropdown = /*#__PURE__*/function (_React$Component) {
         className: "dropdown-list"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         onClick: function onClick() {
+          _this2.props.history.push("/user/".concat(_this2.props.currentUserId, "/reservations"));
+
+          _this2.toggleDropdown();
+        },
+        style: this.state.dropdownhidden ? {
+          display: "none"
+        } : {
+          display: "block"
+        }
+      }, "Trips"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        onClick: function onClick() {
           _this2.props.history.push("/user/".concat(_this2.props.currentUserId, "/listings"));
 
           _this2.toggleDropdown();
@@ -3445,9 +3457,9 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
-/***/ "./frontend/components/user/user_reservations_container.jsx":
+/***/ "./frontend/components/user/user_reservations_component.jsx":
 /*!******************************************************************!*\
-  !*** ./frontend/components/user/user_reservations_container.jsx ***!
+  !*** ./frontend/components/user/user_reservations_component.jsx ***!
   \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -3456,39 +3468,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
-/* harmony import */ var _user_reservtions_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user_reservtions_component */ "./frontend/components/user/user_reservtions_component.jsx");
-
-
-
-
-var mSTP = function mSTP(state, ownProps) {
-  return {
-    sessionId: state.session.id
-  };
-};
-
-var mDTP = function mDTP(dispatch) {
-  return {};
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_2__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_user_reservtions_component__WEBPACK_IMPORTED_MODULE_1__["default"])));
-
-/***/ }),
-
-/***/ "./frontend/components/user/user_reservtions_component.jsx":
-/*!*****************************************************************!*\
-  !*** ./frontend/components/user/user_reservtions_component.jsx ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom/Link */ "./node_modules/react-router-dom/Link.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3513,6 +3494,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var UserReservation = /*#__PURE__*/function (_React$Component) {
   _inherits(UserReservation, _React$Component);
 
@@ -3525,9 +3507,37 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(UserReservation, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchUser(this.props.currentUser.id);
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "User Reservation");
+      console.log("reservations", this.props.reservations);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "listings-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "listing-text"
+      }, "Listings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "user-listings"
+      }, this.props.reservations.length === 0 ? "no reserveration" : this.props.reservations.map(function (reservation, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: idx,
+          to: "/listings/".concat(reservation.listing_id)
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: idx,
+          className: "user-listing"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "user-listing-title"
+        }, reservation.listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "user-listing-address"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "user-listing-street"
+        }, reservation.listing.street_address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, reservation.listing.country), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "user-listing-price"
+        }, reservation.listing.price, " Doge Coins/night"))));
+      })));
     }
   }]);
 
@@ -3535,6 +3545,45 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserReservation);
+
+/***/ }),
+
+/***/ "./frontend/components/user/user_reservations_container.jsx":
+/*!******************************************************************!*\
+  !*** ./frontend/components/user/user_reservations_container.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _user_reservations_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user_reservations_component */ "./frontend/components/user/user_reservations_component.jsx");
+
+
+
+
+
+var mSTP = function mSTP(state, ownProps) {
+  return {
+    currentUser: state.entities.users[state.session.id],
+    reservations: Object.values(state.entities.reservations)
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    fetchUser: function fetchUser(userId) {
+      return dispatch((0,_actions_user_actions__WEBPACK_IMPORTED_MODULE_1__.fetchUser)(userId));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_user_reservations_component__WEBPACK_IMPORTED_MODULE_2__["default"])));
 
 /***/ }),
 

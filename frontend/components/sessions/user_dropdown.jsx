@@ -30,6 +30,12 @@ class UserDropdown extends React.Component{
           ) : (
             <div className="dropdown-list">
               <div
+                onClick={() => {this.props.history.push(`/user/${this.props.currentUserId}/reservations`); (this.toggleDropdown())}}
+                style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
+                Trips
+              </div>
+
+              <div
                 onClick={() => {this.props.history.push(`/user/${this.props.currentUserId}/listings`); (this.toggleDropdown())}}
                 style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}>
                 Manage listings

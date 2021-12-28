@@ -69,7 +69,7 @@ class ListingsShow extends React.Component{
   createReservation(e){
     e.preventDefault()
     this.props.createReservation(this.state.reservation)
-      // .then( () => this.props.history.push(`/reservations/${this.props.session.id}`))
+    this.props.history.push(`/user/${this.props.session.id}/reservations/`)
   }
 
   render(){
@@ -231,7 +231,7 @@ class ListingsShow extends React.Component{
                     </label>
                   </div>
                   <div id="check-out">
-                    <div>CHECK-IN</div>
+                    <div>CHECK-OUT</div>
                     <label htmlFor="start_date">
                       <input type="date" name="start_date" onChange={e => this.setReservation('end_date', e)} value={this.state.reservation.end_date}/>
                     </label>
