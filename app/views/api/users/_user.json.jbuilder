@@ -16,7 +16,6 @@ json.set! 'reservations' do
       json.extract! reservation, :id, :start_date, :end_date, :listing_id, :guest_id, :total_price, :num_of_guests
       json.listing reservation.listing
       # json.photos reservation.listing.photos.map {|photo| url_for(photo)} //unable to grab photos from active storage
-      json.images reservation.listing.images
     end
   end
 end

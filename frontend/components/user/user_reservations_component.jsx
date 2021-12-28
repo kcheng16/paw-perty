@@ -7,8 +7,12 @@ class UserReservation extends React.Component{
   }
   // No longer need componentDidMount 2/2 putting listing+reservations within partial
 
-  render(){
+  componentDidMount(){
+    this.props.requestReservation(this.props.match.params.id)
+  }
 
+  render(){
+    console.log("reservation:", this.props.reservations)
     return(
         <div className="listings-container">
           <p className="listing-text">Upcoming Trips:</p>
@@ -17,7 +21,8 @@ class UserReservation extends React.Component{
               <Link key={idx} to={`/listings/${reservation.listing_id}`}>
                 <div key={idx} className="user-listing">
                                       {/* NEEED ROUTE TO EDIT LISTINGS BUTTON */}    
-                  {/* <img className="user-listing-icon" src={reservation.images[0] ? reservation.images[0] : reservation.photos[0]}/> */}
+                  <img className="user-listing-icon" src={reservation.photos ? reservation.photos[0] : reservation.listing.images[0]}/>
+                  
                   <div>{reservation.listing.city}</div>
                   <div>{reservation.listing.street_address}</div>
                   <div>{reservation.start_date.split("T")[0]} - {reservation.end_date.split("T")[0]}</div>

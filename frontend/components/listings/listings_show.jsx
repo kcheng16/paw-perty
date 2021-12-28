@@ -79,6 +79,7 @@ class ListingsShow extends React.Component{
     for (let i = 1; i <= this.props.listing.num_of_beds; i++) {
       choices.push(<option key={i} value={i} >{i} Dogs</option>)
     }
+    console.log("photos:", this.props.listing.photos)
 
     return(
       <div className="show-page"> 
@@ -109,10 +110,9 @@ class ListingsShow extends React.Component{
           <div className="images-4">
             {this.props.listing.images[0] ? 
               (this.props.listing.images.slice(1, 5).map((imageURL, idx) => 
-              <img key={idx} src={`${imageURL}`} />
-              )) : (
-                this.props.listing.photos.slice(1,5).map((img, idx) => 
-                <img src={img} key={idx}/>
+                <img key={idx} src={`${imageURL}`} />
+              )) : (this.props.listing.photos.slice(1,5).map((img, idx) => 
+                      <img src={img} key={idx}/>
               ))
             }
           </div>
