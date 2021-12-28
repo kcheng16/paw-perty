@@ -11,28 +11,22 @@ class UserReservation extends React.Component{
   }
 
   render(){
-    console.log("reservations",this.props.reservations)
+    
     return(
         <div className="listings-container">
-          <p className="listing-text">Listings</p>
+          <p className="listing-text">Upcoming Trips:</p>
           <div className="user-listings">
-            {this.props.reservations.length === 0 ?
-            "no reserveration"
-            :
-              this.props.reservations.map((reservation, idx) => 
-                <Link key={idx} to={`/listings/${reservation.listing_id}`}>
+          {Object.values(this.props.currentUser.reservations).map((reservation, idx) => 
+              <Link key={idx} to={`/listings/${reservation.listing_id}`}>
                   <div key={idx} className="user-listing">
-                                        {/* NEEED ROUTE TO EDIT RESERVATION BUTTON */}
-                    <div className="user-listing-title">{reservation.listing.title}</div>
-                    <div className="user-listing-address">
-                      <div className="user-listing-street">{reservation.listing.street_address}</div>
-                      <p>{reservation.listing.country}</p>
-                      <div className="user-listing-price">{reservation.listing.price} Doge Coins/night</div>
-                    </div>
+                                        {/* NEEED ROUTE TO EDIT LISTINGS BUTTON */}                    
+                    <div>Start: {reservation.start_date.split("T")[0]}</div>
+                    <div>End: {reservation.end_date.split("T")[0]}</div>
+                    <div>{reservation.num_of_guests} Dogs</div>
+                    <div className="user-listing-price">{reservation.total_price} Doge Coins/night</div>
                   </div>
                 </Link>
-              )
-            }
+            )}
             </div>
           </div>
     )

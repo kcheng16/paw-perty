@@ -5,7 +5,6 @@ import UserListings from "./user_listings";
 
 const mSTP = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
-  listings: Object.values(state.entities.listings)
 })
 
 const mDTP = dispatch => ({

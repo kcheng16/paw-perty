@@ -26,8 +26,8 @@ const App = () => (
     </header>
 
       <Switch>
-        <Route path="/user/:id/reservations" render={props => <UserReservationsContainer {...props}/>}/>
         <Route path="/user/:id/listings" render={props => <UserListingsContainer {...props}/>}/>
+        <Route exact path="/user/:id/reservations" render={props => <UserReservationsContainer {...props}/>}/>
         <Route exact path="/user/:id" render={props => <UserShowContainer {...props}/>}/>
         <Route exact path="/" render={props => <SplashContainer {...props}/>}/>
 {/* unable to use protected-route: new and update */}

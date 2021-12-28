@@ -5,7 +5,6 @@ import UserReservation from "./user_reservations_component";
 
 const mSTP = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
-  reservations: Object.values(state.entities.reservations)
 })
 
 const mDTP = (dispatch) => ({

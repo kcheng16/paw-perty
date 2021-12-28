@@ -11,11 +11,12 @@ class UserListings extends React.Component{
   }
 
   render(){
+    
     return(
         <div className="listings-container">
           <p className="listing-text">Listings</p>
           <div className="user-listings">
-            {this.props.listings.map((listing, idx) => 
+            {Object.values(this.props.currentUser.listings).map((listing, idx) => 
               <Link key={idx} to={`/listings/${listing.id}`}>
                   <div key={idx} className="user-listing">
                                         {/* NEEED ROUTE TO EDIT LISTINGS BUTTON */}

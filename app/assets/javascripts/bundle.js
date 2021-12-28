@@ -462,14 +462,15 @@ __webpack_require__.r(__webpack_exports__);
 
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_modals_modal__WEBPACK_IMPORTED_MODULE_10__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_11__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_sessions_user_dropdown_container__WEBPACK_IMPORTED_MODULE_9__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_15__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_16__["default"], {
-    path: "/user/:id/reservations",
-    render: function render(props) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_user_user_reservations_container__WEBPACK_IMPORTED_MODULE_14__["default"], props);
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_16__["default"], {
     path: "/user/:id/listings",
     render: function render(props) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_user_user_listings_container__WEBPACK_IMPORTED_MODULE_13__["default"], props);
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    exact: true,
+    path: "/user/:id/reservations",
+    render: function render(props) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_user_user_reservations_container__WEBPACK_IMPORTED_MODULE_14__["default"], props);
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_16__["default"], {
     exact: true,
@@ -3386,7 +3387,7 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
         className: "listing-text"
       }, "Listings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-listings"
-      }, this.props.listings.map(function (listing, idx) {
+      }, Object.values(this.props.currentUser.listings).map(function (listing, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: idx,
           to: "/listings/".concat(listing.id)
@@ -3440,8 +3441,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state, ownProps) {
   return {
-    currentUser: state.entities.users[state.session.id],
-    listings: Object.values(state.entities.listings)
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
@@ -3514,29 +3514,22 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log("reservations", this.props.reservations);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "listing-text"
-      }, "Listings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Upcoming Trips:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-listings"
-      }, this.props.reservations.length === 0 ? "no reserveration" : this.props.reservations.map(function (reservation, idx) {
+      }, Object.values(this.props.currentUser.reservations).map(function (reservation, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: idx,
           to: "/listings/".concat(reservation.listing_id)
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: idx,
           className: "user-listing"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "user-listing-title"
-        }, reservation.listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "user-listing-address"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "user-listing-street"
-        }, reservation.listing.street_address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, reservation.listing.country), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Start: ", reservation.start_date.split("T")[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "End: ", reservation.end_date.split("T")[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reservation.num_of_guests, " Dogs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "user-listing-price"
-        }, reservation.listing.price, " Doge Coins/night"))));
+        }, reservation.total_price, " Doge Coins/night")));
       })));
     }
   }]);
@@ -3570,8 +3563,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state, ownProps) {
   return {
-    currentUser: state.entities.users[state.session.id],
-    reservations: Object.values(state.entities.reservations)
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
