@@ -1,3 +1,6 @@
+.star:hover{
+  cursor: pointer;
+}
 .reviews-index-item{
 
   .body{
@@ -15,6 +18,18 @@
     border-radius: 10px;
     height: 19vh;
     width: 32vw;
+    padding: 10px;
+  }
+
+  .post-review{
+    background-color: #df2b4b;
+    color: white;
+    width: 57px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 75%;
+    font-size: medium;
   }
 
 }.reviews-edit{

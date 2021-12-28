@@ -2348,6 +2348,7 @@ var ReviewsCreateComponent = /*#__PURE__*/function (_React$Component) {
         value: "1",
         onClick: this.update('rating')
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaStar, {
+        className: "star",
         key: "1",
         size: 30,
         color: this.state.rating >= 1 ? 'gold' : 'gray'
@@ -2357,6 +2358,7 @@ var ReviewsCreateComponent = /*#__PURE__*/function (_React$Component) {
         value: "2",
         onClick: this.update('rating')
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaStar, {
+        className: "star",
         key: "2",
         size: 30,
         color: this.state.rating >= 2 ? 'gold' : 'gray'
@@ -2366,6 +2368,7 @@ var ReviewsCreateComponent = /*#__PURE__*/function (_React$Component) {
         value: "3",
         onClick: this.update('rating')
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaStar, {
+        className: "star",
         key: "3",
         size: 30,
         color: this.state.rating >= 3 ? 'gold' : 'gray'
@@ -2375,6 +2378,7 @@ var ReviewsCreateComponent = /*#__PURE__*/function (_React$Component) {
         value: "4",
         onClick: this.update('rating')
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaStar, {
+        className: "star",
         key: "4",
         size: 30,
         color: this.state.rating >= 4 ? 'gold' : 'gray'
@@ -2384,6 +2388,7 @@ var ReviewsCreateComponent = /*#__PURE__*/function (_React$Component) {
         value: "5",
         onClick: this.update('rating')
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaStar, {
+        className: "star",
         key: "5",
         size: 30,
         color: this.state.rating >= 5 ? 'gold' : 'gray'
@@ -2394,7 +2399,8 @@ var ReviewsCreateComponent = /*#__PURE__*/function (_React$Component) {
         placeholder: "Type your review here",
         className: "reviews-body"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        type: "submit"
+        type: "submit",
+        className: "post-review"
       }, "Submit")));
     }
   }]);
