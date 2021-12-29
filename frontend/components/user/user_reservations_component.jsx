@@ -7,27 +7,35 @@ class UserReservation extends React.Component{
   }
   // No longer need componentDidMount 2/2 putting listing+reservations within partial
 
-  componentDidMount(){
-    this.props.requestReservation(this.props.match.params.id)
-  }
-
   render(){
-    console.log("reservation:", this.props.reservations)
     return(
-        <div className="listings-container">
-          <p className="listing-text">Upcoming Trips:</p>
-          <div className="user-listings">
+        <div className="reservation-container">
+          <p className="res-text">Trips:</p>
+          <div className="res-header">
+            <div className="header-text">
+              <i className="fas fa-dog"></i>
+              <div className="res-book">Book upcoming trips!</div>
+              <div className="res-desc">Time to dust off those paws and start planning their next adventure</div>
+              <button>Start searching</button>
+            </div>
+            <div className="header-img"></div>
+          </div>
+          <div className="user-reservations">
           {this.props.reservations.map((reservation, idx) => 
-              <Link key={idx} to={`/listings/${reservation.listing_id}`}>
-                <div key={idx} className="user-listing">
-                                      {/* NEEED ROUTE TO EDIT LISTINGS BUTTON */}    
-                  <img className="user-listing-icon" src={reservation.photos ? reservation.photos[0] : reservation.listing.images[0]}/>
-                  
-                  <div>{reservation.listing.city}</div>
-                  <div>{reservation.listing.street_address}</div>
-                  <div>{reservation.start_date.split("T")[0]} - {reservation.end_date.split("T")[0]}</div>
-                  <div>{reservation.num_of_guests} Dogs</div>
-                </div>
+              <Link 
+                className="reservation-list" 
+                key={idx} 
+                to={`/listings/${reservation.listing_id}`}
+              >
+                  <img className="user-reservation-icon" src={reservation.photos[0] ? reservation.photos[0] : reservation.listing.images[0]}/>
+                  <div className="reservation-info">
+                    <div>{reservation.listing.city}</div>
+                    <div>{reservation.start_date.split("T")[0]} - {reservation.end_date.split("T")[0]}</div>
+                    <div className="res-info">{reservation.listing.street_address}</div>
+                    <div className="res-info">{reservation.num_of_guests} Dog/s</div>
+                    <div className="res-info">{reservation.total_price} Doge coins</div>
+                  </div>
+                                      {/* NEEED ROUTE TO EDIT RESERVATION BUTTON */}    
               </Link>
             )}
             </div>

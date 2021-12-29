@@ -1,0 +1,103 @@
+.reservation-container{
+  padding: 0 15% 0 15%;
+}
+
+.res-header{
+  display: flex;
+  margin-bottom: 5%;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  width: 90%;
+
+  .header-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    width: 30%;
+
+    .fas{
+      font-size: 200%;
+      padding-left: 10px;
+      color: #df2b4b;;
+    }
+
+    .res-book{
+      font-weight: 600;
+      padding: 20px 0 10px 10px;
+    }
+
+    .res-desc{
+      color: gray;
+      padding: 0 10px 20px 10px;
+    }
+
+    >button{
+      background-color: #df2b4b;;
+      color: white;
+      font-weight: 600;
+      border-radius: 5px;
+      padding: 10px;
+      margin-left: 10px;
+      width: 120px;
+    }
+  }
+}
+
+.header-img{
+  background-image: url("http://res.cloudinary.com/de8carnhu/image/upload/v1640737855/avi-richards-aYHgchNOsGY-unsplash_rjjrau.jpg");
+  flex-grow: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 280px;
+  border-radius: 0 10px 10px 0;
+}
+
+.res-text{
+  font-size: 32px;
+  font-weight: 600;
+  color: #484848;
+  margin-bottom: 20px;
+}
+.user-reservations{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+
+.reservation-list{
+  display: flex;
+}
+
+.reservation-list:hover{
+  cursor: pointer;
+}
+
+.user-reservation-icon{
+  display: block;
+  width: 20%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.reservation-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  >div:first-child{
+    font-weight: 600;
+  }
+  >div:nth-child(2){
+    font-size: small;
+    font-weight: 600;
+  }
+
+  .res-info{
+    font-size: small;
+    color: gray;
+  }
+}
