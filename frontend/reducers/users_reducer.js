@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from "../actions/session_actions";
 
 export default (state={}, action) => {
   Object.freeze(state);
@@ -9,6 +9,9 @@ export default (state={}, action) => {
       nextState[action.user.id] = action.user
       return nextState
       // Object.assign({}, state, { [action.user.id]: action.user })
+    case LOGOUT_CURRENT_USER:
+      nextState = {}
+      return nextState
 
     default:
       return state;

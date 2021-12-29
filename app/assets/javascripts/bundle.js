@@ -3764,6 +3764,12 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
 
 
   _createClass(UserReservation, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      // console.log("MOUNT:", this.props.match.params.id)
+      this.props.requestReservation(this.props.match.params.id);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
@@ -3845,6 +3851,9 @@ var mDTP = function mDTP(dispatch) {
     },
     deleteReservation: function deleteReservation(reservationId) {
       return dispatch((0,_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__.deleteReservation)(reservationId));
+    },
+    requestReservation: function requestReservation(reservationId) {
+      return dispatch((0,_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__.requestReservation)(reservationId));
     }
   };
 };
@@ -4157,6 +4166,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -4174,6 +4185,11 @@ __webpack_require__.r(__webpack_exports__);
 
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__.REMOVE_RESERVATION:
       delete newState[action.reservationId];
+      return newState;
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_CURRENT_USER:
+      console.log("RESERVATION:", action.user.reservations);
+      newState = action.user.reservations;
       return newState;
 
     default:
@@ -4326,7 +4342,8 @@ var _nullSession = {
       });
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.LOGOUT_CURRENT_USER:
-      return _nullSession;
+      state = _nullSession;
+      return state;
 
     default:
       return state;
@@ -4382,6 +4399,10 @@ __webpack_require__.r(__webpack_exports__);
       nextState[action.user.id] = action.user;
       return nextState;
     // Object.assign({}, state, { [action.user.id]: action.user })
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.LOGOUT_CURRENT_USER:
+      nextState = {};
+      return nextState;
 
     default:
       return state;

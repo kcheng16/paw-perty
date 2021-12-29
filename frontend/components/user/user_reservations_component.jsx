@@ -8,6 +8,10 @@ class UserReservation extends React.Component{
 
   }
   // No longer need componentDidMount 2/2 putting listing+reservations within partial
+  componentDidMount(){
+    // console.log("MOUNT:", this.props.match.params.id)
+    this.props.requestReservation(this.props.match.params.id)
+  }
 
   render(){
     return(
