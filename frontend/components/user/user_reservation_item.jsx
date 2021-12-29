@@ -5,6 +5,7 @@ class UserReservationItem extends React.Component{
   constructor(props){
     super(props)
     this.state = {
+      reservation: this.props.reservation,
       toggle: false
     }
   }
@@ -14,6 +15,15 @@ class UserReservationItem extends React.Component{
   }
 
   render(){
+    let start = new Date(this.props.reservation.start_date)
+    let startMonth = start.toLocaleString('en-us', { month: 'short' })
+    let startDay = start.getDate()
+
+    let end = new Date(this.props.reservation.end_date)
+    let endMonth = end.toLocaleString('en-us', { month: 'short' })
+    let endDay = end.getDate()
+    let endYear = end.getFullYear()
+
     return(
       <div>
         <Link 
@@ -23,10 +33,9 @@ class UserReservationItem extends React.Component{
           <img className="user-reservation-icon" src={this.props.reservation.photos[0] ? this.props.reservation.photos[0] : this.props.reservation.listing.images[0]}/>
           <div className="reservation-info">
             <div>{this.props.reservation.listing.city}</div>
-            <div>{this.props.reservation.start_date.split("T")[0]} - {this.props.reservation.end_date.split("T")[0]}</div>
             <div className="res-info">{this.props.reservation.listing.street_address}</div>
-            <div className="res-info">{this.props.reservation.num_of_guests} Dog/s</div>
             <div className="res-info">{this.props.reservation.total_price} Doge coins</div>
+            <div>{startMonth} {startDay} - {endMonth} {endDay}, {endYear}</div>
           </div>
         </Link>
         <div className="res-buttons">
@@ -39,6 +48,7 @@ class UserReservationItem extends React.Component{
           >
             <div className="modal-child" onClick={e => e.stopPropagation()}>
               <div>EDIT FORM</div>
+
             </div>
           </div>
         </div>

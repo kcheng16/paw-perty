@@ -90,10 +90,11 @@
 
   >div:first-child{
     font-weight: 600;
+    margin-top: -15px;
   }
-  >div:nth-child(2){
-    font-size: small;
-    font-weight: 600;
+  >div:last-child{
+    font-size: smaller;
+    color: gray;
   }
 
   .res-info{

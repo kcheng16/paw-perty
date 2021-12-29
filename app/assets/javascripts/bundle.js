@@ -3511,6 +3511,7 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
+      reservation: _this.props.reservation,
       toggle: false
     };
     return _this;
@@ -3528,6 +3529,17 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      var start = new Date(this.props.reservation.start_date);
+      var startMonth = start.toLocaleString('en-us', {
+        month: 'short'
+      });
+      var startDay = start.getDate();
+      var end = new Date(this.props.reservation.end_date);
+      var endMonth = end.toLocaleString('en-us', {
+        month: 'short'
+      });
+      var endDay = end.getDate();
+      var endYear = end.getFullYear();
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
         className: "reservation-list",
         to: "/listings/".concat(this.props.reservation.listing_id)
@@ -3536,13 +3548,11 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         src: this.props.reservation.photos[0] ? this.props.reservation.photos[0] : this.props.reservation.listing.images[0]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "reservation-info"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.reservation.listing.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.reservation.start_date.split("T")[0], " - ", this.props.reservation.end_date.split("T")[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.reservation.listing.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "res-info"
       }, this.props.reservation.listing.street_address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "res-info"
-      }, this.props.reservation.num_of_guests, " Dog/s"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "res-info"
-      }, this.props.reservation.total_price, " Doge coins"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, this.props.reservation.total_price, " Doge coins"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, startMonth, " ", startDay, " - ", endMonth, " ", endDay, ", ", endYear))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "res-buttons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
