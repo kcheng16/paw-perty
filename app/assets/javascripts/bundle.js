@@ -3593,7 +3593,10 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         month: 'short'
       });
       var endDay = end.getDate();
-      var endYear = end.getFullYear();
+      var endYear = end.getFullYear(); // Prefill input(type= date), must use this format and can't use "/" or change order of date
+
+      var preStartDate = start.getFullYear() + "-" + parseInt(start.getMonth() + 1) + "-" + start.getDate();
+      var preEndDate = end.getFullYear() + "-" + parseInt(end.getMonth() + 1) + "-" + end.getDate();
       var choices = [];
 
       for (var i = 1; i <= this.props.reservation.listing.num_of_beds; i++) {
@@ -3654,7 +3657,7 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         onChange: function onChange(e) {
           return _this2.setReservation('start_date', e);
         },
-        value: this.state.reservation.start_date
+        value: preStartDate
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "check-out"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-OUT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
@@ -3665,7 +3668,7 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         onChange: function onChange(e) {
           return _this2.setReservation('end_date', e);
         },
-        value: this.state.reservation.end_date
+        value: preEndDate
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "select-guests"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
