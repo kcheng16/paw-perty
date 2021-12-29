@@ -19,13 +19,11 @@
       #check-in{
         border-right: 1px solid gray;
         padding: 5px;
-
         >div:first-child{
           text-align: left;
           font-size: 10px;
           font-weight: 600;
         }
-        
         >label >input{
           font-size: small;
           text-align: start;
@@ -34,13 +32,11 @@
 
       #check-out{
         padding: 5px;
-
         >div:first-child{
           text-align: left;
           font-size: 10px;
           font-weight: 600;
         }
-
         >label >input{
           font-size: small;
           text-align: start;
@@ -55,7 +51,6 @@
       font-weight: 700;
       margin: 5px 0 5px 0;
       }
-      
       .guest-dropdown{
         width: 100%;
         text-align: center;
@@ -63,6 +58,18 @@
         height: 33px;
         border-radius: 3px;
       }
+    }
+    
+    .reserve-button{
+      margin: 1vw;
+      padding: 0.7vw;
+      border-radius: 10px;
+      width: 9vw;
+      background-color: rgb(255, 56, 92);
+      text-align: center;
+      color: white;
+      font-size: 0.8vw;
+      font-weight: bold;
     }
   }
 }

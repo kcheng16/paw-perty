@@ -17,6 +17,9 @@ class UserReservationItem extends React.Component{
   }
 
   setReservation(field, e){
+    console.log("SET RESERVATION:", field)
+    console.log("CURRNET TARGET VALUE:", e.currentTarget.value)
+    console.log("STATE RESERVATION:", this.state.reservation)
     this.setState({
       ...this.state.calculate,
       reservation: {
@@ -47,7 +50,7 @@ class UserReservationItem extends React.Component{
     let endTime = new Date(this.state.reservation.end_date)
     let differenceInDays = (endTime - startTime) / (1000 * 3600 * 24)
     let pricePerDaysAndDogs = this.props.reservation.listing.price * differenceInDays * this.state.reservation.num_of_guests
-    console.log("DIFF DAYS:", differenceInDays)
+
     this.setState({
       ...this.state.toggle,
       days: differenceInDays,
@@ -66,18 +69,18 @@ class UserReservationItem extends React.Component{
 
   render(){
 
-    let start = new Date(this.props.reservation.start_date)
+    let start = new Date(this.state.reservation.start_date)
     let startMonth = start.toLocaleString('en-us', { month: 'short' })
     let startDay = start.getDate()
     
-    let end = new Date(this.props.reservation.end_date)
+    let end = new Date(this.state.reservation.end_date)
     let endMonth = end.toLocaleString('en-us', { month: 'short' })
     let endDay = end.getDate()
     let endYear = end.getFullYear()
     
     // Prefill input(type= date), must use this format and can't use "/" or change order of date
-    let preStartDate = start.getFullYear() + "-" + parseInt(start.getMonth()+1) + "-" + start.getDate();
-    let preEndDate = end.getFullYear() + "-" + parseInt(end.getMonth()+1) + "-" + end.getDate();
+    let startDate = start.getFullYear() + "-" + parseInt(start.getMonth()+1) + "-" + start.getDate();
+    let endDate = end.getFullYear() + "-" + parseInt(end.getMonth()+1) + "-" + end.getDate();
 
     let choices = []
     for (let i = 1; i <= this.props.reservation.listing.num_of_beds; i++) {
@@ -117,20 +120,20 @@ class UserReservationItem extends React.Component{
                     <div id="check-in">
                       <div>CHECK-IN</div>
                       <label htmlFor="start_date">
-                        <input type="date" name="start_date" onChange={ e => this.setReservation('start_date', e)} value={preStartDate}/>
+                        <input type="date" name="start_date" onChange={ e => this.setReservation('start_date', e)} value={startDate}/>
                       </label>
                     </div>
                     <div id="check-out">
                       <div>CHECK-OUT</div>
                       <label htmlFor="start_date">
-                        <input type="date" name="start_date" onChange={e => this.setReservation('end_date', e)} value={preEndDate}/>
+                        <input type="date" name="start_date" onChange={e => this.setReservation('end_date', e)} value={endDate}/>
                       </label>
                     </div>
                   </div>
                   <div className="select-guests">
                     <div className="title">Guests</div>
                     <select className="guest-dropdown" onChange={e => this.setReservation('num_of_guests', e)}>
-                      <option value="">select number of dogs</option>
+                      <option value="" disabled>select number of dogs</option>
                       {choices}
                     </select>
                   </div>

@@ -239,23 +239,23 @@ class ListingsShow extends React.Component{
                 <div className="select-guests">
                   <div className="title">Guests</div>
                   <select className="guest-dropdown" onChange={e => this.setReservation('num_of_guests', e)}>
-                    <option value="">select number of dogs</option>
+                    <option value="" disabled>select number of dogs</option>
                     {choices}
                   </select>
                 </div>
-                  <button 
-                    type={this.state.calculate ? "button" : "submit"} 
-                    className={this.state.calculate ? "reserve-button-inactive" : "reserve-button"}
-                    onClick={ (e) => {
-                      if (this.state.calculate){
-                        this.toggleCalculate();
-                      } else {
-                        this.createReservation(e)
-                      }
-                    }}
-                  > 
-                    {this.state.calculate ? "Calculate Price" : "Reserve"}
-                  </button>
+                <button 
+                  type={this.state.calculate ? "button" : "submit"} 
+                  className={this.state.calculate ? "reserve-button-inactive" : "reserve-button"}
+                  onClick={ (e) => {
+                    if (this.state.calculate){
+                      this.toggleCalculate();
+                    } else {
+                      this.createReservation(e)
+                    }
+                  }}
+                > 
+                  {this.state.calculate ? "Calculate Price" : "Reserve"}
+                </button>
                 <div className="cost-calculation">
                   <div>{this.props.listing.price} coins x {this.state.days} nights</div>
                   <div>{this.state.reservation.total_price}</div>

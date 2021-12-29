@@ -1993,7 +1993,8 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
           return _this2.setReservation('num_of_guests', e);
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-        value: ""
+        value: "",
+        disabled: true
       }, "select number of dogs"), choices)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: this.state.calculate ? "button" : "submit",
         className: this.state.calculate ? "reserve-button-inactive" : "reserve-button",
@@ -3535,6 +3536,9 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "setReservation",
     value: function setReservation(field, e) {
+      console.log("SET RESERVATION:", field);
+      console.log("CURRNET TARGET VALUE:", e.currentTarget.value);
+      console.log("STATE RESERVATION:", this.state.reservation);
       this.setState(_objectSpread(_objectSpread({}, this.state.calculate), {}, {
         reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, _defineProperty({}, field, e.currentTarget.value))
       }));
@@ -3562,7 +3566,6 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
       var endTime = new Date(this.state.reservation.end_date);
       var differenceInDays = (endTime - startTime) / (1000 * 3600 * 24);
       var pricePerDaysAndDogs = this.props.reservation.listing.price * differenceInDays * this.state.reservation.num_of_guests;
-      console.log("DIFF DAYS:", differenceInDays);
       this.setState(_objectSpread(_objectSpread({}, this.state.toggle), {}, {
         days: differenceInDays,
         reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, {
@@ -3581,20 +3584,20 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var start = new Date(this.props.reservation.start_date);
+      var start = new Date(this.state.reservation.start_date);
       var startMonth = start.toLocaleString('en-us', {
         month: 'short'
       });
       var startDay = start.getDate();
-      var end = new Date(this.props.reservation.end_date);
+      var end = new Date(this.state.reservation.end_date);
       var endMonth = end.toLocaleString('en-us', {
         month: 'short'
       });
       var endDay = end.getDate();
       var endYear = end.getFullYear(); // Prefill input(type= date), must use this format and can't use "/" or change order of date
 
-      var preStartDate = start.getFullYear() + "-" + parseInt(start.getMonth() + 1) + "-" + start.getDate();
-      var preEndDate = end.getFullYear() + "-" + parseInt(end.getMonth() + 1) + "-" + end.getDate();
+      var startDate = start.getFullYear() + "-" + parseInt(start.getMonth() + 1) + "-" + start.getDate();
+      var endDate = end.getFullYear() + "-" + parseInt(end.getMonth() + 1) + "-" + end.getDate();
       var choices = [];
 
       for (var i = 1; i <= this.props.reservation.listing.num_of_beds; i++) {
@@ -3665,7 +3668,7 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         onChange: function onChange(e) {
           return _this2.setReservation('start_date', e);
         },
-        value: preStartDate
+        value: startDate
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "check-out"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-OUT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
@@ -3676,7 +3679,7 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         onChange: function onChange(e) {
           return _this2.setReservation('end_date', e);
         },
-        value: preEndDate
+        value: endDate
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "select-guests"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3687,7 +3690,8 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
           return _this2.setReservation('num_of_guests', e);
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-        value: ""
+        value: "",
+        disabled: true
       }, "select number of dogs"), choices)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: this.state.calculate ? "button" : "submit",
         className: this.state.calculate ? "reserve-button-inactive" : "reserve-button",
