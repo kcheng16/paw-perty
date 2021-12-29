@@ -5,7 +5,6 @@ class ReviewsIndexItem extends React.Component{
   constructor(props){
     super(props)
     this.state = {...this.props.review, editable: false}
-    console.log("STATE:", this.state)
 
     this.stars = [];
 

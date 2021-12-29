@@ -2527,7 +2527,6 @@ var ReviewsIndexItem = /*#__PURE__*/function (_React$Component) {
     _this.state = _objectSpread(_objectSpread({}, _this.props.review), {}, {
       editable: false
     });
-    console.log("STATE:", _this.state);
     _this.stars = [];
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.toggleEdit = _this.toggleEdit.bind(_assertThisInitialized(_this));
@@ -3462,10 +3461,10 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
-/***/ "./frontend/components/user/user_reservations_component.jsx":
-/*!******************************************************************!*\
-  !*** ./frontend/components/user/user_reservations_component.jsx ***!
-  \******************************************************************/
+/***/ "./frontend/components/user/user_reservation_item.jsx":
+/*!************************************************************!*\
+  !*** ./frontend/components/user/user_reservation_item.jsx ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3496,6 +3495,124 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var UserReservationItem = /*#__PURE__*/function (_React$Component) {
+  _inherits(UserReservationItem, _React$Component);
+
+  var _super = _createSuper(UserReservationItem);
+
+  function UserReservationItem(props) {
+    var _this;
+
+    _classCallCheck(this, UserReservationItem);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      toggle: false
+    };
+    return _this;
+  }
+
+  _createClass(UserReservationItem, [{
+    key: "toggleDropdown",
+    value: function toggleDropdown() {
+      this.setState({
+        toggle: !this.state.toggle
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        className: "reservation-list",
+        to: "/listings/".concat(this.props.reservation.listing_id)
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "user-reservation-icon",
+        src: this.props.reservation.photos[0] ? this.props.reservation.photos[0] : this.props.reservation.listing.images[0]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "reservation-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.reservation.listing.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.reservation.start_date.split("T")[0], " - ", this.props.reservation.end_date.split("T")[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "res-info"
+      }, this.props.reservation.listing.street_address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "res-info"
+      }, this.props.reservation.num_of_guests, " Dog/s"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "res-info"
+      }, this.props.reservation.total_price, " Doge coins"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "res-buttons"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          return _this2.toggleDropdown();
+        }
+      }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          return _this2.props.deleteReservation(_this2.props.reservation.id);
+        }
+      }, "Delete"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        style: this.state.toggle ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        className: "modal-background",
+        onClick: function onClick() {
+          return _this2.toggleDropdown();
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "modal-child",
+        onClick: function onClick(e) {
+          return e.stopPropagation();
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "EDIT FORM")))));
+    }
+  }]);
+
+  return UserReservationItem;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserReservationItem);
+
+/***/ }),
+
+/***/ "./frontend/components/user/user_reservations_component.jsx":
+/*!******************************************************************!*\
+  !*** ./frontend/components/user/user_reservations_component.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _user_reservation_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user_reservation_item */ "./frontend/components/user/user_reservation_item.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -3531,7 +3648,7 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
         className: "res-book"
       }, "Book upcoming trips!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "res-desc"
-      }, "Time to dust off those paws and start planning their next adventure"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, "Time to dust off those paws and start planning the next adventure"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this.props.history.push("/listings");
         }
@@ -3540,29 +3657,10 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-reservations"
       }, this.props.reservations.map(function (reservation, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          key: idx
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          className: "reservation-list",
-          to: "/listings/".concat(reservation.listing_id)
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-          className: "user-reservation-icon",
-          src: reservation.photos[0] ? reservation.photos[0] : reservation.listing.images[0]
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "reservation-info"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reservation.listing.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reservation.start_date.split("T")[0], " - ", reservation.end_date.split("T")[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "res-info"
-        }, reservation.listing.street_address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "res-info"
-        }, reservation.num_of_guests, " Dog/s"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "res-info"
-        }, reservation.total_price, " Doge coins"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "res-buttons"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          onClick: function onClick() {
-            return _this.props.deleteReservation(reservation.id);
-          }
-        }, "Delete")));
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_user_reservation_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: idx,
+          reservation: reservation
+        });
       })));
     }
   }]);

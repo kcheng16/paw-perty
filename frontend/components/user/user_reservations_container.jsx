@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-import { fetchUser } from "../../actions/user_actions"
-import { updateReservation, deleteReservation } from "../../actions/reservation_actions"
+import { fetchUser } from "../../actions/user_actions";
+import { updateReservation, deleteReservation } from "../../actions/reservation_actions";
 import UserReservation from "./user_reservations_component";
 
 const mSTP = (state, ownProps) => {
@@ -13,7 +13,8 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => ({
   fetchUser: userId => dispatch(fetchUser(userId)),
   updateReservation: reservation => dispatch(updateReservation(reservation)),
-  deleteReservation: reservationId => dispatch(deleteReservation(reservationId))
+  deleteReservation: reservationId => dispatch(deleteReservation(reservationId)),
+
 })
 
 export default withRouter(connect(mSTP, mDTP)(UserReservation))
