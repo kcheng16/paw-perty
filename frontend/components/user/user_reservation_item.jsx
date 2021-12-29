@@ -65,9 +65,6 @@ class UserReservationItem extends React.Component{
   }
 
   render(){
-    console.log("RESERVATION:",this.state.reservation)
-    console.log("CALCULATE:",this.state.calculate)
-    console.log("DAYS:",this.state.days)
 
     let start = new Date(this.props.reservation.start_date)
     let startMonth = start.toLocaleString('en-us', { month: 'short' })
@@ -84,7 +81,11 @@ class UserReservationItem extends React.Component{
 
     let choices = []
     for (let i = 1; i <= this.props.reservation.listing.num_of_beds; i++) {
-      choices.push(<option key={i} value={i} >{i} Dogs</option>)
+      if(i === this.state.reservation.num_of_guests){
+        choices.push(<option key={i} value={i} selected>{i} Dogs </option>)
+      } else {
+        choices.push(<option key={i} value={i} >{i} Dogs </option>)
+      }
     }
     return(
       <div>

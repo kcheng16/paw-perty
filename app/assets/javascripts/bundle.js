@@ -3580,9 +3580,6 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log("RESERVATION:", this.state.reservation);
-      console.log("CALCULATE:", this.state.calculate);
-      console.log("DAYS:", this.state.days);
       var start = new Date(this.props.reservation.start_date);
       var startMonth = start.toLocaleString('en-us', {
         month: 'short'
@@ -3600,10 +3597,18 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
       var choices = [];
 
       for (var i = 1; i <= this.props.reservation.listing.num_of_beds; i++) {
-        choices.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-          key: i,
-          value: i
-        }, i, " Dogs"));
+        if (i === this.state.reservation.num_of_guests) {
+          choices.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+            key: i,
+            value: i,
+            selected: true
+          }, i, " Dogs "));
+        } else {
+          choices.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+            key: i,
+            value: i
+          }, i, " Dogs "));
+        }
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
