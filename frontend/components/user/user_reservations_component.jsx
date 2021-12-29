@@ -16,7 +16,7 @@ class UserReservation extends React.Component{
               <i className="fas fa-dog"></i>
               <div className="res-book">Book upcoming trips!</div>
               <div className="res-desc">Time to dust off those paws and start planning their next adventure</div>
-              <button>Start searching</button>
+              <button onClick={() => this.props.history.push("/listings")}>Start searching</button>
             </div>
             <div className="header-img"></div>
           </div>

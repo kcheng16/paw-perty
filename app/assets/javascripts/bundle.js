@@ -3507,6 +3507,8 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
   _createClass(UserReservation, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "reservation-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
@@ -3521,7 +3523,11 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
         className: "res-book"
       }, "Book upcoming trips!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "res-desc"
-      }, "Time to dust off those paws and start planning their next adventure"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Start searching")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Time to dust off those paws and start planning their next adventure"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          return _this.props.history.push("/listings");
+        }
+      }, "Start searching")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "header-img"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-reservations"
