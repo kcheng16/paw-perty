@@ -11,7 +11,7 @@ class UserListings extends React.Component{
     
     return(
         <div className="listings-container">
-          <p className="listing-text">Listings</p>
+          <p className="listing-text">Manage listings</p>
           <div className="user-listings">
             {Object.values(this.props.currentUser.listings).map((listing, idx) => 
               <Link key={idx} to={`/listings/${listing.id}`}>

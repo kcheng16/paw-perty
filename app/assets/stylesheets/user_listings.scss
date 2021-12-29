@@ -14,7 +14,6 @@
   font-size: 32px;
   font-weight: 600;
   color: rgb(72, 72, 72);
-  
 }
 
 .user-listings{
@@ -32,7 +31,7 @@
     0px 6px 10px 0px rgba(0, 0, 0, 0.14),
     0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 
-    height: 60vh;
+    height: 55vh;
 
     .listing-img {
       width: 2vw;
@@ -57,7 +56,7 @@
 }
 
 .user-listing-street{
-  padding-left: 1.5vw;
+  padding-left: 1vw;
   font-weight: 700;
   font-size: 1vw;
 }
@@ -66,7 +65,7 @@
   font-size: 1.5vw;
 
   >p{
-    padding-left: 1.5vw;
+    padding-left: 1vw;
     font-size: 1vw;
   }
 }
