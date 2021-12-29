@@ -79,7 +79,6 @@ class ListingsShow extends React.Component{
     for (let i = 1; i <= this.props.listing.num_of_beds; i++) {
       choices.push(<option key={i} value={i} >{i} Dogs</option>)
     }
-    console.log("photos:", this.props.listing.photos)
 
     return(
       <div className="show-page"> 

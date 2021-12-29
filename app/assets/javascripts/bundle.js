@@ -1827,7 +1827,6 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         }, i, " Dogs"));
       }
 
-      console.log("photos:", this.props.listing.photos);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page"
       }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -3476,6 +3475,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom/Link */ "./node_modules/react-router-dom/Link.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -3512,7 +3517,9 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       reservation: _this.props.reservation,
-      toggle: false
+      toggle: false,
+      calculate: true,
+      days: 0
     };
     return _this;
   }
@@ -3525,10 +3532,57 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "setReservation",
+    value: function setReservation(field, e) {
+      this.setState(_objectSpread(_objectSpread({}, this.state.calculate), {}, {
+        reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, _defineProperty({}, field, e.currentTarget.value))
+      }));
+
+      if (!this.state.calculate) {
+        this.setState(_objectSpread(_objectSpread({}, this.state.reservation), {}, {
+          calculate: !this.state.calculate
+        }));
+      }
+    }
+  }, {
+    key: "toggleCalculate",
+    value: function toggleCalculate() {
+      if (this.state.reservation.start_date && this.state.reservation.end_date && this.state.reservation.num_of_guests) {
+        this.setPrice();
+        this.setState(_objectSpread(_objectSpread({}, this.state.reservation), {}, {
+          calculate: !this.state.calculate
+        }));
+      }
+    }
+  }, {
+    key: "setPrice",
+    value: function setPrice() {
+      var startTime = new Date(this.state.reservation.start_date);
+      var endTime = new Date(this.state.reservation.end_date);
+      var differenceInDays = (endTime - startTime) / (1000 * 3600 * 24);
+      var pricePerDaysAndDogs = this.props.reservation.listing.price * differenceInDays * this.state.reservation.num_of_guests;
+      console.log("DIFF DAYS:", differenceInDays);
+      this.setState(_objectSpread(_objectSpread({}, this.state.toggle), {}, {
+        days: differenceInDays,
+        reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, {
+          total_price: pricePerDaysAndDogs
+        })
+      }));
+    }
+  }, {
+    key: "updateReservation",
+    value: function updateReservation(e) {
+      e.preventDefault();
+      this.props.updateReservation(this.state.reservation); // this.props.history.push(`/user/${this.props.session.id}/reservations/`)
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
+      console.log("RESERVATION:", this.state.reservation);
+      console.log("CALCULATE:", this.state.calculate);
+      console.log("DAYS:", this.state.days);
       var start = new Date(this.props.reservation.start_date);
       var startMonth = start.toLocaleString('en-us', {
         month: 'short'
@@ -3540,6 +3594,15 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
       });
       var endDay = end.getDate();
       var endYear = end.getFullYear();
+      var choices = [];
+
+      for (var i = 1; i <= this.props.reservation.listing.num_of_beds; i++) {
+        choices.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+          key: i,
+          value: i
+        }, i, " Dogs"));
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
         className: "reservation-list",
         to: "/listings/".concat(this.props.reservation.listing_id)
@@ -3577,7 +3640,60 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick(e) {
           return e.stopPropagation();
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "EDIT FORM")))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "EDIT FORM"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "check-in-out"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "check-in-out-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "check-in"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-IN"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        htmlFor: "start_date"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        type: "date",
+        name: "start_date",
+        onChange: function onChange(e) {
+          return _this2.setReservation('start_date', e);
+        },
+        value: this.state.reservation.start_date
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "check-out"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-OUT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        htmlFor: "start_date"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        type: "date",
+        name: "start_date",
+        onChange: function onChange(e) {
+          return _this2.setReservation('end_date', e);
+        },
+        value: this.state.reservation.end_date
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "select-guests"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "title"
+      }, "Guests"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+        className: "guest-dropdown",
+        onChange: function onChange(e) {
+          return _this2.setReservation('num_of_guests', e);
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+        value: ""
+      }, "select number of dogs"), choices)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        type: this.state.calculate ? "button" : "submit",
+        className: this.state.calculate ? "reserve-button-inactive" : "reserve-button",
+        onClick: function onClick(e) {
+          if (_this2.state.calculate) {
+            _this2.toggleCalculate();
+          } else {
+            _this2.createReservation(e);
+          }
+        }
+      }, this.state.calculate ? "Calculate Price" : "Update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cost-calculation"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.reservation.listing.price, " coins x ", this.state.days, " nights"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.reservation.total_price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "line"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "total"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Total"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.reservation.total_price ? this.state.reservation.total_price : "0", " Doge Coins")))))));
     }
   }]);
 

@@ -6,7 +6,9 @@ class UserReservationItem extends React.Component{
     super(props)
     this.state = {
       reservation: this.props.reservation,
-      toggle: false
+      toggle: false,
+      calculate: true,
+      days: 0
     }
   }
 
@@ -14,7 +16,58 @@ class UserReservationItem extends React.Component{
     this.setState({toggle: !this.state.toggle})
   }
 
+  setReservation(field, e){
+    this.setState({
+      ...this.state.calculate,
+      reservation: {
+        ...this.state.reservation, 
+        [field]: e.currentTarget.value, 
+      }})
+
+    if (!this.state.calculate){
+      this.setState({
+        ...this.state.reservation,
+        calculate: !this.state.calculate
+      })
+    }
+  }
+
+  toggleCalculate(){
+    if (this.state.reservation.start_date && this.state.reservation.end_date && this.state.reservation.num_of_guests){
+      this.setPrice()
+      this.setState({
+        ...this.state.reservation,
+        calculate: !this.state.calculate
+      })
+    }
+  }
+
+  setPrice(){
+    let startTime = new Date(this.state.reservation.start_date)
+    let endTime = new Date(this.state.reservation.end_date)
+    let differenceInDays = (endTime - startTime) / (1000 * 3600 * 24)
+    let pricePerDaysAndDogs = this.props.reservation.listing.price * differenceInDays * this.state.reservation.num_of_guests
+    console.log("DIFF DAYS:", differenceInDays)
+    this.setState({
+      ...this.state.toggle,
+      days: differenceInDays,
+      reservation: {
+        ...this.state.reservation, 
+        total_price: pricePerDaysAndDogs 
+      }
+    })
+  }
+
+  updateReservation(e){
+    e.preventDefault()
+    this.props.updateReservation(this.state.reservation)
+    // this.props.history.push(`/user/${this.props.session.id}/reservations/`)
+  }
+
   render(){
+    console.log("RESERVATION:",this.state.reservation)
+    console.log("CALCULATE:",this.state.calculate)
+    console.log("DAYS:",this.state.days)
     let start = new Date(this.props.reservation.start_date)
     let startMonth = start.toLocaleString('en-us', { month: 'short' })
     let startDay = start.getDate()
@@ -24,6 +77,10 @@ class UserReservationItem extends React.Component{
     let endDay = end.getDate()
     let endYear = end.getFullYear()
 
+    let choices = []
+    for (let i = 1; i <= this.props.reservation.listing.num_of_beds; i++) {
+      choices.push(<option key={i} value={i} >{i} Dogs</option>)
+    }
     return(
       <div>
         <Link 
@@ -48,7 +105,51 @@ class UserReservationItem extends React.Component{
           >
             <div className="modal-child" onClick={e => e.stopPropagation()}>
               <div>EDIT FORM</div>
-
+              <div className="check-in-out">
+                <div className='check-in-out-container'>
+                  <div id="check-in">
+                    <div>CHECK-IN</div>
+                    <label htmlFor="start_date">
+                      <input type="date" name="start_date" onChange={ e => this.setReservation('start_date', e)} value={this.state.reservation.start_date}/>
+                    </label>
+                  </div>
+                  <div id="check-out">
+                    <div>CHECK-OUT</div>
+                    <label htmlFor="start_date">
+                      <input type="date" name="start_date" onChange={e => this.setReservation('end_date', e)} value={this.state.reservation.end_date}/>
+                    </label>
+                  </div>
+                </div>
+                <div className="select-guests">
+                  <div className="title">Guests</div>
+                  <select className="guest-dropdown" onChange={e => this.setReservation('num_of_guests', e)}>
+                    <option value="">select number of dogs</option>
+                    {choices}
+                  </select>
+                </div>
+                  <button 
+                    type={this.state.calculate ? "button" : "submit"} 
+                    className={this.state.calculate ? "reserve-button-inactive" : "reserve-button"}
+                    onClick={ (e) => {
+                      if (this.state.calculate){
+                        this.toggleCalculate();
+                      } else {
+                        this.createReservation(e)
+                      }
+                    }}
+                  > 
+                    {this.state.calculate ? "Calculate Price" : "Update"}
+                  </button>
+                <div className="cost-calculation">
+                  <div>{this.props.reservation.listing.price} coins x {this.state.days} nights</div>
+                  <div>{this.state.reservation.total_price}</div>
+                </div>
+                <div className="line"></div>
+                <div className="total">
+                  <div>Total</div>
+                  <div>{this.state.reservation.total_price ? this.state.reservation.total_price : "0"} Doge Coins</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
