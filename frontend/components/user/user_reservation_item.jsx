@@ -110,54 +110,54 @@ class UserReservationItem extends React.Component{
             onClick={() => this.toggleDropdown()}
           >
             <div className="modal-child" onClick={e => e.stopPropagation()}>
-              <div>EDIT FORM</div>
-                <div className="reservation-info">
-                  <div className="check-in-out">
-                    <div className='update-date-container'>
-                      <div id="check-in">
-                        <div>CHECK-IN</div>
-                        <label htmlFor="start_date">
-                          <input type="date" name="start_date" onChange={ e => this.setReservation('start_date', e)} value={preStartDate}/>
-                        </label>
-                      </div>
-                      <div id="check-out">
-                        <div>CHECK-OUT</div>
-                        <label htmlFor="start_date">
-                          <input type="date" name="start_date" onChange={e => this.setReservation('end_date', e)} value={preEndDate}/>
-                        </label>
-                      </div>
+              <div>Update reservation</div>
+              <div className="update-parent">
+                <div className="check-in-out">
+                  <div className='check-in-out-container'>
+                    <div id="check-in">
+                      <div>CHECK-IN</div>
+                      <label htmlFor="start_date">
+                        <input type="date" name="start_date" onChange={ e => this.setReservation('start_date', e)} value={preStartDate}/>
+                      </label>
                     </div>
-                    <div className="select-guests">
-                      <div className="title">Guests</div>
-                      <select className="guest-dropdown" onChange={e => this.setReservation('num_of_guests', e)}>
-                        <option value="">select number of dogs</option>
-                        {choices}
-                      </select>
-                    </div>
-                      <button 
-                        type={this.state.calculate ? "button" : "submit"} 
-                        className={this.state.calculate ? "reserve-button-inactive" : "reserve-button"}
-                        onClick={ (e) => {
-                          if (this.state.calculate){
-                            this.toggleCalculate();
-                          } else {
-                            this.createReservation(e)
-                          }
-                        }}
-                      > 
-                        {this.state.calculate ? "Calculate Price" : "Update"}
-                      </button>
-                    <div className="cost-calculation">
-                      <div>{this.props.reservation.listing.price} coins x {this.state.days} nights</div>
-                      <div>{this.state.reservation.total_price}</div>
-                    </div>
-                    <div className="line"></div>
-                    <div className="total">
-                      <div>Total</div>
-                      <div>{this.state.reservation.total_price ? this.state.reservation.total_price : "0"} Doge Coins</div>
+                    <div id="check-out">
+                      <div>CHECK-OUT</div>
+                      <label htmlFor="start_date">
+                        <input type="date" name="start_date" onChange={e => this.setReservation('end_date', e)} value={preEndDate}/>
+                      </label>
                     </div>
                   </div>
+                  <div className="select-guests">
+                    <div className="title">Guests</div>
+                    <select className="guest-dropdown" onChange={e => this.setReservation('num_of_guests', e)}>
+                      <option value="">select number of dogs</option>
+                      {choices}
+                    </select>
+                  </div>
+                  <button 
+                    type={this.state.calculate ? "button" : "submit"} 
+                    className={this.state.calculate ? "reserve-button-inactive" : "reserve-button"}
+                    onClick={ (e) => {
+                      if (this.state.calculate){
+                        this.toggleCalculate();
+                      } else {
+                        this.createReservation(e)
+                      }
+                    }}
+                  > 
+                    {this.state.calculate ? "Calculate Price" : "Update"}
+                  </button>
+                  <div className="cost-calculation">
+                    <div>{this.props.reservation.listing.price} coins x {this.state.days} nights</div>
+                    <div>{this.state.reservation.total_price}</div>
+                  </div>
+                  <div className="update-line"></div>
+                  <div className="total">
+                    <div>Total</div>
+                    <div>{this.state.reservation.total_price ? this.state.reservation.total_price : "0"} Doge Coins</div>
+                  </div>
                 </div>
+              </div>
             </div>
           </div>
         </div>
