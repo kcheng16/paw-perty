@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.currentUser) {
     const listings = window.currentUser.listings;
     const reservations = window.currentUser.reservations;
-    delete window.currentUser.listings
-    delete window.currentUser.reservations
+    // delete window.currentUser.listings
+    // delete window.currentUser.reservations
 
     const preloadedState = {
       entities: {

@@ -3384,6 +3384,7 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
   _createClass(UserListings, [{
     key: "render",
     value: function render() {
+      // if(this.props.currentUser) return "loading..."
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
@@ -3519,7 +3520,7 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
       reservation: _this.props.reservation,
       toggle: false,
       calculate: true,
-      days: 0
+      days: (new Date(_this.props.reservation.end_date) - new Date(_this.props.reservation.start_date)) / (1000 * 3600 * 24)
     };
     return _this;
   }
@@ -3649,9 +3650,11 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
           return e.stopPropagation();
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "EDIT FORM"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "reservation-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "check-in-out"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "check-in-out-container"
+        className: "update-date-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "check-in"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-IN"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
@@ -3701,7 +3704,7 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         className: "line"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "total"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Total"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.reservation.total_price ? this.state.reservation.total_price : "0", " Doge Coins")))))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Total"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.reservation.total_price ? this.state.reservation.total_price : "0", " Doge Coins"))))))));
     }
   }]);
 
@@ -48571,9 +48574,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (window.currentUser) {
     var listings = window.currentUser.listings;
-    var reservations = window.currentUser.reservations;
-    delete window.currentUser.listings;
-    delete window.currentUser.reservations;
+    var reservations = window.currentUser.reservations; // delete window.currentUser.listings
+    // delete window.currentUser.reservations
+
     var preloadedState = {
       entities: {
         listings: listings,

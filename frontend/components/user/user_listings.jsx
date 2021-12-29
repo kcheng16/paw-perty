@@ -8,7 +8,7 @@ class UserListings extends React.Component{
   // No longer need componentDidMount 2/2 putting listing+reservations within partial
 
   render(){
-    
+    // if(this.props.currentUser) return "loading..."
     return(
         <div className="listings-container">
           <p className="listing-text">Manage listings</p>
