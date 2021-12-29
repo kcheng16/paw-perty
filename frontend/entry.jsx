@@ -11,8 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // stays logged in after refreshing
   if (window.currentUser) {
+    const listings = window.currentUser.listings;
+    const reservations = window.currentUser.reservations;
+    delete window.currentUser.listings
+    delete window.currentUser.reservations
+
     const preloadedState = {
       entities: {
+        listings,
+        reservations,
         users: { [window.currentUser.id]: window.currentUser }
       },
       session: { id: window.currentUser.id }

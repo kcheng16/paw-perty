@@ -35,6 +35,11 @@ export const createReservation = reservation => dispatch => (
     .then(reservation => dispatch(receiveReservation(reservation)))
 )
 
+export const updateReservation = reservation => dispatch => (
+  reservationApiUtil.updateReservation(reservation)
+    .then(reservation => dispatch(receiveReservation(reservation)))
+)
+
 export const deleteReservation = reservationId => dispatch => (
   reservationApiUtil.deleteReservation(reservationId)
     .then(() => dispatch(removeReservation(reservationId)))

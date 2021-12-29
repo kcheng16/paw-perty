@@ -17,8 +17,6 @@ export const createReservation = (reservation) => (
     method: 'POST',
     url: `/api/reservations`,
     data: {reservation},
-    // contentType: false,
-    // processData: false
   })
 )
 
@@ -27,8 +25,6 @@ export const updateReservation = (reservation) => {
     method: 'PATCH',
     url: `/api/reservations/${reservation.get('id')}`,
     data: listing,
-    // contentType: false,
-    // processData: false
   })
 }
 

@@ -22,9 +22,9 @@ class UserReservation extends React.Component{
           </div>
           <div className="user-reservations">
           {this.props.reservations.map((reservation, idx) => 
+            <div key={idx}>
               <Link 
                 className="reservation-list" 
-                key={idx} 
                 to={`/listings/${reservation.listing_id}`}
               >
                   <img className="user-reservation-icon" src={reservation.photos[0] ? reservation.photos[0] : reservation.listing.images[0]}/>
@@ -35,8 +35,12 @@ class UserReservation extends React.Component{
                     <div className="res-info">{reservation.num_of_guests} Dog/s</div>
                     <div className="res-info">{reservation.total_price} Doge coins</div>
                   </div>
-                                      {/* NEEED ROUTE TO EDIT RESERVATION BUTTON */}    
               </Link>
+              <div className="res-buttons">
+                <button>Edit</button>
+                <button onClick={() => this.props.deleteReservation(reservation.id)}>Delete</button>
+              </div>
+            </div>
             )}
             </div>
           </div>
