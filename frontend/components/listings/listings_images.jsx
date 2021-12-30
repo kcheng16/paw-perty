@@ -32,7 +32,7 @@ class ListingsImages extends React.Component{
         </button>
 
         <Link to={`/listings/${this.props.id}`} >
-          <img className="carousel-img" src={`${this.props.images[this.state.counter]}`}/>
+          <img className="carousel-img" src={this.props.listing.photos[0] ? `${this.props.listing.photos[this.state.counter]}` : `${this.props.images[this.state.counter]}`}/>
         </Link>
 
         <button onClick={() => this.add() } className="carousel-control-next" type="button">

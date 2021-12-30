@@ -16,7 +16,7 @@ class ReservationShowItem extends React.Component{
     this.updateReservation = this.updateReservation.bind(this)
   }
 
-  toggleUpdate(){
+  toggleModal(){
     this.setState({toggle: !this.state.toggle})
   }
 
@@ -103,12 +103,12 @@ class ReservationShowItem extends React.Component{
           </div>
         </Link>
         <div className="res-buttons">
-          <button onClick={() => this.toggleUpdate()}>Edit</button>
+          <button onClick={() => this.toggleModal()}>Edit</button>
           <button onClick={() => this.props.deleteReservation(this.props.reservation.id)}>Cancel</button>
           <div 
             style={this.state.toggle ? {display: "block"} : {display: "none"}} 
             className="modal-background" 
-            onClick={() => this.toggleUpdate()}
+            onClick={() => this.toggleModal()}
           >
             <ReservationUpdateComponent
               days={this.state.days}

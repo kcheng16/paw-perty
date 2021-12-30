@@ -1,7 +1,7 @@
 import React from "react";
 import ReviewsCreateContainer from "../reviews/reviews_create_container";
 import ReviewsIndexItem from "../reviews/reviews_index_item";
-import { FaStar } from 'react-icons/fa'
+import ReservationCreateComponent from "../reservations/reservation_create_component";
 
 class ListingsShow extends React.Component{
   constructor(props){
@@ -18,6 +18,8 @@ class ListingsShow extends React.Component{
       calculate: true,
       days: 0
     }
+    this.toggleCalculate = this.toggleCalculate.bind(this)
+    this.createReservation = this.createReservation.bind(this)
     this.setReservation = this.setReservation.bind(this)
   }
 
@@ -206,8 +208,18 @@ class ListingsShow extends React.Component{
               }
             </div>
         </div>
-          
-          <div className="sticky-parent">
+          <ReservationCreateComponent 
+            choices={choices}
+            days={this.state.days}
+            listing={this.props.listing}
+            reviews={this.props.reviews}
+            reservation={this.state.reservation}
+            calculate={this.state.calculate}
+            toggleCalculate={this.toggleCalculate}
+            setReservation={this.setReservation}
+            createReservation={this.createReservation}
+          />
+          {/* <div className="sticky-parent">
             <div className="reservation-info">
               <div className="sticky-header">
                 <div className="price">{this.props.listing.price}</div>
@@ -268,7 +280,7 @@ class ListingsShow extends React.Component{
               </form>
               
             </div>
-          </div>
+          </div> */}
         </div>
         
       </div>
