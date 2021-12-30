@@ -3,26 +3,33 @@
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(4, 23vw);
+}
 
+.listings-index-item{
+  margin-top: 15px;
 }
 
 .listings-index-link {
   font-family: sans-serif;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
   
   .info{
     display: flex;
     justify-content: space-evenly;
   }
   .city {
-    font-size: 1.3vw;
-    line-height: 1.43;
+    font-size: 120%;
     color: #484848;
     font-weight: 600;
   }
   .price {
-    font-size: 1vw;
+    font-size: 95%;
+    padding-top: 2px;
+  }
+  .title{
+    margin-bottom: 20px;
   }
   
 }

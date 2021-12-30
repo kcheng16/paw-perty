@@ -1,5 +1,5 @@
 .carousel{
-  padding: 10px;
+  margin-bottom: 5px;
   display: flex;
   flex-direction: row;
   position: relative;
@@ -32,7 +32,7 @@
 .carousel-control-next{
   z-index: 5;
   position: absolute;
-  right: 4vw;
+  right: 5vw;
   top: 10vw;
   background-color: white;
   color: rgb(34, 34, 34);

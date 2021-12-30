@@ -7,9 +7,11 @@ const ListingsIndexItem = (props) => {
     <div className="listings-index-item">
       <ListingsImages listing={props.listing} images={props.listing.images} id={props.listing.id}/>
       
-      <Link to={`/listings/${props.listing.id}`} className='listings-index-link'>
-        <div className="city">{props.listing.city}</div>
-        <div className="price">{props.listing.price} Doge Coins/night</div>
+      <Link to={`/listings/${props.listing.id}`} >
+        <div className='listings-index-link'>
+          <div className="city">{props.listing.city}</div>
+          <div className="price">{props.listing.price} Doge Coins/night</div>
+        </div>
         <div className="title">{props.listing.title}</div>
       </Link>
     </div>
