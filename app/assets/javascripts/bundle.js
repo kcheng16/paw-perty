@@ -3523,12 +3523,13 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
       calculate: true,
       days: (new Date(_this.props.reservation.end_date) - new Date(_this.props.reservation.start_date)) / (1000 * 3600 * 24)
     };
+    console.log("CONSUTRUCTOR(STATE RESERVATION):", _this.state.reservation);
     return _this;
   }
 
   _createClass(UserReservationItem, [{
-    key: "toggleDropdown",
-    value: function toggleDropdown() {
+    key: "toggleUpdate",
+    value: function toggleUpdate() {
       this.setState({
         toggle: !this.state.toggle
       });
@@ -3536,9 +3537,6 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "setReservation",
     value: function setReservation(field, e) {
-      console.log("SET RESERVATION:", field);
-      console.log("CURRNET TARGET VALUE:", e.currentTarget.value);
-      console.log("STATE RESERVATION:", this.state.reservation);
       this.setState(_objectSpread(_objectSpread({}, this.state.calculate), {}, {
         reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, _defineProperty({}, field, e.currentTarget.value))
       }));
@@ -3577,24 +3575,27 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
     key: "updateReservation",
     value: function updateReservation(e) {
       e.preventDefault();
-      this.props.updateReservation(this.state.reservation); // this.props.history.push(`/user/${this.props.session.id}/reservations/`)
+      this.props.updateReservation(this.state.reservation);
+      this.toggleUpdate();
     }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var start = new Date(this.state.reservation.start_date);
+      var start = new Date(this.state.reservation.start_date.replace(/-/g, '\/').replace(/T.+/, ''));
       var startMonth = start.toLocaleString('en-us', {
         month: 'short'
       });
       var startDay = start.getDate();
-      var end = new Date(this.state.reservation.end_date);
+      var end = new Date(this.state.reservation.end_date.replace(/-/g, '\/').replace(/T.+/, ''));
       var endMonth = end.toLocaleString('en-us', {
         month: 'short'
       });
       var endDay = end.getDate();
-      var endYear = end.getFullYear(); // Prefill input(type= date), must use this format and can't use "/" or change order of date
+      var endYear = end.getFullYear();
+      console.log("START DATE:", start);
+      console.log("END DATE:", end); // Prefill input(type= date), must use this format and can't use "/" or change order of date
 
       var startDate = start.getFullYear() + "-" + parseInt(start.getMonth() + 1) + "-" + start.getDate();
       var endDate = end.getFullYear() + "-" + parseInt(end.getMonth() + 1) + "-" + end.getDate();
@@ -3631,7 +3632,7 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         className: "res-buttons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
-          return _this2.toggleDropdown();
+          return _this2.toggleUpdate();
         }
       }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
@@ -3699,7 +3700,7 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
           if (_this2.state.calculate) {
             _this2.toggleCalculate();
           } else {
-            _this2.createReservation(e);
+            _this2.updateReservation(e);
           }
         }
       }, this.state.calculate ? "Calculate Price" : "Update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3768,15 +3769,12 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
 
     return _super.call(this, props);
   } // No longer need componentDidMount 2/2 putting listing+reservations within partial
+  // componentDidMount(){
+  // this.props.requestReservation(this.props.match.params.id)
+  // }
 
 
   _createClass(UserReservation, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      // console.log("MOUNT:", this.props.match.params.id)
-      this.props.requestReservation(this.props.match.params.id);
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this = this;
@@ -3806,7 +3804,9 @@ var UserReservation = /*#__PURE__*/function (_React$Component) {
       }, this.props.reservations.map(function (reservation, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_user_reservation_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: idx,
-          reservation: reservation
+          reservation: reservation,
+          updateReservation: _this.props.updateReservation,
+          deleteReservation: _this.props.deleteReservation
         });
       })));
     }
@@ -4542,8 +4542,10 @@ var createReservation = function createReservation(reservation) {
 var updateReservation = function updateReservation(reservation) {
   return $.ajax({
     method: 'PATCH',
-    url: "/api/reservations/".concat(reservation.get('id')),
-    data: listing
+    url: "/api/reservations/".concat(reservation.id),
+    data: {
+      reservation: reservation
+    }
   });
 };
 var deleteReservation = function deleteReservation(reservationId) {

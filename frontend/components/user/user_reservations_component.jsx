@@ -8,10 +8,9 @@ class UserReservation extends React.Component{
 
   }
   // No longer need componentDidMount 2/2 putting listing+reservations within partial
-  componentDidMount(){
-    // console.log("MOUNT:", this.props.match.params.id)
-    this.props.requestReservation(this.props.match.params.id)
-  }
+  // componentDidMount(){
+    // this.props.requestReservation(this.props.match.params.id)
+  // }
 
   render(){
     return(
@@ -28,7 +27,12 @@ class UserReservation extends React.Component{
           </div>
           <div className="user-reservations">
             {this.props.reservations.map((reservation, idx) => 
-              <UserReservationItem key={idx} reservation={reservation} />
+              <UserReservationItem 
+                key={idx} 
+                reservation={reservation} 
+                updateReservation={this.props.updateReservation}
+                deleteReservation={this.props.deleteReservation}
+              />
             )}
             </div>
           </div>

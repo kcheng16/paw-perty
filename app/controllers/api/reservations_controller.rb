@@ -14,10 +14,18 @@ class Api::ReservationsController < ApplicationController
   end
 
   def show 
-    @reservation = Reservation.find(params[:id])
+    @reservation = Reservation.find_by(id: params[:id])
   end
 
-# no update
+  def update
+    @reservation = Reservation.find_by(id: params[:id])
+    
+    if @reservation.update(reservation_params)
+      render :show
+    else
+      render json: @reservation.errors.full_messages, status: 422
+    end
+  end
 
   private 
   def reservation_params 

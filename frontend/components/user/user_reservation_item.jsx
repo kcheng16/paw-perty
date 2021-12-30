@@ -10,16 +10,14 @@ class UserReservationItem extends React.Component{
       calculate: true,
       days: ((new Date(this.props.reservation.end_date)) - (new Date(this.props.reservation.start_date))) / (1000 * 3600 * 24)
     }
+    console.log("CONSUTRUCTOR(STATE RESERVATION):", this.state.reservation)
   }
 
-  toggleDropdown(){
+  toggleUpdate(){
     this.setState({toggle: !this.state.toggle})
   }
 
   setReservation(field, e){
-    console.log("SET RESERVATION:", field)
-    console.log("CURRNET TARGET VALUE:", e.currentTarget.value)
-    console.log("STATE RESERVATION:", this.state.reservation)
     this.setState({
       ...this.state.calculate,
       reservation: {
@@ -64,19 +62,21 @@ class UserReservationItem extends React.Component{
   updateReservation(e){
     e.preventDefault()
     this.props.updateReservation(this.state.reservation)
-    // this.props.history.push(`/user/${this.props.session.id}/reservations/`)
+    this.toggleUpdate()
   }
 
   render(){
 
-    let start = new Date(this.state.reservation.start_date)
+    let start = new Date(this.state.reservation.start_date.replace(/-/g, '\/').replace(/T.+/, ''))
     let startMonth = start.toLocaleString('en-us', { month: 'short' })
     let startDay = start.getDate()
     
-    let end = new Date(this.state.reservation.end_date)
+    let end = new Date(this.state.reservation.end_date.replace(/-/g, '\/').replace(/T.+/, ''))
     let endMonth = end.toLocaleString('en-us', { month: 'short' })
     let endDay = end.getDate()
     let endYear = end.getFullYear()
+    console.log("START DATE:", start)
+    console.log("END DATE:", end)
     
     // Prefill input(type= date), must use this format and can't use "/" or change order of date
     let startDate = start.getFullYear() + "-" + parseInt(start.getMonth()+1) + "-" + start.getDate();
@@ -105,7 +105,7 @@ class UserReservationItem extends React.Component{
           </div>
         </Link>
         <div className="res-buttons">
-          <button onClick={() => this.toggleDropdown()}>Edit</button>
+          <button onClick={() => this.toggleUpdate()}>Edit</button>
           <button onClick={() => this.props.deleteReservation(this.props.reservation.id)}>Delete</button>
           <div 
             style={this.state.toggle ? {display: "block"} : {display: "none"}} 
@@ -144,7 +144,7 @@ class UserReservationItem extends React.Component{
                       if (this.state.calculate){
                         this.toggleCalculate();
                       } else {
-                        this.createReservation(e)
+                        this.updateReservation(e)
                       }
                     }}
                   > 
