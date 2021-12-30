@@ -75,8 +75,6 @@ class UserReservationItem extends React.Component{
     let endMonth = end.toLocaleString('en-us', { month: 'short' })
     let endDay = end.getDate()
     let endYear = end.getFullYear()
-    console.log("START DATE:", start)
-    console.log("END DATE:", end)
     
     // Prefill input(type= date), must use this format and can't use "/" or change order of date
     let startDate = start.getFullYear() + "-" + parseInt(start.getMonth()+1) + "-" + start.getDate();
@@ -84,11 +82,8 @@ class UserReservationItem extends React.Component{
 
     let choices = []
     for (let i = 1; i <= this.props.reservation.listing.num_of_beds; i++) {
-      if(i === this.state.reservation.num_of_guests){
-        choices.push(<option key={i} value={i} selected>{i} Dogs </option>)
-      } else {
         choices.push(<option key={i} value={i} >{i} Dogs </option>)
-      }
+      // choice already pre-selected by defaultValue on <select>
     }
     return(
       <div>
@@ -132,8 +127,8 @@ class UserReservationItem extends React.Component{
                   </div>
                   <div className="select-guests">
                     <div className="title">Guests</div>
-                    <select className="guest-dropdown" onChange={e => this.setReservation('num_of_guests', e)}>
-                      <option value="" disabled>select number of dogs</option>
+                    <select className="guest-dropdown" onChange={e => this.setReservation('num_of_guests', e)} defaultValue={this.state.reservation.num_of_guests}>
+                      <option value="0" disabled>select number of dogs</option>
                       {choices}
                     </select>
                   </div>

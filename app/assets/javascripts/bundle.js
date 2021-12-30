@@ -1993,7 +1993,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
           return _this2.setReservation('num_of_guests', e);
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-        value: "",
+        value: "0",
         disabled: true
       }, "select number of dogs"), choices)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: this.state.calculate ? "button" : "submit",
@@ -3593,27 +3593,17 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         month: 'short'
       });
       var endDay = end.getDate();
-      var endYear = end.getFullYear();
-      console.log("START DATE:", start);
-      console.log("END DATE:", end); // Prefill input(type= date), must use this format and can't use "/" or change order of date
+      var endYear = end.getFullYear(); // Prefill input(type= date), must use this format and can't use "/" or change order of date
 
       var startDate = start.getFullYear() + "-" + parseInt(start.getMonth() + 1) + "-" + start.getDate();
       var endDate = end.getFullYear() + "-" + parseInt(end.getMonth() + 1) + "-" + end.getDate();
       var choices = [];
 
       for (var i = 1; i <= this.props.reservation.listing.num_of_beds; i++) {
-        if (i === this.state.reservation.num_of_guests) {
-          choices.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-            key: i,
-            value: i,
-            selected: true
-          }, i, " Dogs "));
-        } else {
-          choices.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-            key: i,
-            value: i
-          }, i, " Dogs "));
-        }
+        choices.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+          key: i,
+          value: i
+        }, i, " Dogs ")); // choice already pre-selected by defaultValue on <select>
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -3689,9 +3679,10 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         className: "guest-dropdown",
         onChange: function onChange(e) {
           return _this2.setReservation('num_of_guests', e);
-        }
+        },
+        defaultValue: this.state.reservation.num_of_guests
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-        value: "",
+        value: "0",
         disabled: true
       }, "select number of dogs"), choices)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: this.state.calculate ? "button" : "submit",

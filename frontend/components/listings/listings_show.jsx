@@ -239,7 +239,7 @@ class ListingsShow extends React.Component{
                 <div className="select-guests">
                   <div className="title">Guests</div>
                   <select className="guest-dropdown" onChange={e => this.setReservation('num_of_guests', e)}>
-                    <option value="" disabled>select number of dogs</option>
+                    <option value="0" disabled>select number of dogs</option>
                     {choices}
                   </select>
                 </div>
