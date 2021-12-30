@@ -3523,7 +3523,6 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
       calculate: true,
       days: (new Date(_this.props.reservation.end_date) - new Date(_this.props.reservation.start_date)) / (1000 * 3600 * 24)
     };
-    console.log("CONSUTRUCTOR(STATE RESERVATION):", _this.state.reservation);
     return _this;
   }
 
@@ -3624,11 +3623,11 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this2.toggleUpdate();
         }
-      }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, "Update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this2.props.deleteReservation(_this2.props.reservation.id);
         }
-      }, "Delete"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         style: this.state.toggle ? {
           display: "block"
         } : {
@@ -3636,7 +3635,7 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         },
         className: "modal-background",
         onClick: function onClick() {
-          return _this2.toggleDropdown();
+          return _this2.toggleUpdate();
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "modal-child",

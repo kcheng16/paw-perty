@@ -10,7 +10,6 @@ class UserReservationItem extends React.Component{
       calculate: true,
       days: ((new Date(this.props.reservation.end_date)) - (new Date(this.props.reservation.start_date))) / (1000 * 3600 * 24)
     }
-    console.log("CONSUTRUCTOR(STATE RESERVATION):", this.state.reservation)
   }
 
   toggleUpdate(){
@@ -100,12 +99,12 @@ class UserReservationItem extends React.Component{
           </div>
         </Link>
         <div className="res-buttons">
-          <button onClick={() => this.toggleUpdate()}>Edit</button>
-          <button onClick={() => this.props.deleteReservation(this.props.reservation.id)}>Delete</button>
+          <button onClick={() => this.toggleUpdate()}>Update</button>
+          <button onClick={() => this.props.deleteReservation(this.props.reservation.id)}>Cancel</button>
           <div 
             style={this.state.toggle ? {display: "block"} : {display: "none"}} 
             className="modal-background" 
-            onClick={() => this.toggleDropdown()}
+            onClick={() => this.toggleUpdate()}
           >
             <div className="modal-child" onClick={e => e.stopPropagation()}>
               <div>Update reservation</div>
