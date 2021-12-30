@@ -3,12 +3,23 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  
 
   .carousel-img {
     width: 19vw;
     height: 21vw;
     border-radius: 13px;
     object-fit: cover;
+    animation: fadeIn 1.5s;
+    -webkit-animation: fadeIn 1.5s;
+    -moz-animation: fadeIn 1.5s;
+    -o-animation: fadeIn 1.5s;
+    -ms-animation: fadeIn 1.5s;
+
+    @keyframes fadeIn {
+      0% {opacity:0;}
+      100% {opacity:1;}
+    }
   }
 }
   

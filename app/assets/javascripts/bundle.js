@@ -1507,6 +1507,8 @@ var ListingsImages = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      console.log("COUNTER:", this.state.counter);
+      console.log("image length:", this.props.images.length - 1);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "carousel"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -1519,7 +1521,44 @@ var ListingsImages = /*#__PURE__*/function (_React$Component) {
         to: "/listings/".concat(this.props.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "carousel-img",
+        style: this.state.counter === 0 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
         src: this.props.listing.photos[0] ? "".concat(this.props.listing.photos[this.state.counter]) : "".concat(this.props.images[this.state.counter])
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "carousel-img",
+        style: this.state.counter === 1 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        src: this.props.listing.photos[1] ? "".concat(this.props.listing.photos[this.state.counter]) : "".concat(this.props.images[this.state.counter])
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "carousel-img",
+        style: this.state.counter === 2 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        src: this.props.listing.photos[2] ? "".concat(this.props.listing.photos[this.state.counter]) : "".concat(this.props.images[this.state.counter])
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "carousel-img",
+        style: this.state.counter === 3 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        src: this.props.listing.photos[3] ? "".concat(this.props.listing.photos[this.state.counter]) : "".concat(this.props.images[this.state.counter])
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "carousel-img",
+        style: this.state.counter === 4 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        src: this.props.listing.photos[4] ? "".concat(this.props.listing.photos[this.state.counter]) : "".concat(this.props.images[this.state.counter])
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this2.add();
