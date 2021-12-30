@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'react-router-dom/Link';
-
+import ReservationUpdateComponent from "../reservations/reservation_update_component"
 class UserReservationItem extends React.Component{
   constructor(props){
     super(props)
@@ -10,6 +10,9 @@ class UserReservationItem extends React.Component{
       calculate: true,
       days: ((new Date(this.props.reservation.end_date)) - (new Date(this.props.reservation.start_date))) / (1000 * 3600 * 24)
     }
+    this.setReservation = this.setReservation.bind(this)
+    this.toggleCalculate = this.toggleCalculate.bind(this)
+    this.updateReservation = this.updateReservation.bind(this)
   }
 
   toggleUpdate(){
@@ -99,63 +102,24 @@ class UserReservationItem extends React.Component{
           </div>
         </Link>
         <div className="res-buttons">
-          <button onClick={() => this.toggleUpdate()}>Update</button>
+          <button onClick={() => this.toggleUpdate()}>Edit</button>
           <button onClick={() => this.props.deleteReservation(this.props.reservation.id)}>Cancel</button>
           <div 
             style={this.state.toggle ? {display: "block"} : {display: "none"}} 
             className="modal-background" 
             onClick={() => this.toggleUpdate()}
           >
-            <div className="modal-child" onClick={e => e.stopPropagation()}>
-              <div>Update reservation</div>
-              <div className="update-parent">
-                <div className="check-in-out">
-                  <div className='check-in-out-container'>
-                    <div id="check-in">
-                      <div>CHECK-IN</div>
-                      <label htmlFor="start_date">
-                        <input type="date" name="start_date" onChange={ e => this.setReservation('start_date', e)} value={startDate}/>
-                      </label>
-                    </div>
-                    <div id="check-out">
-                      <div>CHECK-OUT</div>
-                      <label htmlFor="start_date">
-                        <input type="date" name="start_date" onChange={e => this.setReservation('end_date', e)} value={endDate}/>
-                      </label>
-                    </div>
-                  </div>
-                  <div className="select-guests">
-                    <div className="title">Guests</div>
-                    <select className="guest-dropdown" onChange={e => this.setReservation('num_of_guests', e)} defaultValue={this.state.reservation.num_of_guests}>
-                      <option value="0" disabled>select number of dogs</option>
-                      {choices}
-                    </select>
-                  </div>
-                  <button 
-                    type={this.state.calculate ? "button" : "submit"} 
-                    className={this.state.calculate ? "reserve-button-inactive" : "reserve-button"}
-                    onClick={ (e) => {
-                      if (this.state.calculate){
-                        this.toggleCalculate();
-                      } else {
-                        this.updateReservation(e)
-                      }
-                    }}
-                  > 
-                    {this.state.calculate ? "Calculate Price" : "Update"}
-                  </button>
-                  <div className="cost-calculation">
-                    <div>{this.props.reservation.listing.price} coins x {this.state.days} nights</div>
-                    <div>{this.state.reservation.total_price}</div>
-                  </div>
-                  <div className="update-line"></div>
-                  <div className="total">
-                    <div>Total</div>
-                    <div>{this.state.reservation.total_price ? this.state.reservation.total_price : "0"} Doge Coins</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ReservationUpdateComponent
+              days={this.state.days}
+              toggleCalculate={this.toggleCalculate}
+              calculate={this.state.calculate}
+              choices={choices}
+              reservation={this.state.reservation}
+              startDate={startDate}
+              endDate={endDate}
+              setReservation={this.setReservation}
+              updateReservation={this.updateReservation}
+            />
           </div>
         </div>
       </div>

@@ -2276,6 +2276,90 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/reservations/reservation_update_component.jsx":
+/*!***************************************************************************!*\
+  !*** ./frontend/components/reservations/reservation_update_component.jsx ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+var ReservationUpdateComponent = function ReservationUpdateComponent(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "modal-child",
+    onClick: function onClick(e) {
+      return e.stopPropagation();
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Update reservation"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "update-parent"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "check-in-out"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "check-in-out-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "check-in"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-IN"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    htmlFor: "start_date"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "date",
+    name: "start_date",
+    onChange: function onChange(e) {
+      return props.setReservation('start_date', e);
+    },
+    value: props.startDate
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "check-out"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-OUT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    htmlFor: "start_date"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "date",
+    name: "start_date",
+    onChange: function onChange(e) {
+      return props.setReservation('end_date', e);
+    },
+    value: props.endDate
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "select-guests"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "title"
+  }, "Guests"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+    className: "guest-dropdown",
+    onChange: function onChange(e) {
+      return props.setReservation('num_of_guests', e);
+    },
+    defaultValue: props.reservation.num_of_guests
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: "0",
+    disabled: true
+  }, "select number of dogs"), props.choices)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: props.calculate ? "button" : "submit",
+    className: props.calculate ? "reserve-button-inactive" : "reserve-button",
+    onClick: function onClick(e) {
+      if (props.calculate) {
+        props.toggleCalculate();
+      } else {
+        props.updateReservation(e);
+      }
+    }
+  }, props.calculate ? "Calculate Price" : "Update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "cost-calculation"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, props.reservation.listing.price, " coins x ", props.days, " nights"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, props.reservation.total_price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "update-line"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "total"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Total"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, props.reservation.total_price ? props.reservation.total_price : "0", " Doge Coins")))));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReservationUpdateComponent);
+
+/***/ }),
+
 /***/ "./frontend/components/reviews/reviews_create_component.jsx":
 /*!******************************************************************!*\
   !*** ./frontend/components/reviews/reviews_create_component.jsx ***!
@@ -3474,7 +3558,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom/Link */ "./node_modules/react-router-dom/Link.js");
+/* harmony import */ var react_router_dom_Link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom/Link */ "./node_modules/react-router-dom/Link.js");
+/* harmony import */ var _reservations_reservation_update_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reservations/reservation_update_component */ "./frontend/components/reservations/reservation_update_component.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -3506,6 +3591,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var UserReservationItem = /*#__PURE__*/function (_React$Component) {
   _inherits(UserReservationItem, _React$Component);
 
@@ -3523,6 +3609,9 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
       calculate: true,
       days: (new Date(_this.props.reservation.end_date) - new Date(_this.props.reservation.start_date)) / (1000 * 3600 * 24)
     };
+    _this.setReservation = _this.setReservation.bind(_assertThisInitialized(_this));
+    _this.toggleCalculate = _this.toggleCalculate.bind(_assertThisInitialized(_this));
+    _this.updateReservation = _this.updateReservation.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3605,7 +3694,7 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         }, i, " Dogs ")); // choice already pre-selected by defaultValue on <select>
       }
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_2__["default"], {
         className: "reservation-list",
         to: "/listings/".concat(this.props.reservation.listing_id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
@@ -3623,7 +3712,7 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this2.toggleUpdate();
         }
-      }, "Update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this2.props.deleteReservation(_this2.props.reservation.id);
         }
@@ -3637,69 +3726,17 @@ var UserReservationItem = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this2.toggleUpdate();
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "modal-child",
-        onClick: function onClick(e) {
-          return e.stopPropagation();
-        }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Update reservation"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "update-parent"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "check-in-out"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "check-in-out-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        id: "check-in"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-IN"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-        htmlFor: "start_date"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        type: "date",
-        name: "start_date",
-        onChange: function onChange(e) {
-          return _this2.setReservation('start_date', e);
-        },
-        value: startDate
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        id: "check-out"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "CHECK-OUT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-        htmlFor: "start_date"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        type: "date",
-        name: "start_date",
-        onChange: function onChange(e) {
-          return _this2.setReservation('end_date', e);
-        },
-        value: endDate
-      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "select-guests"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "title"
-      }, "Guests"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
-        className: "guest-dropdown",
-        onChange: function onChange(e) {
-          return _this2.setReservation('num_of_guests', e);
-        },
-        defaultValue: this.state.reservation.num_of_guests
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-        value: "0",
-        disabled: true
-      }, "select number of dogs"), choices)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        type: this.state.calculate ? "button" : "submit",
-        className: this.state.calculate ? "reserve-button-inactive" : "reserve-button",
-        onClick: function onClick(e) {
-          if (_this2.state.calculate) {
-            _this2.toggleCalculate();
-          } else {
-            _this2.updateReservation(e);
-          }
-        }
-      }, this.state.calculate ? "Calculate Price" : "Update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "cost-calculation"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.reservation.listing.price, " coins x ", this.state.days, " nights"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.reservation.total_price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "update-line"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "total"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Total"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.reservation.total_price ? this.state.reservation.total_price : "0", " Doge Coins"))))))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reservations_reservation_update_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        days: this.state.days,
+        toggleCalculate: this.toggleCalculate,
+        calculate: this.state.calculate,
+        choices: choices,
+        reservation: this.state.reservation,
+        startDate: startDate,
+        endDate: endDate,
+        setReservation: this.setReservation,
+        updateReservation: this.updateReservation
+      }))));
     }
   }]);
 
