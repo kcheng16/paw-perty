@@ -15,7 +15,7 @@ import Modal from "./modals/modal";
 import NavbarContainer from "./navbar/navbar_container";
 import UserShowContainer from "./user/user_show_container";
 import UserListingsContainer from "./user/user_listings_container";
-import UserReservationsContainer from "./user/user_reservations_container";
+import ReservationShowContainer from "./reservations/reservation_show_container";
 
 const App = () => (
   <div>
@@ -27,7 +27,7 @@ const App = () => (
 
       <Switch>
         <Route path="/user/:id/listings" render={props => <UserListingsContainer {...props}/>}/>
-        <Route exact path="/user/:id/reservations" render={props => <UserReservationsContainer {...props}/>}/>
+        <Route exact path="/user/:id/reservations" render={props => <ReservationShowContainer {...props}/>}/>
         <Route exact path="/user/:id" render={props => <UserShowContainer {...props}/>}/>
         <Route exact path="/" render={props => <SplashContainer {...props}/>}/>
 {/* unable to use protected-route: new and update */}

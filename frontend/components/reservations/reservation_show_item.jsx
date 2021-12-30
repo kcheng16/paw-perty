@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'react-router-dom/Link';
-import ReservationUpdateComponent from "../reservations/reservation_update_component"
-class UserReservationItem extends React.Component{
+import ReservationUpdateComponent from "./reservation_update_component"
+
+class ReservationShowItem extends React.Component{
   constructor(props){
     super(props)
     this.state = {
@@ -127,4 +128,4 @@ class UserReservationItem extends React.Component{
   }
 }
 
-export default UserReservationItem
+export default ReservationShowItem

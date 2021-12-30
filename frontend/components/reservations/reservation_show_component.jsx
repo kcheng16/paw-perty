@@ -1,8 +1,7 @@
 import React from "react";
-import Link from "react-router-dom/Link";
-import UserReservationItem from "./user_reservation_item"
+import UserReservationItem from "./reservation_show_item"
 
-class UserReservation extends React.Component{
+class ReservationShowComponent extends React.Component{
   constructor(props){
     super(props)
 
@@ -40,4 +39,4 @@ class UserReservation extends React.Component{
   }
 }
 
-export default UserReservation
+export default ReservationShowComponent

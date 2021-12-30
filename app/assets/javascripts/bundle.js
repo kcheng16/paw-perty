@@ -448,7 +448,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
 /* harmony import */ var _user_user_show_container__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./user/user_show_container */ "./frontend/components/user/user_show_container.jsx");
 /* harmony import */ var _user_user_listings_container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./user/user_listings_container */ "./frontend/components/user/user_listings_container.jsx");
-/* harmony import */ var _user_user_reservations_container__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./user/user_reservations_container */ "./frontend/components/user/user_reservations_container.jsx");
+/* harmony import */ var _reservations_reservation_show_container__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./reservations/reservation_show_container */ "./frontend/components/reservations/reservation_show_container.jsx");
 
 
 
@@ -478,7 +478,7 @@ var App = function App() {
     exact: true,
     path: "/user/:id/reservations",
     render: function render(props) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_user_user_reservations_container__WEBPACK_IMPORTED_MODULE_14__["default"], props);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reservations_reservation_show_container__WEBPACK_IMPORTED_MODULE_14__["default"], props);
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_16__["default"], {
     exact: true,
@@ -2276,6 +2276,355 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/reservations/reservation_show_component.jsx":
+/*!*************************************************************************!*\
+  !*** ./frontend/components/reservations/reservation_show_component.jsx ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _reservation_show_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reservation_show_item */ "./frontend/components/reservations/reservation_show_item.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
+  _inherits(ReservationShowComponent, _React$Component);
+
+  var _super = _createSuper(ReservationShowComponent);
+
+  function ReservationShowComponent(props) {
+    _classCallCheck(this, ReservationShowComponent);
+
+    return _super.call(this, props);
+  } // No longer need componentDidMount 2/2 putting listing+reservations within partial
+  // componentDidMount(){
+  // this.props.requestReservation(this.props.match.params.id)
+  // }
+
+
+  _createClass(ReservationShowComponent, [{
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "reservation-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "res-text"
+      }, "Trips:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "res-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "header-text"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
+        className: "fas fa-dog"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "res-book"
+      }, "Book upcoming trips!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "res-desc"
+      }, "Time to dust off those paws and start planning the next adventure"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          return _this.props.history.push("/listings");
+        }
+      }, "Start searching")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "header-img"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "user-reservations"
+      }, this.props.reservations.map(function (reservation, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reservation_show_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: idx,
+          reservation: reservation,
+          updateReservation: _this.props.updateReservation,
+          deleteReservation: _this.props.deleteReservation
+        });
+      })));
+    }
+  }]);
+
+  return ReservationShowComponent;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReservationShowComponent);
+
+/***/ }),
+
+/***/ "./frontend/components/reservations/reservation_show_container.jsx":
+/*!*************************************************************************!*\
+  !*** ./frontend/components/reservations/reservation_show_container.jsx ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
+/* harmony import */ var _reservation_show_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reservation_show_component */ "./frontend/components/reservations/reservation_show_component.jsx");
+
+
+
+
+
+
+var mSTP = function mSTP(state, ownProps) {
+  return {
+    currentUser: state.entities.users[state.session.id],
+    reservations: Object.values(state.entities.reservations)
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    fetchUser: function fetchUser(userId) {
+      return dispatch((0,_actions_user_actions__WEBPACK_IMPORTED_MODULE_1__.fetchUser)(userId));
+    },
+    updateReservation: function updateReservation(reservation) {
+      return dispatch((0,_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__.updateReservation)(reservation));
+    },
+    deleteReservation: function deleteReservation(reservationId) {
+      return dispatch((0,_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__.deleteReservation)(reservationId));
+    },
+    requestReservation: function requestReservation(reservationId) {
+      return dispatch((0,_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__.requestReservation)(reservationId));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_4__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_reservation_show_component__WEBPACK_IMPORTED_MODULE_3__["default"])));
+
+/***/ }),
+
+/***/ "./frontend/components/reservations/reservation_show_item.jsx":
+/*!********************************************************************!*\
+  !*** ./frontend/components/reservations/reservation_show_item.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom_Link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom/Link */ "./node_modules/react-router-dom/Link.js");
+/* harmony import */ var _reservation_update_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reservation_update_component */ "./frontend/components/reservations/reservation_update_component.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var ReservationShowItem = /*#__PURE__*/function (_React$Component) {
+  _inherits(ReservationShowItem, _React$Component);
+
+  var _super = _createSuper(ReservationShowItem);
+
+  function ReservationShowItem(props) {
+    var _this;
+
+    _classCallCheck(this, ReservationShowItem);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      reservation: _this.props.reservation,
+      toggle: false,
+      calculate: true,
+      days: (new Date(_this.props.reservation.end_date) - new Date(_this.props.reservation.start_date)) / (1000 * 3600 * 24)
+    };
+    _this.setReservation = _this.setReservation.bind(_assertThisInitialized(_this));
+    _this.toggleCalculate = _this.toggleCalculate.bind(_assertThisInitialized(_this));
+    _this.updateReservation = _this.updateReservation.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(ReservationShowItem, [{
+    key: "toggleUpdate",
+    value: function toggleUpdate() {
+      this.setState({
+        toggle: !this.state.toggle
+      });
+    }
+  }, {
+    key: "setReservation",
+    value: function setReservation(field, e) {
+      this.setState(_objectSpread(_objectSpread({}, this.state.calculate), {}, {
+        reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, _defineProperty({}, field, e.currentTarget.value))
+      }));
+
+      if (!this.state.calculate) {
+        this.setState(_objectSpread(_objectSpread({}, this.state.reservation), {}, {
+          calculate: !this.state.calculate
+        }));
+      }
+    }
+  }, {
+    key: "toggleCalculate",
+    value: function toggleCalculate() {
+      if (this.state.reservation.start_date && this.state.reservation.end_date && this.state.reservation.num_of_guests) {
+        this.setPrice();
+        this.setState(_objectSpread(_objectSpread({}, this.state.reservation), {}, {
+          calculate: !this.state.calculate
+        }));
+      }
+    }
+  }, {
+    key: "setPrice",
+    value: function setPrice() {
+      var startTime = new Date(this.state.reservation.start_date);
+      var endTime = new Date(this.state.reservation.end_date);
+      var differenceInDays = (endTime - startTime) / (1000 * 3600 * 24);
+      var pricePerDaysAndDogs = this.props.reservation.listing.price * differenceInDays * this.state.reservation.num_of_guests;
+      this.setState(_objectSpread(_objectSpread({}, this.state.toggle), {}, {
+        days: differenceInDays,
+        reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, {
+          total_price: pricePerDaysAndDogs
+        })
+      }));
+    }
+  }, {
+    key: "updateReservation",
+    value: function updateReservation(e) {
+      e.preventDefault();
+      this.props.updateReservation(this.state.reservation);
+      this.toggleUpdate();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var start = new Date(this.state.reservation.start_date.replace(/-/g, '\/').replace(/T.+/, ''));
+      var startMonth = start.toLocaleString('en-us', {
+        month: 'short'
+      });
+      var startDay = start.getDate();
+      var end = new Date(this.state.reservation.end_date.replace(/-/g, '\/').replace(/T.+/, ''));
+      var endMonth = end.toLocaleString('en-us', {
+        month: 'short'
+      });
+      var endDay = end.getDate();
+      var endYear = end.getFullYear(); // Prefill input(type= date), must use this format and can't use "/" or change order of date
+
+      var startDate = start.getFullYear() + "-" + parseInt(start.getMonth() + 1) + "-" + start.getDate();
+      var endDate = end.getFullYear() + "-" + parseInt(end.getMonth() + 1) + "-" + end.getDate();
+      var choices = [];
+
+      for (var i = 1; i <= this.props.reservation.listing.num_of_beds; i++) {
+        choices.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+          key: i,
+          value: i
+        }, i, " Dogs ")); // choice already pre-selected by defaultValue on <select>
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        className: "reservation-list",
+        to: "/listings/".concat(this.props.reservation.listing_id)
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "user-reservation-icon",
+        src: this.props.reservation.photos[0] ? this.props.reservation.photos[0] : this.props.reservation.listing.images[0]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "reservation-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.reservation.listing.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "res-info"
+      }, this.props.reservation.listing.street_address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "res-info"
+      }, this.props.reservation.total_price, " Doge coins"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, startMonth, " ", startDay, " - ", endMonth, " ", endDay, ", ", endYear))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "res-buttons"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          return _this2.toggleUpdate();
+        }
+      }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          return _this2.props.deleteReservation(_this2.props.reservation.id);
+        }
+      }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        style: this.state.toggle ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        className: "modal-background",
+        onClick: function onClick() {
+          return _this2.toggleUpdate();
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reservation_update_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        days: this.state.days,
+        toggleCalculate: this.toggleCalculate,
+        calculate: this.state.calculate,
+        choices: choices,
+        reservation: this.state.reservation,
+        startDate: startDate,
+        endDate: endDate,
+        setReservation: this.setReservation,
+        updateReservation: this.updateReservation
+      }))));
+    }
+  }]);
+
+  return ReservationShowItem;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReservationShowItem);
+
+/***/ }),
+
 /***/ "./frontend/components/reservations/reservation_update_component.jsx":
 /*!***************************************************************************!*\
   !*** ./frontend/components/reservations/reservation_update_component.jsx ***!
@@ -3543,356 +3892,6 @@ var mDTP = function mDTP(dispatch) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_user_listings__WEBPACK_IMPORTED_MODULE_2__["default"])));
-
-/***/ }),
-
-/***/ "./frontend/components/user/user_reservation_item.jsx":
-/*!************************************************************!*\
-  !*** ./frontend/components/user/user_reservation_item.jsx ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom_Link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom/Link */ "./node_modules/react-router-dom/Link.js");
-/* harmony import */ var _reservations_reservation_update_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reservations/reservation_update_component */ "./frontend/components/reservations/reservation_update_component.jsx");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-var UserReservationItem = /*#__PURE__*/function (_React$Component) {
-  _inherits(UserReservationItem, _React$Component);
-
-  var _super = _createSuper(UserReservationItem);
-
-  function UserReservationItem(props) {
-    var _this;
-
-    _classCallCheck(this, UserReservationItem);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      reservation: _this.props.reservation,
-      toggle: false,
-      calculate: true,
-      days: (new Date(_this.props.reservation.end_date) - new Date(_this.props.reservation.start_date)) / (1000 * 3600 * 24)
-    };
-    _this.setReservation = _this.setReservation.bind(_assertThisInitialized(_this));
-    _this.toggleCalculate = _this.toggleCalculate.bind(_assertThisInitialized(_this));
-    _this.updateReservation = _this.updateReservation.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(UserReservationItem, [{
-    key: "toggleUpdate",
-    value: function toggleUpdate() {
-      this.setState({
-        toggle: !this.state.toggle
-      });
-    }
-  }, {
-    key: "setReservation",
-    value: function setReservation(field, e) {
-      this.setState(_objectSpread(_objectSpread({}, this.state.calculate), {}, {
-        reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, _defineProperty({}, field, e.currentTarget.value))
-      }));
-
-      if (!this.state.calculate) {
-        this.setState(_objectSpread(_objectSpread({}, this.state.reservation), {}, {
-          calculate: !this.state.calculate
-        }));
-      }
-    }
-  }, {
-    key: "toggleCalculate",
-    value: function toggleCalculate() {
-      if (this.state.reservation.start_date && this.state.reservation.end_date && this.state.reservation.num_of_guests) {
-        this.setPrice();
-        this.setState(_objectSpread(_objectSpread({}, this.state.reservation), {}, {
-          calculate: !this.state.calculate
-        }));
-      }
-    }
-  }, {
-    key: "setPrice",
-    value: function setPrice() {
-      var startTime = new Date(this.state.reservation.start_date);
-      var endTime = new Date(this.state.reservation.end_date);
-      var differenceInDays = (endTime - startTime) / (1000 * 3600 * 24);
-      var pricePerDaysAndDogs = this.props.reservation.listing.price * differenceInDays * this.state.reservation.num_of_guests;
-      this.setState(_objectSpread(_objectSpread({}, this.state.toggle), {}, {
-        days: differenceInDays,
-        reservation: _objectSpread(_objectSpread({}, this.state.reservation), {}, {
-          total_price: pricePerDaysAndDogs
-        })
-      }));
-    }
-  }, {
-    key: "updateReservation",
-    value: function updateReservation(e) {
-      e.preventDefault();
-      this.props.updateReservation(this.state.reservation);
-      this.toggleUpdate();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var start = new Date(this.state.reservation.start_date.replace(/-/g, '\/').replace(/T.+/, ''));
-      var startMonth = start.toLocaleString('en-us', {
-        month: 'short'
-      });
-      var startDay = start.getDate();
-      var end = new Date(this.state.reservation.end_date.replace(/-/g, '\/').replace(/T.+/, ''));
-      var endMonth = end.toLocaleString('en-us', {
-        month: 'short'
-      });
-      var endDay = end.getDate();
-      var endYear = end.getFullYear(); // Prefill input(type= date), must use this format and can't use "/" or change order of date
-
-      var startDate = start.getFullYear() + "-" + parseInt(start.getMonth() + 1) + "-" + start.getDate();
-      var endDate = end.getFullYear() + "-" + parseInt(end.getMonth() + 1) + "-" + end.getDate();
-      var choices = [];
-
-      for (var i = 1; i <= this.props.reservation.listing.num_of_beds; i++) {
-        choices.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-          key: i,
-          value: i
-        }, i, " Dogs ")); // choice already pre-selected by defaultValue on <select>
-      }
-
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        className: "reservation-list",
-        to: "/listings/".concat(this.props.reservation.listing_id)
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "user-reservation-icon",
-        src: this.props.reservation.photos[0] ? this.props.reservation.photos[0] : this.props.reservation.listing.images[0]
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "reservation-info"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.reservation.listing.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "res-info"
-      }, this.props.reservation.listing.street_address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "res-info"
-      }, this.props.reservation.total_price, " Doge coins"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, startMonth, " ", startDay, " - ", endMonth, " ", endDay, ", ", endYear))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "res-buttons"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        onClick: function onClick() {
-          return _this2.toggleUpdate();
-        }
-      }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        onClick: function onClick() {
-          return _this2.props.deleteReservation(_this2.props.reservation.id);
-        }
-      }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        style: this.state.toggle ? {
-          display: "block"
-        } : {
-          display: "none"
-        },
-        className: "modal-background",
-        onClick: function onClick() {
-          return _this2.toggleUpdate();
-        }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reservations_reservation_update_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        days: this.state.days,
-        toggleCalculate: this.toggleCalculate,
-        calculate: this.state.calculate,
-        choices: choices,
-        reservation: this.state.reservation,
-        startDate: startDate,
-        endDate: endDate,
-        setReservation: this.setReservation,
-        updateReservation: this.updateReservation
-      }))));
-    }
-  }]);
-
-  return UserReservationItem;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserReservationItem);
-
-/***/ }),
-
-/***/ "./frontend/components/user/user_reservations_component.jsx":
-/*!******************************************************************!*\
-  !*** ./frontend/components/user/user_reservations_component.jsx ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _user_reservation_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user_reservation_item */ "./frontend/components/user/user_reservation_item.jsx");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-
-var UserReservation = /*#__PURE__*/function (_React$Component) {
-  _inherits(UserReservation, _React$Component);
-
-  var _super = _createSuper(UserReservation);
-
-  function UserReservation(props) {
-    _classCallCheck(this, UserReservation);
-
-    return _super.call(this, props);
-  } // No longer need componentDidMount 2/2 putting listing+reservations within partial
-  // componentDidMount(){
-  // this.props.requestReservation(this.props.match.params.id)
-  // }
-
-
-  _createClass(UserReservation, [{
-    key: "render",
-    value: function render() {
-      var _this = this;
-
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "reservation-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-        className: "res-text"
-      }, "Trips:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "res-header"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "header-text"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-        className: "fas fa-dog"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "res-book"
-      }, "Book upcoming trips!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "res-desc"
-      }, "Time to dust off those paws and start planning the next adventure"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        onClick: function onClick() {
-          return _this.props.history.push("/listings");
-        }
-      }, "Start searching")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "header-img"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "user-reservations"
-      }, this.props.reservations.map(function (reservation, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_user_reservation_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          key: idx,
-          reservation: reservation,
-          updateReservation: _this.props.updateReservation,
-          deleteReservation: _this.props.deleteReservation
-        });
-      })));
-    }
-  }]);
-
-  return UserReservation;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserReservation);
-
-/***/ }),
-
-/***/ "./frontend/components/user/user_reservations_container.jsx":
-/*!******************************************************************!*\
-  !*** ./frontend/components/user/user_reservations_container.jsx ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
-/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
-/* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
-/* harmony import */ var _user_reservations_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user_reservations_component */ "./frontend/components/user/user_reservations_component.jsx");
-
-
-
-
-
-
-var mSTP = function mSTP(state, ownProps) {
-  return {
-    currentUser: state.entities.users[state.session.id],
-    reservations: Object.values(state.entities.reservations)
-  };
-};
-
-var mDTP = function mDTP(dispatch) {
-  return {
-    fetchUser: function fetchUser(userId) {
-      return dispatch((0,_actions_user_actions__WEBPACK_IMPORTED_MODULE_1__.fetchUser)(userId));
-    },
-    updateReservation: function updateReservation(reservation) {
-      return dispatch((0,_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__.updateReservation)(reservation));
-    },
-    deleteReservation: function deleteReservation(reservationId) {
-      return dispatch((0,_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__.deleteReservation)(reservationId));
-    },
-    requestReservation: function requestReservation(reservationId) {
-      return dispatch((0,_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_2__.requestReservation)(reservationId));
-    }
-  };
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_4__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_user_reservations_component__WEBPACK_IMPORTED_MODULE_3__["default"])));
 
 /***/ }),
 

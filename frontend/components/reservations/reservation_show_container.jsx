@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { fetchUser } from "../../actions/user_actions";
 import { updateReservation, deleteReservation, requestReservation } from "../../actions/reservation_actions";
-import UserReservation from "./user_reservations_component";
+import ReservationShowComponent from "./reservation_show_component"
 
 const mSTP = (state, ownProps) => {
   return {
@@ -18,4 +18,4 @@ const mDTP = (dispatch) => ({
 
 })
 
-export default withRouter(connect(mSTP, mDTP)(UserReservation))
+export default withRouter(connect(mSTP, mDTP)(ReservationShowComponent))
