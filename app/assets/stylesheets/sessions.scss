@@ -51,9 +51,13 @@
   font-family: sans-serif;
   height: 3vh;
 
-  background-color: rgb(255, 56, 92);
+  background-color: #E30C79;
   color: white;
   font-weight: 760;
+}
+
+.submit-button:hover{
+  background-color: #F50B7C;
 }
 
 .demobutton {
@@ -66,9 +70,13 @@
   font-family: sans-serif;
   height: 3vh;
 
-  background-color: rgb(255, 56, 92);
+  background-color: #E30C79;
   color: white;
   font-weight: 760;
+}
+
+.demobutton:hover{
+  background-color: #F50B7C;
 }
 
 .session-errors{

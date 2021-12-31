@@ -108,11 +108,15 @@
       padding: 0.7vw;
       border-radius: 10px;
       width: 9vw;
-      background-color: rgb(255, 56, 92);
+      background-color: #E30C79;
       text-align: center;
       color: white;
       font-size: 0.8vw;
       font-weight: bold;
+    }
+
+    .reserve-button:hover{
+      background-color: #F50B7C;
     }
   }
 
