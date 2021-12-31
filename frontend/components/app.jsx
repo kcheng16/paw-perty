@@ -16,6 +16,7 @@ import NavbarContainer from "./navbar/navbar_container";
 import UserShowContainer from "./user/user_show_container";
 import UserListingsContainer from "./user/user_listings_container";
 import ReservationShowContainer from "./reservations/reservation_show_container";
+import SearchIndexContainer from "./search/search_index_container"
 
 const App = () => (
   <div>
@@ -26,6 +27,7 @@ const App = () => (
     </header>
 
       <Switch>
+        <Route path="/search" render={props => <SearchIndexContainer {...props}/>}/>
         <Route path="/user/:id/listings" render={props => <UserListingsContainer {...props}/>}/>
         <Route exact path="/user/:id/reservations" render={props => <ReservationShowContainer {...props}/>}/>
         <Route exact path="/user/:id" render={props => <UserShowContainer {...props}/>}/>

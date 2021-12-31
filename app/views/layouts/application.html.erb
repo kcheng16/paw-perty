@@ -5,10 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script src="https://kit.fontawesome.com/1f6056bf98.js" crossorigin="anonymous"></script>
-
+    
     <link rel="shortcut icon" type="image/jpg" href="https://res.cloudinary.com/de8carnhu/image/upload/v1638516659/flat_750x_075_f-pad_750x1000_f8f8f8.u3_kcecda.jpg"/>
   </head>
 

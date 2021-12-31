@@ -25,8 +25,7 @@ class ListingsImages extends React.Component{
   }
 
   render(){
-    console.log("COUNTER:",this.state.counter)
-    console.log("image length:",this.props.images.length - 1)
+    
     return(
       <div className="carousel">
         <button onClick={() => this.subtract() } className="carousel-control-prev" type="button">
