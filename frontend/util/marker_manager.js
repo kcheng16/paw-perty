@@ -1,3 +1,6 @@
+import React from 'react';
+import Link from 'react-router-dom/Link';
+
 class MarkerManager {
   constructor(map) {
     this.map = map;
@@ -6,9 +9,11 @@ class MarkerManager {
 
   createMarkerInfoWindow(listing){
     const contentString = 
-    "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
-    "sandstone rock formation in the southern part of the " +
-    "Northern Territory, central Australia."
+    `<a href="/#/listings/${listing.id}">`+
+      `<div>${listing.average_rating ? listing.average_rating : "no reviews"}</div>`+
+      `<div>${listing.title}</div>`+
+      `<b>${listing.price}Doge coins/night</b>`+
+    "</a>"
 
     // set info window
     let infoWindow = new google.maps.InfoWindow({

@@ -2132,7 +2132,6 @@ var Map = /*#__PURE__*/function (_React$Component) {
 
       this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_1__["default"](this.map);
       this.MarkerManager.updateMarkers(this.props.listings);
-      console.log("COMPONENT-DID-MOUNT:", this.props.listings);
     }
   }, {
     key: "render",
@@ -4823,11 +4822,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
 
 var MarkerManager = /*#__PURE__*/function () {
   function MarkerManager(map) {
@@ -4840,7 +4843,7 @@ var MarkerManager = /*#__PURE__*/function () {
   _createClass(MarkerManager, [{
     key: "createMarkerInfoWindow",
     value: function createMarkerInfoWindow(listing) {
-      var contentString = "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " + "sandstone rock formation in the southern part of the " + "Northern Territory, central Australia."; // set info window
+      var contentString = "<a href=\"/#/listings/".concat(listing.id, "\">") + "<div>".concat(listing.average_rating ? listing.average_rating : "no reviews", "</div>") + "<div>".concat(listing.title, "</div>") + "<b>".concat(listing.price, "Doge coins/night</b>") + "</a>"; // set info window
 
       var infoWindow = new google.maps.InfoWindow({
         content: contentString

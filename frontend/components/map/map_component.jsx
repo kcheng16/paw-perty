@@ -19,7 +19,6 @@ class Map extends React.Component{
     // Marker manager
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.listings)
-    console.log("COMPONENT-DID-MOUNT:", this.props.listings)
   }
   
   render(){
