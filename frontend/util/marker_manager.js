@@ -1,5 +1,4 @@
 import React from 'react';
-import { renderToString } from 'react-dom/server';
 
 class MarkerManager {
   constructor(map) {
@@ -16,7 +15,7 @@ class MarkerManager {
       `<div style="display: flex;">
         <div style="font-weight: 800;">${listing.price} Doge coins / night</div>
       </div>`+
-      "</a>";
+    "</a>";
       
     // set info window
     let infoWindow = new google.maps.InfoWindow({
