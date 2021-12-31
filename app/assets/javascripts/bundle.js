@@ -4816,9 +4816,76 @@ var deleteListing = function deleteListing(listingId) {
 /*!*****************************************!*\
   !*** ./frontend/util/marker_manager.js ***!
   \*****************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/kenny/AppAcademy/paw-perty/frontend/util/marker_manager.js: Missing semicolon. (21:17)\n\n\u001b[0m \u001b[90m 19 |\u001b[39m     \u001b[90m//     id: 1, \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 20 |\u001b[39m         latitude\u001b[33m:\u001b[39m \u001b[35m37.798967\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m         longitude\u001b[33m:\u001b[39m \u001b[33m-\u001b[39m\u001b[35m122.403546\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 22 |\u001b[39m     \u001b[90m//     title: \"This listing #1\"\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 23 |\u001b[39m     \u001b[90m//   },\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 24 |\u001b[39m     \u001b[90m//   {\u001b[39m\u001b[0m\n    at Object._raise (/home/kenny/AppAcademy/paw-perty/node_modules/@babel/parser/lib/index.js:541:17)\n    at Object.raiseWithData (/home/kenny/AppAcademy/paw-perty/node_modules/@babel/parser/lib/index.js:534:17)\n    at Object.raise (/home/kenny/AppAcademy/paw-perty/node_modules/@babel/parser/lib/index.js:495:17)\n    at Object.semicolon (/home/kenny/AppAcademy/paw-perty/node_modules/@babel/parser/lib/index.js:3550:10)\n    at Object.parseExpressionStatement (/home/kenny/AppAcademy/paw-perty/node_modules/@babel/parser/lib/index.js:13899:10)\n    at Object.parseStatementContent (/home/kenny/AppAcademy/paw-perty/node_modules/@babel/parser/lib/index.js:13490:19)\n    at Object.parseStatement (/home/kenny/AppAcademy/paw-perty/node_modules/@babel/parser/lib/index.js:13352:17)\n    at Object.parseLabeledStatement (/home/kenny/AppAcademy/paw-perty/node_modules/@babel/parser/lib/index.js:13891:22)\n    at Object.parseStatementContent (/home/kenny/AppAcademy/paw-perty/node_modules/@babel/parser/lib/index.js:13488:19)\n    at Object.parseStatement (/home/kenny/AppAcademy/paw-perty/node_modules/@babel/parser/lib/index.js:13352:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var MarkerManager = /*#__PURE__*/function () {
+  function MarkerManager(map) {
+    _classCallCheck(this, MarkerManager);
+
+    this.map = map;
+    this.markers = {};
+  }
+
+  _createClass(MarkerManager, [{
+    key: "createMarker",
+    value: function createMarker(listing) {
+      console.log("CREATE MARKER:", listing.latitude);
+      return new google.maps.Marker({
+        position: {
+          lat: parseFloat(listing.latitude),
+          lng: parseFloat(listing.longitude)
+        },
+        title: listing.title,
+        listingId: listing.id
+      });
+    }
+  }, {
+    key: "updateMarkers",
+    value: function updateMarkers(listings) {
+      var _this = this;
+
+      var thisMap = this.map;
+      var marker;
+      listings.forEach(function (listing) {
+        if (!(listing.id in _this.markers)) {
+          _this.markers[listing.id] = listing;
+          marker = _this.createMarker(listing);
+          marker.setMap(thisMap);
+        }
+      });
+    }
+  }, {
+    key: "createMarkerFromListing",
+    value: function createMarkerFromListing(listing) {
+      if (!(listing.id in this.markers)) {
+        this.markers[listing.id] = listing;
+        var marker = this.createMarker(listing, this.map);
+        marker.setMap(this.map);
+      }
+    }
+  }, {
+    key: "removeMarker",
+    value: function removeMarker(marker) {
+      delete this.markers[marker.listingId];
+      marker.setMap(null);
+    }
+  }]);
+
+  return MarkerManager;
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MarkerManager);
 
 /***/ }),
 
