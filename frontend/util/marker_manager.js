@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'react-router-dom/Link';
+import { renderToString } from 'react-dom/server';
 
 class MarkerManager {
   constructor(map) {
@@ -8,13 +8,16 @@ class MarkerManager {
   }
 
   createMarkerInfoWindow(listing){
-    const contentString = 
+    const contentString =
     `<a href="/#/listings/${listing.id}">`+
-      `<div>${listing.average_rating ? listing.average_rating : "no reviews"}</div>`+
-      `<div>${listing.title}</div>`+
-      `<b>${listing.price}Doge coins/night</b>`+
-    "</a>"
-
+      `<div><img style="display: inline-block; height: 200px; width: 100%; object-fit: cover;" src="${listing.images[0] ? listing.images[0] : listing.photos[0]}"/></div>`+
+      `<div>${listing.average_rating ? listing.average_rating : "0 reviews"}</div>`+
+      `<div style="padding: 5px 0 10px 0; font-size: 18px;">${listing.title}</div>`+
+      `<div style="display: flex;">
+        <div style="font-weight: 800;">${listing.price} Doge coins / night</div>
+      </div>`+
+      "</a>";
+      
     // set info window
     let infoWindow = new google.maps.InfoWindow({
       content: contentString,

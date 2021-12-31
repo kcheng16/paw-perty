@@ -25,7 +25,6 @@ class ListingsImages extends React.Component{
   }
 
   render(){
-    
     return(
       <div className="carousel">
         <button onClick={() => this.subtract() } className="carousel-control-prev" type="button">
