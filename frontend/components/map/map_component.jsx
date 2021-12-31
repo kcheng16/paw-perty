@@ -23,7 +23,6 @@ class Map extends React.Component{
   }
   
   render(){
-    console.log("RENDER- LISTING:", this.props.listings)
 
     return(
       <div id='map-container' ref={ map => this.mapNode = map }>
