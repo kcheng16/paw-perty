@@ -4838,9 +4838,18 @@ var MarkerManager = /*#__PURE__*/function () {
   }
 
   _createClass(MarkerManager, [{
+    key: "createMarkerInfoWindow",
+    value: function createMarkerInfoWindow(listing) {
+      var contentString = "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " + "sandstone rock formation in the southern part of the " + "Northern Territory, central Australia."; // set info window
+
+      var infoWindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+      return infoWindow;
+    }
+  }, {
     key: "createMarker",
     value: function createMarker(listing) {
-      console.log("CREATE MARKER:", listing.latitude);
       return new google.maps.Marker({
         position: {
           lat: parseFloat(listing.latitude),
@@ -4860,7 +4869,19 @@ var MarkerManager = /*#__PURE__*/function () {
       listings.forEach(function (listing) {
         if (!(listing.id in _this.markers)) {
           _this.markers[listing.id] = listing;
-          marker = _this.createMarker(listing);
+
+          var infoWindow = _this.createMarkerInfoWindow(listing);
+
+          marker = _this.createMarker(listing); // add event listener for info window:
+
+          marker.addListener("click", function () {
+            infoWindow.open({
+              anchor: marker,
+              thisMap: thisMap,
+              shouldFocus: false
+            });
+          }); // set marker into map
+
           marker.setMap(thisMap);
         }
       });

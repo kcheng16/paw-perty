@@ -4,13 +4,27 @@ class MarkerManager {
     this.markers = {};
   }
 
+  createMarkerInfoWindow(listing){
+    const contentString = 
+    "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
+    "sandstone rock formation in the southern part of the " +
+    "Northern Territory, central Australia."
+
+    // set info window
+    let infoWindow = new google.maps.InfoWindow({
+      content: contentString,
+    });
+
+    return infoWindow 
+  }
+
   createMarker(listing){
-    console.log("CREATE MARKER:", listing.latitude)
     return new google.maps.Marker({
       position: {lat: parseFloat(listing.latitude), lng: parseFloat(listing.longitude)},
       title: listing.title,
       listingId: listing.id
     });
+    
   }
 
   updateMarkers(listings) {
@@ -20,7 +34,20 @@ class MarkerManager {
     listings.forEach(listing => {
       if(!(listing.id in this.markers)){
         this.markers[listing.id] = listing
+
+        let infoWindow = this.createMarkerInfoWindow(listing)
         marker = this.createMarker(listing)
+
+        // add event listener for info window:
+        marker.addListener("click", () => {
+          infoWindow.open({
+            anchor: marker,
+            thisMap,
+            shouldFocus: false,
+          });
+        });
+
+        // set marker into map
         marker.setMap(thisMap)
       }
     });
