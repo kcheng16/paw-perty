@@ -4,6 +4,7 @@ class MarkerManager {
   constructor(map) {
     this.map = map;
     this.markers = {};
+    this.infoWindow;
   }
 
   createMarkerInfoWindow(listing, marker, thisMap){
@@ -29,6 +30,7 @@ class MarkerManager {
         thisMap,
         shouldFocus: true,
       });
+      this.infoWindow = infoWindow
     });
 
     // Click of the map closes all infoWindows
@@ -53,8 +55,14 @@ class MarkerManager {
     listings.forEach(listing => {
       if(!(listing.id in this.markers)){
         this.markers[listing.id] = listing
-        
         marker = this.createMarker(listing)
+
+        // marker's event listener to close PREVIOUS infoWindow
+        marker.addListener("click", () => {
+          if(this.infoWindow){
+            this.infoWindow.close()
+          }
+        })
         
         this.createMarkerInfoWindow(listing, marker, thisMap)
 

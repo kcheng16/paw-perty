@@ -4837,11 +4837,14 @@ var MarkerManager = /*#__PURE__*/function () {
 
     this.map = map;
     this.markers = {};
+    this.infoWindow;
   }
 
   _createClass(MarkerManager, [{
     key: "createMarkerInfoWindow",
     value: function createMarkerInfoWindow(listing, marker, thisMap) {
+      var _this = this;
+
       var contentString = "<a className=\"info-window\" href=\"/#/listings/".concat(listing.id, "\">") + "<div><img style=\"display: inline-block; height: 200px; width: 100%; object-fit: cover;\" src=\"".concat(listing.images[0] ? listing.images[0] : listing.photos[0], "\"/></div>") + "<div>".concat(listing.average_rating ? listing.average_rating : "0 reviews", "</div>") + "<div style=\"padding: 5px 0 10px 0; font-size: 18px;\">".concat(listing.title, "</div>") + "<div style=\"display: flex;\">\n        <div style=\"font-weight: 800;\">".concat(listing.price, " Doge coins / night</div>\n      </div>") + "</a>"; // set info window
 
       var infoWindow = new google.maps.InfoWindow({
@@ -4854,6 +4857,7 @@ var MarkerManager = /*#__PURE__*/function () {
           thisMap: thisMap,
           shouldFocus: true
         });
+        _this.infoWindow = infoWindow;
       }); // Click of the map closes all infoWindows
 
       thisMap.addListener('click', function () {
@@ -4875,16 +4879,22 @@ var MarkerManager = /*#__PURE__*/function () {
   }, {
     key: "updateMarkers",
     value: function updateMarkers(listings) {
-      var _this = this;
+      var _this2 = this;
 
       var thisMap = this.map;
       var marker;
       listings.forEach(function (listing) {
-        if (!(listing.id in _this.markers)) {
-          _this.markers[listing.id] = listing;
-          marker = _this.createMarker(listing);
+        if (!(listing.id in _this2.markers)) {
+          _this2.markers[listing.id] = listing;
+          marker = _this2.createMarker(listing); // marker's event listener to close PREVIOUS infoWindow
 
-          _this.createMarkerInfoWindow(listing, marker, thisMap); // set marker into map
+          marker.addListener("click", function () {
+            if (_this2.infoWindow) {
+              _this2.infoWindow.close();
+            }
+          });
+
+          _this2.createMarkerInfoWindow(listing, marker, thisMap); // set marker into map
 
 
           marker.setMap(thisMap);
