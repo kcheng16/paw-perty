@@ -4845,7 +4845,7 @@ var MarkerManager = /*#__PURE__*/function () {
     value: function createMarkerInfoWindow(listing, marker, thisMap) {
       var _this = this;
 
-      var contentString = "<a className=\"info-window\" href=\"/#/listings/".concat(listing.id, "\">") + "<div><img style=\"display: inline-block; height: 200px; width: 100%; object-fit: cover;\" src=\"".concat(listing.images[0] ? listing.images[0] : listing.photos[0], "\"/></div>") + "<div>".concat(listing.average_rating ? listing.average_rating : "0 reviews", "</div>") + "<div style=\"padding: 5px 0 10px 0; font-size: 18px;\">".concat(listing.title, "</div>") + "<div style=\"display: flex;\">\n        <div style=\"font-weight: 800;\">".concat(listing.price, " Doge coins / night</div>\n      </div>") + "</a>"; // set info window
+      var contentString = "<a className=\"info-window\" href=\"/#/listings/".concat(listing.id, "\">") + "<div><img style=\"display: inline-block; height: 200px; width: 100%; object-fit: cover;\" src=\"".concat(listing.images[0] ? listing.images[0] : listing.photos[0], "\"/></div>") + "<div class=\"info-window-text\">" + "<div>".concat(listing.average_rating ? listing.average_rating : "0 reviews", "</div>") + "<div style=\"padding: 5px 0 10px 0; font-size: 18px;\">".concat(listing.title, "</div>") + "<div style=\"font-weight: 800;\">".concat(listing.price, " Doge coins / night</div>") + "</div>" + "</a>"; // set info window
 
       var infoWindow = new google.maps.InfoWindow({
         content: contentString
