@@ -3447,8 +3447,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/Link.js");
-/* harmony import */ var _listings_listings_images__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../listings/listings_images */ "./frontend/components/listings/listings_images.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/Link.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3474,7 +3473,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
   _inherits(SearchIndexListingItem, _React$Component);
 
@@ -3496,7 +3494,7 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
   _createClass(SearchIndexListingItem, [{
     key: "add",
     value: function add() {
-      if (this.state.counter < this.props.images.length - 1) {
+      if (this.state.counter < this.props.listing.images.length - 1) {
         this.index++;
         this.setState({
           counter: this.index
@@ -3518,8 +3516,8 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      if (!this.props.listing.photos[0]) return "loading...";
-      console.log("PROPS:", this.props);
+      // if(!this.props.listing.photos[0])return "loading..."
+      console.log("image:", this.props.listing.images[0]);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "search-index-listing-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3530,15 +3528,55 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
         },
         className: "carousel-control-prev",
         type: "button"
-      }, "<"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, "<"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
         to: "/listings/".concat(this.props.listing.id)
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "carousel-img",
+        style: this.state.counter === 0 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        src: this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "carousel-img",
+        style: this.state.counter === 1 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        src: this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "carousel-img",
+        style: this.state.counter === 2 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        src: this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "carousel-img",
+        style: this.state.counter === 3 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        src: this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "carousel-img",
+        style: this.state.counter === 4 ? {
+          display: "block"
+        } : {
+          display: "none"
+        },
+        src: this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this2.add();
         },
         className: "carousel-control-next",
         type: "button"
-      }, ">")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, ">")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
         to: "/listings/".concat(this.props.listing.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "title"
