@@ -1,5 +1,5 @@
 import React from "react";
-import UserReservationItem from "./reservation_show_item"
+import ReservationShowItem from "./reservation_show_item"
 
 class ReservationShowComponent extends React.Component{
   constructor(props){
@@ -26,7 +26,7 @@ class ReservationShowComponent extends React.Component{
           </div>
           <div className="user-reservations">
             {this.props.reservations.map((reservation, idx) => 
-              <UserReservationItem 
+              <ReservationShowItem 
                 key={idx} 
                 reservation={reservation} 
                 updateReservation={this.props.updateReservation}

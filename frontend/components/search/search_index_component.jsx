@@ -1,6 +1,6 @@
 import React from "react";
-import ListingsIndexItem from "../listings/listings_index_item";
 import Map from "../map/map_component";
+import SearchIndexListingItem from "./search_index_listing_item";
 
 class SearchIndexComponent extends React.Component {
 
@@ -11,16 +11,20 @@ class SearchIndexComponent extends React.Component {
   render() {
     return(
       <div className="search-index">
-        {/* Maps */}
-        <Map listings={this.props.listings}/>
+        <div className="search-index-container">
+          {/* Listings */}
+          <div className="search-index-listings">
+            {this.props.listings.map( (listing, idx) => 
+              <SearchIndexListingItem 
+                listing={listing} 
+                key={idx}
+              />
+            )}
+          </div>
 
-        {/* Listings */}
-        {/* {this.props.listings.map( (listing, idx) => 
-          <ListingsIndexItem 
-            listing={listing} 
-            key={idx}
-          />
-        )} */}
+          {/* Maps */}
+          <Map listings={this.props.listings}/>
+        </div>
       </div>
     )
   }
