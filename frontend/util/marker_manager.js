@@ -6,7 +6,7 @@ class MarkerManager {
     this.markers = {};
   }
 
-  createMarkerInfoWindow(listing){
+  createMarkerInfoWindow(listing, marker, thisMap){
     const contentString =
     `<a href="/#/listings/${listing.id}">`+
       `<div><img style="display: inline-block; height: 200px; width: 100%; object-fit: cover;" src="${listing.images[0] ? listing.images[0] : listing.photos[0]}"/></div>`+
@@ -22,7 +22,15 @@ class MarkerManager {
       content: contentString,
     });
 
-    return infoWindow 
+    // add event listener for info window:
+    marker.addListener("click", () => {
+      infoWindow.open({
+        anchor: marker,
+        thisMap,
+        shouldFocus: true,
+      });
+    });
+    
   }
 
   createMarker(listing){
@@ -41,19 +49,11 @@ class MarkerManager {
     listings.forEach(listing => {
       if(!(listing.id in this.markers)){
         this.markers[listing.id] = listing
-
-        let infoWindow = this.createMarkerInfoWindow(listing)
+        
         marker = this.createMarker(listing)
 
-        // add event listener for info window:
-        marker.addListener("click", () => {
-          infoWindow.open({
-            anchor: marker,
-            thisMap,
-            shouldFocus: false,
-          });
-        });
-
+        this.createMarkerInfoWindow(listing, marker, thisMap)
+        
         // set marker into map
         marker.setMap(thisMap)
       }
