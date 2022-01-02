@@ -10,6 +10,9 @@
 
 .search-index-listing-item{
   display: flex;
+  padding: 15px;
+  margin-right: 10px;
+  border-top: 0.5px solid #e1e1e1;
 }
 
 .search-carousel-img{
@@ -21,13 +24,34 @@
 
 .search-listing-link{
   width: 30vw;
+  padding-left: 0 10px;
+
+  .search-city{
+    color: gray;
+  }
+  .search-title{
+    font-size: 20px;
+    padding: 10px 0;
+  }
+  .search-line{
+    background-color: #bebebe;
+    padding: 0.1px;
+    width: 50px;
+  }
+  .search-description{
+    color: gray;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+  }
+  .search-review-and-cost{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 80px;
+  }
 }
 
-.search-description{
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
 
 .search-maps-container{
   display: flex;
