@@ -1832,6 +1832,8 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "toggleCalculate",
     value: function toggleCalculate() {
+      console.log("TOGGLE CALCULATE");
+
       if (this.state.reservation.start_date && this.state.reservation.end_date && this.state.reservation.num_of_guests) {
         this.setPrice();
         this.setState(_objectSpread(_objectSpread({}, this.state.reservation), {}, {
@@ -2419,7 +2421,8 @@ var ReservationCreateComponent = function ReservationCreateComponent(props) {
     className: "guest-dropdown",
     onChange: function onChange(e) {
       return props.setReservation('num_of_guests', e);
-    }
+    },
+    defaultValue: "0"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
     value: "0",
     disabled: true
@@ -4683,8 +4686,10 @@ __webpack_require__.r(__webpack_exports__);
       return newState;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_CURRENT_USER:
-      console.log("RESERVATION:", action.user.reservations);
-      newState = action.user.reservations;
+      if (action.user.reservation) {
+        newState = action.user.reservations;
+      }
+
       return newState;
 
     default:

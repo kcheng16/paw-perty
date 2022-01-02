@@ -35,8 +35,8 @@ const ReservationCreateComponent = props => {
           </div>
           <div className="select-guests">
             <div className="title">Guests</div>
-            <select className="guest-dropdown" onChange={e => props.setReservation('num_of_guests', e)}>
-              <option value="0" disabled>select number of dogs</option>
+            <select className="guest-dropdown" onChange={e => props.setReservation('num_of_guests', e)} defaultValue={"0"}>
+              <option value="0" disabled >select number of dogs</option>
               {props.choices}
             </select>
           </div>

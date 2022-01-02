@@ -23,8 +23,9 @@ export default (state={}, action) => {
       return newState
 
     case RECEIVE_CURRENT_USER:
-      console.log("RESERVATION:", action.user.reservations)
-      newState = action.user.reservations
+      if(action.user.reservation){
+        newState = action.user.reservations
+      }
       return newState
       
     default:
