@@ -31,9 +31,14 @@ class SearchIndexListingItem extends React.Component{
       <div className="search-index-listing-item">
         {/* listing images */}
         <div className="carousel">
-        <button onClick={() => this.subtract() } className="carousel-control-prev" type="button">
-          &lt;
-        </button>
+          <div className="search-carousel-buttons">
+            <button onClick={() => this.subtract() } className="search-carousel-control-prev" type="button">
+              &lt;
+            </button>
+            <button onClick={() => this.add() } className="search-carousel-control-next" type="button">
+              &gt;
+            </button>
+          </div>
 
         <Link to={`/listings/${this.props.listing.id}`} >
           <img className="search-carousel-img" style={this.state.counter === 0 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]}/>
@@ -43,9 +48,6 @@ class SearchIndexListingItem extends React.Component{
           <img className="search-carousel-img" style={this.state.counter === 4 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]}/>
         </Link>
 
-        <button onClick={() => this.add() } className="carousel-control-next" type="button">
-          &gt;
-        </button>
       </div>
         {/* listings */}          
         <Link to={`/listings/${this.props.listing.id}`} className="search-listing-link" >
