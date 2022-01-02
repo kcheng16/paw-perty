@@ -3536,7 +3536,7 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
       }, "<"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
         to: "/listings/".concat(this.props.listing.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "carousel-img",
+        className: "search-carousel-img",
         style: this.state.counter === 0 ? {
           display: "block"
         } : {
@@ -3544,7 +3544,7 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
         },
         src: this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "carousel-img",
+        className: "search-carousel-img",
         style: this.state.counter === 1 ? {
           display: "block"
         } : {
@@ -3552,7 +3552,7 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
         },
         src: this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "carousel-img",
+        className: "search-carousel-img",
         style: this.state.counter === 2 ? {
           display: "block"
         } : {
@@ -3560,7 +3560,7 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
         },
         src: this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "carousel-img",
+        className: "search-carousel-img",
         style: this.state.counter === 3 ? {
           display: "block"
         } : {
@@ -3568,7 +3568,7 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
         },
         src: this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "carousel-img",
+        className: "search-carousel-img",
         style: this.state.counter === 4 ? {
           display: "block"
         } : {

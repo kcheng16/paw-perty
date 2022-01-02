@@ -36,11 +36,11 @@ class SearchIndexListingItem extends React.Component{
         </button>
 
         <Link to={`/listings/${this.props.listing.id}`} >
-          <img className="carousel-img" style={this.state.counter === 0 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]}/>
-          <img className="carousel-img" style={this.state.counter === 1 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]}/>
-          <img className="carousel-img" style={this.state.counter === 2 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]}/>
-          <img className="carousel-img" style={this.state.counter === 3 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]}/>
-          <img className="carousel-img" style={this.state.counter === 4 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]}/>
+          <img className="search-carousel-img" style={this.state.counter === 0 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]}/>
+          <img className="search-carousel-img" style={this.state.counter === 1 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]}/>
+          <img className="search-carousel-img" style={this.state.counter === 2 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]}/>
+          <img className="search-carousel-img" style={this.state.counter === 3 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]}/>
+          <img className="search-carousel-img" style={this.state.counter === 4 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos.length !== 0 ? this.props.listing.photos[this.state.counter] : this.props.listing.images[this.state.counter]}/>
         </Link>
 
         <button onClick={() => this.add() } className="carousel-control-next" type="button">
