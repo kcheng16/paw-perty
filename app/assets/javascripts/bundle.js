@@ -1831,8 +1831,8 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "toggleCalculate",
-    value: function toggleCalculate() {
-      console.log("TOGGLE CALCULATE");
+    value: function toggleCalculate(e) {
+      e.preventDefault();
 
       if (this.state.reservation.start_date && this.state.reservation.end_date && this.state.reservation.num_of_guests) {
         this.setPrice();
@@ -2431,7 +2431,7 @@ var ReservationCreateComponent = function ReservationCreateComponent(props) {
     className: props.calculate ? "reserve-button-inactive" : "reserve-button",
     onClick: function onClick(e) {
       if (props.calculate) {
-        props.toggleCalculate();
+        props.toggleCalculate(e);
       } else {
         props.createReservation(e);
       }

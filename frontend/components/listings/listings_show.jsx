@@ -43,8 +43,8 @@ class ListingsShow extends React.Component{
     }
   }
 
-  toggleCalculate(){
-    console.log("TOGGLE CALCULATE")
+  toggleCalculate(e){
+    e.preventDefault()
     if (this.state.reservation.start_date && this.state.reservation.end_date && this.state.reservation.num_of_guests){
       this.setPrice()
       this.setState({

@@ -45,7 +45,7 @@ const ReservationCreateComponent = props => {
             className={props.calculate ? "reserve-button-inactive" : "reserve-button"}
             onClick={ (e) => {
               if (props.calculate){
-                props.toggleCalculate();
+                props.toggleCalculate(e);
               } else {
                 props.createReservation(e)
               }
