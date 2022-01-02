@@ -24,7 +24,7 @@
 
 .search-listing-link{
   width: 30vw;
-  padding-left: 0 10px;
+  padding: 0 10px;
 
   .search-city{
     color: gray;
@@ -40,15 +40,22 @@
   }
   .search-description{
     color: gray;
+    padding-top: 10px;
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
-    padding: 10px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.4;
   }
   .search-review-and-cost{
     display: flex;
     justify-content: space-between;
-    padding-top: 80px;
+    padding-top: 45px;
+
+    .search-price{
+      font-weight: bold;
+    }
   }
 }
 
