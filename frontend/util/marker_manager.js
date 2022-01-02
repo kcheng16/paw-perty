@@ -43,9 +43,18 @@ class MarkerManager {
     return new google.maps.Marker({
       position: {lat: parseFloat(listing.latitude), lng: parseFloat(listing.longitude)},
       title: listing.title,
-      listingId: listing.id
+      label: {
+        color: 'black',
+        fontWeight: 'bold',
+        fontSize: '20px',
+        text: `${listing.price}Ɖ`
+        
+      },
+      icon: {
+        url: "http://res.cloudinary.com/de8carnhu/image/upload/c_scale,w_60/v1641111604/map_marker_r9nvpa.png",
+        labelOrigin: new google.maps.Point(30, 20)
+      },
     });
-    
   }
 
   updateMarkers(listings) {

@@ -25,8 +25,6 @@ class SearchIndexListingItem extends React.Component{
   }
 
   render(){
-    // if(!this.props.listing.photos[0])return "loading..."
-    console.log("image:",this.props.listing.images[0])
     return(
       <div className="search-index-listing-item">
         {/* listing images */}

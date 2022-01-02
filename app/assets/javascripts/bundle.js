@@ -3521,8 +3521,6 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      // if(!this.props.listing.photos[0])return "loading..."
-      console.log("image:", this.props.listing.images[0]);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "search-index-listing-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -5060,7 +5058,16 @@ var MarkerManager = /*#__PURE__*/function () {
           lng: parseFloat(listing.longitude)
         },
         title: listing.title,
-        listingId: listing.id
+        label: {
+          color: 'black',
+          fontWeight: 'bold',
+          fontSize: '20px',
+          text: "".concat(listing.price, "\u0189")
+        },
+        icon: {
+          url: "http://res.cloudinary.com/de8carnhu/image/upload/c_scale,w_60/v1641111604/map_marker_r9nvpa.png",
+          labelOrigin: new google.maps.Point(30, 20)
+        }
       });
     }
   }, {
