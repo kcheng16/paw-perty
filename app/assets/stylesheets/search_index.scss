@@ -1,8 +1,29 @@
 .search-index-container{
   display: flex;
+  padding: 10px;
 }
 
 .search-index-listings{
   display: flex;
   flex-direction: column;
+}
+
+.search-index-listing-item{
+  display: flex;
+}
+
+.search-listing-link{
+  width: 30vw;
+}
+
+.search-description{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.search-maps-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }

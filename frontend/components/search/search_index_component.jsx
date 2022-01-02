@@ -23,7 +23,10 @@ class SearchIndexComponent extends React.Component {
           </div>
 
           {/* Maps */}
-          <Map listings={this.props.listings}/>
+          <div className="search-maps-container">
+            <Map listings={this.props.listings}/>
+            <div></div>
+          </div>
         </div>
       </div>
     )

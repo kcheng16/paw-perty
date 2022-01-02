@@ -3384,9 +3384,11 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
           listing: listing,
           key: idx
         });
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_map_map_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "search-maps-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_map_map_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
         listings: this.props.listings
-      })));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null))));
     }
   }]);
 
@@ -3577,15 +3579,22 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
         className: "carousel-control-next",
         type: "button"
       }, ">")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        to: "/listings/".concat(this.props.listing.id)
+        to: "/listings/".concat(this.props.listing.id),
+        className: "search-listing-link"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "title"
-      }, this.props.listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "listings-index-link"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "city"
+        className: "search-city"
       }, this.props.listing.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "price"
+        className: "search-title"
+      }, this.props.listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "search-line"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "search-description"
+      }, this.props.listing.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "search-review-and-cost"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "search-review"
+      }, this.props.listing.average_rating ? this.props.listing.average_rating : "0 reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "search-price"
       }, this.props.listing.price, " Doge Coins/night"))));
     }
   }]);

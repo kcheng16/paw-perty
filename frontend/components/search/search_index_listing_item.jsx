@@ -48,11 +48,15 @@ class SearchIndexListingItem extends React.Component{
         </button>
       </div>
         {/* listings */}          
-        <Link to={`/listings/${this.props.listing.id}`} >
-          <div className="title">{this.props.listing.title}</div>
-          <div className='listings-index-link'>
-            <div className="city">{this.props.listing.city}</div>
-            <div className="price">{this.props.listing.price} Doge Coins/night</div>
+        <Link to={`/listings/${this.props.listing.id}`} className="search-listing-link" >
+          <div className="search-city">{this.props.listing.city}</div>
+          <div className="search-title">{this.props.listing.title}</div>
+          <div className="search-line"></div>
+          <div className="search-description">{this.props.listing.description}</div>
+
+          <div className='search-review-and-cost'>
+            <div className="search-review">{this.props.listing.average_rating ? this.props.listing.average_rating : "0 reviews"}</div>
+            <div className="search-price">{this.props.listing.price} Doge Coins/night</div>
           </div>
         </Link>
       </div>
