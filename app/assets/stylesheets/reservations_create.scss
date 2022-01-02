@@ -9,6 +9,10 @@
   .sticky-header{
     display: flex;
 
+    .price-per-night{
+      font-size: 12px;
+      padding-top: 6px;
+    }
     .sticky-header-review{
       display: flex;
       justify-content: flex-end;
@@ -28,13 +32,10 @@
   .reservation-info{
     position: sticky;
     position: -webkit-sticky;
-    top: 5vh;
     margin-top: 5vh;
-    padding-top: 3vh;
-    padding-bottom: 25px;
+    padding: 30px;
     border: 0.5px solid #c7c7c7;
     border-radius: 10px;
-    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
