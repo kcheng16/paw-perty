@@ -1,20 +1,21 @@
 import React from "react";
 import SplashContainer from "./splash/splash_container";
-import SignupContainer from "./sessions/signup_container";
-import LoginContainer from "./sessions/login_container";
+import Modal from "./modals/modal";
+// import SignupContainer from "./sessions/signup_container";
+// import LoginContainer from "./sessions/login_container";
 //===============================
 import ListingsIndexContainer from "./listings/listings_index_container";
 import ListingsShowContainer from "./listings/listings_show_container";
 import ListingsCreateContainer from "./listings/listings_create_container";
 import ListingsEditContainer from "./listings/listings_edit_container";
 //==============================
-import { Link, Route, Switch } from "react-router-dom";
-import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import UserDropdownContainer from "./sessions/user_dropdown_container";
-import Modal from "./modals/modal";
-import NavbarContainer from "./navbar/navbar_container";
 import UserShowContainer from "./user/user_show_container";
 import UserListingsContainer from "./user/user_listings_container";
+import UserDropdownContainer from "./sessions/user_dropdown_container";
+//==============================
+import { Link, Route, Switch } from "react-router-dom";
+import { AuthRoute, ProtectedRoute } from "../util/route_util";
+import NavbarContainer from "./navbar/navbar_container";
 import ReservationShowContainer from "./reservations/reservation_show_container";
 import SearchIndexContainer from "./search/search_index_container"
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchBar from "./search"
 
 class Navbar extends React.Component {
   constructor(props){
@@ -13,7 +14,7 @@ class Navbar extends React.Component {
   render(){
     return(
       <div>
-        <input className="navbar-input" type="text" />
+        <SearchBar/>
         <img className="navbar-img" onClick={() => this.goToListings()}  src="https://res.cloudinary.com/de8carnhu/image/upload/v1637696527/searchicon_tb3x3e.png" />
         
         <Link to="/">
