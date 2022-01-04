@@ -14,12 +14,15 @@ class Navbar extends React.Component {
   render(){
     return(
       <div>
-        <SearchBar/>
         <img className="navbar-img" onClick={() => this.goToListings()}  src="https://res.cloudinary.com/de8carnhu/image/upload/v1637696527/searchicon_tb3x3e.png" />
         
         <Link to="/">
           <img className="logo" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637652441/pawperty-logo_bemkc9.png"/>
         </Link>
+
+        <div className="search-bar">
+          <SearchBar/>
+        </div>
 
         <a href="https://www.linkedin.com/in/kcheng16/">
           <img className="linked-in" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/linkedinbutton_r8xeco.png"/>

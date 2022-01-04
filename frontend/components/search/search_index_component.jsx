@@ -6,7 +6,7 @@ class SearchIndexComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listings: this.props.city === "all" ? 
+      listings: this.props.city === "ALL" ? 
         this.props.listings
         :
         this.props.listings.filter(
@@ -16,7 +16,7 @@ class SearchIndexComponent extends React.Component {
   }
 
   componentDidMount() {
-    if(this.props.city !== "all"){
+    if(this.props.city !== "ALL"){
       this.props.requestListings(this.props.city)
         .then( res => this.setState({listings: Object.values(res.listings)}))}
   }
@@ -25,17 +25,6 @@ class SearchIndexComponent extends React.Component {
       this.props.requestListings(this.props.city)
         .then( res => this.setState({listings: Object.values(res.listings)}))
   }
-
-  // static getDerivedStateFromProps(nextProps, prevState) {
-    
-  //   if( nextProps.match.params.city !== prevState.city){
-  //     nextProps.requestListings(nextProps.match.params.city)
-  //   } 
-  //   return {
-  //     listings: nextProps.listings,
-  //     city: nextProps.match.params.city,
-  //   } 
-  // }
 
   render() {
     let noListingMsg;

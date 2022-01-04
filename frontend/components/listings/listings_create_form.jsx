@@ -68,7 +68,11 @@ class ListingsCreateForm extends React.Component{
   }
 
   update(field){
-    return e => this.setState({[field]: e.currentTarget.value})
+    if (field === 'city'){
+      return e => this.setState({[field]: e.currentTarget.value.toUpperCase()})
+    } else {
+      return e => this.setState({[field]: e.currentTarget.value})
+    }
   }
 
   componentWillUnmount(){
@@ -119,6 +123,7 @@ class ListingsCreateForm extends React.Component{
 
 
   render(){
+    console.log("city:", this.state.city)
     return(
       <div className="listings-create">
         <div className="sidebar">

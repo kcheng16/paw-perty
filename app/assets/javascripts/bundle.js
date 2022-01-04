@@ -715,9 +715,15 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     value: function update(field) {
       var _this3 = this;
 
-      return function (e) {
-        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
-      };
+      if (field === 'city') {
+        return function (e) {
+          return _this3.setState(_defineProperty({}, field, e.currentTarget.value.toUpperCase()));
+        };
+      } else {
+        return function (e) {
+          return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
+        };
+      }
     }
   }, {
     key: "componentWillUnmount",
@@ -785,6 +791,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
+      console.log("city:", this.state.city);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2290,7 +2297,7 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_search_bar__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "navbar-img",
         onClick: function onClick() {
           return _this.goToListings();
@@ -2301,7 +2308,9 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "logo",
         src: "https://res.cloudinary.com/de8carnhu/image/upload/v1637652441/pawperty-logo_bemkc9.png"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "search-bar"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_search_bar__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
         href: "https://www.linkedin.com/in/kcheng16/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "linked-in",
@@ -2411,7 +2420,7 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
     key: "search",
     value: function search() {
       this.props.history.location.pathname = "/";
-      this.props.history.push("search/".concat(this.state.city));
+      this.props.history.push("search/".concat(this.state.city.toUpperCase()));
     }
   }, {
     key: "handleChange",
@@ -3471,7 +3480,7 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      listings: _this.props.city === "all" ? _this.props.listings : _this.props.listings.filter(function (listing) {
+      listings: _this.props.city === "ALL" ? _this.props.listings : _this.props.listings.filter(function (listing) {
         return listing.city === _this.props.city;
       })
     };
@@ -3483,7 +3492,7 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      if (this.props.city !== "all") {
+      if (this.props.city !== "ALL") {
         this.props.requestListings(this.props.city).then(function (res) {
           return _this2.setState({
             listings: Object.values(res.listings)
@@ -3501,16 +3510,7 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
           listings: Object.values(res.listings)
         });
       });
-    } // static getDerivedStateFromProps(nextProps, prevState) {
-    //   if( nextProps.match.params.city !== prevState.city){
-    //     nextProps.requestListings(nextProps.match.params.city)
-    //   } 
-    //   return {
-    //     listings: nextProps.listings,
-    //     city: nextProps.match.params.city,
-    //   } 
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
