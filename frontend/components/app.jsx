@@ -28,7 +28,7 @@ const App = () => (
     </header>
 
       <Switch>
-        <Route path="/search" render={props => <SearchIndexContainer {...props}/>}/>
+        <Route path="/search/:city" render={props => <SearchIndexContainer {...props}/>}/>
         <Route path="/user/:id/listings" render={props => <UserListingsContainer {...props}/>}/>
         <Route exact path="/user/:id/reservations" render={props => <ReservationShowContainer {...props}/>}/>
         <Route exact path="/user/:id" render={props => <UserShowContainer {...props}/>}/>

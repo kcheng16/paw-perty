@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SearchBar from "./search_component"
+import SearchBar from "./search_bar"
 
 class Navbar extends React.Component {
   constructor(props){

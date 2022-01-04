@@ -25,9 +25,16 @@
 class Api::ListingsController < ApplicationController
   
   def index
-    @listings = Listing.all
+    # @listings = Listing.all
 
-    render :index
+    # render :index
+    @listings = Listing.with_attached_photos.all
+    if params[:city]
+        @listings = Listing.where(city: params[:city])
+        render :index
+    else 
+        render :index
+    end
   end
 
   def create
@@ -68,14 +75,16 @@ class Api::ListingsController < ApplicationController
     if params[:searchValue].length == 0
       render json: { search_results: [] }
     else
-      @listings = listing.where(
-        "lower(city) LIKE ?", 
-        "%#{params[:searchValue].downcase}%",
-        "%#{params[:searchValue].downcase}%"
-      ).limit(8)
+      @cities = listing.group(:city).select(:city)
+      debugger
+      # @listings = listing.where(
+      #   "lower(city) LIKE ?", 
+      #   "%#{params[:searchValue].downcase}%",
+      # )
       
       render :search_result
     end
+  end
 
   private
 
