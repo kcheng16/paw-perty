@@ -3475,29 +3475,30 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
         return listing.city === _this.props.city;
       })
     };
-    console.log("state.listings", _this.state.listings);
     return _this;
   }
 
   _createClass(SearchIndexComponent, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      if (this.props.city !== "all") this.props.requestListings(this.props.city).then(function (res) {
-        return console.log("result:", res);
-      });
-      this.setState({
-        listings: this.props.listings
-      });
+      var _this2 = this;
+
+      if (this.props.city !== "all") {
+        this.props.requestListings(this.props.city).then(function (res) {
+          return _this2.setState({
+            listings: Object.values(res.listings)
+          });
+        });
+      }
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      var _this2 = this;
+      var _this3 = this;
 
-      console.log("updating");
       if (this.props.city !== prevProps.city) this.props.requestListings(this.props.city).then(function (res) {
-        return _this2.setState({
-          listings: res.listings
+        return _this3.setState({
+          listings: Object.values(res.listings)
         });
       });
     } // static getDerivedStateFromProps(nextProps, prevState) {
@@ -3515,7 +3516,7 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var noListingMsg;
 
-      if (!this.state.listings || Object.values(this.state.listings) === 0) {
+      if (this.state.listings.length === 0) {
         noListingMsg = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
           className: "no-listing-msg"
         }, "No listings found in ", this.props.match.params.city);
@@ -3529,7 +3530,7 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
         className: "search-index-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "search-index-listings"
-      }, noListingMsg ? noListingMsg : Object.values(this.state.listings).map(function (listing, idx) {
+      }, noListingMsg ? noListingMsg : this.state.listings.map(function (listing, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_search_index_listing_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           listing: listing,
           key: idx

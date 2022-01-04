@@ -13,21 +13,17 @@ class SearchIndexComponent extends React.Component {
           listing => listing.city === this.props.city
         ),
     };
-    console.log("state.listings", this.state.listings)
   }
 
   componentDidMount() {
-    if(this.props.city !== "all")
+    if(this.props.city !== "all"){
       this.props.requestListings(this.props.city)
-        .then( res => console.log("result:", res))
-    this.setState({listings: this.props.listings})
+        .then( res => this.setState({listings: Object.values(res.listings)}))}
   }
   componentDidUpdate(prevProps) {
-    console.log("updating")
     if(this.props.city !== prevProps.city)
       this.props.requestListings(this.props.city)
-        .then( res => this.setState({listings: res.listings}))
-    
+        .then( res => this.setState({listings: Object.values(res.listings)}))
   }
 
   // static getDerivedStateFromProps(nextProps, prevState) {
@@ -43,7 +39,7 @@ class SearchIndexComponent extends React.Component {
 
   render() {
     let noListingMsg;
-    if (!this.state.listings || Object.values(this.state.listings) === 0) {
+    if (this.state.listings.length === 0) {
       noListingMsg = (
         <p className="no-listing-msg">
           No listings found in {this.props.match.params.city}
@@ -60,7 +56,7 @@ class SearchIndexComponent extends React.Component {
             {noListingMsg ? 
             noListingMsg 
             : 
-            Object.values(this.state.listings).map( (listing, idx) => 
+            this.state.listings.map( (listing, idx) => 
               <SearchIndexListingItem 
                 listing={listing} 
                 key={idx}
