@@ -1,43 +1,66 @@
 import React from "react";
-import { withRouter } from "react-router";
+import ResultsIndexItem from "./results_index_item";
 
-class SearchBar extends React.Component {
+export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { city: 'all' };
+    this.state = {
+      searchValue: "",
+    }
+    
+    this.updateSearch = this.updateSearch.bind(this);
+    this.closeSearch = this.closeSearch.bind(this);
   }
 
-  redirect() {
-    this.props.history.location.pathname = "/"
-    this.props.history.replace(`listings/${this.state.city}`)
+  updateSearch() {
+    return (event) => {
+      // this.props.searchUsers({ searchValue: event.target.value});
+      this.setState({ searchValue: event.target.value });
+    }
   }
-
-  handleChange(e) {
-      this.setState({ city: e.target.value })
-      if(e.target.value === ''){
-        this.setState({ city: 'all' })
-      }
+  
+  closeSearch(event) {
+    event.preventDefault();
+    this.setState({ searchValue: "" });
+    this.props.clearSearch();
   }
 
   render() {
+    let { searchResults } = this.props;
+
     return (
-      <form className="search" onSubmit={() => this.redirect()}>
-        <label className="searchlabel">
-          Location:
-          <br />
-          <input
-            onChange={(e) => this.handleChange(e)}
-            type="search"
-            className="inputs"
-            placeholder="city"
-          />
-        </label>
-        <button >
-          search icon
-        </button>
-      </form>
+      <div className="search-bar">
+        <input
+          type="text"
+          onChange={this.updateSearch()}
+          placeholder="Search..."
+          value={this.state.searchValue}
+        />
+
+        {this.state.searchValue.length > 0 ? (
+          <>
+            <div className="clear-results-background" onClick={this.closeSearch}></div>
+            <div className="results-background" onClick={this.closeSearch}></div>
+          </>
+        ) : null}
+
+        {searchResults.length === 0 ? null : (
+          <div className="results-index">
+            <ul>
+              {searchResults.map((listing, idx) => {
+                return (
+                  <ResultsIndexItem
+                    key={idx}
+                    listing={listing}
+                    closeSearch={this.closeSearch}
+                  />
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
     );
   }
-}
 
-export default withRouter(SearchBar);
+}

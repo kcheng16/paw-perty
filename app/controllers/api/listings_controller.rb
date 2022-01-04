@@ -63,6 +63,20 @@ class Api::ListingsController < ApplicationController
       render json: @listing.errors.full_messages, status: 422
     end
   end
+
+  def search
+    if params[:searchValue].length == 0
+      render json: { search_results: [] }
+    else
+      @listings = listing.where(
+        "lower(city) LIKE ?", 
+        "%#{params[:searchValue].downcase}%",
+        "%#{params[:searchValue].downcase}%"
+      ).limit(8)
+      
+      render "api/listings/search_results"
+    end
+
   private
 
   def listing_params
