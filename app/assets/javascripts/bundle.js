@@ -2297,7 +2297,9 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "navbar-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "navbar-img",
         onClick: function onClick() {
           return _this.goToListings();
@@ -2411,7 +2413,7 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      city: 'all'
+      city: 'ALL'
     };
     return _this;
   }
@@ -2420,18 +2422,18 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
     key: "search",
     value: function search() {
       this.props.history.location.pathname = "/";
-      this.props.history.push("search/".concat(this.state.city.toUpperCase()));
+      this.props.history.push("search/".concat(this.state.city));
     }
   }, {
     key: "handleChange",
     value: function handleChange(e) {
       this.setState({
-        city: e.target.value
+        city: e.target.value.toUpperCase()
       });
 
       if (e.target.value === '') {
         this.setState({
-          city: 'all'
+          city: 'ALL'
         });
       }
     }
@@ -2453,7 +2455,8 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
         },
         type: "search",
         className: "inputs",
-        placeholder: "city"
+        placeholder: "city",
+        value: this.state.city === 'ALL' ? "" : this.state.city
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "search icon        "));
     }
   }]);
@@ -3492,7 +3495,13 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      if (this.props.city !== "ALL") {
+      if (this.props.city === "ALL") {
+        this.props.requestListings().then(function (res) {
+          return _this2.setState({
+            listings: Object.values(res.listings)
+          });
+        });
+      } else {
         this.props.requestListings(this.props.city).then(function (res) {
           return _this2.setState({
             listings: Object.values(res.listings)
@@ -3505,11 +3514,19 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
     value: function componentDidUpdate(prevProps) {
       var _this3 = this;
 
-      if (this.props.city !== prevProps.city) this.props.requestListings(this.props.city).then(function (res) {
-        return _this3.setState({
-          listings: Object.values(res.listings)
+      if (this.props.city === "ALL" && this.props.city !== prevProps.city) {
+        this.props.requestListings().then(function (res) {
+          return _this3.setState({
+            listings: Object.values(res.listings)
+          });
         });
-      });
+      } else if (this.props.city !== prevProps.city) {
+        this.props.requestListings(this.props.city).then(function (res) {
+          return _this3.setState({
+            listings: Object.values(res.listings)
+          });
+        });
+      }
     }
   }, {
     key: "render",
@@ -3571,8 +3588,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  console.log("CONTAINER STATE:", state);
-  console.log("ownProps:", ownProps);
   return {
     listings: Object.values(state.entities.listings),
     city: ownProps.match.params.city

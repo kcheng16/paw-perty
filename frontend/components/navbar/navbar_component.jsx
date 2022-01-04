@@ -13,7 +13,7 @@ class Navbar extends React.Component {
 
   render(){
     return(
-      <div>
+      <div className="navbar-container">
         <img className="navbar-img" onClick={() => this.goToListings()}  src="https://res.cloudinary.com/de8carnhu/image/upload/v1637696527/searchicon_tb3x3e.png" />
         
         <Link to="/">

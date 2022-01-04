@@ -16,14 +16,23 @@ class SearchIndexComponent extends React.Component {
   }
 
   componentDidMount() {
-    if(this.props.city !== "ALL"){
-      this.props.requestListings(this.props.city)
-        .then( res => this.setState({listings: Object.values(res.listings)}))}
-  }
-  componentDidUpdate(prevProps) {
-    if(this.props.city !== prevProps.city)
+    if(this.props.city === "ALL"){
+      this.props.requestListings()
+        .then( res => this.setState({listings: Object.values(res.listings)}))
+    } else {
       this.props.requestListings(this.props.city)
         .then( res => this.setState({listings: Object.values(res.listings)}))
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if(this.props.city === "ALL" && this.props.city !== prevProps.city){
+      this.props.requestListings()
+        .then( res => this.setState({listings: Object.values(res.listings)})) 
+    } else if(this.props.city !== prevProps.city){
+      this.props.requestListings(this.props.city)
+        .then( res => this.setState({listings: Object.values(res.listings)}))
+    } 
   }
 
   render() {

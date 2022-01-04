@@ -4,18 +4,18 @@ import { withRouter } from "react-router";
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { city: 'all' };
+    this.state = { city: 'ALL' };
   }
 
   search() {
     this.props.history.location.pathname = "/"
-    this.props.history.push(`search/${this.state.city.toUpperCase()}`)
+    this.props.history.push(`search/${this.state.city}`)
   }
 
   handleChange(e) {
-      this.setState({ city: e.target.value })
+      this.setState({ city: e.target.value.toUpperCase() })
       if(e.target.value === ''){
-        this.setState({ city: 'all' })
+        this.setState({ city: 'ALL' })
       }
   }
 
@@ -30,6 +30,7 @@ class SearchBar extends React.Component {
             type="search"
             className="inputs"
             placeholder="city"
+            value={this.state.city === 'ALL' ? "" : this.state.city}
           />
         </label>
         <button >
