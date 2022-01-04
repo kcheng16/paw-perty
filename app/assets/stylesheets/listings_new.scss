@@ -199,7 +199,7 @@
 .buttons-container{
   border-top: 1px solid gray;
   width: -webkit-fill-available;
-  margin-top: 80vh;
+  margin-top: 75vh;
   margin-left: -5vw;
   position: fixed;
 }
@@ -207,9 +207,8 @@
   display: flex;
   justify-content: space-between;
   position: fixed;
-  top: 91vh;
   padding-left: 4vw;
-
+  padding-top: 20px;
   >div{
     width: 33vw;
   }
