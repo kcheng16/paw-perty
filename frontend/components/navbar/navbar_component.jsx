@@ -7,14 +7,10 @@ class Navbar extends React.Component {
     super(props)
   }
 
-  goToListings(){
-    this.props.history.push("/listings")
-  }
 
   render(){
     return(
       <div className="navbar-container">
-        <img className="navbar-img" onClick={() => this.goToListings()}  src="https://res.cloudinary.com/de8carnhu/image/upload/v1637696527/searchicon_tb3x3e.png" />
         
         <Link to="/">
           <img className="logo" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637652441/pawperty-logo_bemkc9.png"/>

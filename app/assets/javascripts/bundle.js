@@ -2288,24 +2288,11 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Navbar, [{
-    key: "goToListings",
-    value: function goToListings() {
-      this.props.history.push("/listings");
-    }
-  }, {
     key: "render",
     value: function render() {
-      var _this = this;
-
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "navbar-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "navbar-img",
-        onClick: function onClick() {
-          return _this.goToListings();
-        },
-        src: "https://res.cloudinary.com/de8carnhu/image/upload/v1637696527/searchicon_tb3x3e.png"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["default"], {
         to: "/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "logo",
@@ -2448,8 +2435,8 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
           return _this2.search();
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-        className: "searchlabel"
-      }, "Location:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        className: "search-label"
+      }, "Location:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         onChange: function onChange(e) {
           return _this2.handleChange(e);
         },
@@ -2457,7 +2444,9 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
         className: "inputs",
         placeholder: "city",
         value: this.state.city === 'ALL' ? "" : this.state.city
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "search icon        "));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
+        "class": "fas fa-search"
+      })));
     }
   }]);
 

@@ -22,19 +22,18 @@ class SearchBar extends React.Component {
   render() {
     return (
       <form className="search" onSubmit={() => this.search()}>
-        <label className="searchlabel">
-          Location:
-          <br />
-          <input
-            onChange={(e) => this.handleChange(e)}
-            type="search"
-            className="inputs"
-            placeholder="city"
-            value={this.state.city === 'ALL' ? "" : this.state.city}
-          />
-        </label>
+        <label className="search-label">Location:</label>
+        <br />
+        <input
+          onChange={(e) => this.handleChange(e)}
+          type="search"
+          className="inputs"
+          placeholder="city"
+          value={this.state.city === 'ALL' ? "" : this.state.city}
+        />
         <button >
-search icon        </button>
+          <i class="fas fa-search"></i>
+        </button>
       </form>
     );
   }

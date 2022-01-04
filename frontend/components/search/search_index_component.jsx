@@ -46,6 +46,7 @@ class SearchIndexComponent extends React.Component {
     } else {
       noListingMsg = null;
     }
+    
     return(
       <div className="search-index">
         <div className="search-index-container">

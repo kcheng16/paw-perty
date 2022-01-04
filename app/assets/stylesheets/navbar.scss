@@ -1,6 +1,23 @@
 .navbar-container{
-  // display: flex;
-  // justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+
+  .search-bar{
+    border-radius: 45px;
+    background-color: white;
+    height: 50px;
+    width: 234px;
+    margin-top: 10px;
+
+    .search{
+      padding: 7px 0 0 10px;
+
+      >.search-label{
+        font-weight: 600;
+      }
+    }
+  }
 }
 .navbar-input {
   border: 1px solid #b1b1b1;
