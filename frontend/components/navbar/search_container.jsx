@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import { searchUsers, clearSearch } from "../../actions/search_actions";
-import SearchBar from "./search_bar";
+import { searchListings, clearSearch } from "../../actions/search_actions";
+import SearchComponent from "./search_component";
 
 const mSTP = (state) => {
   return {
@@ -10,9 +10,9 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    searchUsers: (string) => dispatch(searchUsers(string)),
+    searchListings: (string) => dispatch(searchListings(string)),
     clearSearch: () => dispatch(clearSearch()),
   };
 };
 
-export default connect(mSTP, mDTP)(SearchBar);
+export default connect(mSTP, mDTP)(SearchComponent);

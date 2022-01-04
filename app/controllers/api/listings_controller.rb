@@ -74,7 +74,7 @@ class Api::ListingsController < ApplicationController
         "%#{params[:searchValue].downcase}%"
       ).limit(8)
       
-      render "api/listings/search_results"
+      render :search_result
     end
 
   private
