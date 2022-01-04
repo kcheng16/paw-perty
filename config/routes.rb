@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     resources :reservations, only: [:show, :create, :destroy, :update]
     resources :reviews, only: [:create, :destroy, :update]
     resources :listings, only: [:index, :show, :create, :destroy, :update]
-    get '/listings_search', to: 'listings#search'
 
     #should not need to nest ':create', since we CAN block users from viewing
     # the create page IF they're not logged in

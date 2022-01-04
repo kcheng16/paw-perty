@@ -30,8 +30,8 @@ class Api::ListingsController < ApplicationController
     # render :index
     @listings = Listing.with_attached_photos.all
     if params[:city]
-        @listings = Listing.where(city: params[:city])
-        render :index
+      @listings = Listing.where(city: params[:city])
+      render :index
     else 
         render :index
     end

@@ -6,54 +6,61 @@ class SearchIndexComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listings: this.props.listings,
-      city: 'all'
+      listings: this.props.city === "all" ? 
+        this.props.listings
+        :
+        this.props.listings.filter(
+          listing => listing.city === this.props.city
+        ),
     };
+    console.log("state.listings", this.state.listings)
   }
 
   componentDidMount() {
-    this.props.requestListings(this.props.match.params.city)
+    if(this.props.city !== "all")
+      this.props.requestListings(this.props.city)
+        .then( res => console.log("result:", res))
+    this.setState({listings: this.props.listings})
+  }
+  componentDidUpdate(prevProps) {
+    console.log("updating")
+    if(this.props.city !== prevProps.city)
+      this.props.requestListings(this.props.city)
+        .then( res => this.setState({listings: res.listings}))
+    
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
+  // static getDerivedStateFromProps(nextProps, prevState) {
     
-    if( nextProps.match.params.city !== prevState.city){
-      nextProps.requestListings(nextProps.match.params.city)
-    } 
-    return {
-      listings: nextProps.listings,
-      city: nextProps.match.params.city,
-    } 
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    
-    if( nextProps.match.params.city !== prevState.city){
-      nextProps.requestListings(nextProps.match.params.city)
-    } 
-    return {
-      listings: nextProps.listings,
-      city: nextProps.match.params.city,
-    } 
-  }
+  //   if( nextProps.match.params.city !== prevState.city){
+  //     nextProps.requestListings(nextProps.match.params.city)
+  //   } 
+  //   return {
+  //     listings: nextProps.listings,
+  //     city: nextProps.match.params.city,
+  //   } 
+  // }
 
   render() {
-    let msg;
-    if (!this.state.listings.length) {
-      msg = (
-        <p className="msg">
+    let noListingMsg;
+    if (!this.state.listings || Object.values(this.state.listings) === 0) {
+      noListingMsg = (
+        <p className="no-listing-msg">
           No listings found in {this.props.match.params.city}
         </p>
       );
     } else {
-      msg = null;
+      noListingMsg = null;
     }
     return(
       <div className="search-index">
         <div className="search-index-container">
           {/* Listings */}
           <div className="search-index-listings">
-            {this.state.listings.map( (listing, idx) => 
+            {noListingMsg ? 
+            noListingMsg 
+            : 
+            Object.values(this.state.listings).map( (listing, idx) => 
               <SearchIndexListingItem 
                 listing={listing} 
                 key={idx}

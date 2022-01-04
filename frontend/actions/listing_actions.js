@@ -33,8 +33,8 @@ export const clearErrors = () => ({
 });
 //=================================================
 
-export const requestListings = () => dispatch => (
-  listingApiUtil.fetchListings()
+export const requestListings = (city) => dispatch => (
+  listingApiUtil.fetchListings(city)
     .then(listings => dispatch(receiveListings(listings)))
 )
 

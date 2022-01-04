@@ -65,9 +65,9 @@ var clearErrors = function clearErrors() {
   };
 }; //=================================================
 
-var requestListings = function requestListings() {
+var requestListings = function requestListings(city) {
   return function (dispatch) {
-    return _util_listings_util__WEBPACK_IMPORTED_MODULE_0__.fetchListings().then(function (listings) {
+    return _util_listings_util__WEBPACK_IMPORTED_MODULE_0__.fetchListings(city).then(function (listings) {
       return dispatch(receiveListings(listings));
     });
   };
@@ -2411,7 +2411,7 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
     key: "search",
     value: function search() {
       this.props.history.location.pathname = "/";
-      this.props.history.replace("search/".concat(this.state.city));
+      this.props.history.push("search/".concat(this.state.city));
     }
   }, {
     key: "handleChange",
@@ -3471,28 +3471,56 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      listings: _this.props.listings,
-      city: 'all'
+      listings: _this.props.city === "all" ? _this.props.listings : _this.props.listings.filter(function (listing) {
+        return listing.city === _this.props.city;
+      })
     };
+    console.log("state.listings", _this.state.listings);
     return _this;
   }
 
   _createClass(SearchIndexComponent, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.requestListings(this.props.match.params.city);
+      if (this.props.city !== "all") this.props.requestListings(this.props.city).then(function (res) {
+        return console.log("result:", res);
+      });
+      this.setState({
+        listings: this.props.listings
+      });
     }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      var _this2 = this;
+
+      console.log("updating");
+      if (this.props.city !== prevProps.city) this.props.requestListings(this.props.city).then(function (res) {
+        return _this2.setState({
+          listings: res.listings
+        });
+      });
+    } // static getDerivedStateFromProps(nextProps, prevState) {
+    //   if( nextProps.match.params.city !== prevState.city){
+    //     nextProps.requestListings(nextProps.match.params.city)
+    //   } 
+    //   return {
+    //     listings: nextProps.listings,
+    //     city: nextProps.match.params.city,
+    //   } 
+    // }
+
   }, {
     key: "render",
     value: function render() {
-      var msg;
+      var noListingMsg;
 
-      if (!this.state.listings.length) {
-        msg = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "msg"
+      if (!this.state.listings || Object.values(this.state.listings) === 0) {
+        noListingMsg = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "no-listing-msg"
         }, "No listings found in ", this.props.match.params.city);
       } else {
-        msg = null;
+        noListingMsg = null;
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3501,7 +3529,7 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
         className: "search-index-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "search-index-listings"
-      }, this.state.listings.map(function (listing, idx) {
+      }, noListingMsg ? noListingMsg : Object.values(this.state.listings).map(function (listing, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_search_index_listing_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           listing: listing,
           key: idx
@@ -3511,18 +3539,6 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_map_map_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
         listings: this.props.listings
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null))));
-    }
-  }], [{
-    key: "getDerivedStateFromProps",
-    value: function getDerivedStateFromProps(nextProps, prevState) {
-      if (nextProps.match.params.city !== prevState.city) {
-        nextProps.requestListings(nextProps.match.params.city);
-      }
-
-      return {
-        listings: nextProps.listings,
-        city: nextProps.match.params.city
-      };
     }
   }]);
 
@@ -3555,8 +3571,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state, ownProps) {
   console.log("CONTAINER STATE:", state);
+  console.log("ownProps:", ownProps);
   return {
-    listings: Object.values(state.entities.listings)
+    listings: Object.values(state.entities.listings),
+    city: ownProps.match.params.city
   };
 };
 
