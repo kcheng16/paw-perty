@@ -31,8 +31,8 @@ class SearchBar extends React.Component {
           placeholder="city"
           value={this.state.city === 'ALL' ? "" : this.state.city}
         />
-        <button >
-          <i class="fas fa-search"></i>
+        <button className="search-icon">
+          <i className="fas fa-search"></i>
         </button>
       </form>
     );

@@ -2296,7 +2296,7 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
         to: "/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "logo",
-        src: "https://res.cloudinary.com/de8carnhu/image/upload/v1637652441/pawperty-logo_bemkc9.png"
+        src: "https://res.cloudinary.com/de8carnhu/image/upload/v1641338296/pawperty-logo-white_rfw9jb.png"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "search-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_search_bar__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
@@ -2444,8 +2444,10 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
         className: "inputs",
         placeholder: "city",
         value: this.state.city === 'ALL' ? "" : this.state.city
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-        "class": "fas fa-search"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "search-icon"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
+        className: "fas fa-search"
       })));
     }
   }]);

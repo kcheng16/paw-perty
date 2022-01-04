@@ -13,7 +13,7 @@ class Navbar extends React.Component {
       <div className="navbar-container">
         
         <Link to="/">
-          <img className="logo" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637652441/pawperty-logo_bemkc9.png"/>
+          <img className="logo" src="https://res.cloudinary.com/de8carnhu/image/upload/v1641338296/pawperty-logo-white_rfw9jb.png"/>
         </Link>
 
         <div className="search-bar">

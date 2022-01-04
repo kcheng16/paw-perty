@@ -1,3 +1,10 @@
+.logo {
+  display: inline-flex;
+  width: 10vw;
+  height: 4vh;
+  padding: 16px;
+}
+
 .navbar-container{
   display: flex;
   justify-content: space-between;
@@ -7,14 +14,28 @@
     border-radius: 45px;
     background-color: white;
     height: 50px;
-    width: 234px;
+    width: 270px;
     margin-top: 10px;
 
     .search{
-      padding: 7px 0 0 10px;
+      padding: 7px 0 0 25px;
 
       >.search-label{
         font-weight: 600;
+      }
+
+      .search-icon{
+        position: absolute;
+        top: 0px;
+
+        >i{
+          position: absolute;
+          top: 16px;
+          background-color: #F50B7C;
+          padding: 10px;
+          border-radius: 50%;
+          color: white;
+        }
       }
     }
   }
