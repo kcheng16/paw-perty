@@ -59,7 +59,6 @@
   }
 }
 
-
 .search-maps-container{
   display: flex;
   flex-direction: column;
@@ -79,17 +78,21 @@
   justify-content: space-between;
 }
 
+.search-carousel-control-prev{
+  text-align: end;
+}
+.search-carousel-control-next{
+  text-align: start;
+}
+
 .search-carousel-buttons > button{
-  cursor: pointer;
-  background-color: white;
-  color: #222222;
-  z-index: 5;
-  margin-top: 80px;
-  border-radius: 22px;
+  margin-top: 27%;
   width: 30px;
   height: 30px;
-  font-family: cursive;
-  text-align: -webkit-center;
-  font-size: larger;
+
+  >i{
+    color: white;
+    font-size: 150%;
+  }
 }
 

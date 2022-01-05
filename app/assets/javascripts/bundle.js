@@ -2135,10 +2135,9 @@ var Map = /*#__PURE__*/function (_React$Component) {
         zoom: 13
       }; // wrap this.mapNode in a Google Map
 
-      this.map = new google.maps.Map(this.mapNode, mapOptions); // pan map
+      this.map = new google.maps.Map(this.mapNode, mapOptions); // pan map to city location on search
 
       if (this.props.city !== "ALL") {
-        console.log("PANNING MAP");
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({
           address: this.props.city
@@ -3920,13 +3919,19 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
         },
         className: "search-carousel-control-prev",
         type: "button"
-      }, "<"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
+        "class": "fas fa-chevron-circle-left",
+        "aria-hidden": "true"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this2.add();
         },
         className: "search-carousel-control-next",
         type: "button"
-      }, ">")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
+        "class": "fas fa-chevron-circle-right",
+        "aria-hidden": "true"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
         to: "/listings/".concat(this.props.listing.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "search-carousel-img",

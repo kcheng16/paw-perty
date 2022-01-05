@@ -16,9 +16,8 @@ class Map extends React.Component{
     // wrap this.mapNode in a Google Map
     this.map = new google.maps.Map(this.mapNode, mapOptions);
 
-    // pan map
+    // pan map to city location on search
     if(this.props.city !== "ALL"){
-      console.log("PANNING MAP")
       let geocoder = new google.maps.Geocoder()
       geocoder.geocode(
         {address: this.props.city},
