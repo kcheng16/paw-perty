@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./search_bar"
+import UserDropdown from "./user_dropdown_container";
 
 class Navbar extends React.Component {
   constructor(props){
@@ -16,7 +17,7 @@ class Navbar extends React.Component {
           <img className="logo" src="https://res.cloudinary.com/de8carnhu/image/upload/v1641338296/pawperty-logo-white_rfw9jb.png"/>
         </Link>
 
-        <div className="search-bar">
+        <div className="search-bar-container">
           <SearchBar/>
         </div>
 
@@ -28,6 +29,7 @@ class Navbar extends React.Component {
           <img className="github" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/githubicon_w6ympq.png"/>
         </a>
 
+        <UserDropdown />
       </div>
     )
   }

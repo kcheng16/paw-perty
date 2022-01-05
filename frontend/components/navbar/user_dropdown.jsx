@@ -15,12 +15,18 @@ class UserDropdown extends React.Component{
 
   render(){
     return(
-      <div>
-        <img
+      <div className="dropdown-container">
+        <div className="dropdown-img" onClick={() => this.toggleDropdown()}>
+          <i className="fas fa-bars"></i>
+          <i className="fas fa-user-circle"></i>
+        </div>
+
+
+        {/* <img
           className="dropdown-img" 
           src="https://res.cloudinary.com/de8carnhu/image/upload/v1637780625/dropdown-user_hpvvu3.png"
           onClick={() => this.toggleDropdown()} 
-        />
+        /> */}
 
         {!this.props.currentUserId ? (
             <ul className="dropdown-ul" style={this.state.dropdownhidden ? { display: "none" } : { display: "block" }}> 

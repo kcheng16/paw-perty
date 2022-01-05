@@ -11,7 +11,7 @@ import ListingsEditContainer from "./listings/listings_edit_container";
 //==============================
 import UserShowContainer from "./user/user_show_container";
 import UserListingsContainer from "./user/user_listings_container";
-import UserDropdownContainer from "./sessions/user_dropdown_container";
+// import UserDropdownContainer from "./navbar/user_dropdown_container";
 //==============================
 import { Link, Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
@@ -24,7 +24,7 @@ const App = () => (
       <Modal />
     <header>
       <NavbarContainer />
-      <UserDropdownContainer />
+      {/* <UserDropdownContainer /> */}
     </header>
 
       <Switch>
