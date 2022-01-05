@@ -696,33 +696,35 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
           _this2.setState({
             longitude: results[0].geometry.location.lng(),
             latitude: results[0].geometry.location.lat()
+          }, function () {
+            console.log("setState 2nd function");
+            var formData = new FormData();
+            formData.append("listing[host_id]", _this2.state.host_id);
+            formData.append("listing[title]", _this2.state.title);
+            formData.append("listing[description]", _this2.state.description);
+            formData.append("listing[street_address]", _this2.state.street_address);
+            formData.append("listing[city]", _this2.state.city);
+            formData.append("listing[country]", _this2.state.country);
+            formData.append("listing[price]", _this2.state.price);
+            formData.append("listing[num_of_beds]", _this2.state.num_of_beds);
+            formData.append("listing[longitude]", _this2.state.longitude);
+            formData.append("listing[latitude]", _this2.state.latitude);
+            formData.append("listing[postal_code]", _this2.state.postal_code);
+
+            if (_this2.state.photoFile.length > 0 && _this2.state.photoFile.length <= 5) {
+              for (var i = 0; i < _this2.state.photoFile.length; i++) {
+                formData.append("listing[photos][]", _this2.state.photoFile[i]);
+              }
+            } //create the listing
+
+
+            _this2.props.createListing(formData).then(function (res) {
+              _this2.props.history.push("/listings/".concat(res.payload.listing.id));
+            });
           });
         } else {
           alert('Geocode was not successful for the following reason: ' + status);
         }
-      });
-      var formData = new FormData();
-      formData.append("listing[host_id]", this.state.host_id);
-      formData.append("listing[title]", this.state.title);
-      formData.append("listing[description]", this.state.description);
-      formData.append("listing[street_address]", this.state.street_address);
-      formData.append("listing[city]", this.state.city);
-      formData.append("listing[country]", this.state.country);
-      formData.append("listing[price]", this.state.price);
-      formData.append("listing[num_of_beds]", this.state.num_of_beds);
-      formData.append("listing[longitude]", this.state.longitude);
-      formData.append("listing[latitude]", this.state.latitude);
-      formData.append("listing[postal_code]", this.state.postal_code);
-
-      if (this.state.photoFile.length > 0 && this.state.photoFile.length <= 5) {
-        for (var i = 0; i < this.state.photoFile.length; i++) {
-          formData.append("listing[photos][]", this.state.photoFile[i]);
-        }
-      } //create the listing
-
-
-      this.props.createListing(formData).then(function (res) {
-        _this2.props.history.push("/listings/".concat(res.payload.listing.id));
       });
     }
   }, {

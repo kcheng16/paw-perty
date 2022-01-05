@@ -45,36 +45,39 @@ class ListingsCreateForm extends React.Component{
       {address: `${this.state.street_address},${this.state.city}, ${this.state.postal_code},${this.state.country}`},
       (results, status) => {
         if (status == 'OK') {
-          this.setState({longitude: results[0].geometry.location.lng(), latitude: results[0].geometry.location.lat()})
+          this.setState(
+            {longitude: results[0].geometry.location.lng(), latitude: results[0].geometry.location.lat()},
+            () => {
+              console.log("setState 2nd function")
+              const formData = new FormData();
+                formData.append("listing[host_id]", this.state.host_id);
+                formData.append("listing[title]", this.state.title);
+                formData.append("listing[description]", this.state.description);
+                formData.append("listing[street_address]", this.state.street_address);
+                formData.append("listing[city]", this.state.city);
+                formData.append("listing[country]", this.state.country);
+                formData.append("listing[price]", this.state.price);
+                formData.append("listing[num_of_beds]", this.state.num_of_beds);
+                formData.append("listing[longitude]", this.state.longitude);
+                formData.append("listing[latitude]", this.state.latitude);
+                formData.append("listing[postal_code]", this.state.postal_code);
+          
+              if (this.state.photoFile.length > 0 && this.state.photoFile.length <= 5) {
+                for (let i = 0; i < this.state.photoFile.length; i++) {
+                  formData.append("listing[photos][]", this.state.photoFile[i]);
+                }
+              }
+        
+              //create the listing
+              this.props.createListing(formData)
+              .then((res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
+          })
+
         } else {
           alert('Geocode was not successful for the following reason: ' + status);
         }
       }
     )
-    
-    const formData = new FormData();
-      formData.append("listing[host_id]", this.state.host_id);
-      formData.append("listing[title]", this.state.title);
-      formData.append("listing[description]", this.state.description);
-      formData.append("listing[street_address]", this.state.street_address);
-      formData.append("listing[city]", this.state.city);
-      formData.append("listing[country]", this.state.country);
-      formData.append("listing[price]", this.state.price);
-      formData.append("listing[num_of_beds]", this.state.num_of_beds);
-      formData.append("listing[longitude]", this.state.longitude);
-      formData.append("listing[latitude]", this.state.latitude);
-      formData.append("listing[postal_code]", this.state.postal_code);
-
-    if (this.state.photoFile.length > 0 && this.state.photoFile.length <= 5) {
-      for (let i = 0; i < this.state.photoFile.length; i++) {
-        formData.append("listing[photos][]", this.state.photoFile[i]);
-      }
-    }
-
-    //create the listing
-    this.props.createListing(formData)
-    .then((res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
-
   }
   
   handleFile(e){
