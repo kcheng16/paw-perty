@@ -3670,6 +3670,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom_Link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom/Link */ "./node_modules/react-router-dom/Link.js");
 /* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../map/map_component */ "./frontend/components/map/map_component.jsx");
 /* harmony import */ var _search_index_listing_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search_index_listing_item */ "./frontend/components/search/search_index_listing_item.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -3693,6 +3694,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -3758,14 +3760,36 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var noListingMsg;
+      var noListing;
 
       if (this.state.listings.length === 0) {
-        noListingMsg = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "no-listing-msg"
-        }, "No listings found in ", this.props.match.params.city);
+        noListing = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "no-listing"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "No listings found in ", this.props.match.params.city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Travel the world with paw-perty"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "no-listing-cities"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          to: "/search/PARIS",
+          className: "no-listing-city"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          src: "https://res.cloudinary.com/de8carnhu/image/upload/v1641367085/search-no-listing/daniel-bounliane-_oveYdYjZQw-unsplash_dj9sms.jpg"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Paris")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          to: "/search/NEW%20YORK",
+          className: "no-listing-city"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          src: "https://res.cloudinary.com/de8carnhu/image/upload/v1641367085/search-no-listing/brooke-cagle-kwSg-CnWvdc-unsplash_za0fyg.jpg"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "New York")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          to: "/search/SYDNEY",
+          className: "no-listing-city"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          src: "https://res.cloudinary.com/de8carnhu/image/upload/v1641367085/search-no-listing/ghiffari-haris-IEYpQcaY598-unsplash_uppecm.jpg"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Sydney")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          to: "/search/CAPETOWN",
+          className: "no-listing-city"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          src: "https://res.cloudinary.com/de8carnhu/image/upload/v1641367085/search-no-listing/daniel-vogel-5lnBe2NfeK0-unsplash_xdiowj.jpg"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Capetown"))));
       } else {
-        noListingMsg = null;
+        noListing = null;
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3774,7 +3798,7 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
         className: "search-index-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "search-index-listings"
-      }, noListingMsg ? noListingMsg : this.state.listings.map(function (listing, idx) {
+      }, noListing ? noListing : this.state.listings.map(function (listing, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_search_index_listing_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           listing: listing,
           key: idx

@@ -47,7 +47,7 @@ class SearchIndexListingItem extends React.Component{
         </Link>
 
       </div>
-        {/* listings */}          
+        {/* listings information*/}          
         <Link to={`/listings/${this.props.listing.id}`} className="search-listing-link" >
           <div className="search-city">{this.props.listing.city}</div>
           <div className="search-title">{this.props.listing.title}</div>
