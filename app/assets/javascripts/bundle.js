@@ -2123,6 +2123,8 @@ var Map = /*#__PURE__*/function (_React$Component) {
   _createClass(Map, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
+      var _this = this;
+
       // set the map to show SF
       var mapOptions = {
         center: {
@@ -2133,7 +2135,24 @@ var Map = /*#__PURE__*/function (_React$Component) {
         zoom: 13
       }; // wrap this.mapNode in a Google Map
 
-      this.map = new google.maps.Map(this.mapNode, mapOptions); // Marker manager
+      this.map = new google.maps.Map(this.mapNode, mapOptions); // pan map
+
+      if (this.props.city !== "ALL") {
+        console.log("PANNING MAP");
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({
+          address: this.props.city
+        }, function (results, status) {
+          if (status == 'OK') {
+            _this.map.setCenter(results[0].geometry.location);
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+            console.log("STATUS:", status);
+            console.log("RESULTs:", results);
+          }
+        });
+      } // Marker manager
+
 
       this.MarkerManager = new _util_marker_manager__WEBPACK_IMPORTED_MODULE_1__["default"](this.map);
       this.MarkerManager.updateMarkers(this.props.listings);
@@ -2141,12 +2160,14 @@ var Map = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
+      // var latLng = new google.maps.LatLng(51.433373, -0.712251);
+      // map.panTo(latLng);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "map-container",
         ref: function ref(map) {
-          return _this.mapNode = map;
+          return _this2.mapNode = map;
         }
       });
     }
@@ -3754,7 +3775,8 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "search-maps-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_map_map_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        listings: this.props.listings
+        listings: this.props.listings,
+        city: this.props.city
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null))));
     }
   }]);
