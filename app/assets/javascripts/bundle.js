@@ -1723,7 +1723,8 @@ var ListingsIndexItem = function ListingsIndexItem(props) {
     images: props.listing.images,
     id: props.listing.id
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    to: "/listings/".concat(props.listing.id)
+    to: "/listings/".concat(props.listing.id),
+    className: "listing-link"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "listings-index-link"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {

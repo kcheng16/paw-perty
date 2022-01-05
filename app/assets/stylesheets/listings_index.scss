@@ -1,26 +1,32 @@
 
 .listings-index {
   display: grid;
-  justify-content: center;
+  align-items: center;
   grid-template-columns: repeat(4, 23vw);
+  padding: 0 5%;
 }
 
 .listings-index-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 15px;
+}
+
+.listing-link{
+  width: 80%;
 }
 
 .listings-index-link {
   font-family: sans-serif;
   display: flex;
   justify-content: space-between;
-  width: 80%;
   
   .info{
     display: flex;
     justify-content: space-evenly;
   }
   .city {
-    font-size: 120%;
     color: #484848;
     font-weight: 600;
   }
