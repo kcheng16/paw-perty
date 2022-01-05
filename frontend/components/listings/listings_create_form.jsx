@@ -1,5 +1,4 @@
 import React from "react";
-// import ListingCreateMap from "../map/listing_create_map_component"
 
 class ListingsCreateForm extends React.Component{
   constructor(props){
@@ -202,24 +201,7 @@ class ListingsCreateForm extends React.Component{
                 </div>
               </div>
             </div>
-
-          {/* Maps */}
-          {/* <div 
-            className="search-maps-container"
-            style={this.state.localState.pageIndex === 3 ? { display: "grid" } : { display: "none" }}
-          >
-            {this.state.street_address && this.state.city && this.state.postal_code && this.state.country ? 
-              <ListingCreateMap 
-                streetAddress={this.state.street_address}
-                city={this.state.city}
-                zip={this.state.postal_code}
-                country={this.state.country}
-              />
-              :
-              ""
-            }
-          </div> */}
-
+            
           {/* GUESTS */}
             <div 
               style={this.state.localState.pageIndex === 3 ? { display: "grid" } : { display: "none" }}
