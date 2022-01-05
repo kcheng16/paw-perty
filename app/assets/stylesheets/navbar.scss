@@ -11,8 +11,12 @@
   background-color: black;
   padding: 10px 150px;
 
+  .search-bar-container{
+    margin-right: 20%;
+  }
   .search-bar{
     display: flex;
+    justify-content: space-between;
     background-color: white;
     border-radius: 45px;
     padding: 0 20px;
@@ -22,9 +26,10 @@
       flex-direction: column;
       justify-content: center;
       padding: 5px 0;
-      
+
       >.search-label{
         font-weight: 600;
+        font-size: 80%;
       }
 
       >.inputs{
@@ -44,48 +49,9 @@
     }
   }
 }
-.navbar-input {
-  border: 1px solid #b1b1b1;
-  border-radius: 22px;
-  position: absolute;
-  top: 2vh;
-  left: 34vw;
-  width: 32vw;
-  height: 2vh;
-  padding: 13px;
-}
-
-.navbar-input:hover {
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-  0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-  0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-}
-
-.navbar-img {
-  position: absolute;
-  top: 2.5vh;
-  left: 65vw;
-  width: 2vw;
-  height: 3vh;
-  border-radius: 33px;
-}
-
-.navbar-img:hover {
-  cursor: pointer;
-}
 
 .linked-in{
-  width: 4vw;
-  height: 7vh;
-  position: absolute;
-  top: 1vh;
-  right: 9vw;
 }
 
 .github{
-  position: absolute;
-  top: 1vh;
-  right: 14vw;
-  width: 4vw;
-  height: 7vh;
 }

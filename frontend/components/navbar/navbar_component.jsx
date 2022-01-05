@@ -21,13 +21,13 @@ class Navbar extends React.Component {
           <SearchBar/>
         </div>
 
-        <a href="https://www.linkedin.com/in/kcheng16/">
+        {/* <a href="https://www.linkedin.com/in/kcheng16/">
           <img className="linked-in" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/linkedinbutton_r8xeco.png"/>
         </a>
 
         <a href="https://github.com/kcheng16">
           <img className="github" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/githubicon_w6ympq.png"/>
-        </a>
+        </a> */}
 
         <UserDropdown />
       </div>
