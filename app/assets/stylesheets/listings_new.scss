@@ -60,10 +60,10 @@
   
 // start of address==============
   .listing-address-bg{
-    background-image: url("https://res.cloudinary.com/de8carnhu/image/upload/v1638226032/map_qnxr2f.png");
     display: block;
+    flex-grow: 1;
+    background-image: url(https://res.cloudinary.com/de8carnhu/image/upload/v1638226032/map_qnxr2f.png);
     width: 49vw;
-    height: 80vh;
     margin-left: -5vw;
   }
   
@@ -199,16 +199,18 @@
 .buttons-container{
   border-top: 1px solid gray;
   width: -webkit-fill-available;
-  margin-top: 75vh;
+  margin-top: 77vh;
   margin-left: -5vw;
   position: fixed;
 }
 .buttons{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   position: fixed;
-  padding-left: 4vw;
-  padding-top: 20px;
+  background-color: white;
+  width: 50%;
+  height: 13%;
+
   >div{
     width: 33vw;
   }
@@ -221,9 +223,10 @@
 
   >button:last-child{
     border-radius: 8px;
-    background-color: rgb(0, 0, 0);
     color: white;
-    width: 5vw;
+    width: 10%;
+    height: 50%;
+    margin-top: 2vh;
     text-align: center;
   }
 }
@@ -251,20 +254,6 @@
   flex-direction: column;
   color: red;
   list-style: square;
-}
-
-.finish-button{
-  position: absolute;
-  top: 82.5vh;
-  left: 38vw;
-  font-family: sans-serif;
-  border: black solid 1px;
-  border-radius: 8px;
-  width: 5vw;
-  height: 5.5vh;
-  text-align: center;
-  font-weight: 600;
-  background-color: #f7477b;
 }
 
 .photos{

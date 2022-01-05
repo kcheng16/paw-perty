@@ -66,7 +66,7 @@ class ListingsCreateForm extends React.Component{
                   formData.append("listing[photos][]", this.state.photoFile[i]);
                 }
               }
-        
+
               //create the listing
               this.props.createListing(formData)
               .then((res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
@@ -138,9 +138,7 @@ class ListingsCreateForm extends React.Component{
     }
   }
 
-
   render(){
-    console.log("RENDER-STATE:", this.state)
     return(
       <div className="listings-create">
         <div className="sidebar">
@@ -257,6 +255,7 @@ class ListingsCreateForm extends React.Component{
               <button onClick={() => this.subPageIndex()}>Back</button>
               <div></div>
               <button 
+                style={ this.state.localState.pageIndex !== 5 ? {backgroundColor: "black"} : {backgroundColor: "#E30C79"}}
                 onClick={(e) => {
                   if (this.state.localState.pageIndex !== 5 ) {
                     this.addPageIndex();

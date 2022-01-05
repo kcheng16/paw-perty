@@ -816,7 +816,6 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      console.log("RENDER-STATE:", this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -985,6 +984,11 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
           return _this4.subPageIndex();
         }
       }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        style: this.state.localState.pageIndex !== 5 ? {
+          backgroundColor: "black"
+        } : {
+          backgroundColor: "#E30C79"
+        },
         onClick: function onClick(e) {
           if (_this4.state.localState.pageIndex !== 5) {
             _this4.addPageIndex();
