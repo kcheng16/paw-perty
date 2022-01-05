@@ -449,9 +449,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _search_search_index_container__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./search/search_index_container */ "./frontend/components/search/search_index_container.jsx");
 
 
- // import SignupContainer from "./sessions/signup_container";
-// import LoginContainer from "./sessions/login_container";
-//===============================
+ //===============================
 
 
 
@@ -459,8 +457,7 @@ __webpack_require__.r(__webpack_exports__);
  //==============================
 
 
- // import UserDropdownContainer from "./navbar/user_dropdown_container";
-//==============================
+ //==============================
 
 
 
