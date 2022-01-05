@@ -49,7 +49,7 @@ class SearchIndexComponent extends React.Component {
               <div>Paris</div>
             </Link>
             <Link to="/search/NEW%20YORK" className="no-listing-city">
-              <img src="https://res.cloudinary.com/de8carnhu/image/upload/v1641367085/search-no-listing/brooke-cagle-kwSg-CnWvdc-unsplash_za0fyg.jpg"/>
+              <img src="https://res.cloudinary.com/de8carnhu/image/upload/v1641407000/search-no-listing/richard-tao-zlwPOGpwuWc-unsplash_s4fjob.jpg"/>
               <div>New York</div>
             </Link>
             <Link to="/search/SYDNEY" className="no-listing-city">
@@ -62,9 +62,7 @@ class SearchIndexComponent extends React.Component {
             </Link>
           </div>
         </div>
-      );
-    } else {
-      noListing = null;
+      )
     }
     
     return(

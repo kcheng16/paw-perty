@@ -3776,7 +3776,7 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
           to: "/search/NEW%20YORK",
           className: "no-listing-city"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-          src: "https://res.cloudinary.com/de8carnhu/image/upload/v1641367085/search-no-listing/brooke-cagle-kwSg-CnWvdc-unsplash_za0fyg.jpg"
+          src: "https://res.cloudinary.com/de8carnhu/image/upload/v1641407000/search-no-listing/richard-tao-zlwPOGpwuWc-unsplash_s4fjob.jpg"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "New York")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
           to: "/search/SYDNEY",
           className: "no-listing-city"
@@ -3788,8 +3788,6 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           src: "https://res.cloudinary.com/de8carnhu/image/upload/v1641367085/search-no-listing/daniel-vogel-5lnBe2NfeK0-unsplash_xdiowj.jpg"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Capetown"))));
-      } else {
-        noListing = null;
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
