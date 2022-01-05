@@ -619,7 +619,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-
+ // import ListingCreateMap from "../map/listing_create_map_component"
 
 var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
   _inherits(ListingsCreateForm, _React$Component);
@@ -640,8 +640,8 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       city: "",
       postal_code: "",
       country: "",
-      longitude: "37.798967",
-      latitude: "-122.403546",
+      longitude: "",
+      latitude: "",
       price: 0,
       num_of_beds: 0,
       photoFile: [],
@@ -686,7 +686,21 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       var _this2 = this;
 
-      e.preventDefault();
+      e.preventDefault(); // geocode
+
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({
+        address: "".concat(this.state.street_address, ",").concat(this.state.city, ", ").concat(this.state.postal_code, ",").concat(this.state.country)
+      }, function (results, status) {
+        if (status == 'OK') {
+          _this2.setState({
+            longitude: results[0].geometry.location.lng(),
+            latitude: results[0].geometry.location.lat()
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
       var formData = new FormData();
       formData.append("listing[host_id]", this.state.host_id);
       formData.append("listing[title]", this.state.title);
@@ -704,7 +718,8 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         for (var i = 0; i < this.state.photoFile.length; i++) {
           formData.append("listing[photos][]", this.state.photoFile[i]);
         }
-      }
+      } //create the listing
+
 
       this.props.createListing(formData).then(function (res) {
         _this2.props.history.push("/listings/".concat(res.payload.listing.id));
@@ -713,7 +728,6 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleFile",
     value: function handleFile(e) {
-      console.log("HANDLING FILES(FILES):", e.currentTarget.files);
       this.photos.push(e.currentTarget.files);
       this.setState({
         photoFile: [].concat(_toConsumableArray(e.currentTarget.files), _toConsumableArray(this.state.photoFile))
@@ -800,6 +814,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
+      console.log("RENDER-STATE:", this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2166,8 +2181,6 @@ var Map = /*#__PURE__*/function (_React$Component) {
             _this.map.setCenter(results[0].geometry.location);
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
-            console.log("STATUS:", status);
-            console.log("RESULTs:", results);
           }
         });
       } // Marker manager

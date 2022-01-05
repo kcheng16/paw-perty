@@ -1,4 +1,5 @@
 import React from "react";
+// import ListingCreateMap from "../map/listing_create_map_component"
 
 class ListingsCreateForm extends React.Component{
   constructor(props){
@@ -11,8 +12,8 @@ class ListingsCreateForm extends React.Component{
       city: "",
       postal_code: "",
       country: "",
-      longitude: "37.798967",
-      latitude: "-122.403546",
+      longitude: "",
+      latitude: "",
       price: 0,
       num_of_beds: 0,
       photoFile: [],
@@ -37,7 +38,20 @@ class ListingsCreateForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
+    // geocode
+    let geocoder = new google.maps.Geocoder()
 
+    geocoder.geocode(
+      {address: `${this.state.street_address},${this.state.city}, ${this.state.postal_code},${this.state.country}`},
+      (results, status) => {
+        if (status == 'OK') {
+          this.setState({longitude: results[0].geometry.location.lng(), latitude: results[0].geometry.location.lat()})
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      }
+    )
+    
     const formData = new FormData();
       formData.append("listing[host_id]", this.state.host_id);
       formData.append("listing[title]", this.state.title);
@@ -57,12 +71,13 @@ class ListingsCreateForm extends React.Component{
       }
     }
 
+    //create the listing
     this.props.createListing(formData)
     .then((res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
+
   }
   
   handleFile(e){
-    console.log("HANDLING FILES(FILES):", e.currentTarget.files)
     this.photos.push(e.currentTarget.files)
     this.setState({photoFile: [...e.currentTarget.files, ...this.state.photoFile]})
   }
@@ -123,6 +138,7 @@ class ListingsCreateForm extends React.Component{
 
 
   render(){
+    console.log("RENDER-STATE:", this.state)
     return(
       <div className="listings-create">
         <div className="sidebar">
@@ -183,6 +199,23 @@ class ListingsCreateForm extends React.Component{
                 </div>
               </div>
             </div>
+
+          {/* Maps */}
+          {/* <div 
+            className="search-maps-container"
+            style={this.state.localState.pageIndex === 3 ? { display: "grid" } : { display: "none" }}
+          >
+            {this.state.street_address && this.state.city && this.state.postal_code && this.state.country ? 
+              <ListingCreateMap 
+                streetAddress={this.state.street_address}
+                city={this.state.city}
+                zip={this.state.postal_code}
+                country={this.state.country}
+              />
+              :
+              ""
+            }
+          </div> */}
 
           {/* GUESTS */}
             <div 

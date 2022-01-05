@@ -20,17 +20,20 @@ class Map extends React.Component{
     if(this.props.city !== "ALL"){
       let geocoder = new google.maps.Geocoder()
       geocoder.geocode(
-        {address: this.props.city},
+        {address: `${this.props.address},${this.props.city}, ${this.props.country}`},
         (results, status) => {
           if (status == 'OK') {
             this.map.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: this.map,
+              position: results[0].geometry.location
+            })
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
           }
         }
       )
     }
-    // Marker manager
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.listings)
   }
