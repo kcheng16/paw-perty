@@ -15,10 +15,10 @@ class ListingsCreateForm extends React.Component{
       latitude: "-122.403546",
       price: 0,
       num_of_beds: 0,
+      photoFile: [],
       localState: {
         pageIndex: 0
       },
-      photoFile: []
     }
     this.photos = [];
     this.style1 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)`}
@@ -39,32 +39,32 @@ class ListingsCreateForm extends React.Component{
     e.preventDefault();
 
     const formData = new FormData();
-          formData.append("listing[host_id]", this.state.host_id);
-          formData.append("listing[title]", this.state.title);
-          formData.append("listing[description]", this.state.description);
-          formData.append("listing[street_address]", this.state.street_address);
-          formData.append("listing[city]", this.state.city);
-          formData.append("listing[country]", this.state.country);
-          formData.append("listing[price]", this.state.price);
-          formData.append("listing[num_of_beds]", this.state.num_of_beds);
-          formData.append("listing[longitude]", this.state.longitude);
-          formData.append("listing[latitude]", this.state.latitude);
-          formData.append("listing[postal_code]", this.state.postal_code);
+      formData.append("listing[host_id]", this.state.host_id);
+      formData.append("listing[title]", this.state.title);
+      formData.append("listing[description]", this.state.description);
+      formData.append("listing[street_address]", this.state.street_address);
+      formData.append("listing[city]", this.state.city);
+      formData.append("listing[country]", this.state.country);
+      formData.append("listing[price]", this.state.price);
+      formData.append("listing[num_of_beds]", this.state.num_of_beds);
+      formData.append("listing[longitude]", this.state.longitude);
+      formData.append("listing[latitude]", this.state.latitude);
+      formData.append("listing[postal_code]", this.state.postal_code);
 
-    if (this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
+    if (this.state.photoFile.length > 0 && this.state.photoFile.length <= 5) {
       for (let i = 0; i < this.state.photoFile.length; i++) {
         formData.append("listing[photos][]", this.state.photoFile[i]);
       }
     }
 
-    this.props.createListing(formData).then(
-      (res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
+    this.props.createListing(formData)
+    .then((res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
   }
   
   handleFile(e){
+    console.log("HANDLING FILES(FILES):", e.currentTarget.files)
     this.photos.push(e.currentTarget.files)
-    this.setState({photoFile: e.currentTarget.files})
-
+    this.setState({photoFile: [...e.currentTarget.files, ...this.state.photoFile]})
   }
 
   update(field){
@@ -123,7 +123,6 @@ class ListingsCreateForm extends React.Component{
 
 
   render(){
-    console.log("city:", this.state.city)
     return(
       <div className="listings-create">
         <div className="sidebar">
