@@ -79,20 +79,15 @@
 }
 
 .search-carousel-control-prev{
-  text-align: end;
+  margin-left: 2%;
 }
 .search-carousel-control-next{
-  text-align: start;
+  margin-right: 2%;
 }
 
 .search-carousel-buttons > button{
   margin-top: 27%;
   width: 30px;
   height: 30px;
-
-  >i{
-    color: white;
-    font-size: 150%;
-  }
 }
 

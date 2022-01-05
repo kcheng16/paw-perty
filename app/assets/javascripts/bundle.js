@@ -1518,13 +1518,27 @@ var ListingsImages = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "carousel"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "carousel-buttons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this2.subtract();
         },
         className: "carousel-control-prev",
         type: "button"
-      }, "<"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
+        className: "fas fa-chevron-circle-left",
+        id: "chevron"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          return _this2.add();
+        },
+        className: "carousel-control-next",
+        type: "button"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
+        className: "fas fa-chevron-circle-right",
+        id: "chevron"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
         to: "/listings/".concat(this.props.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "carousel-img",
@@ -1566,13 +1580,7 @@ var ListingsImages = /*#__PURE__*/function (_React$Component) {
           display: "none"
         },
         src: this.props.listing.photos[4] ? "".concat(this.props.listing.photos[this.state.counter]) : "".concat(this.props.images[this.state.counter])
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        onClick: function onClick() {
-          return _this2.add();
-        },
-        className: "carousel-control-next",
-        type: "button"
-      }, ">"));
+      })));
     }
   }]);
 
@@ -3920,8 +3928,9 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
         className: "search-carousel-control-prev",
         type: "button"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-        "class": "fas fa-chevron-circle-left",
-        "aria-hidden": "true"
+        className: "fas fa-chevron-circle-left",
+        "aria-hidden": "true",
+        id: "chevron"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this2.add();
@@ -3929,8 +3938,9 @@ var SearchIndexListingItem = /*#__PURE__*/function (_React$Component) {
         className: "search-carousel-control-next",
         type: "button"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-        "class": "fas fa-chevron-circle-right",
-        "aria-hidden": "true"
+        className: "fas fa-chevron-circle-right",
+        "aria-hidden": "true",
+        id: "chevron"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
         to: "/listings/".concat(this.props.listing.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {

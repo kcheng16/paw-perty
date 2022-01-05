@@ -31,10 +31,10 @@ class SearchIndexListingItem extends React.Component{
         <div className="carousel">
           <div className="search-carousel-buttons">
             <button onClick={() => this.subtract() } className="search-carousel-control-prev" type="button">
-              <i class="fas fa-chevron-circle-left" aria-hidden="true"></i>
+              <i className="fas fa-chevron-circle-left" aria-hidden="true" id="chevron"></i>
             </button>
             <button onClick={() => this.add() } className="search-carousel-control-next" type="button">
-              <i class="fas fa-chevron-circle-right" aria-hidden="true"></i>
+              <i className="fas fa-chevron-circle-right" aria-hidden="true" id="chevron"></i>
             </button>
           </div>
 

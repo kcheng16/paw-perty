@@ -27,10 +27,14 @@ class ListingsImages extends React.Component{
   render(){
     return(
       <div className="carousel">
-        <button onClick={() => this.subtract() } className="carousel-control-prev" type="button">
-          &lt;
-        </button>
-
+        <div className="carousel-buttons">
+          <button onClick={() => this.subtract() } className="carousel-control-prev" type="button">
+            <i className="fas fa-chevron-circle-left" id="chevron"></i>
+          </button>
+          <button onClick={() => this.add() } className="carousel-control-next" type="button">
+            <i className="fas fa-chevron-circle-right" id="chevron"></i>        
+          </button>
+        </div>
         <Link to={`/listings/${this.props.id}`} >
           <img className="carousel-img" style={this.state.counter === 0 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos[0] ? `${this.props.listing.photos[this.state.counter]}` : `${this.props.images[this.state.counter]}`}/>
           <img className="carousel-img" style={this.state.counter === 1 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos[1] ? `${this.props.listing.photos[this.state.counter]}` : `${this.props.images[this.state.counter]}`}/>
@@ -39,9 +43,7 @@ class ListingsImages extends React.Component{
           <img className="carousel-img" style={this.state.counter === 4 ? {display: "block"} : {display: "none"}} src={this.props.listing.photos[4] ? `${this.props.listing.photos[this.state.counter]}` : `${this.props.images[this.state.counter]}`}/>
         </Link>
 
-        <button onClick={() => this.add() } className="carousel-control-next" type="button">
-          &gt;
-        </button>
+        
       </div>
     )
   }
