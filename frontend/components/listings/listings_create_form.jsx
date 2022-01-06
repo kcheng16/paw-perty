@@ -160,6 +160,15 @@ class ListingsCreateForm extends React.Component{
     }
   }
 
+  removeImage(idx) {
+    // let index = parseInt(e.currentTarget.dataset.index);
+    let photos = this.state.photos;
+    
+    photos.splice(idx, 1);
+    this.photos.splice(idx, 1);
+    this.setState({ photos: photos });
+  }
+
   render(){
     return(
       <div className="listings-create">
@@ -249,12 +258,14 @@ class ListingsCreateForm extends React.Component{
                 />
                 <div className="uploaded-img-container">
                   {this.photos.map((photo, idx) => 
-                    <img 
-                      key={idx}
-                      src={photo}
-                      className="uploaded-img"
-                    />                
-                    )}
+                    <div key={idx} className="uploaded-img-container-2">
+                      <i className="far fa-times-circle" onClick={(e) => this.removeImage(idx)}></i>
+                      <img 
+                        src={photo}
+                        className="uploaded-img"
+                      />                
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

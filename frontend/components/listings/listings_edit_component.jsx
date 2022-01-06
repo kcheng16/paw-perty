@@ -236,15 +236,17 @@ class ListingEditComponent extends React.Component{
                   onChange={e => this.handleFile(e)}
                   multiple
                 />
-                <div className="imgs">
                   {this.state.photos.map((photo, idx) => 
-                    <img 
-                      key={idx}
-                      src={photo}
-                    >
-                    </img>
+                    <div className="uploaded-img-container">
+                      <i class="fas fa-trash-alt" onClick={(e) => this.removeImage(e)}></i>
+                      <img 
+                        key={idx}
+                        src={photo}
+                        className="uploaded-img"
+                      >
+                      </img>
+                    </div>
                     )}
-                </div>
                 {/* <button 
                   className="delete-img"
                   onClick={() => this.setState({photoFile: []})}

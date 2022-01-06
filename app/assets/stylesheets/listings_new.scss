@@ -270,14 +270,29 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 10px;
+      position: relative;
       padding: 10px 0;
 
-      .uploaded-img{
-        border-radius: 10px;
-        width: 125px;
-        height: 125px;
-        object-fit: cover;
+      >.uploaded-img-container-2{
+        position: relative;
+
+        >i{
+          position: absolute;
+          left: 82%;
+          top: 5%;
+          cursor: pointer;
+          color: #d70909;
+        }
+
+        >.uploaded-img{
+          border-radius: 10px;
+          width: 7vw;
+          height: 15vh;
+          object-fit: cover;
+        }
       }
+        
+
     }
 
     h1{
@@ -287,9 +302,6 @@
     }
 
     .imgs{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-
       >img{
         width: 10vw;
         height: 10vh;
@@ -297,3 +309,4 @@
     }
   }
 }
+

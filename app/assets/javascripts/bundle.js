@@ -839,6 +839,17 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "removeImage",
+    value: function removeImage(idx) {
+      // let index = parseInt(e.currentTarget.dataset.index);
+      var photos = this.state.photos;
+      photos.splice(idx, 1);
+      this.photos.splice(idx, 1);
+      this.setState({
+        photos: photos
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this4 = this;
@@ -980,11 +991,18 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "uploaded-img-container"
       }, this.photos.map(function (photo, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: idx,
+          className: "uploaded-img-container-2"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
+          className: "far fa-times-circle",
+          onClick: function onClick(e) {
+            return _this4.removeImage(idx);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           src: photo,
           className: "uploaded-img"
-        });
+        }));
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         style: this.state.localState.pageIndex === 5 ? {
           display: "flex"
@@ -1445,14 +1463,20 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
           return _this4.handleFile(e);
         },
         multiple: true
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "imgs"
-      }, this.state.photos.map(function (photo, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      }), this.state.photos.map(function (photo, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "uploaded-img-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
+          "class": "fas fa-trash-alt",
+          onClick: function onClick(e) {
+            return _this4.removeImage(e);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           key: idx,
-          src: photo
-        });
-      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          src: photo,
+          className: "uploaded-img"
+        }));
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         style: this.state.localState.pageIndex === 5 ? {
           display: "flex"
         } : {
