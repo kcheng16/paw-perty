@@ -161,8 +161,7 @@ class ListingsCreateForm extends React.Component{
   }
 
   removeImage(idx) {
-    // let index = parseInt(e.currentTarget.dataset.index);
-    let photos = this.state.photos;
+    let photos = this.state.photoFile;
     
     photos.splice(idx, 1);
     this.photos.splice(idx, 1);

@@ -841,8 +841,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "removeImage",
     value: function removeImage(idx) {
-      // let index = parseInt(e.currentTarget.dataset.index);
-      var photos = this.state.photos;
+      var photos = this.state.photoFile;
       photos.splice(idx, 1);
       this.photos.splice(idx, 1);
       this.setState({
