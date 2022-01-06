@@ -295,7 +295,7 @@ class ListingEditComponent extends React.Component{
             <div className="buttons">
               <button style={
                 this.state.localState.pageIndex === 0 ? {opacity: "0%", cursor: "auto"} : {display: "block"}} 
-                onClick={() => this.state.localState.pageIndex === 0 ? this.subPageIndex() : ""}
+                onClick={() => this.state.localState.pageIndex === 0 ? "" : this.subPageIndex()}
               >Back
               </button>
               <div></div>

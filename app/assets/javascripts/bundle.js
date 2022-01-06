@@ -1035,7 +1035,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
           display: "block"
         },
         onClick: function onClick() {
-          return _this4.state.localState.pageIndex === 0 ? _this4.subPageIndex() : "";
+          return _this4.state.localState.pageIndex === 0 ? "" : _this4.subPageIndex();
         }
       }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         style: this.state.localState.pageIndex !== 5 ? {
@@ -1490,7 +1490,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
           display: "block"
         },
         onClick: function onClick() {
-          return _this4.state.localState.pageIndex === 0 ? _this4.subPageIndex() : "";
+          return _this4.state.localState.pageIndex === 0 ? "" : _this4.subPageIndex();
         }
       }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         style: this.state.localState.pageIndex !== 4 ? {
