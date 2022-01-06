@@ -77,11 +77,12 @@ class ListingEditComponent extends React.Component{
   }
   
   removeImage(idx){
-    let photos = this.state.photos;
+    let statePhotos = this.state.photos;
     
-    photos.splice(idx, 1);
+    let targetPhoto = statePhotos.splice(idx, 1);
+    
     this.photos.splice(idx, 1);
-    this.setState({ photos: photos });
+    this.setState({ photos: statePhotos });
   }
 
   update(field){

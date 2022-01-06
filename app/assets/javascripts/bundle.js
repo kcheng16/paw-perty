@@ -1234,11 +1234,11 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "removeImage",
     value: function removeImage(idx) {
-      var photos = this.state.photos;
-      photos.splice(idx, 1);
+      var statePhotos = this.state.photos;
+      var targetPhoto = statePhotos.splice(idx, 1);
       this.photos.splice(idx, 1);
       this.setState({
-        photos: photos
+        photos: statePhotos
       });
     }
   }, {

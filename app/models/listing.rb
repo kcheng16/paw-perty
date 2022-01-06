@@ -27,7 +27,7 @@ class Listing < ApplicationRecord
   validates :host_id, :title, :description, :city, :postal_code, :country, :longitude, :latitude, :price, :num_of_beds, presence: true
   validates :street_address, presence: true, uniqueness: true
 
-  has_many_attached :photos
+  has_many_attached :photos, dependent: :destroy
 
   has_many :reservations,
     foreign_key: :listing_id,
