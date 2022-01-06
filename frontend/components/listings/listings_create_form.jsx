@@ -290,7 +290,7 @@ class ListingsCreateForm extends React.Component{
                 >
                   {this.state.localState.pageIndex !== 5 ? "Next" : "Submit"}
                 </button>
-                : <div></div>
+                : ""
               } 
             </div>
           </div>

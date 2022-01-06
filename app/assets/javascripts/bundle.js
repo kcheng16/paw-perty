@@ -844,7 +844,6 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      console.log(this.state.street_address.length !== 0 && this.state.city.length !== 0 && this.state.postal_code.length !== 0 && this.state.country.length !== 0);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1025,7 +1024,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
             _this4.handleSubmit(e);
           }
         }
-      }, this.state.localState.pageIndex !== 5 ? "Next" : "Submit") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      }, this.state.localState.pageIndex !== 5 ? "Next" : "Submit") : ""))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "listing-create-errors"
       }, Array.isArray(this.props.errors) ? this.props.errors.map(function (error, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {

@@ -205,7 +205,6 @@
 }
 .buttons{
   display: flex;
-  justify-content: space-around;
   position: fixed;
   background-color: white;
   width: 50%;
@@ -219,6 +218,7 @@
     text-decoration: underline;
     font-weight: 600;
     padding: 1vw;
+    margin-left: 2vw;
   }
 
   >button:last-child{
