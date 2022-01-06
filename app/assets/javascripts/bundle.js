@@ -731,7 +731,6 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         this.photos.push(URL.createObjectURL(e.target.files[i]));
       }
 
-      console.log("e.currenttarget.files:", e.currentTarget.files);
       this.setState({
         photoFile: [].concat(_toConsumableArray(e.currentTarget.files), _toConsumableArray(this.state.photoFile))
       });
@@ -1206,12 +1205,15 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
             formData.append("listing[longitude]", _this2.state.longitude);
             formData.append("listing[latitude]", _this2.state.latitude);
             formData.append("listing[postal_code]", _this2.state.postal_code);
-            formData.append("listing[images_to_delete]", _this2.state.images_to_delete);
 
-            if (_this2.state.photoFile && _this2.state.photoFile.length > 0 && _this2.state.photoFile.length < 5) {
-              for (var i = 0; i < _this2.state.photoFile.length; i++) {
-                formData.append("listing[photos][]", _this2.state.photoFile[i]);
-              }
+            if (_this2.state.images_to_delete) {
+              formData.append("listing[images_to_delete]", _this2.state.images_to_delete);
+            }
+
+            console.log("this.state.photos", _this2.state.photos);
+
+            for (var i = 0; i < _this2.state.photos.length; i++) {
+              formData.append("listing[photos][]", _this2.state.photos[i]);
             } //update the listing
 
 
@@ -1229,8 +1231,13 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         this.photos.push(URL.createObjectURL(e.target.files[i]));
       }
 
+      console.log("this.photos:", this.photos);
+      var photos = this.state.photos;
+      console.log("photos:", photos); // photos.pop()
+      // console.log("photos.pop:",photos)
+
       this.setState({
-        photos: [e.currentTarget.files[0]].concat(_toConsumableArray(this.state.photos))
+        photos: [].concat(_toConsumableArray(e.currentTarget.files), _toConsumableArray(this.state.photos))
       });
     }
   }, {
@@ -1238,7 +1245,6 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
     value: function removeImage(idx) {
       var statePhotos = this.state.photos;
       this.imagesToDelete.push(idx);
-      console.log("images to delete:", this.imagesToDelete);
       this.photos.splice(idx, 1);
       this.setState({
         photos: statePhotos,

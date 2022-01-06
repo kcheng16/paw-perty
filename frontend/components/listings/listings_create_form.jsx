@@ -79,7 +79,6 @@ class ListingsCreateForm extends React.Component{
     for (let i = 0; i < e.target.files.length; i++) {
       this.photos.push(URL.createObjectURL(e.target.files[i]));
     }
-    console.log("e.currenttarget.files:", e.currentTarget.files)
 
     this.setState({photoFile: [...e.currentTarget.files, ...this.state.photoFile]})
   }

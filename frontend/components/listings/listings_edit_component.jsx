@@ -55,13 +55,16 @@ class ListingEditComponent extends React.Component{
                 formData.append("listing[longitude]", this.state.longitude);
                 formData.append("listing[latitude]", this.state.latitude);
                 formData.append("listing[postal_code]", this.state.postal_code);
-                formData.append("listing[images_to_delete]", this.state.images_to_delete);
-          
-              if (this.state.photoFile && this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
-                for (var i = 0; i < this.state.photoFile.length; i++) {
-                  formData.append("listing[photos][]", this.state.photoFile[i]);
+                if(this.state.images_to_delete){
+                  formData.append("listing[images_to_delete]", this.state.images_to_delete);
                 }
-              }
+              
+                console.log("this.state.photos",this.state.photos)
+              
+                for (var i = 0; i < this.state.photos.length; i++) {
+                  formData.append("listing[photos][]", this.state.photos[i]);
+                }
+              
               //update the listing
               this.props.updateListing(formData, this.props.listing.id)
               .then((res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
@@ -75,14 +78,18 @@ class ListingEditComponent extends React.Component{
     for (let i = 0; i < e.target.files.length; i++) {
       this.photos.push(URL.createObjectURL(e.target.files[i]));
     }
-    this.setState({photos: [e.currentTarget.files[0], ...this.state.photos]})
+    console.log("this.photos:",this.photos)
+    let photos = this.state.photos
+    console.log("photos:",photos)
+    // photos.pop()
+    // console.log("photos.pop:",photos)
+    this.setState({photos: [...e.currentTarget.files, ...this.state.photos]})
   }
   
   removeImage(idx){
     let statePhotos = this.state.photos;
     
     this.imagesToDelete.push(idx)
-    console.log("images to delete:", this.imagesToDelete)
     
     this.photos.splice(idx, 1);
     this.setState({ photos: statePhotos, images_to_delete: this.imagesToDelete });
