@@ -1,0 +1,16 @@
+=> [32m#<Listing:0x00007f3958122eb8[0m
+ id: [1;34m28[0m,
+ title: [31m[1;31m"[0m[31mUPDATE[1;31m"[0m[31m[0m,
+ description: [31m[1;31m"[0m[31m121212[1;31m"[0m[31m[0m,
+ host_id: [1;34m2[0m,
+ street_address: [31m[1;31m"[0m[31m824 battery st[1;31m"[0m[31m[0m,
+ city: [31m[1;31m"[0m[31mSAN FRANCICO[1;31m"[0m[31m[0m,
+ postal_code: [1;34m94111[0m,
+ country: [31m[1;31m"[0m[31mUnited States[1;31m"[0m[31m[0m,
+ longitude: [1;35m-122.4009153[0m,
+ latitude: [1;35m37.7990755[0m,
+ price: [1;34m1[0m,
+ num_of_beds: [1;34m1[0m,
+ created_at: [1;34;4mThu[0m, [1;34m06[0m [1;34;4mJan[0m [1;34m2022[0m [1;34m02[0m:[1;34m46[0m:[1;34m15[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ updated_at: [1;34;4mThu[0m, [1;34m06[0m [1;34;4mJan[0m [1;34m2022[0m [1;34m17[0m:[1;34m48[0m:[1;34m59[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ images: [][32m>[0m

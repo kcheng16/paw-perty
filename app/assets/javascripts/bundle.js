@@ -1135,6 +1135,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
     var newState = Object.assign({}, _this.props.listing, localState);
     _this.state = newState;
     _this.photos = _this.state.photos;
+    _this.imagesToDelete = [];
     _this.style1 = {
       display: "block",
       backgroundImage: "url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)"
@@ -1205,6 +1206,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
             formData.append("listing[longitude]", _this2.state.longitude);
             formData.append("listing[latitude]", _this2.state.latitude);
             formData.append("listing[postal_code]", _this2.state.postal_code);
+            formData.append("listing[images_to_delete]", _this2.state.images_to_delete);
 
             if (_this2.state.photoFile && _this2.state.photoFile.length > 0 && _this2.state.photoFile.length < 5) {
               for (var i = 0; i < _this2.state.photoFile.length; i++) {
@@ -1235,10 +1237,12 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
     key: "removeImage",
     value: function removeImage(idx) {
       var statePhotos = this.state.photos;
-      var targetPhoto = statePhotos.splice(idx, 1);
+      this.imagesToDelete.push(idx);
+      console.log("images to delete:", this.imagesToDelete);
       this.photos.splice(idx, 1);
       this.setState({
-        photos: statePhotos
+        photos: statePhotos,
+        images_to_delete: this.imagesToDelete
       });
     }
   }, {

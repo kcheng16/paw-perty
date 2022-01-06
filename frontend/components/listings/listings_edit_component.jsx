@@ -7,6 +7,7 @@ class ListingEditComponent extends React.Component{
     const newState = Object.assign({}, this.props.listing, localState)
     this.state = newState
     this.photos = this.state.photos
+    this.imagesToDelete = []
 
     this.style1 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)`}
     this.style2 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638257975/alvan-nee-T-0EW-SEbsE-unsplash_jlyvgo.jpg)`}
@@ -54,6 +55,7 @@ class ListingEditComponent extends React.Component{
                 formData.append("listing[longitude]", this.state.longitude);
                 formData.append("listing[latitude]", this.state.latitude);
                 formData.append("listing[postal_code]", this.state.postal_code);
+                formData.append("listing[images_to_delete]", this.state.images_to_delete);
           
               if (this.state.photoFile && this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
                 for (var i = 0; i < this.state.photoFile.length; i++) {
@@ -79,10 +81,11 @@ class ListingEditComponent extends React.Component{
   removeImage(idx){
     let statePhotos = this.state.photos;
     
-    let targetPhoto = statePhotos.splice(idx, 1);
+    this.imagesToDelete.push(idx)
+    console.log("images to delete:", this.imagesToDelete)
     
     this.photos.splice(idx, 1);
-    this.setState({ photos: statePhotos });
+    this.setState({ photos: statePhotos, images_to_delete: this.imagesToDelete });
   }
 
   update(field){

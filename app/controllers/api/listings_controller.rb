@@ -25,9 +25,6 @@
 class Api::ListingsController < ApplicationController
   
   def index
-    # @listings = Listing.all
-
-    # render :index
     @listings = Listing.with_attached_photos.all
     if params[:city]
       @listings = Listing.where(city: params[:city])
@@ -53,6 +50,13 @@ class Api::ListingsController < ApplicationController
 
   def update
     @listing = Listing.find_by(id: params[:id])
+    to_delete = [params["listing"]["images_to_delete"]]
+
+    if to_delete
+      to_delete.each do |idx|
+        @listing.photos[idx.to_i].purge
+      end
+    end
 
     if @listing.update(listing_params)
       render :show
@@ -86,7 +90,8 @@ class Api::ListingsController < ApplicationController
       :latitude, 
       :price, 
       :num_of_beds, 
-      photos: []
+      :images_to_delete,
+      photos: [],
     )
   end
 
