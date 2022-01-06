@@ -47,7 +47,6 @@ class ListingsCreateForm extends React.Component{
           this.setState(
             {longitude: results[0].geometry.location.lng(), latitude: results[0].geometry.location.lat()},
             () => {
-              console.log("setState 2nd function")
               const formData = new FormData();
                 formData.append("listing[host_id]", this.state.host_id);
                 formData.append("listing[title]", this.state.title);
@@ -71,9 +70,10 @@ class ListingsCreateForm extends React.Component{
               this.props.createListing(formData)
               .then((res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
           })
-
         } else {
-          alert('Geocode was not successful for the following reason: ' + status);
+          // alert('All fields must be filled')
+          this.props.createListing(formData)
+            .then((res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
         }
       }
     )
@@ -135,6 +135,29 @@ class ListingsCreateForm extends React.Component{
   subPrice(){
     if (this.state.price > 0) {
       this.setState({price: this.state.price - 1})
+    }
+  }
+
+  isCurrentPageInputFilled(){
+    switch (this.state.localState.pageIndex){
+      case 0:
+        return this.state.title.length !== 0
+      case 1:
+        return this.state.description.length !== 0
+      case 2:
+        return this.state.street_address.length !== 0 &&
+          this.state.city.length !== 0 &&
+          this.state.postal_code.length !== 0 &&
+          this.state.country.length !== 0
+      case 3:
+        return this.state.num_of_beds !== 0
+      case 4:
+        return this.state.photoFile.length === 5
+      case 5:
+        return this.state.price !== 0
+      
+      default: 
+        return false
     }
   }
 
@@ -254,18 +277,21 @@ class ListingsCreateForm extends React.Component{
             <div className="buttons">
               <button onClick={() => this.subPageIndex()}>Back</button>
               <div></div>
-              <button 
-                style={ this.state.localState.pageIndex !== 5 ? {backgroundColor: "black"} : {backgroundColor: "#E30C79"}}
-                onClick={(e) => {
-                  if (this.state.localState.pageIndex !== 5 ) {
-                    this.addPageIndex();
-                  } else {
-                    this.handleSubmit(e);
-                  }
-                }}
-              >
-                {this.state.localState.pageIndex !== 5 ? "Next" : "Submit"}
-              </button> 
+              {this.isCurrentPageInputFilled() ? 
+                <button 
+                  style={ this.state.localState.pageIndex !== 5 ? {backgroundColor: "black"} : {backgroundColor: "#E30C79"}}
+                  onClick={(e) => {
+                    if (this.state.localState.pageIndex !== 5 ) {
+                      this.addPageIndex();
+                    } else {
+                      this.handleSubmit(e);
+                    }
+                  }}
+                >
+                  {this.state.localState.pageIndex !== 5 ? "Next" : "Submit"}
+                </button>
+                : <div></div>
+              } 
             </div>
           </div>
         </form>

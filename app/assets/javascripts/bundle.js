@@ -697,7 +697,6 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
             longitude: results[0].geometry.location.lng(),
             latitude: results[0].geometry.location.lat()
           }, function () {
-            console.log("setState 2nd function");
             var formData = new FormData();
             formData.append("listing[host_id]", _this2.state.host_id);
             formData.append("listing[title]", _this2.state.title);
@@ -723,7 +722,10 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
             });
           });
         } else {
-          alert('Geocode was not successful for the following reason: ' + status);
+          // alert('All fields must be filled')
+          _this2.props.createListing(formData).then(function (res) {
+            _this2.props.history.push("/listings/".concat(res.payload.listing.id));
+          });
         }
       });
     }
@@ -812,10 +814,37 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "isCurrentPageInputFilled",
+    value: function isCurrentPageInputFilled() {
+      switch (this.state.localState.pageIndex) {
+        case 0:
+          return this.state.title.length !== 0;
+
+        case 1:
+          return this.state.description.length !== 0;
+
+        case 2:
+          return this.state.street_address.length !== 0 && this.state.city.length !== 0 && this.state.postal_code.length !== 0 && this.state.country.length !== 0;
+
+        case 3:
+          return this.state.num_of_beds !== 0;
+
+        case 4:
+          return this.state.photoFile.length === 5;
+
+        case 5:
+          return this.state.price !== 0;
+
+        default:
+          return false;
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this4 = this;
 
+      console.log(this.state.street_address.length !== 0 && this.state.city.length !== 0 && this.state.postal_code.length !== 0 && this.state.country.length !== 0);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -983,7 +1012,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this4.subPageIndex();
         }
-      }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         style: this.state.localState.pageIndex !== 5 ? {
           backgroundColor: "black"
         } : {
@@ -996,7 +1025,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
             _this4.handleSubmit(e);
           }
         }
-      }, this.state.localState.pageIndex !== 5 ? "Next" : "Submit")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      }, this.state.localState.pageIndex !== 5 ? "Next" : "Submit") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "listing-create-errors"
       }, Array.isArray(this.props.errors) ? this.props.errors.map(function (error, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
