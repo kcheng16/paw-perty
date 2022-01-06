@@ -260,11 +260,25 @@
 
 .photos{
   display: flex;
-  margin-top: 10vh;
+  margin-top: 16vh;
 
   .inner-photo{
     display: flex;
     flex-direction: column;
+
+    .uploaded-img-container{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      padding: 10px 0;
+
+      .uploaded-img{
+        border-radius: 10px;
+        width: 125px;
+        height: 125px;
+        object-fit: cover;
+      }
+    }
 
     h1{
       font-weight: 600;

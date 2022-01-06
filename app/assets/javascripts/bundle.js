@@ -727,7 +727,11 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleFile",
     value: function handleFile(e) {
-      this.photos.push(e.currentTarget.files);
+      for (var i = 0; i < e.target.files.length; i++) {
+        this.photos.push(URL.createObjectURL(e.target.files[i]));
+      } // this.photos.push(e.currentTarget.files)
+
+
       this.setState({
         photoFile: [].concat(_toConsumableArray(e.currentTarget.files), _toConsumableArray(this.state.photoFile))
       });
@@ -967,17 +971,21 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         className: "photos"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "inner-photo"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Add photos here!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Add 5 photos here!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "file",
         onChange: function onChange(e) {
           return _this4.handleFile(e);
         },
         multiple: true
-      }), this.photos.map(function (photo, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          key: idx
-        }, photo[0].name);
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "uploaded-img-container"
+      }, this.photos.map(function (photo, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          key: idx,
+          src: photo,
+          className: "uploaded-img"
+        });
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         style: this.state.localState.pageIndex === 5 ? {
           display: "flex"
         } : {
@@ -1431,7 +1439,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         className: "photos"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "inner-photo"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Add photos here!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Add 5 photos here!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "file",
         onChange: function onChange(e) {
           return _this4.handleFile(e);

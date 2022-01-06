@@ -76,7 +76,10 @@ class ListingsCreateForm extends React.Component{
   }
   
   handleFile(e){
-    this.photos.push(e.currentTarget.files)
+    for (let i = 0; i < e.target.files.length; i++) {
+      this.photos.push(URL.createObjectURL(e.target.files[i]));
+    }
+    // this.photos.push(e.currentTarget.files)
     this.setState({photoFile: [...e.currentTarget.files, ...this.state.photoFile]})
   }
 
@@ -238,17 +241,21 @@ class ListingsCreateForm extends React.Component{
               className="photos"
             >
               <div className="inner-photo">
-                <h1>Add photos here!</h1>
+                <h1>Add 5 photos here!</h1>
                 <input
                   type="file"
                   onChange={e => this.handleFile(e)}
                   multiple
                 />
-                {this.photos.map((photo, idx) => 
-                  <div key={idx}>
-                    {photo[0].name}
-                  </div>
-                  )}
+                <div className="uploaded-img-container">
+                  {this.photos.map((photo, idx) => 
+                    <img 
+                      key={idx}
+                      src={photo}
+                      className="uploaded-img"
+                    />                
+                    )}
+                </div>
               </div>
             </div>
             {/* PRICE */}
