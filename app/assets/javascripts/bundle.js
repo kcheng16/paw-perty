@@ -1027,11 +1027,17 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         className: "buttons-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "buttons"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, this.state.localState.pageIndex !== 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this4.subPageIndex();
         }
-      }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, "Back") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        style: {
+          padding: "2vw",
+          marginLeft: "vw",
+          cursor: "none"
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         style: this.state.localState.pageIndex !== 5 ? {
           backgroundColor: "black"
         } : {
@@ -1080,18 +1086,6 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1161,8 +1155,8 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
     };
     _this.num1 = Math.floor(Math.random() * 30) + 1;
     _this.num2 = Math.floor(Math.random() * 100) + 30;
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); // this.handleFile = this.handleFile.bind(this)
+
     return _this;
   }
 
@@ -1223,34 +1217,23 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
           });
         }
       });
-    }
-  }, {
-    key: "handleFile",
-    value: function handleFile(e) {
-      for (var i = 0; i < e.target.files.length; i++) {
-        this.photos.push(URL.createObjectURL(e.target.files[i]));
-      }
+    } // handleFile(e){
+    //   for (let i = 0; i < e.target.files.length; i++) {
+    //     this.photos.push(URL.createObjectURL(e.target.files[i]));
+    //   }
+    // loads a "blob" ("blob:http://localhost:3000/cdddfbb7-a51e-4aac-b7bb-5e527ba65fd3") when trying up upload a photo, unsure why
+    //   console.log("this.photos:",this.photos)
+    //   let photos = this.state.photos
+    //   console.log("photos:",photos)
+    //   this.setState({photos: [...e.currentTarget.files, ...this.state.photos]})
+    // }
+    // removeImage(idx){
+    //   let statePhotos = this.state.photos;
+    //   this.imagesToDelete.push(idx)
+    //   this.photos.splice(idx, 1);
+    //   this.setState({ photos: statePhotos, images_to_delete: this.imagesToDelete });
+    // }
 
-      console.log("this.photos:", this.photos);
-      var photos = this.state.photos;
-      console.log("photos:", photos); // photos.pop()
-      // console.log("photos.pop:",photos)
-
-      this.setState({
-        photos: [].concat(_toConsumableArray(e.currentTarget.files), _toConsumableArray(this.state.photos))
-      });
-    }
-  }, {
-    key: "removeImage",
-    value: function removeImage(idx) {
-      var statePhotos = this.state.photos;
-      this.imagesToDelete.push(idx);
-      this.photos.splice(idx, 1);
-      this.setState({
-        photos: statePhotos,
-        images_to_delete: this.imagesToDelete
-      });
-    }
   }, {
     key: "update",
     value: function update(field) {
@@ -1480,36 +1463,6 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         } : {
           display: "none"
         },
-        className: "photos"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "inner-photo"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Add 5 photos here!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        type: "file",
-        onChange: function onChange(e) {
-          return _this4.handleFile(e);
-        },
-        multiple: true
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "uploaded-img-container"
-      }, this.photos.map(function (photo, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          key: idx,
-          className: "uploaded-img-container-2"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-          className: "far fa-times-circle",
-          onClick: function onClick() {
-            return _this4.removeImage(idx);
-          }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-          src: photo,
-          className: "uploaded-img"
-        }));
-      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        style: this.state.localState.pageIndex === 5 ? {
-          display: "flex"
-        } : {
-          display: "none"
-        },
         className: "price"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "price-counter"
@@ -1529,25 +1482,36 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         className: "buttons-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "buttons"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        // style={this.state.localState.pageIndex === 0 ? {display: "none"} : {display: "block"}}
+      }, this.state.localState.pageIndex !== 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this4.subPageIndex();
         }
-      }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        style: this.state.localState.pageIndex !== 5 ? {
+      }, "Back") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        style: {
+          padding: "2vw",
+          marginLeft: "vw",
+          cursor: "none"
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        style: this.state.localState.pageIndex !== 4 ? {
           backgroundColor: "black"
         } : {
           backgroundColor: "#E30C79"
         },
         onClick: function onClick(e) {
-          if (_this4.state.localState.pageIndex !== 5) {
+          if (_this4.state.localState.pageIndex !== 4) {
             _this4.addPageIndex();
           } else {
             _this4.handleSubmit(e);
           }
         }
-      }, this.state.localState.pageIndex !== 5 ? "Next" : "Submit") : ""))));
+      }, this.state.localState.pageIndex !== 4 ? "Next" : "Submit") : ""))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+        className: "listing-create-errors"
+      }, Array.isArray(this.props.errors) ? this.props.errors.map(function (error, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+          key: idx
+        }, error);
+      }) : ""));
     }
   }]);
 

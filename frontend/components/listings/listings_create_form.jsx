@@ -289,7 +289,11 @@ class ListingsCreateForm extends React.Component{
         
           <div className="buttons-container">
             <div className="buttons">
-              <button onClick={() => this.subPageIndex()}>Back</button>
+              {this.state.localState.pageIndex !== 0 ?
+                <button onClick={() => this.subPageIndex()}>Back</button>
+                :
+                <button style={{padding: "2vw", marginLeft: "vw", cursor: "none"}}></button>
+              }
               <div></div>
               {this.isCurrentPageInputFilled() ? 
                 <button 

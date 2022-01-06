@@ -19,7 +19,7 @@ class ListingEditComponent extends React.Component{
     this.num1 = Math.floor(Math.random() * 30) + 1
     this.num2 = Math.floor(Math.random() * 100) + 30
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleFile = this.handleFile.bind(this)
+    // this.handleFile = this.handleFile.bind(this)
   }
 
   componentDidMount(){
@@ -74,26 +74,27 @@ class ListingEditComponent extends React.Component{
     )
   }
 
-  handleFile(e){
-    for (let i = 0; i < e.target.files.length; i++) {
-      this.photos.push(URL.createObjectURL(e.target.files[i]));
-    }
-    console.log("this.photos:",this.photos)
-    let photos = this.state.photos
-    console.log("photos:",photos)
-    // photos.pop()
-    // console.log("photos.pop:",photos)
-    this.setState({photos: [...e.currentTarget.files, ...this.state.photos]})
-  }
+  // handleFile(e){
+  //   for (let i = 0; i < e.target.files.length; i++) {
+  //     this.photos.push(URL.createObjectURL(e.target.files[i]));
+  //   }
+
+  // loads a "blob" ("blob:http://localhost:3000/cdddfbb7-a51e-4aac-b7bb-5e527ba65fd3") when trying up upload a photo, unsure why
+  //   console.log("this.photos:",this.photos)
+  //   let photos = this.state.photos
+  //   console.log("photos:",photos)
+
+  //   this.setState({photos: [...e.currentTarget.files, ...this.state.photos]})
+  // }
   
-  removeImage(idx){
-    let statePhotos = this.state.photos;
+  // removeImage(idx){
+  //   let statePhotos = this.state.photos;
     
-    this.imagesToDelete.push(idx)
+  //   this.imagesToDelete.push(idx)
     
-    this.photos.splice(idx, 1);
-    this.setState({ photos: statePhotos, images_to_delete: this.imagesToDelete });
-  }
+  //   this.photos.splice(idx, 1);
+  //   this.setState({ photos: statePhotos, images_to_delete: this.imagesToDelete });
+  // }
 
   update(field){
     return e => this.setState({[field]: e.currentTarget.value})
@@ -247,9 +248,9 @@ class ListingEditComponent extends React.Component{
               </div>
             </div>
 
-            {/* PHOTOS */}
-            <div 
-              style={this.state.localState.pageIndex === 4 ? { display: "flex" } : { display: "none" }}
+            {/* PHOTOS: need to change page-index */}
+            {/* <div 
+              style={this.state.localState.pageIndex === XXXX ? { display: "flex" } : { display: "none" }}
               className="photos"
             >
               <div className="inner-photo">
@@ -271,10 +272,10 @@ class ListingEditComponent extends React.Component{
                     )}
                   </div>
               </div>
-            </div>
+            </div> */}
             {/* PRICE */}
             <div
-              style={this.state.localState.pageIndex === 5 ? { display: "flex" } : { display: "none" }}
+              style={this.state.localState.pageIndex === 4 ? { display: "flex" } : { display: "none" }}
               className="price"
             >
               <div className="price-counter">
@@ -292,23 +293,24 @@ class ListingEditComponent extends React.Component{
         
           <div className="buttons-container">
             <div className="buttons">
-              <button 
-                // style={this.state.localState.pageIndex === 0 ? {display: "none"} : {display: "block"}}
-                onClick={() => this.subPageIndex()}
-              >Back</button>
+              {this.state.localState.pageIndex !== 0 ?
+                <button onClick={() => this.subPageIndex()}>Back</button>
+                :
+                <button style={{padding: "2vw", marginLeft: "vw", cursor: "none"}}></button>
+              }
               <div></div>
               {this.isCurrentPageInputFilled() ? 
                 <button 
-                  style={ this.state.localState.pageIndex !== 5 ? {backgroundColor: "black"} : {backgroundColor: "#E30C79"}}
+                  style={ this.state.localState.pageIndex !== 4 ? {backgroundColor: "black"} : {backgroundColor: "#E30C79"}}
                   onClick={(e) => {
-                    if (this.state.localState.pageIndex !== 5 ) {
+                    if (this.state.localState.pageIndex !== 4 ) {
                       this.addPageIndex();
                     } else {
                       this.handleSubmit(e);
                     }
                   }}
                 >
-                  {this.state.localState.pageIndex !== 5 ? "Next" : "Submit"}
+                  {this.state.localState.pageIndex !== 4 ? "Next" : "Submit"}
                 </button>
                 : ""
               } 
@@ -316,9 +318,9 @@ class ListingEditComponent extends React.Component{
           </div>
         </form>
 
-        {/* <ul className="listing-create-errors"> 
+        <ul className="listing-create-errors"> 
           {Array.isArray(this.props.errors) ? this.props.errors.map((error, idx) => <li key={idx}>{error}</li>) : "" } 
-        </ul> */}
+        </ul>
 
       </div>
     )
