@@ -71,21 +71,6 @@ class Api::ListingsController < ApplicationController
     end
   end
 
-  def search
-    if params[:searchValue].length == 0
-      render json: { search_results: [] }
-    else
-      @cities = listing.group(:city).select(:city)
-      debugger
-      # @listings = listing.where(
-      #   "lower(city) LIKE ?", 
-      #   "%#{params[:searchValue].downcase}%",
-      # )
-      
-      render :search_result
-    end
-  end
-
   private
 
   def listing_params

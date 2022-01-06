@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = dispatch => ({
   requestListing: listingId => dispatch(requestListing(listingId)),
-  updateListing: listing => dispatch(updateListing(listing)),
+  updateListing: (listing, listingId) => dispatch(updateListing(listing, listingId)),
   clearErrors: () => dispatch(clearErrors())
 })
 

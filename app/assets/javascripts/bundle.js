@@ -721,11 +721,6 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
               _this2.props.history.push("/listings/".concat(res.payload.listing.id));
             });
           });
-        } else {
-          // alert('All fields must be filled')
-          _this2.props.createListing(formData).then(function (res) {
-            _this2.props.history.push("/listings/".concat(res.payload.listing.id));
-          });
         }
       });
     }
@@ -1061,6 +1056,18 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1147,36 +1154,50 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       var _this2 = this;
 
-      e.preventDefault();
-      var formData = new FormData();
-      formData.append("listing[host_id]", this.state.host_id);
-      formData.append("listing[title]", this.state.title);
-      formData.append("listing[description]", this.state.description);
-      formData.append("listing[street_address]", this.state.street_address);
-      formData.append("listing[city]", this.state.city);
-      formData.append("listing[country]", this.state.country);
-      formData.append("listing[price]", this.state.price);
-      formData.append("listing[num_of_beds]", this.state.num_of_beds);
-      formData.append("listing[longitude]", this.state.longitude);
-      formData.append("listing[latitude]", this.state.latitude);
-      formData.append("listing[postal_code]", this.state.postal_code);
-      formData.append("id", this.state.id);
+      e.preventDefault(); // geocode
 
-      if (this.state.photoFile && this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
-        for (var i = 0; i < this.state.photoFile.length; i++) {
-          formData.append("listing[photos][]", this.state.photoFile[i]);
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({
+        address: "".concat(this.state.street_address, ",").concat(this.state.city, ", ").concat(this.state.postal_code, ",").concat(this.state.country)
+      }, function (results, status) {
+        if (status == 'OK') {
+          _this2.setState({
+            longitude: results[0].geometry.location.lng(),
+            latitude: results[0].geometry.location.lat()
+          }, function () {
+            var formData = new FormData();
+            formData.append("id", _this2.props.listing.id);
+            formData.append("listing[host_id]", _this2.props.sessionId);
+            formData.append("listing[title]", _this2.state.title);
+            formData.append("listing[description]", _this2.state.description);
+            formData.append("listing[street_address]", _this2.state.street_address);
+            formData.append("listing[city]", _this2.state.city);
+            formData.append("listing[country]", _this2.state.country);
+            formData.append("listing[price]", _this2.state.price);
+            formData.append("listing[num_of_beds]", _this2.state.num_of_beds);
+            formData.append("listing[longitude]", _this2.state.longitude);
+            formData.append("listing[latitude]", _this2.state.latitude);
+            formData.append("listing[postal_code]", _this2.state.postal_code);
+
+            if (_this2.state.photoFile && _this2.state.photoFile.length > 0 && _this2.state.photoFile.length < 5) {
+              for (var i = 0; i < _this2.state.photoFile.length; i++) {
+                formData.append("listing[photos][]", _this2.state.photoFile[i]);
+              }
+            } //update the listing
+
+
+            _this2.props.updateListing(formData, _this2.props.listing.id).then(function (res) {
+              _this2.props.history.push("/listings/".concat(res.payload.listing.id));
+            });
+          });
         }
-      }
-
-      this.props.updateListing(formData).then(function (res) {
-        _this2.props.history.push("/listings/".concat(res.payload.listing.id));
       });
     }
   }, {
     key: "handleFile",
     value: function handleFile(e) {
       this.setState({
-        photoFile: e.currentTarget.files
+        photoFile: [].concat(_toConsumableArray(e.currentTarget.files), _toConsumableArray(this.state.photoFile))
       });
     }
   }, {
@@ -1250,11 +1271,38 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "isCurrentPageInputFilled",
+    value: function isCurrentPageInputFilled() {
+      switch (this.state.localState.pageIndex) {
+        case 0:
+          return this.state.title.length !== 0;
+
+        case 1:
+          return this.state.description.length !== 0;
+
+        case 2:
+          return this.state.street_address.length !== 0 && this.state.city.length !== 0 && this.state.postal_code.length !== 0 && this.state.country.length !== 0;
+
+        case 3:
+          return this.state.num_of_beds !== 0;
+
+        case 4:
+          return this.state.photos.length === 5;
+
+        case 5:
+          return this.state.price !== 0;
+
+        default:
+          return false;
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this4 = this;
 
       if (!this.state) return "loading";
+      console.log(this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1425,7 +1473,12 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this4.subPageIndex();
         }
-      }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        style: this.state.localState.pageIndex !== 5 ? {
+          backgroundColor: "black"
+        } : {
+          backgroundColor: "#E30C79"
+        },
         onClick: function onClick(e) {
           if (_this4.state.localState.pageIndex !== 5) {
             _this4.addPageIndex();
@@ -1433,13 +1486,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
             _this4.handleSubmit(e);
           }
         }
-      }, this.state.localState.pageIndex !== 5 ? "Next" : "Submit")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
-        className: "listing-create-errors"
-      }, Array.isArray(this.props.errors) ? this.props.errors.map(function (error, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-          key: idx
-        }, error);
-      }) : ""));
+      }, this.state.localState.pageIndex !== 5 ? "Next" : "Submit") : ""))));
     }
   }]);
 
@@ -1483,8 +1530,8 @@ var mDTP = function mDTP(dispatch) {
     requestListing: function requestListing(listingId) {
       return dispatch((0,_actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__.requestListing)(listingId));
     },
-    updateListing: function updateListing(listing) {
-      return dispatch((0,_actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__.updateListing)(listing));
+    updateListing: function updateListing(listing, listingId) {
+      return dispatch((0,_actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__.updateListing)(listing, listingId));
     },
     clearErrors: function clearErrors() {
       return dispatch((0,_actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__.clearErrors)());
@@ -4829,7 +4876,10 @@ __webpack_require__.r(__webpack_exports__);
       return nextState;
 
     case _actions_listing_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_LISTING_ERRORS:
-      nextState = action.errors.responseJSON;
+      if (action.errors.responseJSON) {
+        nextState = action.errors.responseJSON;
+      }
+
       return nextState;
 
     case _actions_listing_actions__WEBPACK_IMPORTED_MODULE_0__.CLEAR_ERRORS:
@@ -5255,7 +5305,7 @@ var createListing = function createListing(listing) {
 var updateListing = function updateListing(listing) {
   return $.ajax({
     method: 'PATCH',
-    url: "/api/listings/".concat(listing.get('id')),
+    url: "/api/listings/".concat(listing.get("id")),
     data: listing,
     contentType: false,
     processData: false

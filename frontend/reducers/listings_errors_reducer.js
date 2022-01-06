@@ -14,7 +14,9 @@ export default (state={},action) => {
       return nextState
 
     case RECEIVE_LISTING_ERRORS:
-      nextState = action.errors.responseJSON;
+      if(action.errors.responseJSON){
+        nextState = action.errors.responseJSON;
+      }
       return nextState
 
     case CLEAR_ERRORS:

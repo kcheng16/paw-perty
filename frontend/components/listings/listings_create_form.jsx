@@ -70,10 +70,6 @@ class ListingsCreateForm extends React.Component{
               this.props.createListing(formData)
               .then((res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
           })
-        } else {
-          // alert('All fields must be filled')
-          this.props.createListing(formData)
-            .then((res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
         }
       }
     )

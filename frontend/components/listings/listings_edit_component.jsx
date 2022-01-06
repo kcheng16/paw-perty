@@ -30,32 +30,46 @@ class ListingEditComponent extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
+    // geocode
+    let geocoder = new google.maps.Geocoder()
 
-    const formData = new FormData();
-          formData.append("listing[host_id]", this.state.host_id);
-          formData.append("listing[title]", this.state.title);
-          formData.append("listing[description]", this.state.description);
-          formData.append("listing[street_address]", this.state.street_address);
-          formData.append("listing[city]", this.state.city);
-          formData.append("listing[country]", this.state.country);
-          formData.append("listing[price]", this.state.price);
-          formData.append("listing[num_of_beds]", this.state.num_of_beds);
-          formData.append("listing[longitude]", this.state.longitude);
-          formData.append("listing[latitude]", this.state.latitude);
-          formData.append("listing[postal_code]", this.state.postal_code);
-          formData.append("id", this.state.id);
-
-    if (this.state.photoFile && this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
-      for (let i = 0; i < this.state.photoFile.length; i++) {
-        formData.append("listing[photos][]", this.state.photoFile[i]);
+    geocoder.geocode(
+      {address: `${this.state.street_address},${this.state.city}, ${this.state.postal_code},${this.state.country}`},
+      (results, status) => {
+        if (status == 'OK') {
+          this.setState(
+            {longitude: results[0].geometry.location.lng(), latitude: results[0].geometry.location.lat()},
+            () => {
+              const formData = new FormData();
+                formData.append("id", this.props.listing.id);
+                formData.append("listing[host_id]", this.props.sessionId);
+                formData.append("listing[title]", this.state.title);
+                formData.append("listing[description]", this.state.description);
+                formData.append("listing[street_address]", this.state.street_address);
+                formData.append("listing[city]", this.state.city);
+                formData.append("listing[country]", this.state.country);
+                formData.append("listing[price]", this.state.price);
+                formData.append("listing[num_of_beds]", this.state.num_of_beds);
+                formData.append("listing[longitude]", this.state.longitude);
+                formData.append("listing[latitude]", this.state.latitude);
+                formData.append("listing[postal_code]", this.state.postal_code);
+          
+              if (this.state.photoFile && this.state.photoFile.length > 0 && this.state.photoFile.length < 5) {
+                for (var i = 0; i < this.state.photoFile.length; i++) {
+                  formData.append("listing[photos][]", this.state.photoFile[i]);
+                }
+              }
+              //update the listing
+              this.props.updateListing(formData, this.props.listing.id)
+              .then((res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
+          })
+        } 
       }
-    }
-    this.props.updateListing(formData).then(
-      (res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
+    )
   }
 
   handleFile(e){
-    this.setState({photoFile: e.currentTarget.files})
+    this.setState({photoFile: [...e.currentTarget.files, ...this.state.photoFile]})
   }
 
   update(field){
@@ -109,9 +123,32 @@ class ListingEditComponent extends React.Component{
     }
   }
 
+  isCurrentPageInputFilled(){
+    switch (this.state.localState.pageIndex){
+      case 0:
+        return this.state.title.length !== 0
+      case 1:
+        return this.state.description.length !== 0
+      case 2:
+        return this.state.street_address.length !== 0 &&
+          this.state.city.length !== 0 &&
+          this.state.postal_code.length !== 0 &&
+          this.state.country.length !== 0
+      case 3:
+        return this.state.num_of_beds !== 0
+      case 4:
+        return this.state.photos.length === 5
+      case 5:
+        return this.state.price !== 0
+      
+      default: 
+        return false
+    }
+  }
+
   render(){
     if(!this.state) return "loading";
-
+    console.log(this.state)
     return(
       <div className="listings-create">
         <div className="sidebar">
@@ -238,24 +275,28 @@ class ListingEditComponent extends React.Component{
             <div className="buttons">
               <button onClick={() => this.subPageIndex()}>Back</button>
               <div></div>
-              <button 
-                onClick={(e) => {
-                  if (this.state.localState.pageIndex !== 5 ) {
-                    this.addPageIndex();
-                  } else {
-                    this.handleSubmit(e);
-                  }
-                }}
-              >
-                {this.state.localState.pageIndex !== 5 ? "Next" : "Submit"}
-              </button> 
+              {this.isCurrentPageInputFilled() ? 
+                <button 
+                  style={ this.state.localState.pageIndex !== 5 ? {backgroundColor: "black"} : {backgroundColor: "#E30C79"}}
+                  onClick={(e) => {
+                    if (this.state.localState.pageIndex !== 5 ) {
+                      this.addPageIndex();
+                    } else {
+                      this.handleSubmit(e);
+                    }
+                  }}
+                >
+                  {this.state.localState.pageIndex !== 5 ? "Next" : "Submit"}
+                </button>
+                : ""
+              } 
             </div>
           </div>
         </form>
 
-        <ul className="listing-create-errors"> 
+        {/* <ul className="listing-create-errors"> 
           {Array.isArray(this.props.errors) ? this.props.errors.map((error, idx) => <li key={idx}>{error}</li>) : "" } 
-        </ul>
+        </ul> */}
 
       </div>
     )

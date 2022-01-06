@@ -54,17 +54,5 @@ class Listing < ApplicationRecord
     reviews.average(:rating)
   end
 
-  # def self.in_bounds(bounds)
-  #   # google map bounds will be in the following format:
-  #   {
-  #     "northEast"=> {"lat"=>"37.80971", "lng"=>"-122.39208"},
-  #     # "southWest"=> {"lat"=>"37.74187", "lng"=>"-122.47791"}
-  #   }
-  #   #... query logic goes here
-  #   end
-
-  # def self.find_by_city(city)
-  #     Listing.where('city LIKE ?', city)
-  # end
 
 end
