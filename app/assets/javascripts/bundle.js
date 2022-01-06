@@ -1027,17 +1027,17 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         className: "buttons-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "buttons"
-      }, this.state.localState.pageIndex !== 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        style: this.state.localState.pageIndex === 0 ? {
+          opacity: "0%",
+          cursor: "auto"
+        } : {
+          display: "block"
+        },
         onClick: function onClick() {
-          return _this4.subPageIndex();
+          return _this4.state.localState.pageIndex === 0 ? _this4.subPageIndex() : "";
         }
-      }, "Back") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        style: {
-          padding: "2vw",
-          marginLeft: "vw",
-          cursor: "none"
-        }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         style: this.state.localState.pageIndex !== 5 ? {
           backgroundColor: "black"
         } : {
@@ -1482,17 +1482,17 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         className: "buttons-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "buttons"
-      }, this.state.localState.pageIndex !== 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        style: this.state.localState.pageIndex === 0 ? {
+          opacity: "0%",
+          cursor: "auto"
+        } : {
+          display: "block"
+        },
         onClick: function onClick() {
-          return _this4.subPageIndex();
+          return _this4.state.localState.pageIndex === 0 ? _this4.subPageIndex() : "";
         }
-      }, "Back") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        style: {
-          padding: "2vw",
-          marginLeft: "vw",
-          cursor: "none"
-        }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         style: this.state.localState.pageIndex !== 4 ? {
           backgroundColor: "black"
         } : {
