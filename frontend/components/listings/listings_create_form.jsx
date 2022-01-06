@@ -79,8 +79,17 @@ class ListingsCreateForm extends React.Component{
     for (let i = 0; i < e.target.files.length; i++) {
       this.photos.push(URL.createObjectURL(e.target.files[i]));
     }
-    // this.photos.push(e.currentTarget.files)
+    console.log("e.currenttarget.files:", e.currentTarget.files)
+
     this.setState({photoFile: [...e.currentTarget.files, ...this.state.photoFile]})
+  }
+
+  removeImage(idx) {
+    let photos = this.state.photoFile;
+    
+    photos.splice(idx, 1);
+    this.photos.splice(idx, 1);
+    this.setState({ photos: photos });
   }
 
   update(field){
@@ -160,15 +169,8 @@ class ListingsCreateForm extends React.Component{
     }
   }
 
-  removeImage(idx) {
-    let photos = this.state.photoFile;
-    
-    photos.splice(idx, 1);
-    this.photos.splice(idx, 1);
-    this.setState({ photos: photos });
-  }
-
   render(){
+    console.log("STATE:",this.state)
     return(
       <div className="listings-create">
         <div className="sidebar">
@@ -258,7 +260,7 @@ class ListingsCreateForm extends React.Component{
                 <div className="uploaded-img-container">
                   {this.photos.map((photo, idx) => 
                     <div key={idx} className="uploaded-img-container-2">
-                      <i className="far fa-times-circle" onClick={(e) => this.removeImage(idx)}></i>
+                      <i className="far fa-times-circle" onClick={() => this.removeImage(idx)}></i>
                       <img 
                         src={photo}
                         className="uploaded-img"

@@ -729,11 +729,21 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     value: function handleFile(e) {
       for (var i = 0; i < e.target.files.length; i++) {
         this.photos.push(URL.createObjectURL(e.target.files[i]));
-      } // this.photos.push(e.currentTarget.files)
+      }
 
-
+      console.log("e.currenttarget.files:", e.currentTarget.files);
       this.setState({
         photoFile: [].concat(_toConsumableArray(e.currentTarget.files), _toConsumableArray(this.state.photoFile))
+      });
+    }
+  }, {
+    key: "removeImage",
+    value: function removeImage(idx) {
+      var photos = this.state.photoFile;
+      photos.splice(idx, 1);
+      this.photos.splice(idx, 1);
+      this.setState({
+        photos: photos
       });
     }
   }, {
@@ -839,20 +849,11 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
-    key: "removeImage",
-    value: function removeImage(idx) {
-      var photos = this.state.photoFile;
-      photos.splice(idx, 1);
-      this.photos.splice(idx, 1);
-      this.setState({
-        photos: photos
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this4 = this;
 
+      console.log("STATE:", this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -995,7 +996,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
           className: "uploaded-img-container-2"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
           className: "far fa-times-circle",
-          onClick: function onClick(e) {
+          onClick: function onClick() {
             return _this4.removeImage(idx);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
@@ -1133,6 +1134,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
     };
     var newState = Object.assign({}, _this.props.listing, localState);
     _this.state = newState;
+    _this.photos = _this.state.photos;
     _this.style1 = {
       display: "block",
       backgroundImage: "url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)"
@@ -1221,8 +1223,22 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleFile",
     value: function handleFile(e) {
+      for (var i = 0; i < e.target.files.length; i++) {
+        this.photos.push(URL.createObjectURL(e.target.files[i]));
+      }
+
       this.setState({
-        photoFile: [].concat(_toConsumableArray(e.currentTarget.files), _toConsumableArray(this.state.photoFile))
+        photos: [e.currentTarget.files[0]].concat(_toConsumableArray(this.state.photos))
+      });
+    }
+  }, {
+    key: "removeImage",
+    value: function removeImage(idx) {
+      var photos = this.state.photos;
+      photos.splice(idx, 1);
+      this.photos.splice(idx, 1);
+      this.setState({
+        photos: photos
       });
     }
   }, {
@@ -1312,7 +1328,8 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
           return this.state.num_of_beds !== 0;
 
         case 4:
-          return this.state.photos.length === 5;
+          return this.state.photos.length >= 5;
+        //GREATER THAN 5, not EQUAL
 
         case 5:
           return this.state.price !== 0;
@@ -1462,20 +1479,22 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
           return _this4.handleFile(e);
         },
         multiple: true
-      }), this.state.photos.map(function (photo, idx) {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "uploaded-img-container"
+      }, this.photos.map(function (photo, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "uploaded-img-container"
+          key: idx,
+          className: "uploaded-img-container-2"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-          "class": "fas fa-trash-alt",
-          onClick: function onClick(e) {
-            return _this4.removeImage(e);
+          className: "far fa-times-circle",
+          onClick: function onClick() {
+            return _this4.removeImage(idx);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-          key: idx,
           src: photo,
           className: "uploaded-img"
         }));
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         style: this.state.localState.pageIndex === 5 ? {
           display: "flex"
         } : {
@@ -1501,6 +1520,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "buttons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        // style={this.state.localState.pageIndex === 0 ? {display: "none"} : {display: "block"}}
         onClick: function onClick() {
           return _this4.subPageIndex();
         }

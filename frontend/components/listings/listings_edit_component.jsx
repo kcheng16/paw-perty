@@ -6,6 +6,7 @@ class ListingEditComponent extends React.Component{
     const localState = {localState: {pageIndex: 0}}
     const newState = Object.assign({}, this.props.listing, localState)
     this.state = newState
+    this.photos = this.state.photos
 
     this.style1 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)`}
     this.style2 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638257975/alvan-nee-T-0EW-SEbsE-unsplash_jlyvgo.jpg)`}
@@ -69,7 +70,18 @@ class ListingEditComponent extends React.Component{
   }
 
   handleFile(e){
-    this.setState({photoFile: [...e.currentTarget.files, ...this.state.photoFile]})
+    for (let i = 0; i < e.target.files.length; i++) {
+      this.photos.push(URL.createObjectURL(e.target.files[i]));
+    }
+    this.setState({photos: [e.currentTarget.files[0], ...this.state.photos]})
+  }
+  
+  removeImage(idx){
+    let photos = this.state.photos;
+    
+    photos.splice(idx, 1);
+    this.photos.splice(idx, 1);
+    this.setState({ photos: photos });
   }
 
   update(field){
@@ -137,7 +149,7 @@ class ListingEditComponent extends React.Component{
       case 3:
         return this.state.num_of_beds !== 0
       case 4:
-        return this.state.photos.length === 5
+        return this.state.photos.length >= 5 //GREATER THAN 5, not EQUAL
       case 5:
         return this.state.price !== 0
       
@@ -171,8 +183,8 @@ class ListingEditComponent extends React.Component{
             style={this.state.localState.pageIndex === 0 ? { display: "block" } : { display: "none" }}
             className="listing-title"
           >
-              <h1>Create your title</h1>
-              <textarea onChange={this.update('title')} name='listing-title' type="text" placeholder="Relax your paws with us!" value={this.state.title}/>
+            <h1>Create your title</h1>
+            <textarea onChange={this.update('title')} name='listing-title' type="text" placeholder="Relax your paws with us!" value={this.state.title}/>
           </div>
 
           {/* DESCRIPTION */}
@@ -236,23 +248,17 @@ class ListingEditComponent extends React.Component{
                   onChange={e => this.handleFile(e)}
                   multiple
                 />
-                  {this.state.photos.map((photo, idx) => 
-                    <div className="uploaded-img-container">
-                      <i class="fas fa-trash-alt" onClick={(e) => this.removeImage(e)}></i>
+                  <div className="uploaded-img-container">
+                    {this.photos.map((photo, idx) => 
+                      <div key={idx} className="uploaded-img-container-2">
+                      <i className="far fa-times-circle" onClick={() => this.removeImage(idx)}></i>
                       <img 
-                        key={idx}
                         src={photo}
                         className="uploaded-img"
-                      >
-                      </img>
-                    </div>
+                      />                
+                      </div>
                     )}
-                {/* <button 
-                  className="delete-img"
-                  onClick={() => this.setState({photoFile: []})}
-                >
-                  Delete images
-                </button> */}
+                  </div>
               </div>
             </div>
             {/* PRICE */}
@@ -275,7 +281,10 @@ class ListingEditComponent extends React.Component{
         
           <div className="buttons-container">
             <div className="buttons">
-              <button onClick={() => this.subPageIndex()}>Back</button>
+              <button 
+                // style={this.state.localState.pageIndex === 0 ? {display: "none"} : {display: "block"}}
+                onClick={() => this.subPageIndex()}
+              >Back</button>
               <div></div>
               {this.isCurrentPageInputFilled() ? 
                 <button 
