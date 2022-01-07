@@ -2145,7 +2145,8 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         calculate: this.state.calculate,
         toggleCalculate: this.toggleCalculate,
         setReservation: this.setReservation,
-        createReservation: this.createReservation
+        createReservation: this.createReservation,
+        sessionId: this.props.session.id
       })));
     }
   }]);
@@ -2904,7 +2905,7 @@ var ReservationCreateComponent = function ReservationCreateComponent(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
     value: "0",
     disabled: true
-  }, "select number of dogs"), props.choices)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+  }, "select number of dogs"), props.choices)), props.listing.host_id === props.sessionId ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     type: props.calculate ? "button" : "submit",
     className: props.calculate ? "reserve-button-inactive" : "reserve-button",
     onClick: function onClick(e) {

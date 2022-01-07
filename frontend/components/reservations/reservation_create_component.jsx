@@ -40,7 +40,10 @@ const ReservationCreateComponent = props => {
               {props.choices}
             </select>
           </div>
-          <button 
+          {props.listing.host_id === props.sessionId ? 
+            ""
+            :
+            <button 
             type={props.calculate ? "button" : "submit"} 
             className={props.calculate ? "reserve-button-inactive" : "reserve-button"}
             onClick={ (e) => {
@@ -50,9 +53,9 @@ const ReservationCreateComponent = props => {
                 props.createReservation(e)
               }
             }}
-          > 
-            {props.calculate ? "Calculate Price" : "Reserve"}
-          </button>
+            > 
+              {props.calculate ? "Calculate Price" : "Reserve"}
+            </button>}
           <div className="cost-calculation">
             <div>{props.listing.price} coins x {props.days} nights</div>
             <div>{props.reservation.total_price}</div>

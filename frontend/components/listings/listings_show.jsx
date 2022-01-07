@@ -223,6 +223,7 @@ class ListingsShow extends React.Component{
             toggleCalculate={this.toggleCalculate}
             setReservation={this.setReservation}
             createReservation={this.createReservation}
+            sessionId={this.props.session.id}
           />
           {/* <div className="sticky-parent">
             <div className="reservation-info">
