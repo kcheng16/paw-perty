@@ -710,7 +710,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
             formData.append("listing[latitude]", _this2.state.latitude);
             formData.append("listing[postal_code]", _this2.state.postal_code);
 
-            if (_this2.state.photoFile.length > 0 && _this2.state.photoFile.length <= 5) {
+            if (_this2.state.photoFile.length === 5) {
               for (var i = 0; i < _this2.state.photoFile.length; i++) {
                 formData.append("listing[photos][]", _this2.state.photoFile[i]);
               }
@@ -981,7 +981,7 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         className: "photos"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "inner-photo"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Add 5 photos here!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Add 5 photos here!"), this.state.photoFile.length === 5 ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "file",
         onChange: function onChange(e) {
           return _this4.handleFile(e);

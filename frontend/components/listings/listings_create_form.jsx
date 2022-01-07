@@ -60,7 +60,7 @@ class ListingsCreateForm extends React.Component{
                 formData.append("listing[latitude]", this.state.latitude);
                 formData.append("listing[postal_code]", this.state.postal_code);
           
-              if (this.state.photoFile.length > 0 && this.state.photoFile.length <= 5) {
+              if (this.state.photoFile.length === 5) {
                 for (let i = 0; i < this.state.photoFile.length; i++) {
                   formData.append("listing[photos][]", this.state.photoFile[i]);
                 }
@@ -251,11 +251,14 @@ class ListingsCreateForm extends React.Component{
             >
               <div className="inner-photo">
                 <h1>Add 5 photos here!</h1>
+                {this.state.photoFile.length === 5 ? 
+                ""
+                :
                 <input
                   type="file"
                   onChange={e => this.handleFile(e)}
                   multiple
-                />
+                />}
                 <div className="uploaded-img-container">
                   {this.photos.map((photo, idx) => 
                     <div key={idx} className="uploaded-img-container-2">
