@@ -1999,8 +1999,13 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
     key: "createReservation",
     value: function createReservation(e) {
       e.preventDefault();
-      this.props.createReservation(this.state.reservation);
-      this.props.history.push("/user/".concat(this.props.session.id, "/reservations/"));
+
+      if (this.props.session.id) {
+        this.props.createReservation(this.state.reservation);
+        this.props.history.push("/user/".concat(this.props.session.id, "/reservations/"));
+      } else {
+        this.props.openLoginModal();
+      }
     }
   }, {
     key: "render",
@@ -2167,8 +2172,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_listing_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/listing_actions */ "./frontend/actions/listing_actions.js");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
 /* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
-/* harmony import */ var _listings_show__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./listings_show */ "./frontend/components/listings/listings_show.jsx");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
+/* harmony import */ var _listings_show__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./listings_show */ "./frontend/components/listings/listings_show.jsx");
+
 
 
 
@@ -2200,11 +2207,14 @@ var mDTP = function mDTP(dispatch) {
     },
     createReservation: function createReservation(reservation) {
       return dispatch((0,_actions_reservation_actions__WEBPACK_IMPORTED_MODULE_3__.createReservation)(reservation));
+    },
+    openLoginModal: function openLoginModal() {
+      return dispatch((0,_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__.openModal)('login'));
     }
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_5__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_listings_show__WEBPACK_IMPORTED_MODULE_4__["default"])));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_6__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_listings_show__WEBPACK_IMPORTED_MODULE_5__["default"])));
 
 /***/ }),
 

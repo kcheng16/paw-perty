@@ -71,8 +71,12 @@ class ListingsShow extends React.Component{
 
   createReservation(e){
     e.preventDefault()
-    this.props.createReservation(this.state.reservation)
-    this.props.history.push(`/user/${this.props.session.id}/reservations/`)
+    if(this.props.session.id){
+      this.props.createReservation(this.state.reservation)
+      this.props.history.push(`/user/${this.props.session.id}/reservations/`)
+    } else {
+      this.props.openLoginModal()
+    }
   }
 
   render(){
