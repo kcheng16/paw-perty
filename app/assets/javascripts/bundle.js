@@ -2850,6 +2850,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ReservationCreateComponent = function ReservationCreateComponent(props) {
+  var n = new Date();
+  var y = n.getFullYear();
+  var m = n.getMonth() + 1;
+  var d = n.getDate();
+
+  if (m < 10) {
+    m = '0' + m.toString();
+  }
+
+  if (d < 10) {
+    d = '0' + d.toString();
+  }
+
+  var minDate = y + '-' + m + '-' + d;
+  var maxDate = y + 1 + '-' + "0" + (parseFloat(0 + m) + 1) + '-' + d; // console.log(props.startDate)
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "sticky-parent"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2876,6 +2892,8 @@ var ReservationCreateComponent = function ReservationCreateComponent(props) {
     htmlFor: "start_date"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "date",
+    min: minDate,
+    max: maxDate,
     name: "start_date",
     onChange: function onChange(e) {
       return props.setReservation('start_date', e);
@@ -2887,6 +2905,8 @@ var ReservationCreateComponent = function ReservationCreateComponent(props) {
     htmlFor: "start_date"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "date",
+    min: props.reservation.start_date ? props.reservation.start_date : minDate,
+    max: maxDate,
     name: "start_date",
     onChange: function onChange(e) {
       return props.setReservation('end_date', e);
@@ -2917,7 +2937,7 @@ var ReservationCreateComponent = function ReservationCreateComponent(props) {
     }
   }, props.calculate ? "Calculate Price" : "Reserve"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "cost-calculation"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, props.listing.price, " coins x ", props.days, " nights"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, props.reservation.total_price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, props.listing.price, " \u0189 x ", props.days, " nights"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, props.reservation.total_price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "line"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "total"

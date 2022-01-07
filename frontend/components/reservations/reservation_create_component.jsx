@@ -2,7 +2,22 @@ import React from "react";
 import { FaStar } from 'react-icons/fa'
 
 const ReservationCreateComponent = props => {
+  let n =  new Date();
+  let y = n.getFullYear();
+  let m = n.getMonth() + 1;
+  let d = n.getDate();
 
+  if(m < 10){
+    m = '0' + m.toString();
+  }
+  if (d < 10){
+    d = '0' + d.toString();
+  }
+
+  let minDate = y + '-' + m + '-' + d
+  let maxDate = (y+1) + '-' + "0"+(parseFloat(0+m) + 1) + '-' + d
+  
+  // console.log(props.startDate)
   return(
     <div className="sticky-parent">
       <div className="reservation-info">
@@ -23,13 +38,27 @@ const ReservationCreateComponent = props => {
             <div id="check-in">
               <div>CHECK-IN</div>
               <label htmlFor="start_date">
-                <input type="date" name="start_date" onChange={ e => props.setReservation('start_date', e)} value={props.reservation.start_date}/>
+                <input 
+                  type="date" 
+                  min={minDate}
+                  max={maxDate}
+                  name="start_date" 
+                  onChange={ e => props.setReservation('start_date', e)} 
+                  value={props.reservation.start_date}
+                />
               </label>
             </div>
             <div id="check-out">
               <div>CHECK-OUT</div>
               <label htmlFor="start_date">
-                <input type="date" name="start_date" onChange={e => props.setReservation('end_date', e)} value={props.reservation.end_date}/>
+                <input 
+                  type="date" 
+                  min={props.reservation.start_date ? props.reservation.start_date : minDate}
+                  max={maxDate}
+                  name="start_date" 
+                  onChange={e => props.setReservation('end_date', e)} 
+                  value={props.reservation.end_date}
+                />
               </label>
             </div>
           </div>
@@ -57,7 +86,7 @@ const ReservationCreateComponent = props => {
               {props.calculate ? "Calculate Price" : "Reserve"}
             </button>}
           <div className="cost-calculation">
-            <div>{props.listing.price} coins x {props.days} nights</div>
+            <div>{props.listing.price} Ɖ x {props.days} nights</div>
             <div>{props.reservation.total_price}</div>
           </div>
           <div className="line"></div>
