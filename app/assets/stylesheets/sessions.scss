@@ -101,8 +101,12 @@
     }
 
     >button{
-      color: #df2b4b;
+      color: #E30C79;
       font-weight: 600;
+    }
+
+    >button:hover{
+      color: #F50B7C;
     }
   }
 }
