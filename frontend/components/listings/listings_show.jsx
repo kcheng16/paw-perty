@@ -101,8 +101,11 @@ class ListingsShow extends React.Component{
             <button 
                 className="delete-button"
                 onClick={() => 
-                  {this.props.deleteListing(this.props.listing.id); 
-                  this.props.history.push("/listings")}}>
+                  {
+                    this.props.deleteListing(this.props.listing.id)
+                      .then( () => this.props.history.push(`/user/${this.props.session.id}/listings`))
+                  }
+                }>
                 Delete Listing
             </button>
           </div>) : ("")

@@ -2032,9 +2032,9 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       }, "Update Listing"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "delete-button",
         onClick: function onClick() {
-          _this2.props.deleteListing(_this2.props.listing.id);
-
-          _this2.props.history.push("/listings");
+          _this2.props.deleteListing(_this2.props.listing.id).then(function () {
+            return _this2.props.history.push("/user/".concat(_this2.props.session.id, "/listings"));
+          });
         }
       }, "Delete Listing")) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
         className: "listing-title"
