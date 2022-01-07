@@ -4,16 +4,28 @@ import Link from "react-router-dom/Link";
 class UserListings extends React.Component{
   constructor(props){
     super(props)
+    this.state = {
+      listings: Object.values(this.props.currentUser.listings)
+    }
   }
   // No longer need componentDidMount 2/2 putting listing+reservations within partial
 
+  removeUserListing(listingId, idx){
+    let listings = this.state.listings
+    listings.splice(idx, 1)
+    this.setState({listings: listings})
+
+    this.props.deleteListing(listingId)
+  }
+
   render(){
+    console.log("LISTINGS:",this.state.listings)
     // if(this.props.currentUser) return "loading..."
     return(
         <div className="listings-container">
           <p className="listing-text">Manage listings</p>
           <div className="user-listings">
-            {Object.values(this.props.currentUser.listings).map((listing, idx) => 
+            {this.state.listings.map((listing, idx) => 
               <div key={idx} >
                 <Link key={idx} to={`/listings/${listing.id}`} className="user-listing">
                   <img className="user-listing-icon" src={listing.images[0] ? listing.images[0] : listing.photos[0]}/>
@@ -29,13 +41,13 @@ class UserListings extends React.Component{
                 <div className="user-listing-buttons">
                   <button 
                     className="update-button"
-                    onClick={(e) => {e.stopPropagation(); this.props.history.push(`/listings/${listing.id}/edit`)}}
+                    onClick={() => this.props.history.push(`/listings/${listing.id}/edit`)}
                   > 
                     Edit
                   </button>
                   <button 
                     className="delete-button"
-                    onClick={(e) =>{e.stopPropagation(); this.props.deleteListing(listing.id)}}
+                    onClick={() => {this.removeUserListing(listing.id, idx)}}
                   >
                     Delete
                   </button>

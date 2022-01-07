@@ -4601,25 +4601,42 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(UserListings);
 
   function UserListings(props) {
+    var _this;
+
     _classCallCheck(this, UserListings);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      listings: Object.values(_this.props.currentUser.listings)
+    };
+    return _this;
   } // No longer need componentDidMount 2/2 putting listing+reservations within partial
 
 
   _createClass(UserListings, [{
+    key: "removeUserListing",
+    value: function removeUserListing(listingId, idx) {
+      var listings = this.state.listings;
+      listings.splice(idx, 1);
+      this.setState({
+        listings: listings
+      });
+      this.props.deleteListing(listingId);
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
-      // if(this.props.currentUser) return "loading..."
+      console.log("LISTINGS:", this.state.listings); // if(this.props.currentUser) return "loading..."
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "listing-text"
       }, "Manage listings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-listings"
-      }, Object.values(this.props.currentUser.listings).map(function (listing, idx) {
+      }, this.state.listings.map(function (listing, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: idx
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -4643,17 +4660,13 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
           className: "user-listing-buttons"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           className: "update-button",
-          onClick: function onClick(e) {
-            e.stopPropagation();
-
-            _this.props.history.push("/listings/".concat(listing.id, "/edit"));
+          onClick: function onClick() {
+            return _this2.props.history.push("/listings/".concat(listing.id, "/edit"));
           }
         }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           className: "delete-button",
-          onClick: function onClick(e) {
-            e.stopPropagation();
-
-            _this.props.deleteListing(listing.id);
+          onClick: function onClick() {
+            _this2.removeUserListing(listing.id, idx);
           }
         }, "Delete")));
       })));
