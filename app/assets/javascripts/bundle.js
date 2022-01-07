@@ -4213,7 +4213,7 @@ var mDTP = function mDTP(dispatch, ownProps) {
       onClick: function onClick() {
         return dispatch((0,_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__.openModal)('signup'));
       }
-    }, "Signup"),
+    }, "Sign up"),
     closeModal: function closeModal() {
       return dispatch((0,_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__.closeModal)());
     },
@@ -4387,12 +4387,16 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       }) : "", " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "submit-button",
         type: "submit"
-      }, this.props.formType), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, this.props.formType), this.props.formType === 'Login' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "demobutton",
         onClick: function onClick(e) {
           return _this4.loginDemoUser(e);
         }
-      }, "Demo User")));
+      }, "Demo Login") : ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "session-line"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "session-footer"
+      }, this.props.formType === 'Sign Up' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Already have an account?"), this.props.otherForm) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Don't have an account?"), this.props.otherForm)));
     }
   }]);
 

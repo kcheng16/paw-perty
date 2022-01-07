@@ -56,18 +56,38 @@ class SessionForm extends React.Component {
               </>
             ) : ("")
           }
-        {/* rendering errors if any */}
+    {/* rendering errors if any */}
         <ul className="session-errors"> {Array.isArray(this.props.errors) ? this.props.errors.map((error, idx) => <li key={idx}>{error}</li>) : "" } </ul>
 
           <button className="submit-button" type='submit'>{this.props.formType}</button>
     {/* DEMO USER */}
-          <button 
+          {this.props.formType === 'Login' ?
+            <button 
             className="demobutton" 
             onClick={(e) => this.loginDemoUser(e)}>
-            Demo User
-          </button>
+            Demo Login
+            </button>
+            :
+            ""
+          }
         </form>
 
+        <div className="session-line"></div>
+
+        {/* Footer */}
+        <div className="session-footer">
+          {this.props.formType === 'Sign Up' ?
+            <div>
+              <div>Already have an account?</div>
+              {this.props.otherForm}
+            </div>
+            :
+            <div>
+              <div>Don't have an account?</div>
+              {this.props.otherForm}
+            </div>
+          }
+        </div>
       </div>
     )
   }

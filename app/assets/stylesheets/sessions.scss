@@ -82,3 +82,26 @@
 .session-errors{
   color: red;
 }
+
+.session-line{
+  background-color: #d1d1d1;
+  width: 100%;
+  padding: 0.5px;
+  margin: 2vh;
+}
+
+.session-footer{
+  >div{
+    display: flex;
+    justify-content: center;
+
+    >div{
+      margin-right: 1vw;
+    }
+
+    >button{
+      color: #df2b4b;
+      font-weight: 600;
+    }
+  }
+}
