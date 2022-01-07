@@ -19,8 +19,6 @@ class UserListings extends React.Component{
   }
 
   render(){
-    console.log("LISTINGS:",this.state.listings)
-    // if(this.props.currentUser) return "loading..."
     return(
         <div className="listings-container">
           <p className="listing-text">Manage listings</p>

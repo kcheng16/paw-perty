@@ -85,7 +85,7 @@ class ListingsShow extends React.Component{
 
     return(
       <div className="show-page"> 
-        {/* {this.props.listing.host_id === this.props.session.id ?
+        {this.props.listing.host_id === this.props.session.id ?
           (<div>
             <button 
               className="update-button"
@@ -102,7 +102,7 @@ class ListingsShow extends React.Component{
                 Delete Listing
             </button>
           </div>) : ("")
-        } */}
+        }
 
         <h1 className="listing-title">{this.props.listing.title}</h1>
         <h1 className="listing-city">{this.props.listing.city}</h1>

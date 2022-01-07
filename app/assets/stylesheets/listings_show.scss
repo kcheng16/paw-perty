@@ -4,8 +4,12 @@
   margin-left: 20vw;
   margin-right: 20vw;
 
+  >div:first-child{
+    margin-top: 10px;
+  }
+
   .update-button{
-    background-color: rgb(99, 99, 99);
+    background-color: #E30C79;
     border-radius: 10px;
     font-size: 1vw;
     position: absolute;
@@ -15,8 +19,12 @@
     height: 4vh;
     text-align: center;
   }
+  .update-button:hover{
+    background-color: #F50B7C;
+  }
+
   .delete-button{
-    background-color: rgb(99, 99, 99);
+    background-color: #E30C79;
     border-radius: 10px;
     font-size: 1vw;
     position: absolute;
@@ -25,6 +33,9 @@
     width: 7vw;
     height: 4vh;
     text-align: center;
+  }
+  .delete-button:hover{
+    background-color: #F50B7C;
   }
 }
 

@@ -2019,7 +2019,19 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+      }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "update-button",
+        onClick: function onClick() {
+          return _this2.props.history.push("/listings/".concat(_this2.props.listing.id, "/edit"));
+        }
+      }, "Update Listing"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "delete-button",
+        onClick: function onClick() {
+          _this2.props.deleteListing(_this2.props.listing.id);
+
+          _this2.props.history.push("/listings");
+        }
+      }, "Delete Listing")) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
         className: "listing-title"
       }, this.props.listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
         className: "listing-city"
@@ -4627,8 +4639,6 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var _this2 = this;
-
-      console.log("LISTINGS:", this.state.listings); // if(this.props.currentUser) return "loading..."
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-container"
