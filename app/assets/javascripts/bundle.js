@@ -1198,18 +1198,14 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
             formData.append("listing[num_of_beds]", _this2.state.num_of_beds);
             formData.append("listing[longitude]", _this2.state.longitude);
             formData.append("listing[latitude]", _this2.state.latitude);
-            formData.append("listing[postal_code]", _this2.state.postal_code);
-
-            if (_this2.state.images_to_delete) {
-              formData.append("listing[images_to_delete]", _this2.state.images_to_delete);
-            }
-
-            console.log("this.state.photos", _this2.state.photos);
-
-            for (var i = 0; i < _this2.state.photos.length; i++) {
-              formData.append("listing[photos][]", _this2.state.photos[i]);
-            } //update the listing
-
+            formData.append("listing[postal_code]", _this2.state.postal_code); // For updating/deleting img:
+            // if(this.state.images_to_delete){
+            //   formData.append("listing[images_to_delete]", this.state.images_to_delete);
+            // }
+            // for (var i = 0; i < this.state.photos.length; i++) {
+            //   formData.append("listing[photos][]", this.state.photos[i]);
+            // }
+            //update the listing
 
             _this2.props.updateListing(formData, _this2.props.listing.id).then(function (res) {
               _this2.props.history.push("/listings/".concat(res.payload.listing.id));

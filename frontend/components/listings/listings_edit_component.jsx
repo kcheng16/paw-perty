@@ -55,15 +55,15 @@ class ListingEditComponent extends React.Component{
                 formData.append("listing[longitude]", this.state.longitude);
                 formData.append("listing[latitude]", this.state.latitude);
                 formData.append("listing[postal_code]", this.state.postal_code);
-                if(this.state.images_to_delete){
-                  formData.append("listing[images_to_delete]", this.state.images_to_delete);
-                }
+                // For updating/deleting img:
+                // if(this.state.images_to_delete){
+                //   formData.append("listing[images_to_delete]", this.state.images_to_delete);
+                // }
+                            
+                // for (var i = 0; i < this.state.photos.length; i++) {
+                //   formData.append("listing[photos][]", this.state.photos[i]);
+                // }
               
-                console.log("this.state.photos",this.state.photos)
-              
-                for (var i = 0; i < this.state.photos.length; i++) {
-                  formData.append("listing[photos][]", this.state.photos[i]);
-                }
               
               //update the listing
               this.props.updateListing(formData, this.props.listing.id)

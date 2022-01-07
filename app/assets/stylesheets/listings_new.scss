@@ -248,16 +248,6 @@
   text-align: center;
 }
 
-.listing-create-errors{
-  position: absolute;
-  top: 68vh;
-  left: 87vw;
-  display: flex;
-  flex-direction: column;
-  color: red;
-  list-style: square;
-}
-
 .photos{
   display: flex;
   margin-top: 16vh;
@@ -310,3 +300,12 @@
   }
 }
 
+.listing-create-errors{
+  position: absolute;
+  top: 72vh;
+  left: 81vw;
+  display: flex;
+  flex-direction: column;
+  color: red;
+  list-style: square;
+}

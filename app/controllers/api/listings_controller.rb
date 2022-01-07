@@ -50,15 +50,14 @@ class Api::ListingsController < ApplicationController
 
   def update
     @listing = Listing.find_by(id: params[:id])
-    to_delete = [params["listing"]["images_to_delete"]]
+    # to_delete = [params["listing"]["images_to_delete"]]
 
-    debugger
     if @listing.update(listing_params)
-      if !to_delete.empty?
-        to_delete.each do |idx|
-          @listing.photos[idx.to_i].purge
-        end
-      end
+      # if !to_delete.empty?
+      #   to_delete.each do |idx|
+      #     @listing.photos[idx.to_i].purge
+      #   end
+      # end
       render :show
     else
       render json: @listing.errors.full_messages, status: 422
