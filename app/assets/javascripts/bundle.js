@@ -2019,19 +2019,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page"
-      }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "update-button",
-        onClick: function onClick() {
-          return _this2.props.history.push("/listings/".concat(_this2.props.listing.id, "/edit"));
-        }
-      }, "Update Listing"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "delete-button",
-        onClick: function onClick() {
-          _this2.props.deleteListing(_this2.props.listing.id);
-
-          _this2.props.history.push("/listings");
-        }
-      }, "Delete Listing")) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
         className: "listing-title"
       }, this.props.listing.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
         className: "listing-city"
@@ -4622,6 +4610,8 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
   _createClass(UserListings, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       // if(this.props.currentUser) return "loading..."
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-container"
@@ -4630,11 +4620,11 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
       }, "Manage listings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-listings"
       }, Object.values(this.props.currentUser.listings).map(function (listing, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: idx
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: idx,
-          to: "/listings/".concat(listing.id)
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          key: idx,
+          to: "/listings/".concat(listing.id),
           className: "user-listing"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           className: "user-listing-icon",
@@ -4649,7 +4639,23 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
           className: "user-listing-street"
         }, listing.street_address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, listing.country), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "user-listing-price"
-        }, listing.price, " Doge Coins/night"))));
+        }, listing.price, " Doge Coins/night"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "user-listing-buttons"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          className: "update-button",
+          onClick: function onClick(e) {
+            e.stopPropagation();
+
+            _this.props.history.push("/listings/".concat(listing.id, "/edit"));
+          }
+        }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          className: "delete-button",
+          onClick: function onClick(e) {
+            e.stopPropagation();
+
+            _this.props.deleteListing(listing.id);
+          }
+        }, "Delete")));
       })));
     }
   }]);
@@ -4673,9 +4679,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/withRouter.js");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
-/* harmony import */ var _user_listings__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user_listings */ "./frontend/components/user/user_listings.jsx");
+/* harmony import */ var _actions_listing_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/listing_actions */ "./frontend/actions/listing_actions.js");
+/* harmony import */ var _user_listings__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user_listings */ "./frontend/components/user/user_listings.jsx");
+
 
 
 
@@ -4691,11 +4699,14 @@ var mDTP = function mDTP(dispatch) {
   return {
     fetchUser: function fetchUser(userId) {
       return dispatch((0,_actions_user_actions__WEBPACK_IMPORTED_MODULE_1__.fetchUser)(userId));
+    },
+    deleteListing: function deleteListing(listingId) {
+      return dispatch((0,_actions_listing_actions__WEBPACK_IMPORTED_MODULE_2__.deleteListing)(listingId));
     }
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_3__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_user_listings__WEBPACK_IMPORTED_MODULE_2__["default"])));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router__WEBPACK_IMPORTED_MODULE_4__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_user_listings__WEBPACK_IMPORTED_MODULE_3__["default"])));
 
 /***/ }),
 
