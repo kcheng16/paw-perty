@@ -103,8 +103,14 @@ class ReservationShowItem extends React.Component{
           </div>
         </Link>
         <div className="res-buttons">
-          <button onClick={() => this.toggleModal()}>Edit</button>
-          <button onClick={() => this.props.deleteReservation(this.props.reservation.id)}>Cancel</button>
+          {this.props.pastReservations ? 
+            <>
+              <button onClick={() => this.toggleModal()}>Edit</button>
+              <button onClick={() => this.props.deleteReservation(this.props.reservation.id)}>Cancel</button>
+            </>
+            :
+            ""
+          }
           <div 
             style={this.state.toggle ? {display: "block"} : {display: "none"}} 
             className="modal-background" 

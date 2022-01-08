@@ -2864,8 +2864,7 @@ var ReservationCreateComponent = function ReservationCreateComponent(props) {
   }
 
   var minDate = y + '-' + m + '-' + d;
-  var maxDate = y + 1 + '-' + "0" + (parseFloat(0 + m) + 1) + '-' + d; // console.log(props.startDate)
-
+  var maxDate = y + 1 + '-' + "0" + (parseFloat(0 + m) + 1) + '-' + d;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "sticky-parent"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2992,20 +2991,40 @@ var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(ReservationShowComponent);
 
   function ReservationShowComponent(props) {
+    var _this;
+
     _classCallCheck(this, ReservationShowComponent);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.upcomingReservations = [], _this.pastReservations = [];
+    return _this;
   } // No longer need componentDidMount 2/2 putting listing+reservations within partial
   // componentDidMount(){
   // this.props.requestReservation(this.props.match.params.id)
   // }
+  // filter listings to see if date has passed TODAYS date
 
 
   _createClass(ReservationShowComponent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log("MOUNTING");
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
+      var today = new Date();
+      this.props.reservations.map(function (reservation) {
+        var endDate = new Date(reservation.end_date);
+
+        if (Date.parse(today) < Date.parse(endDate)) {
+          _this2.upcomingReservations.push(reservation);
+        } else {
+          _this2.pastReservations.push(reservation);
+        }
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "reservation-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
@@ -3022,20 +3041,31 @@ var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
         className: "res-desc"
       }, "Time to dust off those paws and start planning the next adventure"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
-          return _this.props.history.push("/listings");
+          return _this2.props.history.push("/listings");
         }
       }, "Start searching")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "header-img"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Upcoming Trips"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-reservations"
-      }, this.props.reservations.map(function (reservation, idx) {
+      }, this.upcomingReservations.map(function (reservation, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reservation_show_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: idx,
           reservation: reservation,
-          updateReservation: _this.props.updateReservation,
-          deleteReservation: _this.props.deleteReservation
+          updateReservation: _this2.props.updateReservation,
+          deleteReservation: _this2.props.deleteReservation
         });
-      })));
+      })), this.pastReservations.length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Where you've been"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "past-reservations"
+      }, this.pastReservations.map(function (reservation, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reservation_show_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: idx,
+          reservation: reservation,
+          updateReservation: _this2.props.updateReservation //DONT NEED THIS===================
+          ,
+          deleteReservation: _this2.props.deleteReservation,
+          pastReservations: true
+        });
+      }))) : "");
     }
   }]);
 
@@ -3258,7 +3288,7 @@ var ReservationShowItem = /*#__PURE__*/function (_React$Component) {
         className: "res-info"
       }, this.props.reservation.total_price, " Doge coins"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, startMonth, " ", startDay, " - ", endMonth, " ", endDay, ", ", endYear))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "res-buttons"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, this.props.pastReservations ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this2.toggleModal();
         }
@@ -3266,7 +3296,7 @@ var ReservationShowItem = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this2.props.deleteReservation(_this2.props.reservation.id);
         }
-      }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Cancel")) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         style: this.state.toggle ? {
           display: "block"
         } : {

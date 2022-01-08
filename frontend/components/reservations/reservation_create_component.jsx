@@ -17,7 +17,6 @@ const ReservationCreateComponent = props => {
   let minDate = y + '-' + m + '-' + d
   let maxDate = (y+1) + '-' + "0"+(parseFloat(0+m) + 1) + '-' + d
   
-  // console.log(props.startDate)
   return(
     <div className="sticky-parent">
       <div className="reservation-info">
