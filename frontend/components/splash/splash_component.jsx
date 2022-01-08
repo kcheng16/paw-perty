@@ -9,7 +9,9 @@ class SplashComponent extends React.Component{
   render(){
     return(
       <div className='splash'>
-        <img className="splash-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637799306/joe-caione-qO-PIF84Vxg-unsplash_1_croxsx.jpg"/>
+        <div className="splash-img-container">
+          <img className="splash-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1637799306/joe-caione-qO-PIF84Vxg-unsplash_1_croxsx.jpg"/>
+        </div>
         
         <div className="splash-text">
           <div>Not sure where to go?</div>
@@ -18,7 +20,7 @@ class SplashComponent extends React.Component{
             I'm flexible
           </div>
         </div>
-        <h1>Inspiration for your next trip</h1>
+        <h1 className="inspiration-header">Inspiration for your next trip</h1>
         <div className="splash-inspiration-container">
           <Link className="boring" to={"/search/BORING"}>
             <div className="inspiration-img"></div>
@@ -42,6 +44,9 @@ class SplashComponent extends React.Component{
           </Link>
         </div>
         
+        <div>
+          {/* What's your super paw-er? Become a super host! */}
+        </div>
         <div className="social">
           <a href="https://www.linkedin.com/in/kcheng16/">
             <img className="linked-in" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/linkedinbutton_r8xeco.png"/>

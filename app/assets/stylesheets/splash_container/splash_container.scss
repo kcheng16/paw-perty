@@ -5,12 +5,20 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background-color: black;
 }
-.splash-img {
-  width: 84vw;
-  height: 90vh;
-  object-fit: cover;
+
+.splash-img-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 25%;
+  background: linear-gradient(0deg, rgba(255,255,255,0.8603816526610644) 5%, rgba(0,0,0,0.9475140397956058) 30%);
+    
+  .splash-img {
+    width: 84vw;
+    height: 90vh;
+    object-fit: cover;
+  }
 }
 
 .splash-button {
@@ -19,7 +27,7 @@
   background-color: white;
   border-radius: 33px;
   font-family: sans-serif;
-  font-size: 50%;
+  font-size: 1.5vw;
   text-align: center;
   padding: 10px;
   padding-top: 18px;
@@ -29,25 +37,33 @@
   overflow: hidden;
 }
 
+.splash-button:hover{
+  cursor: pointer;
+  background-color: #eeeeee;
+}
+
 .splash-text {
   color: white;
   font-family: sans-serif;
   font-weight: 700;
   position: absolute;
   left: 17%;
-  top: 25%;
+  top: 20%;
   font-size: 3vw;
   display: flex;
   flex-direction: column;
 
 }
 
-.splash-button:hover{
-  cursor: pointer;
-  background-color: #eeeeee;
-}
 
-// ================inspiration
+// ============================inspiration
+.inspiration-header{
+  width: 84vw;
+  margin-top: -30vh;
+  font-size: 2.5vw;
+  text-align: start;
+  color: white;
+}
 .splash-inspiration-container{
   display: flex;
   margin-top: 2vh;
@@ -61,7 +77,7 @@
 
       >h3{ //CITY
         font-size: 250%;
-        margin: 0 1vw;
+        margin: 1vw 0 0 1vw;
         color: white;
       }
 
