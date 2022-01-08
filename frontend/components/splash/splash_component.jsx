@@ -101,7 +101,7 @@ class SplashComponent extends React.Component{
           <div className="tech">
             <div className="footer-title">Technologies</div>
             <div className="tech-grid">
-              <div>Amazon Web Services (AWS)</div>
+              <div>AWS</div>
               <div>CSS</div>
               <div>Git</div>
               <div>Google Maps</div>

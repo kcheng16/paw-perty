@@ -46,3 +46,13 @@
     font-size: 0.5vw;
   }
 }
+
+.tech-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 1vh;
+
+  >div:hover{
+    color: #F50B7C;
+  }
+}
