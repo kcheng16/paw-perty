@@ -2998,45 +2998,23 @@ var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.upcomingReservations = [], _this.pastReservations = [];
     return _this;
-  } // No longer need componentDidMount 2/2 putting listing+reservations within partial
-  // componentDidMount(){
-  // this.props.requestReservation(this.props.match.params.id)
-  // }
-  // filter listings to see if date has passed TODAYS date
+  } // No longer need componentDidMount 2/2 putting listing+reservations nested within partial for user
 
 
   _createClass(ReservationShowComponent, [{
     key: "reservationHasExpired",
     value: function reservationHasExpired(endDate) {
       var today = new Date();
-      var day = today.getDate();
-      var month = today.getMonth();
-      var year = today.getFullYear();
-      var endDay = endDate.getDate();
-      var endMonth = endDate.getMonth() + 1;
-      var endYear = endDate.getFullYear(); // console.log("todayDATE", today.getDate())
-      // console.log("todayMONTH", today.getMonth()+1)
-      // console.log("todayYEAR", today.getFullYear())
-      // console.log("endDateDATE", endDate.getDate())
-      // console.log("endDateMONTH", endDate.getMonth()+1)
-      // console.log("endDateYEAR", endDate.getFullYear())
-      // console.log("TIME:", today.getTime())
-
-      console.log("TODAY:", today);
-      console.log("END DATE:", endDate);
-      console.log("RETURN:", today.toLocaleDateString() < endDate.toLocaleDateString());
-      return today.toLocaleDateString() > endDate.toLocaleDateString(); // return day < endDay && month <= endMonth && year <= endYear
-      // console.log("DAY:",day < endDay)
-      // console.log("MONTH:",month <= endMonth)
-      // console.log("YEAR:", year <= endYear)
+      return today.toLocaleDateString() > endDate.toLocaleDateString();
     }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
+      // filter listings to see if date has passed TODAYS date
       this.props.reservations.map(function (reservation) {
-        var endDate = new Date(reservation.end_date); // console.log("has expired?",this.reservationHasExpired(endDate))
+        var endDate = new Date(reservation.end_date);
 
         if (_this2.reservationHasExpired(endDate)) {
           _this2.pastReservations.push(reservation);
@@ -3044,8 +3022,6 @@ var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
           _this2.upcomingReservations.push(reservation);
         }
       });
-      console.log("UPCOMING:", this.upcomingReservations);
-      console.log("PAST:", this.pastReservations);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "reservation-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {

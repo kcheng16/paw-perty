@@ -2,6 +2,14 @@
   padding: 0 15% 0 15%;
 }
 
+.res-text{
+  font-size: 32px;
+  font-weight: 600;
+  color: #484848;
+  margin-bottom: 2%;
+  margin-top: 3%;
+}
+
 .res-header{
   display: flex;
   margin-bottom: 5%;
@@ -33,13 +41,16 @@
     }
 
     >button{
-      background-color: #df2b4b;;
+      background-color: #EC0379;;
       color: white;
       font-weight: 600;
       border-radius: 5px;
       padding: 10px;
       margin: 40px 0 0 10px;
       width: 120px;
+    }
+    >button:hover{
+      background-color: #F50B7C;
     }
   }
 }
@@ -67,12 +78,6 @@
   font-size: 150%;
 }
 
-.res-text{
-  font-size: 32px;
-  font-weight: 600;
-  color: #484848;
-  margin-bottom: 20px;
-}
 .user-reservations{
   display: grid;
   grid-template-columns: repeat(3, 1fr);

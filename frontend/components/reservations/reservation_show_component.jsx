@@ -7,54 +7,25 @@ class ReservationShowComponent extends React.Component{
     this.upcomingReservations = [],
     this.pastReservations = []
   }
-  // No longer need componentDidMount 2/2 putting listing+reservations within partial
-  // componentDidMount(){
-    // this.props.requestReservation(this.props.match.params.id)
-  // }
+  // No longer need componentDidMount 2/2 putting listing+reservations nested within partial for user
 
-  // filter listings to see if date has passed TODAYS date
   reservationHasExpired(endDate){
     let today = new Date()
-    let day = today.getDate()
-    let month = today.getMonth()
-    let year = today.getFullYear()
-
-    let endDay = endDate.getDate()
-    let endMonth = endDate.getMonth()+1
-    let endYear = endDate.getFullYear()
-
-    // console.log("todayDATE", today.getDate())
-    // console.log("todayMONTH", today.getMonth()+1)
-    // console.log("todayYEAR", today.getFullYear())
-
-    // console.log("endDateDATE", endDate.getDate())
-    // console.log("endDateMONTH", endDate.getMonth()+1)
-    // console.log("endDateYEAR", endDate.getFullYear())
-    // console.log("TIME:", today.getTime())
-    console.log("TODAY:", today)
-    console.log("END DATE:", endDate)
-    console.log("RETURN:", today.toLocaleDateString() < endDate.toLocaleDateString())
     return today.toLocaleDateString() > endDate.toLocaleDateString()
-    // return day < endDay && month <= endMonth && year <= endYear
-    // console.log("DAY:",day < endDay)
-    // console.log("MONTH:",month <= endMonth)
-    // console.log("YEAR:", year <= endYear)
-
   }
 
   render(){
+    // filter listings to see if date has passed TODAYS date
     this.props.reservations.map( reservation => {
       let endDate = new Date(reservation.end_date)
 
-      // console.log("has expired?",this.reservationHasExpired(endDate))
       if(this.reservationHasExpired(endDate)){
         this.pastReservations.push(reservation)
       } else {
         this.upcomingReservations.push(reservation)
       }
     })
-    console.log("UPCOMING:", this.upcomingReservations)
-    console.log("PAST:",this.pastReservations)
+
     return(
         <div className="reservation-container">
           <p className="res-text">Trips:</p>
