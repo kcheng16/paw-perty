@@ -3006,25 +3006,46 @@ var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
 
 
   _createClass(ReservationShowComponent, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      console.log("MOUNTING");
+    key: "reservationHasExpired",
+    value: function reservationHasExpired(endDate) {
+      var today = new Date();
+      var day = today.getDate();
+      var month = today.getMonth();
+      var year = today.getFullYear();
+      var endDay = endDate.getDate();
+      var endMonth = endDate.getMonth() + 1;
+      var endYear = endDate.getFullYear(); // console.log("todayDATE", today.getDate())
+      // console.log("todayMONTH", today.getMonth()+1)
+      // console.log("todayYEAR", today.getFullYear())
+      // console.log("endDateDATE", endDate.getDate())
+      // console.log("endDateMONTH", endDate.getMonth()+1)
+      // console.log("endDateYEAR", endDate.getFullYear())
+      // console.log("TIME:", today.getTime())
+
+      console.log("TODAY:", today);
+      console.log("END DATE:", endDate);
+      console.log("RETURN:", today.toLocaleDateString() < endDate.toLocaleDateString());
+      return today.toLocaleDateString() < endDate.toLocaleDateString(); // return day < endDay && month <= endMonth && year <= endYear
+      // console.log("DAY:",day < endDay)
+      // console.log("MONTH:",month <= endMonth)
+      // console.log("YEAR:", year <= endYear)
     }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var today = new Date();
       this.props.reservations.map(function (reservation) {
-        var endDate = new Date(reservation.end_date);
+        var endDate = new Date(reservation.end_date); // console.log("has expired?",this.reservationHasExpired(endDate))
 
-        if (Date.parse(today) < Date.parse(endDate)) {
-          _this2.upcomingReservations.push(reservation);
-        } else {
+        if (_this2.reservationHasExpired(endDate)) {
           _this2.pastReservations.push(reservation);
+        } else {
+          _this2.upcomingReservations.push(reservation);
         }
       });
+      console.log("UPCOMING:", this.upcomingReservations);
+      console.log("PAST:", this.pastReservations);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "reservation-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
@@ -3060,9 +3081,6 @@ var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reservation_show_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: idx,
           reservation: reservation,
-          updateReservation: _this2.props.updateReservation //DONT NEED THIS===================
-          ,
-          deleteReservation: _this2.props.deleteReservation,
           pastReservations: true
         });
       }))) : "");
@@ -3288,7 +3306,7 @@ var ReservationShowItem = /*#__PURE__*/function (_React$Component) {
         className: "res-info"
       }, this.props.reservation.total_price, " Doge coins"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, startMonth, " ", startDay, " - ", endMonth, " ", endDay, ", ", endYear))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "res-buttons"
-      }, this.props.pastReservations ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, this.props.pastReservations ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this2.toggleModal();
         }
@@ -3296,7 +3314,7 @@ var ReservationShowItem = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this2.props.deleteReservation(_this2.props.reservation.id);
         }
-      }, "Cancel")) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Cancel")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         style: this.state.toggle ? {
           display: "block"
         } : {
