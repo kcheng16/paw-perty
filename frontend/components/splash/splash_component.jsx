@@ -68,6 +68,10 @@ class SplashComponent extends React.Component{
               <a href="https://angel.co/u/kcheng16">
                 <img className="link-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1641681845/angellist-icon_kgfh2a.png"/>
               </a>
+              {/* PORTFOLIO LINK
+              <a href="">
+                <img className="link-img" src=""/>
+              </a> */}
             </div>
           </div>
 
@@ -83,9 +87,15 @@ class SplashComponent extends React.Component{
 
           <div className="projects">
             <div className="footer-title">Projects</div>
-            <button></button>
-            <button></button>
-            <button></button>
+            <a href="https://code-op.herokuapp.com/">
+              <div>Code-Op</div>
+              <div>Software programming project collaboration and management application</div>
+            </a>
+            <a href="https://kcheng16.github.io/cho-plate-project/">
+              <div>Build-CHO-Plate</div>
+              <div>Interactive game exploring fundamentals of carbohydrate counting for diabetic management</div>
+            </a>
+            <a href=""></a>
           </div>
 
           <div className="tech">

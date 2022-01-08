@@ -23,3 +23,26 @@
     padding: 2% 0;
   }
 }
+
+.projects{
+  width: 20%;
+
+  >a{
+    margin-top: 1vh;
+  }
+
+  >a>div:first-child{
+    font-weight: 600;
+    font-size: 0.7vw;
+    margin-top: 1vh;
+    color: blue;
+  }
+
+  >a>div:first-child:hover{
+    color: #F50B7C;
+  }
+
+  >a>div:nth-child(2){
+    font-size: 0.5vw;
+  }
+}
