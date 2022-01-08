@@ -57,31 +57,36 @@ class SplashComponent extends React.Component{
 
         <div className="splash-footer-container">
           <div className="social">
-            <div>Social</div>
-            <a href="https://www.linkedin.com/in/kcheng16/">
-              <img className="linked-in" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/linkedinbutton_r8xeco.png"/>
-            </a>
-            <a href="https://github.com/kcheng16">
-              <img className="github" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/githubicon_w6ympq.png"/>
-            </a>
+            <div className="footer-title">Social</div>
+            <div className="links">
+              <a href="https://www.linkedin.com/in/kcheng16/">
+                <img className="link-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/linkedinbutton_r8xeco.png"/>
+              </a>
+              <a href="https://github.com/kcheng16">
+                <img className="link-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/githubicon_w6ympq.png"/>
+              </a>
+              <a href="https://angel.co/u/kcheng16">
+                <img className="link-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1641681845/angellist-icon_kgfh2a.png"/>
+              </a>
+            </div>
           </div>
 
           <div className="contact">
-            <div>Contact</div>
+            <div className="footer-title">Contact</div>
             <div>kcheng16@gmail.com</div>
             <div>510-674-6668</div>
-            <div></div>
+            <div>San Francisco Bay Area, CA</div>
           </div>
 
           <div className="projects">
-            <div>Projects</div>
+            <div className="footer-title">Projects</div>
             <button></button>
             <button></button>
             <button></button>
           </div>
 
           <div className="tech">
-            <div>Technologies</div>
+            <div className="footer-title">Technologies</div>
             <div className="tech-grid">
               <div>Amazon Web Services (AWS)</div>
               <div>CSS</div>

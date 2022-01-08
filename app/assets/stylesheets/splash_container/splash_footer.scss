@@ -1,5 +1,23 @@
-.linked-in{
+.splash-footer-container{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 2%;
+  background-color: #f7f7f7;
 }
 
-.github{
+>.header{
+  font-size: 0.8vw;
+  font-weight: 600;
+}
+
+.social{
+  >.links >a >.link-img{
+    width: 30%;
+    padding: 2%;
+  }
+}
+
+.contact{
+  
 }
