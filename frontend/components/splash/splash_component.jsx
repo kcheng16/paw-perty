@@ -55,14 +55,51 @@ class SplashComponent extends React.Component{
           </div>
         </div>
 
-        <div className="social">
-          <a href="https://www.linkedin.com/in/kcheng16/">
-            <img className="linked-in" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/linkedinbutton_r8xeco.png"/>
-          </a>
+        <div className="splash-footer-container">
+          <div className="social">
+            <div>Social</div>
+            <a href="https://www.linkedin.com/in/kcheng16/">
+              <img className="linked-in" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/linkedinbutton_r8xeco.png"/>
+            </a>
+            <a href="https://github.com/kcheng16">
+              <img className="github" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/githubicon_w6ympq.png"/>
+            </a>
+          </div>
 
-          <a href="https://github.com/kcheng16">
-            <img className="github" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/githubicon_w6ympq.png"/>
-          </a>
+          <div className="contact">
+            <div>Contact</div>
+            <div>kcheng16@gmail.com</div>
+            <div>510-674-6668</div>
+            <div></div>
+          </div>
+
+          <div className="projects">
+            <div>Projects</div>
+            <button></button>
+            <button></button>
+            <button></button>
+          </div>
+
+          <div className="tech">
+            <div>Technologies</div>
+            <div className="tech-grid">
+              <div>Amazon Web Services (AWS)</div>
+              <div>CSS</div>
+              <div>Git</div>
+              <div>Google Maps</div>
+              <div>HTML</div>
+              <div>JavaScript</div>
+              <div>jQuery</div>
+              <div>PostgreSQL</div>
+              <div>React</div>
+              <div>Redux</div>
+              <div>Ruby</div>
+              <div>Ruby on Rails</div>
+              <div>Sass</div>
+              <div>Webpack</div>
+            </div>
+          </div>
+
         </div>
       </div>
     )
