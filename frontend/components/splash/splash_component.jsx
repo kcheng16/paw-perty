@@ -47,7 +47,7 @@ class SplashComponent extends React.Component{
         <div className="super-host-container">
           <img 
             className="super-host-img"
-            src="http://res.cloudinary.com/de8carnhu/image/upload/v1641674193/super-dog_ly9baf.jpg"/>
+            src="https://res.cloudinary.com/de8carnhu/image/upload/v1641684228/Dalmatian-superhero-1-960x540_kt3apu.jpg"/>
           <div className="super-host-text">
             <div>What's your</div>
             <div>super paw-er?</div>

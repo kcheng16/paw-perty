@@ -4623,7 +4623,7 @@ var SplashComponent = /*#__PURE__*/function (_React$Component) {
         className: "super-host-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "super-host-img",
-        src: "http://res.cloudinary.com/de8carnhu/image/upload/v1641674193/super-dog_ly9baf.jpg"
+        src: "https://res.cloudinary.com/de8carnhu/image/upload/v1641684228/Dalmatian-superhero-1-960x540_kt3apu.jpg"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "super-host-text"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "What's your"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "super paw-er?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
