@@ -71,18 +71,18 @@
 
   >a{ //CARD
     width: 100%;
-    height: 55vh;
+    height: 50vh;
     border-radius: 8px;
     margin-right: 1vw;
 
       >h3{ //CITY
         font-size: 250%;
-        margin: 1vw 0 0 1vw;
+        margin: 0 0 0 1vw;
         color: white;
       }
 
       >h5{ //STATE
-        font-size: 110%;
+        font-size: 120%;
         margin-left: 1vw;
         color: white;
       }
@@ -123,11 +123,11 @@
 
 .inspiration-img{
   width: 20vw;
-  height: 35vh;
+  height: 30vh;
   border-radius: 8px 8px 0 0;
   background-position: 50% 50%;
   background: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 
