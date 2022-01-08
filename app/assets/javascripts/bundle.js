@@ -3025,7 +3025,7 @@ var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
       console.log("TODAY:", today);
       console.log("END DATE:", endDate);
       console.log("RETURN:", today.toLocaleDateString() < endDate.toLocaleDateString());
-      return today.toLocaleDateString() < endDate.toLocaleDateString(); // return day < endDay && month <= endMonth && year <= endYear
+      return today.toLocaleDateString() > endDate.toLocaleDateString(); // return day < endDay && month <= endMonth && year <= endYear
       // console.log("DAY:",day < endDay)
       // console.log("MONTH:",month <= endMonth)
       // console.log("YEAR:", year <= endYear)
@@ -3066,7 +3066,9 @@ var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
         }
       }, "Start searching")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "header-img"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Upcoming Trips"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "user-reservations-header"
+      }, "Upcoming Trips"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-reservations"
       }, this.upcomingReservations.map(function (reservation, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reservation_show_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -3075,7 +3077,9 @@ var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
           updateReservation: _this2.props.updateReservation,
           deleteReservation: _this2.props.deleteReservation
         });
-      })), this.pastReservations.length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Where you've been"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      })), this.pastReservations.length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "past-reservations-header"
+      }, "Where you've been"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "past-reservations"
       }, this.pastReservations.map(function (reservation, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reservation_show_item__WEBPACK_IMPORTED_MODULE_1__["default"], {

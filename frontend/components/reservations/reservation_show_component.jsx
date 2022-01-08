@@ -34,7 +34,7 @@ class ReservationShowComponent extends React.Component{
     console.log("TODAY:", today)
     console.log("END DATE:", endDate)
     console.log("RETURN:", today.toLocaleDateString() < endDate.toLocaleDateString())
-    return today.toLocaleDateString() < endDate.toLocaleDateString()
+    return today.toLocaleDateString() > endDate.toLocaleDateString()
     // return day < endDay && month <= endMonth && year <= endYear
     // console.log("DAY:",day < endDay)
     // console.log("MONTH:",month <= endMonth)
@@ -67,7 +67,7 @@ class ReservationShowComponent extends React.Component{
             </div>
             <div className="header-img"></div>
           </div>
-          <div>Upcoming Trips</div>
+          <div className="user-reservations-header">Upcoming Trips</div>
           <div className="user-reservations">
             {this.upcomingReservations.map((reservation, idx) => 
               <ReservationShowItem 
@@ -81,7 +81,7 @@ class ReservationShowComponent extends React.Component{
           
             {this.pastReservations.length > 0 ? 
               <>
-                <div>Where you've been</div>
+                <div className="past-reservations-header">Where you've been</div>
                 <div className="past-reservations">
                   {this.pastReservations.map((reservation, idx) => 
                     <ReservationShowItem 
