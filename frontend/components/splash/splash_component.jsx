@@ -73,9 +73,12 @@ class SplashComponent extends React.Component{
 
           <div className="contact">
             <div className="footer-title">Contact</div>
-            <div>kcheng16@gmail.com</div>
-            <div>510-674-6668</div>
-            <div>San Francisco Bay Area, CA</div>
+            <div className="info">
+              <div>Kenny Cheng</div>
+              <div>kcheng16@gmail.com</div>
+              <div>510-674-6668</div>
+              <div>San Francisco Bay Area, CA</div>
+            </div>
           </div>
 
           <div className="projects">

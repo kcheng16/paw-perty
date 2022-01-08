@@ -6,7 +6,7 @@
   background-color: #f7f7f7;
 }
 
->.header{
+.footer-title{
   font-size: 0.8vw;
   font-weight: 600;
 }
@@ -14,10 +14,12 @@
 .social{
   >.links >a >.link-img{
     width: 30%;
-    padding: 2%;
+    padding: 2% 0;
   }
 }
 
 .contact{
-  
+  .info > div{
+    padding: 2% 0;
+  }
 }
