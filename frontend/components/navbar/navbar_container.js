@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import Navbar from "./navbar_component";
 import { withRouter } from "react-router";
+import Navbar from "./navbar_component";
 
 const mSTP = state => ({
 

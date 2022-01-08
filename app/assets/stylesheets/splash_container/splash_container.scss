@@ -1,9 +1,10 @@
 
 .splash {
-  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
   background-color: black;
 }
 .splash-img {
@@ -34,15 +35,89 @@
   font-weight: 700;
   position: absolute;
   left: 17%;
-  top: 50%;
+  top: 25%;
   font-size: 3vw;
   display: flex;
   flex-direction: column;
 
 }
 
-
 .splash-button:hover{
   cursor: pointer;
   background-color: #eeeeee;
+}
+
+// ================inspiration
+.splash-inspiration-container{
+  display: flex;
+  margin-top: 2vh;
+  justify-content: space-between;
+
+
+
+  >div{ //CARD
+    width: 100%;
+    height: 55vh;
+    border-radius: 8px;
+    margin-right: 1vw;
+
+      >h3{ //CITY
+        font-size: 250%;
+        margin: 1vw;
+        color: white;
+      }
+
+      >h5{ //STATE
+        margin-left: 1vw;
+        color: white;
+      }
+  }
+
+  .boring{
+    background-color: #cc2d4a;
+
+    >.inspiration-img{
+      background-image: url(https://res.cloudinary.com/de8carnhu/image/upload/v1641616756/1cdb5298-1e10-4d5a-ac27-20c80b53b4af_ioqxty.webp);
+    }
+  }
+
+  .okay{
+    background-color: #bc1a6e;
+
+    >.inspiration-img{
+      background-image: url(https://res.cloudinary.com/de8carnhu/image/upload/v1641617301/aef20929-0d6a-40e7-8ac9-321ff0edf8c9_bttru7.webp);
+    }
+  }
+
+  .flippen{
+    background-color: #d93b30;
+
+    >.inspiration-img{
+      background-image: url(https://res.cloudinary.com/de8carnhu/image/upload/v1641617301/73250991-433e-4950-b7d1-59bba711bb57_wtcdg2.webp);
+    }
+  }
+
+  .dummer{
+    background-color: #de3151;
+
+    >.inspiration-img{
+      background-image: url(https://res.cloudinary.com/de8carnhu/image/upload/v1641617301/d77e587c-d135-43b7-9449-9b69ecd55d4a_bfdlvr.webp);
+    }
+  }
+}
+
+.inspiration-img{
+  width: 20vw;
+  height: 35vh;
+  border-radius: 8px 8px 0 0;
+  background-position: 50% 50%;
+  background: no-repeat;
+  background-size: cover;
+}
+
+
+.linked-in{
+}
+
+.github{
 }
