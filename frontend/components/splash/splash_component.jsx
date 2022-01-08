@@ -44,9 +44,17 @@ class SplashComponent extends React.Component{
           </Link>
         </div>
         
-        <div>
-          {/* What's your super paw-er? Become a super host! */}
+        <div className="super-host-container">
+          <img 
+            className="super-host-img"
+            src="http://res.cloudinary.com/de8carnhu/image/upload/v1641674193/super-dog_ly9baf.jpg"/>
+          <div className="super-host-text">
+            <div>What's your</div>
+            <div>super paw-er?</div>
+            <Link to={"/listings/new"}>Become a super host!</Link>
+          </div>
         </div>
+
         <div className="social">
           <a href="https://www.linkedin.com/in/kcheng16/">
             <img className="linked-in" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/linkedinbutton_r8xeco.png"/>
