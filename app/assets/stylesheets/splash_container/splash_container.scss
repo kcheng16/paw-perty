@@ -53,9 +53,7 @@
   margin-top: 2vh;
   justify-content: space-between;
 
-
-
-  >div{ //CARD
+  >a{ //CARD
     width: 100%;
     height: 55vh;
     border-radius: 8px;
@@ -63,11 +61,12 @@
 
       >h3{ //CITY
         font-size: 250%;
-        margin: 1vw;
+        margin: 0 1vw;
         color: white;
       }
 
       >h5{ //STATE
+        font-size: 110%;
         margin-left: 1vw;
         color: white;
       }

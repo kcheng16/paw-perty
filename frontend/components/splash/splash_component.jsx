@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class SplashComponent extends React.Component{
   constructor(props){
@@ -17,28 +18,28 @@ class SplashComponent extends React.Component{
             I'm flexible
           </div>
         </div>
-
+        <h1>Inspiration for your next trip</h1>
         <div className="splash-inspiration-container">
-          <div className="boring">
+          <Link className="boring" to={"/search/BORING"}>
             <div className="inspiration-img"></div>
             <h3>Boring</h3>
             <h5>Oregon</h5>
-          </div>
-          <div className="okay">
+          </Link>
+          <Link className="okay" to={"/search/OKAY"}>
             <div className="inspiration-img"></div>
             <h3>Okay</h3>
             <h5>Oklahoma</h5>
-          </div>
-          <div className="flippen">
+          </Link>
+          <Link className="flippen" to={"/search/FLIPPEN"}>
             <div className="inspiration-img"></div>
             <h3>Flippen</h3>
             <h5>Georgia</h5>
-          </div>
-          <div className="dummer">
+          </Link>
+          <Link className="dummer" to={"/search/DUMMER"}>
             <div className="inspiration-img"></div>
             <h3>Dummer</h3>
             <h5>New Hampshire</h5>
-          </div>
+          </Link>
         </div>
         
         <div className="social">
