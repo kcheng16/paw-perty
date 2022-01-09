@@ -466,7 +466,7 @@ listing1 = Listing.create!([
     city: 'PARIS',
     postal_code: 75015,
     country: 'FRANCE',
-    latitude: 48.852912, , 
+    latitude: 48.852912,
     longitude: 2.290373,
     price: 32,
     num_of_beds: 2,
