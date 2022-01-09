@@ -770,7 +770,63 @@ listing1 = Listing.create!([
             "https://res.cloudinary.com/de8carnhu/image/upload/v1641703023/boring3/yehleen-gaffney-raxI_EcyfGw-unsplash_dsommm.jpg"
           ]
   },
+# ==========================okay
+  {
+    title: "I didn't the pug life, the pug life chose me",
+    description: "I am a graduate student who has always loved animals! My professional experience in caring for animals began in high school, I was able to work at a vet clinic! This is been one of my favorite professional experiences because it really allowed me to understand the love that owners have for their animals. I was able to sit in on surgeries and create an atmosphere of love for the animals who were receiving treatment as well as love on those who were just being boarded! I started in 2017 in the Edmond/OKC area and loved my furry family while I did my undergrad! My husband and I moved to Muskogee in 2020 and I am so happy to be building another great client base again! I love animals of all kinds and my favorite thing about animals is their unique personalities. I hope that I am able to learn a little bit about your furry friend!!! My ultimate goal is that the end of the day, you feel comfortable leaving me responsible for your pet! I will do anything to achieve that!!!",
+    host_id: okay.id,
+    street_address: "7421 N 43rd St E",
+    city: 'OKAY',
+    postal_code: 74447,
+    country: 'USA',
+    latitude: 35.850108, 
+    longitude: -95.316404,
+    price: 38,
+    num_of_beds: 2,
+    images: [
+            ""
+          ]
+  },
+  {
+    title: "Howl I ever live without you?",
+    description: "I've owned dogs for many years from rescued to puppies. Currently own 3 corgis but my all time favorite is german shepards. Ive had as many as 5 dogs at one time. My favorite saying is by Immanuel Kant " We can judge heart of a man by his treatment of animals" firm believer in this.
+    Also have a few other sayings as well.
+    Some of my best friends never say a word to me. They bring pleasure by just being there not saying anything.
+    I also have 3 cats and a husband. My favorite saying at work is that I live in a zoo. But I wouldn't want it any other way.
+    I always believe that every kid should have an animal to care for.",
+    host_id: okay.id,
+    street_address: "E 75th St N",
+    city: 'OKAY',
+    postal_code: 74464,
+    country: 'USA',
+    latitude: 35.850607, 
+    longitude: -95.324749,
+    price: 99,
+    num_of_beds: 1,
+    images: [
+            ""
+          ]
+  },
+  {
+    title: "Pass the pupcorn",
+    description: "I’ve always loved animals since I was very young my grandparents raised Emus! LOL yes giant birds we also had goats we milked daily nothing like living on a farm my parents have cattle we just recently bought our house in Tahlequah last year it sets in the middle of 10 acres of field and cattle barns and 2 ponds our back yard is fenced in. I’m a stay at home mom with 3 cats that range from 5 months 2 years and 4 years old our hound dog is 10 years old sweet cute lazy girl who loves all animals
 
+    Currently I’m not working so I have a full time schedule available I have 2 kids almost ready to go back to school very active family loves parks and river and lake walks
+    
+    I have 1 dog and 3 cats they get along well with others I can also crate train if needed already have a permanent crate in my house I can house large dogs I have plenty of room large yard fenced in and plenty of land to walk water bowls filled daily in 4 rooms of the house fed every morning and evening snacks done daily lots of chew toys all animals are welcome on the couch and all beds our dog is let out every 1-2 hours as needed or more she very much loves being outside sun bathing cats do not go outside they have a big window in the den we open so they get a fresh breeze as well as they have a cat tree and 2 very large litter boxes",
+    host_id: okay.id,
+    street_address: "E N 72nd",
+    city: 'OKAY',
+    latitude: 35.847407,
+    longitude: -95.320994,
+    postal_code: 74446,
+    country: 'USA',
+    price: 60,
+    num_of_beds: 1,
+    images: [
+            ""
+          ]
+  },
 ])
 
 
@@ -779,11 +835,11 @@ listing1 = Listing.create!([
 #   description: "",
 #   host_id: sydney.id,
 #   street_address: "",
-#   city: 'SYDNEY',
+#   city: '',
 #   postal_code: ,
-#   country: 'AUSTRALIA',
 #   latitude: ,
 #   longitude: ,
+#   country: 'USA',
 #   price: 60,
 #   num_of_beds: 1,
 #   images: [
