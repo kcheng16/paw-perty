@@ -49,8 +49,10 @@ class SplashComponent extends React.Component{
             className="super-host-img"
             src="https://res.cloudinary.com/de8carnhu/image/upload/v1641684228/Dalmatian-superhero-1-960x540_kt3apu.jpg"/>
           <div className="super-host-text">
-            <div>What's your</div>
-            <div>super paw-er?</div>
+            <div>What's</div>
+            <div>your</div>
+            <div>super</div>
+            <div>paw-er?</div>
             <Link to={"/listings/new"}>Become a super host!</Link>
           </div>
         </div>
@@ -101,20 +103,26 @@ class SplashComponent extends React.Component{
           <div className="tech">
             <div className="footer-title">Technologies</div>
             <div className="tech-grid">
-              <div>AWS</div>
-              <div>CSS</div>
-              <div>Git</div>
-              <div>Google Maps</div>
-              <div>HTML</div>
-              <div>JavaScript</div>
-              <div>jQuery</div>
-              <div>PostgreSQL</div>
-              <div>React</div>
-              <div>Redux</div>
-              <div>Ruby</div>
-              <div>Ruby on Rails</div>
-              <div>Sass</div>
-              <div>Webpack</div>
+              <div className="column">
+                <div>AWS</div>
+                <div>CSS</div>
+                <div>Git</div>
+                <div>Google Maps</div>
+                <div>HTML</div>
+              </div>
+              <div className="column">
+                <div>JavaScript</div>
+                <div>jQuery</div>
+                <div>PostgreSQL</div>
+                <div>React</div>
+                <div>Redux</div>
+              </div>
+              <div className="column">
+                <div>Ruby</div>
+                <div>Ruby on Rails</div>
+                <div>Sass</div>
+                <div>Webpack</div>
+              </div>
             </div>
           </div>
 

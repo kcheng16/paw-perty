@@ -48,11 +48,18 @@
 }
 
 .tech-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   margin-top: 1vh;
 
-  >div:hover{
-    color: #F50B7C;
+  >.column{
+    margin-right: 20px;
+
+    >div{
+      margin-bottom: 5px;
+    }
+    
+    >div:hover{
+      color: #F50B7C;
+    }
   }
 }
