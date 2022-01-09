@@ -540,6 +540,130 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
           "https://res.cloudinary.com/de8carnhu/image/upload/v1641694778/paris3/helena-lopes-WhBGINtjuwc-unsplash_sqmlob.jpg"
         ]
 },
+# ================================SYDNEY
+{
+  title: "Relax like a dog, not work like one",
+  description: "The health and happiness of any dog in my care is most important to me.
+
+  During the day I work at a Doggy daycare and boarding facility and the majority of my free time is spent with my own 2 dogs.
+  
+  I just recently left the Military and I’m about to start school to become a Vet tech :)
+  
+  Any dog that I have the opportunity to care for will be treated as if they were my own. They will have access to any of the furniture in my home including a little couch just for dogs. I also have a room in my home where my dogs hang out while I am not home or I have 2 small crates of fur parents prefer their babies to be crated.",
+  host_id: sydney.id,
+  street_address: "55 Jones St",
+  city: 'SYDNEY',
+  postal_code: 123,
+  country: 'AUSTRALIA',
+  latitude: -33.877806, 
+  longitude: 151.196306,
+  price: 43,
+  num_of_beds: 7,
+  images: [
+        "https://res.cloudinary.com/de8carnhu/image/upload/v1641695896/sydney1/humphrey-muleba-Y6EIP03u_wY-unsplash_y3ybwd.jpg",
+        "https://res.cloudinary.com/de8carnhu/image/upload/v1641695896/sydney1/juliette-roanoke-Lj62T3ebi0M-unsplash_ukr76g.jpg",
+        "https://res.cloudinary.com/de8carnhu/image/upload/v1641695897/sydney1/justin-kauffman-yyILhheLSd4-unsplash_gtga7k.jpg",
+        "https://res.cloudinary.com/de8carnhu/image/upload/v1641695896/sydney1/jon-nathon-stebbe-paydk0JcIOQ-unsplash_fxp6hj.jpg",
+        "https://res.cloudinary.com/de8carnhu/image/upload/v1641695896/sydney1/eric-ward-ISg37AI2A-s-unsplash_w5gvqq.jpg"
+        ]
+},
+{
+  title: "Anything is paw-sible",
+  description: "I am very energetic so your precious pup will always be able to roam free inside or outside (fenced in yard). I have 1 dog named Milo and he is fixed and 5 YO. Your pooch will never be neglected since I am always home to cater to the needs of any age. No kids and no cats here. I will always make sure your pup is safe, secure and happy while staying with me. I love to train pups as well in sit, paw, lay, etc... The back yard is big and spacious for any size pup that wants to just run around and get all their energy out.
+  My availability can be discussed if you're interested.
+  
+  I am pretty flexible. I do not have many restrictions when it comes to caring for a furry friend. I have free time since I am working from home.
+  
+  I am pretty open to anything that is needed. I am flexible and understanding. ALWAYS up to see animals and pets alike. I care like they are mine and always with respect.
+  
+  I work from home full time. I have my dog outside with me on a lead all day if the weather permits. Feeding is once in morning and once at night unless needing more.
+  
+  I have a fenced in yard and one small crate and one large crate in the event the pup needs to be crated. They will continually be allowed inside and outside throughout the day.",
+  host_id: sydney.id,
+  street_address: "102-104 Albion St",
+  city: 'SYDNEY',
+  postal_code: 123,
+  country: 'AUSTRALIA',
+  latitude: -33.885376, 
+  longitude: 151.211180,
+  price: 12,
+  num_of_beds: 1,
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641695909/sydney2/flouffy-DI6blvti51g-unsplash_dez18t.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641695910/sydney2/morgan-thompson-lgr68iAjs1g-unsplash_ui5pq1.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641695909/sydney2/kara-eads-L7EwHkq1B2s-unsplash_o0dwvz.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641695909/sydney2/kari-shea-MfJ9g64-WxQ-unsplash_rqhnpl.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641695909/sydney2/jamie-street-kyqfZ95P7Ec-unsplash_pavo5o.jpg"
+        ]
+},
+{
+  title: "My dog’s not fat. He’s just a little husky",
+  description: "My name is Matthew. I am here to provide a great experience. Show a trustworthy and caring services each and everytime. Your pet is your baby and is treated as such. I have experience in handling large dogs to small from a variety of breeds. Let me be the next sitter for you!! I have a knack for instantly bonding with dogs. They help keep motivated and going. Reason why I LOVE what I do!
+
+  Thank you for your support!
+  🐈🐶🐾🐈💖🐶🐾🐈
+  
+  Additional Charges listed below:
+  *If picking up or dropping off outside of business hours(7AM-9PM EST) an extra $5 will apply.
+  * Special cooked meals $5 fee per each day of service required.
+  * Special care needed $10 additional per entire service(Doggy Day Care and Boarding)
+  * Walks outside of fenced in yard
+  $8 per each 30- Minute Walk
+  $20 per each 1- Hour Walk.
+  
+  I have your full attentive schedule needs. 24/7(365 days) no matter what I will do anything to be here for you. I keep my availability open just for you.
+  
+  Separate living atmosphere with a safe and complete fenced in yard. Safe neighborhood with neighborhood watch 24/7. Well lighted during nights and secured yard and home.",
+  host_id: sydney.id,
+  street_address: "49-41 Hunter St",
+  city: 'SYDNEY',
+  postal_code: 123,
+  country: 'AUSTRALIA',
+  latitude: -33.866090, 
+  longitude: 151.209760,
+  price: 89,
+  num_of_beds: 3,
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641695923/sydney3/nathan-hanna-7hxC83Qcuwo-unsplash_zhjr3n.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641695923/sydney3/spacejoy-c0JoR_-2x3E-unsplash_x63pcl.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641695924/sydney3/roberto-nickson-q9nZUFC1nTw-unsplash_fvftgy.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641695924/sydney3/olivia-hibbins-JXRoYGRSPfk-unsplash_wshnpe.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641695924/sydney3/jay-wennington-w_O_tPgxvok-unsplash_fi4d6g.jpg"
+        ]
+},
+# =======================CAPETOWN
+{
+  title: "",
+  description: "",
+  host_id: capetown.id,
+  street_address: "",
+  city: 'CAPETOWN',
+  postal_code: ,
+  country: 'SOUTH AFRICA',
+  latitude: ,
+  longitude: ,
+  price: 60,
+  num_of_beds: 1,
+  images: [
+          ""
+        ]
+},
 ])
 
 
+# {
+#   title: "",
+#   description: "",
+#   host_id: sydney.id,
+#   street_address: "",
+#   city: 'SYDNEY',
+#   postal_code: ,
+#   country: 'AUSTRALIA',
+#   latitude: ,
+#   longitude: ,
+#   price: 60,
+#   num_of_beds: 1,
+#   images: [
+#           ""
+#         ]
+# },
