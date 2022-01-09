@@ -10,34 +10,41 @@
 User.destroy_all
 Listing.destroy_all
 
-user1 = User.create!(username: 'demo', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!')
-
+sf = User.create!(username: 'Abraham', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!')
+newyork = User.create!(username: 'Serena', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+paris = User.create!(username: 'Jamie', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+sydney = User.create!(username: 'Nicole', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+capetown = User.create!(username: 'Daniel', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+boring = User.create!(username: 'Jeff', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+okay = User.create!(username: 'Hendrick', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+flippen = User.create!(username: 'James', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+dummer = User.create!(username: 'Patrick', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
 
 listing1 = Listing.create!([
   {
-  title: 'Dog-out, here!',
-  description: "I've cared for dogs for a long time! I've fostered many dogs throughout high school and as an dult. I currently have 1 dog that is friendly with everybody. I am originally from the Bay Area. My parents are also home all day to care for your pet! \n
-  I've worked with caring for dogs for about 5 years and love every single one of them. You can trust in me and my family to provide your dog a lot of love and affection while they're in our care. Your pup will also get to play with our dog in the backyard!
-  \n
-  We take frequent walks (3 times a day), and occasionally visit parks. 
-  \n
-  Please let us know if your pup has any special needs. Such as: medication, dietary restrictions, allergies. We would also like to know how much your pup eats and what times you prefer them to be fed. We provide healthy organic food if you're unable to provide your own. Please let us know if they're house trained or not. We can also accomodate for any interest quirks your pup may have, just let us know! Thanks",
-  host_id: User.first.id,
-  street_address: '1 fake street', #need to change to real address
-  city: 'SAN FRANCISCO',
-  postal_code: 94111,
-  country: 'USA',
-  latitude: 37.798967,
-  longitude: -122.403546,
-  price: 20,
-  num_of_beds: 1,
-  images: [
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/amy-humphries-AllEP6K_TAg-unsplash_ovptsl.jpg", 
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1638154900/cdc-SAwxJ8PHY3Q-unsplash_w1aqqi.jpg", 
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1638155032/beatrice-selly-d5YEmZknHIs-unsplash_rb5mp8.jpg", 
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1638155409/mathew-coulton-zxqaAkkayP8-unsplash_npk6ow.jpg", 
-          "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/francesca-tosolini-tHkJAMcO3QE-unsplash_rbjwck.jpg", 
-        ]
+    title: 'Dog-out, here!',
+    description: "I've cared for dogs for a long time! I've fostered many dogs throughout high school and as an dult. I currently have 1 dog that is friendly with everybody. I am originally from the Bay Area. My parents are also home all day to care for your pet! \n
+    I've worked with caring for dogs for about 5 years and love every single one of them. You can trust in me and my family to provide your dog a lot of love and affection while they're in our care. Your pup will also get to play with our dog in the backyard!
+    \n
+    We take frequent walks (3 times a day), and occasionally visit parks. 
+    \n
+    Please let us know if your pup has any special needs. Such as: medication, dietary restrictions, allergies. We would also like to know how much your pup eats and what times you prefer them to be fed. We provide healthy organic food if you're unable to provide your own. Please let us know if they're house trained or not. We can also accomodate for any interest quirks your pup may have, just let us know! Thanks",
+    host_id: sf.id,
+    street_address: '1A Sunny Hills street',
+    city: 'SAN FRANCISCO',
+    postal_code: 94111,
+    country: 'USA',
+    latitude: 37.798967,
+    longitude: -122.403546,
+    price: 20,
+    num_of_beds: 1,
+    images: [
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/amy-humphries-AllEP6K_TAg-unsplash_ovptsl.jpg", 
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1638154900/cdc-SAwxJ8PHY3Q-unsplash_w1aqqi.jpg", 
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1638155032/beatrice-selly-d5YEmZknHIs-unsplash_rb5mp8.jpg", 
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1638155409/mathew-coulton-zxqaAkkayP8-unsplash_npk6ow.jpg", 
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1637704361/francesca-tosolini-tHkJAMcO3QE-unsplash_rbjwck.jpg", 
+          ]
 },
 {
   title: 'Flex those paws!',
@@ -49,8 +56,8 @@ I only take one dog at a time for boarding or daycare because I want to make sur
 Our house is always kept clean and we also have a beautiful backyard where the dogs can play together. Moreover, I will also take your dogs for at least two 15 minutes walks during their stay with us. Your dog will be stimulated mentally and physically and come home happy.
 
 Feel free to schedule a meet and greet with us, to see if your dog is comfortable with the environment. We will definitely treat your dog like a family ',
-  host_id: User.first.id,
-  street_address: '2 fake street',
+  host_id: sf.id,
+  street_address: '1B Sunny Hills street',
   city: 'SAN FRANCISCO',
   postal_code: 94111,
   country: 'USA',
@@ -96,7 +103,7 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
   I have a fenced-in yard and board dogs Simultaneously from different households.
   
   If you have a dog that is not that socialized just let me know as I am often able to also board and care for them as well.",
-  host_id: User.first.id,
+  host_id: sf.id,
   street_address: '345 Main street',
   city: 'SAN FRANCISCO',
   postal_code: 94111,
@@ -128,7 +135,7 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
   Our backyard is approximately 7,000 square feet of fun and is fully enclosed by 6 and 8 foot fencing. Even Nitro, the 3 pound Chi couldn’t find an escape route.
   
   If your pup can scale a 6 or 8 foot fence, please do let us know so that we can keep an extra close eye out.",
-  host_id: User.first.id,
+  host_id: sf.id,
   street_address: '6222 Paradise street',
   city: 'SAN FRANCISCO',
   postal_code: 94111,
@@ -160,7 +167,7 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
   -leash
   -any medication
   -any other instructions, toys, etc",
-  host_id: User.first.id,
+  host_id: sf.id,
   street_address: '9437 Lake street',
   city: 'SAN FRANCISCO',
   postal_code: 94111,
@@ -184,7 +191,7 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
   My schedule is flexible to fit for your need! You can always reach me anytime to drop off and pick up your furry pets. I am here to service your furry baby!
   
   I have huge fenced in back yard for your furry pet to run around and play. I am here to service your furry baby and take good care of your baby!",
-  host_id: User.first.id,
+  host_id: sf.id,
   street_address: '7243 Hill Valley street',
   city: 'SAN FRANCISCO',
   postal_code: 94111,
@@ -206,7 +213,7 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
   description: "We are very active and enjoy going for long walks and finding new things to sniff. 
   The house is open with plenty of space to lounge on. The house is fully carpeted except for the bathroom and kitchen and pretty puppy proof with a close of a few bedroom doors and a blanket on the couch. The pups have full access to an outdoor space where squirrel activity can be found in the mornings. I have had dogs since I was 7 years old and I volunteered at shelter for many years. I grew up with animals of all kinds on a farm in Vermont and its just my way of life. Furry friends are the best! I will cherish yours as much as I cherish mine. 
   Please note that I prefer only weekend stay-cations for your pup but can do mid week if we arrange with enough advance notice.",
-  host_id: User.first.id,
+  host_id: sf.id,
   street_address: '18159 Alley street',
   city: 'SAN FRANCISCO',
   postal_code: 94111,
@@ -230,7 +237,7 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
   In between meetings or tasks, I love running to the pups for a quick break! Play with them and run around a bit. I specially love playing hide and seek. If I can ever run away fast enough!
   
   We have a fenced front and backyard with plenty of space to run, play and train! When in the home the pups have multiple bowls to drink clean water and lounge around.",
-  host_id: User.first.id,
+  host_id: sf.id,
   street_address: '8393 Summer street',
   city: 'SAN FRANCISCO',
   postal_code: 94111,
@@ -262,7 +269,7 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
   I am retired and am home all day. I can be with the doggies I care for almost all the time except for going to the store.
   
   I have a small fenced backyard area and a park near by were I can walk the doggies, it is not a dog park just a grassy area for the dogs to walk on with a lease around the area. It has a playground in the middle from where I walk.",
-  host_id: User.first.id,
+  host_id: sf.id,
   street_address: '88373 Winter street',
   city: 'SAN FRANCISCO',
   postal_code: 94111,
@@ -290,7 +297,7 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
   We have a fenced backyard and two huge parks with large grass area in our community. We also have our own fur baby to keep your dogs company. Our neighborhood is really dog friendly and safe. It has many open areas for walking your dogs and provides poop bags. If you would like to check out our neighborhood we can arrange meet and greets at our nearby parks. If your dog is crate trained please bring your crate if possible. If there is anything your dog may need to feel comfortable and secure please bring it. 
   
   If medications are required, bring if needed. We also provide some dog treats but if your pup has a preference please bring as well.",
-  host_id: User.first.id,
+  host_id: sf.id,
   street_address: '1118 McGill street',
   city: 'SAN FRANCISCO',
   postal_code: 94111,
@@ -306,7 +313,156 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
           "https://res.cloudinary.com/de8carnhu/image/upload/v1638494620/house10/roberto-nickson-_JGVVEfbTVQ-unsplash_mzxdoi.jpg",
           "https://res.cloudinary.com/de8carnhu/image/upload/v1638494619/house10/emily-park-9gHZ6qxQrpI-unsplash_b90ymw.jpg"
         ]
-}
+},
+# ==============================NEW YORK
+{
+  title: "Zoomies galore!",
+  description: "Hello! We are a couple and we are huge dog lovers! We are exploring options to adopt a dog of our own in the future, but until then, we wanted to sign up to dog sit for our fellow New Yorkers! We live in a 1,000 sq ft apartment in the LES with minimal furniture and ample space. We both work remotely from home so we can take your dog out for many walks a day and potty runs any time as well. We love to get outside after work hours and on weekends as well so we will be sure to give your dog the exercise he/she needs.
+
+  Individually, we have dog sat for many friends and family friends throughout our lives and together we have been regularly dog sitting for a couple of our friends’ dogs. We are absolutely confident that the care and attention we will pour onto your dog during his/her stay will be second to none.
+  
+  We will be available to contact all day and will gladly provide regular updates. If you have any instructions or special requests for your dog, please let us know and we will make sure to diligently follow each one of them.",
+  host_id: newyork.id,
+  street_address: '432 Broadway street',
+  city: 'NEW YORK',
+  postal_code: 10036,
+  country: 'USA',
+  latitude: 40.616229, 
+  longitude: -73.941261,
+  price: 56,
+  num_of_beds: 10,
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692635/newyork1/anthony-duran-XFLY0Yp3Gow-unsplash_ymngac.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692635/newyork1/adam-griffith-sWkkIiTJMYc-unsplash_s6jsyp.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692635/newyork1/afra-ramio-cp2HCVzguw4-unsplash_t02uxu.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692634/newyork1/alvan-nee-lvFlpqEvuRM-unsplash_dagehc.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692634/newyork1/alice-kang-Bc_uN5PeErA-unsplash_plgiuz.jpg"
+        ]
+},
+{
+  title: "Just take my paw and trust me",
+  description: "My gf and I grew up loving dogs! We recently got our first puppy together a few months back and couldn’t be happier. It would be an honor for us to take your dog into our warm home and provide your dog with a safe, fun environment we would want for our own!
+
+  We both work full time and have no issues taking care of our own dog Rigley. Nina works from home, end I pop in and out of the apartment during the day.
+  
+  Our home is your dogs home! We have a good size Tribeca apartment where your dog can roam free, play with our Newfypoo Riggs, or hang on the couch and watch TV!",
+  host_id: newyork.id,
+  street_address: '555 5th Avenue',
+  city: 'NEW YORK',
+  postal_code: 10036,
+  country: 'USA',
+  latitude: 40.705547, 
+  longitude: -74.087539,
+  price: 89,
+  num_of_beds: 4,
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692668/newyork2/andrew-neel-Rbt_VCKGy-Y-unsplash_ptzgua.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692656/newyork2/artem-beliaikin-c6jp6Wmsjrk-unsplash_y3snbl.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692656/newyork2/angel-luciano-LATYeZyw88c-unsplash_jdnznm.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692656/newyork2/christina-victoria-craft-VP8BDBC9ZDg-unsplash_vc4dib.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692656/newyork2/andrea-davis-k8WL83m48XY-unsplash_hu5gc8.jpg"
+        ]
+},
+{
+  title: "Not so ruff",
+  description: "I grew up helping my dad train 3 German Shepherd Dogs and have experience with taking care of puppies as well. I love and welcome all dog and cat breeds to my West Village apartment where it is an easy walk to Washington Square Dog Park.
+
+  I currently work part-time at home, which gives me a lot of flexibility to fit pet care into my daily routine easily. I am able to provide a few walks in daily, depending on your preference, as well as keeping them company if the breed easily experiences separation anxiety.
+  
+  I currently do not own any pets in my apartment but that helps me provide a much more attentive and caring environment for your pet while you are away. Your pet is allowed in all of the rooms, although my apartment may not be as spacious enough to play with a ball, I'll still be good company for your fur baby! I live in a 5-floor walk-up.",
+  host_id: newyork.id,
+  street_address: '94722 Washington Ave',
+  city: 'NEW YORK',
+  postal_code: 10036,
+  country: 'USA',
+  latitude: 40.667759, 
+  longitude: -73.977667,
+  price: 1500,
+  num_of_beds: 2,
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692689/newyork3/dakota-lim-n_2DimPwbEk-unsplash_xsmiud.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692689/newyork3/andrea-davis-nbI8gqbBaHo-unsplash_negsvc.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692689/newyork3/autri-taheri-TTGSZSElkOI-unsplash_zfhbnw.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692689/newyork3/clay-banks-OcxgtPN0FmM-unsplash_wlbaia.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692688/newyork3/brooke-cagle-Ntm4C2lCWxQ-unsplash_e3hvuu.jpg"
+        ]
+},
+{
+  title: "Wag-wag-wag",
+  description: "Hellooo! I am a dog loving person living in NYC.
+  * I have 1 Dog (Binx)
+  * I have spaced stairs in my home.
+  —
+  I have experience with dogs from 12 -70lbs. (For example, Tea Cup Maltese, Yorkshire Terriers, English Bulldog, Shibas, Huskies, Mixed Breed fur-babies & more) On my free time I also volunteer for a no-kill animal rescue & I have fostered for them a few times before.
+  I am capable of taking your dog on long walks through any weather (even the dreaded rain lol) , taking them to appointments if you can't, and boarding them within my own home.
+  
+  I have my own pupper named Binx. If your fur baby does better with a dog friend in the home, he’s here to lend a helping paw and share his treats & toys.
+  
+  ✨ I currently work full-time not too far from home.
+  I can walk your dog both in the morning and in the afternoon, and to the park or on hikes via the weekends. Accommodating to one or more night stays.
+  
+  I live with a family member in home with stairs, where your dog is free to roam. But if necessary can be easily gated off or crated from other rooms.
+  
+  * it is necessary that I know if your dog to neutered/spayed when boarding, to prevent any territorial behavior.",
+  host_id: newyork.id,
+  street_address: '39208 Doyer Street',
+  city: 'NEW YORK',
+  postal_code: 10036,
+  country: 'USA',
+  latitude: 40.668360, 
+  longitude: -73.960559,
+  price: 88,
+  num_of_beds: 3,
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692714/newyork4/carissa-weiser-2fpOAxv9SEk-unsplash_ars3yj.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692714/newyork4/andrea-davis-zOPRKaYLSdE-unsplash_jeeljx.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692713/newyork4/david-emrich-WG3g6-ZIAOo-unsplash_crqdxv.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692713/newyork4/cassidy-dickens-Jzs9SV0gt1k-unsplash_reghr6.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692713/newyork4/flaunter-7qTYBEEEvZc-unsplash_iagkd9.jpg"
+        ]
+},
+{
+  title: "All bark, no byte",
+  description: "David in Chelsea, NYC here - a loving, reliable, and caring dog & cat lover available for personalized doggy day care & overnight boarding. I recently lost my beloved French Bulldog, Dudley, and now have a huge hole in my heart to fill, and a lot of love & fun to give to your animal companion. I have over 15+ years of dog care experience, from puppy to senior care, and specialize in small to smaller medium size breeds (especially French Bulldogs). I also work from home, and can fit your pets needs into my schedule. A 25+ year resident of Chelsea, I know this neighborhood well, in addition to the rest of Manhattan. Unfortunately, my NYC apartment is small. so I can only accommodate smaller breeds (approximately under 20 pounds) or puppies for day care or overnight boarding - only one dog at a time. Always responsive, feel free to contact me.
+
+  I currently working from home and have plenty of down time to attend to your canine companion. I am available weekdays, weekends, and can work around your schedule within reason.
+  
+  I live in a small, 4th floor, walk-up building studio. Your dog will never be left alone, so no crate is needed (unless it's a training requirement).",
+  host_id: newyork.id,
+  street_address: '94275 Dover Street',
+  city: 'NEW YORK',
+  postal_code: 10036,
+  country: 'USA',
+  latitude: 40.667383, 
+  longitude: -73.937309,
+  price: 39,
+  num_of_beds: 1,
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692752/newyork5/andrew-neel-gOj023vV8CQ-unsplash_nab4ej.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692752/newyork5/dillon-fancher-wSzOX-0DUyA-unsplash_rytui7.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692752/newyork5/chewy-fGxiRXr2oZg-unsplash_m9iu7s.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692752/newyork5/andrea-davis-pK85wI_ZjuY-unsplash_tcoxkn.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641692752/newyork5/caleb-fisher-AsCYNjt6IF0-unsplash_pzoqnn.jpg"
+        ]
+},
+
+# ==============================PARIS
+{
+  title: "",
+  description: "",
+  host_id: paris.id,
+  street_address: '',
+  city: 'PARIS',
+  postal_code: 10036,
+  country: 'USA',
+  latitude: , 
+  longitude: ,
+  price: 150,
+  num_of_beds: 2,
+  images: [
+          ""
+        ]
+},
 
 ])
 
