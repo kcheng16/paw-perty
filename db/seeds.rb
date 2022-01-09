@@ -866,13 +866,81 @@ listing1 = Listing.create!([
             "https://res.cloudinary.com/de8carnhu/image/upload/v1641705100/flippin1/roberto-nickson-V6G2m3D9IDI-unsplash_kfylak.jpg"
           ]
     },
+    # ==============Dummer
+  {
+    title: "Ma and Paw shop",
+    description: "Ive owned a chihuahua to a Great Dane. Lots of experience taking care of and loving furrybabies. I only use positive reinforcement. My dogs are allowed on the couch but also have dog beds to lay on. My dogs are inside/outside furrybabies. I have a fully fenced in yard with a 6 foot fence. I foster for a local rescue. My dogs are used to other dogs and puppies coming into the house. I have furrybabies at home but am set up for visitors. I’d have the flexibility to check on your furrybabies throughout the day and evening. I can take furrybabies for walks or transport them if needed. Size doesn’t matter. Id love a chance to take care of your pup
+    I welcome short notice stays.",
+    host_id: dummer.id,
+    street_address: "89 Hill Rd",
+    city: 'DUMMER',
+    postal_code: 03588,
+    latitude: 44.609648, 
+    longitude: -71.201657,
+    country: 'USA',
+    price: 15,
+    num_of_beds: 1,
+    images: [
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706026/dummer1/wieger-stienstra-SDWbEi94QG0-unsplash_cosehb.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706027/dummer1/dillon-kydd-2keCPb73aQY-unsplash_eei1vv.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706026/dummer1/richard-brutyo-Sg3XwuEpybU-unsplash_xolgf4.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706026/dummer1/alexander-wark-6qrNcBOtiJ4-unsplash_kaq2z5.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706026/dummer1/fran-PDN4YQ7Q_I0-unsplash_x78gyu.jpg"
+          ]
+  },
+  {
+    title: "Pawsitively amazing!",
+    description: "I am an animal lover and grew up around different animals. I’m also a massage therapist and I currently do work a set schedule during the weekday. I’m Available Thursdays-Sundays as well as major holidays. My in-laws live with me and as a family we care for pups.
+
+    I have a fenced backyard. I have a Lab mix named Eko! My dog is playful and sweet and knows when she needs to be gentle. We also have an older poodle mix named khaos. He is nervous and vocal, but is very sweet. He tends to find the quietest spot in the house away from other pups unless it’s nap time.
+    
+    I take one client at a time for boarding, but will host/care for multiple dogs within the same family. I take multiple clients for daycare. I’m very flexible with drop off/pick up times. I’m usually home on weekends and do stay with pups all day. I try to keep the calendar updated and last minute bookings tend to work 80% of the time.
+    
+    I look forward to caring for your fur babies. Message me for a meet and greet to see if we’re the right fit. I hope we have the chance to chat soon!",
+    host_id: dummer.id,
+    street_address: "112 Bale Rd",
+    city: 'DUMMER',
+    postal_code: 03588,
+    latitude: 44.612785, 
+    longitude: -71.191979,
+    country: 'USA',
+    price: 60,
+    num_of_beds: 3,
+    images: [
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706245/dummer2/ralph-ravi-kayden-2d4lAQAlbDA-unsplash_m5rdy8.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706245/dummer2/zach-lucero-WjzZOaYvo_s-unsplash_yb7rrh.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706245/dummer2/rebekah-howell-9FDKj-FrfA4-unsplash_cn3s6h.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706244/dummer2/andrea-davis-k8WL83m48XY-unsplash_fpdmi3.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706244/dummer2/rad-pozniakov-aSWwFg732QE-unsplash_plyqvf.jpg"
+          ]
+  },
+  {
+    title: "Bone Appétit",
+    description: "I have a wonderful black lab named Maggie and a cat named Copper both are my world 🌎 I understand not letting your babies just go to anyone. My lab is not aggressive at all she is the kind of girl to greet you at the door with babies in her mouth and a wagging tail my cat is a very good boy as well. I have had pets since I was a kid and always carried special bonds. I am always the person called in my family for dog sitting also through friends my family alone has 10 dogs. I am compassionate and truly enjoy animals I could send as many updates needed as I understand what it’s like when your baby isn’t with you ♥️",
+    host_id: dummer.id,
+    street_address: "782-1258 Dummer Pond Rd",
+    city: 'DUMMER',
+    postal_code: 03599,
+    latitude: 44.687466,
+    longitude: -71.289351,
+    country: 'USA',
+    price: 62,
+    num_of_beds: 2,
+    images: [
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706316/dummer3/shravankumar-hiregoudar-pPz6Zdu8SaA-unsplash_eajjof.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706317/dummer3/susn-matthiessen-7O9dILhfn5Y-unsplash_suve0i.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706317/dummer3/valerie-elash-HNCX1RT1qRk-unsplash_lueopj.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706317/dummer3/sarandy-westfall-VYcDFMSkUAA-unsplash_lmbn77.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641706315/dummer3/nerea-marti-sesarino-_NpSkRaTy0A-unsplash_vbscfk.jpg"
+          ]
+  },
 ])
 
 
 # {
 #   title: "",
 #   description: "",
-#   host_id: sydney.id,
+#   host_id: dummer.id,
 #   street_address: "",
 #   city: '',
 #   postal_code: ,
