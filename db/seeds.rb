@@ -448,22 +448,98 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
 
 # ==============================PARIS
 {
-  title: "",
-  description: "",
+  title: "Bonjour à tous et à toutes !",
+  description: "
+  Je m'appelle Syrine et je suis étudiante en cinéma à Paris depuis 4 ans. J’ai grandi entourée d’animaux ( chiens, tortues, hérissons, poissons, oiseaux, chevaux, cochons d'Inde etc.) et j’ai toujours aimé leur compagnie. Ma famille et moi-même avons également accueillis plusieurs chiens et chats de manière ponctuelle, le temps de leur trouver une famille. Cet été, lors d'un voyage, nous avons trouvé 4 chiots dans la rue. Après les avoir nourris pendant 2 mois et une fois sevrées, nous les avons recueillis chez nous durant 1 mois afin de leur trouver une famille. Dans le cadre de mes études, j’ai quitté mon foyer familial et mes 4 chiens. Le manque de contact animalier m’a donné envie de devenir dog sitter et de m’occuper de chiens et chats de toutes races. Je suis habituée à prendre soins des chiens car j'en ai eu plusieurs. Voici les races que j'ai eu et que je connais donc bien :
+  - Chips : Bichon maltais, mâle
+  - Titus : Labrador, mâle
+  - Domino : Jack Russel, mâle
+  - Stitch : Jack Russel, mâle (actuellement)
+  - Bounty : Bouledogue français, mâle
+  - Sky : Husky sibérien, femelle (actuellement)
+  - Nola : Chihuahua, femelle (actuellement)
+  - Maya : Femelle croisée malinois (actuellement)
+  
+  Je vis dans un appartement dans le 5ème arrondissement de Paris avec mon copain, Florian. Nous effectuons toutes les gardes ensemble et nous nous occuperons à deux de vos animaux afin de leur offrir le meilleur séjour possible. Nous disposons de beaucoup de temps que nous consacrerons avec plaisir à la garde de vos animaux. Pour ma part, je n'ai cours en présentiel qu'un jour par semaine (4h). Notre appartement possède une grande pièce à vivre où vos animaux pourront jouer à leur aise. Il est également situé à proximité de plusieurs parcs et squares canins (Square René Le Gall, parc canin du Luxembourg).",
   host_id: paris.id,
-  street_address: '',
+  street_address: "128 Rue Saint-Saëns",
   city: 'PARIS',
-  postal_code: 10036,
-  country: 'USA',
-  latitude: , 
-  longitude: ,
-  price: 150,
+  postal_code: 75015,
+  country: 'FRANCE',
+  latitude: 48.852912, , 
+  longitude: 2.290373,
+  price: 32,
   num_of_beds: 2,
   images: [
-          ""
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694747/paris1/daniel-lloyd-blunk-fernandez-sDT-o52Sk_k-unsplash_ewryxd.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694747/paris1/jan-canty-pU8ArN6tmuw-unsplash_junmcu.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694747/paris1/joseph-albanese-xx0oSB1YxRE-unsplash_s73trv.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694747/paris1/anna-sullivan-FKZsWsFiNDs-unsplash_ycr98e.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694747/paris1/celine-sayuri-tagami-2s6ORaJY6gI-unsplash_vvnwnb.jpg"
         ]
 },
+{
+  title: "Un chien sympa? Hot-dog",
+  description: "Aimant les animaux depuis toujours et particulièrement les chiens, je me ferais un plaisir de garder votre petit animal le temps de vos vacances, déplacements ou autres !
+  Ayant moi-même déjà eu un chien, je sais tout l'amour qu'on leur porte...j’ai également eu le bonheur d’avoir un chat, un lapin et même une tortue plus jeune. Je vous fais ainsi la promesse de m'occuper du votre de la même manière, c'est-à-dire avec amour et grand soin !
+  
+  J'habite un appartement parisien donc un peu petit, mais tout à fait apte à recevoir un petit chien pour quelques jours !
+  Je travaille depuis mon domicile ce qui permet de rester constamment avec votre chien et de le promener régulièrement.
+  Je peux aussi m’occuper de votre chat à votre domicile sans problème. Je ne pourrais en revanche pas l’accueillir chez moi, mon compagnon y étant allergique.
+  
+  N'hésitez pas à me contacter si vous voulez qu'on échange, je peux aussi me rendre disponible pour une rencontre bien sûr :)",
+  host_id: paris.id,
+  street_address: '226 Rue de la Convention',
+  city: 'PARIS',
+  postal_code: 75015,
+  country: 'FRANCE',
+  latitude: 48.836406, 
+  longitude: 2.299254,
+  price: 15,
+  num_of_beds: 5,
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694760/paris2/chewy-dOTIcvV1Ck4-unsplash_cxur89.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694761/paris2/michael-bourgault-YvvHEQNgMcU-unsplash_xqrtea.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694760/paris2/ashley-byrd-yzkTCP4uc9E-unsplash_hue2fz.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694760/paris2/bench-accounting-8D2k7a3wMKQ-unsplash_o6qoyz.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694760/paris2/courtney-mihaka-EC9FvxCbf7o-unsplash_xx8eej.jpg"
+        ]
+},
+{
+  title: "double chien défiez-vous",
+  description: "Bonjour,
 
+  J'ai eu mon premier chien quand j'avais 6 ans et jusqu'à mes 18 ans il était mon petit bébé.
+  C'a été difficile de le remplacer par la suite mais j'ai passé beaucoup du temps avec le chien de ma sœur.
+  Actuellement j'aimerais trop avoir un chien mais je voyage beaucoup et c'est un peu compliqué.
+  
+  Je peux vous assurer que votre toutou sera entre bonnes mains et il recevra beaucoup d'attention et d'amour durant votre absence.
+  
+  A bientôt,
+  
+  Disponible presque tous les jours de la semaine
+  Je suis en télétravail tous les jours sauf les mardis.
+  Je suis sportive et je vais suivant au parc à coté.
+  
+  J'habite dans un T2 sans terrasse mais à proximité d'un parc
+  Je n'ai pas d'autres animaux à la maison. Toute l'attention et l'amour seront portés sur votre chien :)",
+  host_id: paris.id,
+  street_address: "Bd de l'Hôpital",
+  city: 'PARIS',
+  postal_code: 75005,
+  country: 'FRANCE',
+  latitude: 48.840496,
+  longitude: 2.361863,
+  price: 60,
+  num_of_beds: 1,
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694778/paris3/cristian-castillo-73pyV0JJOmE-unsplash_bpy79u.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694779/paris3/ralph-ravi-kayden-Rdh-OCcBqC0-unsplash_cexbnb.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694778/paris3/jason-briscoe-AQl-J19ocWE-unsplash_vd4inw.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694778/paris3/toa-heftiba-FV3GConVSss-unsplash_qy9ugd.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641694778/paris3/helena-lopes-WhBGINtjuwc-unsplash_sqmlob.jpg"
+        ]
+},
 ])
 
 
