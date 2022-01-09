@@ -3043,14 +3043,14 @@ var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
         className: "user-reservations-header"
       }, "Upcoming Trips"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-reservations"
-      }, this.upcomingReservations.map(function (reservation, idx) {
+      }, this.upcomingReservations ? this.upcomingReservations.map(function (reservation, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reservation_show_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: idx,
           reservation: reservation,
           updateReservation: _this2.props.updateReservation,
           deleteReservation: _this2.props.deleteReservation
         });
-      })), this.pastReservations.length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "You don't have any upcoming trips at the moment")), this.pastReservations.length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "past-reservations-header"
       }, "Where you've been"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "past-reservations"

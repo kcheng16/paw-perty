@@ -40,14 +40,18 @@ class ReservationShowComponent extends React.Component{
           </div>
           <div className="user-reservations-header">Upcoming Trips</div>
           <div className="user-reservations">
-            {this.upcomingReservations.map((reservation, idx) => 
-              <ReservationShowItem 
-                key={idx} 
-                reservation={reservation} 
-                updateReservation={this.props.updateReservation}
-                deleteReservation={this.props.deleteReservation}
-              />
-            )}
+            {this.upcomingReservations ? 
+              this.upcomingReservations.map((reservation, idx) => 
+                <ReservationShowItem 
+                  key={idx} 
+                  reservation={reservation} 
+                  updateReservation={this.props.updateReservation}
+                  deleteReservation={this.props.deleteReservation}
+                />
+              )
+            :
+            <div>You don't have any upcoming trips at the moment</div>
+            }
             </div>
           
             {this.pastReservations.length > 0 ? 
