@@ -633,19 +633,72 @@ Feel free to schedule a meet and greet with us, to see if your dog is comfortabl
 },
 # =======================CAPETOWN
 {
-  title: "",
-  description: "",
+  title: "little ruff around the edges",
+  description: "I am a dog lover! Having grown up with my father who is a professional dog trainer, I've been handling dogs since I was a young child. For the past 10 years I have been self employed as a dog groomer and boarding professional. I am committed to providing quality care to your pet with extra love and attention!
+
+  My schedule is open for 24 hour pet care as I spend my days at home. We will follow a routine based on your pet needs!
+  
+  I have a privacy fenced yard to keep your pet safe. I can meet your preferred arrangement for playtime and sleeping based on your pets individual needs.",
   host_id: capetown.id,
-  street_address: "",
+  street_address: "175-199 De Wet St",
   city: 'CAPETOWN',
-  postal_code: ,
+  postal_code: 7460,
   country: 'SOUTH AFRICA',
-  latitude: ,
-  longitude: ,
-  price: 60,
+  latitude: -33.895265, 
+  longitude: 18.564618,
+  price: 77,
   num_of_beds: 1,
   images: [
-          ""
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697719/capetown1/jamie-street-me0hi86szok-unsplash_ldw48e.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697719/capetown1/olia-nayda-jBjvi1OEJA4-unsplash_ti97nh.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697718/capetown1/sidekix-media-0sDzRgrN_pI-unsplash_ghafhr.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697718/capetown1/luisa-schetinger-VVVJxvA8GuA-unsplash_zofxoy.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697718/capetown1/karsten-winegeart-Fqr9Bq7Inz0-unsplash_tkbwqa.jpg"
+        ]
+},
+{
+  title: "barking up the wrong tree",
+  description: "I have been around animals since I was born. Pets are family and should be treated as such. I grew up with two Winnie dogs named Brownie and Tootie. I also grew up with two cats named Mr. Beans and Rosie. They were my babies and never left my side. I will treat your pet as if they’re my own. I provide treats and a lot of love. Your pet will get a lot of hugs and kisses and also be welcome on my furniture.
+  My phone will always be on when you feel the need to check in. You can rest easy knowing your pet is in good hands. I will most certainly enjoy having them over. Most importantly they will enjoy their stay with me! We love animals!",
+  host_id: capetown.id,
+  street_address: "31 Steve Biko St",
+  city: 'CAPETOWN',
+  postal_code: 7750,
+  country: 'SOUTH AFRICA',
+  latitude: -33.971066, 
+  longitude: 18.565834,
+  price: 22,
+  num_of_beds: 3,
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697766/capetown2/jonas-jaeken-b4BLUYKLzP4-unsplash_ynuej3.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697766/capetown2/pankaj-shah-1ff_i7jO-4g-unsplash_vbqtlt.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697766/capetown2/sidekix-media-hZE6VQVbMco-unsplash_d2nylv.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697765/capetown2/jaycee-xie-TcByXvrIrno-unsplash_mbloph.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697765/capetown2/nicholas-brownlow-lx_KwA7hlLU-unsplash_juftld.jpg"
+        ]
+},
+{
+  title: "dog’s favorite band is The Beagles",
+  description: "Registered Veterinary technologist available for pet sitting. I have over 17 years of experience. Highly skilled at administering any medications your pet may need! I will be offering a variety of services which include daily walking, staying in your home or boarding your pets at mine. Daily walks or drop ins would include a 10 to 15 minute walk for your pet, along with feeding watering and of course play time. Baths will be provided before pick up if boarding dor 3 or more days! I look forward to meeting you and your pets needs. Feel free to contact me for more information. Thank you for looking!
+
+  Able to watch dogs any time during the week. Flexible with drop off times. Either me or my spouse will be home if pets need extra attention.
+  
+  I have a fenced in yard with lots of room for playtime! I also have experience in keeping your pets mentally and physically stimulated as well.",
+  host_id: capetown.id,
+  street_address: "32 Parry Rd",
+  city: 'CAPETOWN',
+  postal_code: 7708,
+  country: 'SOUTH AFRICA',
+  latitude: -33.979806, 
+  longitude: 18.474277,,
+  price: 19,
+  num_of_beds: 8,
+  images: [
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697842/capetown3/josh-rakower-zBsXaPEBSeI-unsplash_ae5gk8.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697841/capetown3/sidekix-media-r_y2VBvEOIE-unsplash_fyyl2h.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697841/capetown3/sydney-bouchard-8PpGIsEnS1Y-unsplash_afbrlu.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697841/capetown3/olivia-hutcherson-oWUdZrauLMY-unsplash_af2i3e.jpg",
+          "https://res.cloudinary.com/de8carnhu/image/upload/v1641697841/capetown3/justin-veenema-A-YUeXZ1rq8-unsplash_nxboec.jpg"
         ]
 },
 ])
