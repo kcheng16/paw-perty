@@ -24,18 +24,19 @@ const App = () => (
     </header>
 
       <Switch>
-        <Route path="/search/:city" render={props => <SearchIndexContainer {...props}/>}/>
-        <Route path="/user/:id/listings" render={props => <UserListingsContainer {...props}/>}/>
+        {/* Users */}
         <Route exact path="/user/:id/reservations" render={props => <ReservationShowContainer {...props}/>}/>
-        <Route exact path="/user/:id" render={props => <UserShowContainer {...props}/>}/>
-        <Route exact path="/" render={props => <SplashContainer {...props}/>}/>
-{/* unable to use protected-route: new and update */}
-        <Route exact path="/listings/new" render={props => <ListingsCreateContainer {...props}/>}/>
-        <Route exact path="/listings/:id/edit" render={props => <ListingsEditContainer {...props}/>}/>
-
+        <ProtectedRoute exact path="/user/:id/listings" component={UserListingsContainer} />
+        <ProtectedRoute exact path="/user/:id" component={UserShowContainer}/>
+        
+        {/* Listings */}
+        <ProtectedRoute exact path="/listings/new" render={props => <ListingsCreateContainer {...props}/>}/>
+        <ProtectedRoute exact path="/listings/:id/edit" render={props => <ListingsEditContainer {...props}/>}/>
         <Route exact path="/listings/:id" render={props => <ListingsShowContainer {...props}/>}/>
         <Route exact path="/listings" render={props => <ListingsIndexContainer {...props}/>}/>
 
+        <Route path="/search/:city" render={props => <SearchIndexContainer {...props}/>}/>
+        <Route exact path="/" render={props => <SplashContainer {...props}/>}/>
       </Switch>
   </div>
 );

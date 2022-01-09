@@ -12,7 +12,7 @@ export const createUser = (user) => (
   })
 )
 
-// not within Backend Routes MVP
+// Update: not yet implemented
 // export const updateUser = user => (
 //   $.ajax({
 //     method: 'PATCH',

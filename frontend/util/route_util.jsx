@@ -8,6 +8,7 @@ const mSTP = state => ({
 })
 
 //======================================================
+// Auth: page accessible only if signed-out (sign-up/sign-in)
 const Auth = ({loggedIn, path, component: Component}) => (
     <Route
       path={path}
@@ -16,12 +17,12 @@ const Auth = ({loggedIn, path, component: Component}) => (
       )}
     />
 )
-
+// Protected: page accessible only if signed-in (create/edit)
 const Protected = ({loggedIn, path, component: Component}) => (
     <Route 
       path = {path}
       render={props => (
-        loggedIn ? < Component {...props} /> : < Redirect to= "/"/>
+        loggedIn ? <Component {...props} /> : < Redirect to= "/"/>
       )}
     />
 )
