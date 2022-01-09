@@ -483,9 +483,7 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__.ProtectedRoute, {
     exact: true,
     path: "/listings/new",
-    render: function render(props) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_listings_listings_create_container__WEBPACK_IMPORTED_MODULE_5__["default"], props);
-    }
+    component: _listings_listings_create_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__.ProtectedRoute, {
     exact: true,
     path: "/listings/:id/edit",

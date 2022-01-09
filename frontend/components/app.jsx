@@ -30,7 +30,7 @@ const App = () => (
         <ProtectedRoute exact path="/user/:id" component={UserShowContainer}/>
         
         {/* Listings */}
-        <ProtectedRoute exact path="/listings/new" render={props => <ListingsCreateContainer {...props}/>}/>
+        <ProtectedRoute exact path="/listings/new" component={ListingsCreateContainer}/>
         <ProtectedRoute exact path="/listings/:id/edit" component={ListingsEditContainer}/>
         <Route exact path="/listings/:id" render={props => <ListingsShowContainer {...props}/>}/>
         <Route exact path="/listings" render={props => <ListingsIndexContainer {...props}/>}/>
