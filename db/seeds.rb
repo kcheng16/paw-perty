@@ -784,7 +784,11 @@ listing1 = Listing.create!([
     price: 38,
     num_of_beds: 2,
     images: [
-            ""
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704476/okay1/tamas-pap-Qdt8f7Tcle0-unsplash_zoru1c.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704475/okay1/james-thomas-ogMsQ9Q0Dtw-unsplash_fsre0u.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704475/okay1/shane-guymon-KCdYn0xu2fU-unsplash_gkowlr.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704475/okay1/patrick-perkins-G3qlZQXsBOE-unsplash_eifvaz.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704475/okay1/adriana-carles-rSrpSgocsm0-unsplash_lot0q6.jpg"
           ]
   },
   {
@@ -804,7 +808,11 @@ listing1 = Listing.create!([
     price: 99,
     num_of_beds: 1,
     images: [
-            ""
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704537/okay2/cosmic-timetraveler-zh_ofCt2r9c-unsplash_thxxqs.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704537/okay2/jay-wennington-CdK2eYhWfQ0-unsplash_t6rpal.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704537/okay2/martins-cardoso-NsxzcbdF8fU-unsplash_ohhnt7.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704536/okay2/r-architecture-wot0Q5sg91E-unsplash_sbtbk5.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704536/okay2/toa-heftiba-Ysjfj4UkzDM-unsplash_vtdgdq.jpg"
           ]
   },
   {
@@ -824,7 +832,11 @@ listing1 = Listing.create!([
     price: 60,
     num_of_beds: 1,
     images: [
-            ""
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704624/okay3/david-vives-Fcanz8wm-1U-unsplash_bzlkyz.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704626/okay3/spacejoy-9t7h964f7V4-unsplash_yk5ssb.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704625/okay3/kurt-liebhaeuser--CSfRZGL8iw-unsplash_sy1yfh.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704625/okay3/valya-polishchuk--RTT_sBji8U-unsplash_rr6csh.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641704624/okay3/r-architecture-8oNhTvuBZ7g-unsplash_alymxr.jpg"
           ]
   },
 ])
