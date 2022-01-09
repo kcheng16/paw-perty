@@ -10,15 +10,15 @@
 User.destroy_all
 Listing.destroy_all
 
-sf = User.create!(username: 'Abraham', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!')
-newyork = User.create!(username: 'Serena', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
-paris = User.create!(username: 'Jamie', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
-sydney = User.create!(username: 'Nicole', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
-capetown = User.create!(username: 'Daniel', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
-boring = User.create!(username: 'Jeff', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
-okay = User.create!(username: 'Hendrick', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
-flippin = User.create!(username: 'James', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
-dummer = User.create!(username: 'Patrick', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+sf = User.create!(username: 'Abraham', password: 'password', email: 'demo1@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!')
+newyork = User.create!(username: 'Serena', password: 'password', email: 'demo2@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+paris = User.create!(username: 'Jamie', password: 'password', email: 'demo3@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+sydney = User.create!(username: 'Nicole', password: 'password', email: 'demo4@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+capetown = User.create!(username: 'Daniel', password: 'password', email: 'demo5@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+boring = User.create!(username: 'Jeff', password: 'password', email: 'demo6@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+okay = User.create!(username: 'Hendrick', password: 'password', email: 'demo7@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+flippin = User.create!(username: 'James', password: 'password', email: 'demo8@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+dummer = User.create!(username: 'Patrick', password: 'password', email: 'demo9@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
 
 listing1 = Listing.create!([
   {
@@ -690,7 +690,7 @@ listing1 = Listing.create!([
     postal_code: 7708,
     country: 'SOUTH AFRICA',
     latitude: -33.979806, 
-    longitude: 18.474277,,
+    longitude: 18.474277,
     price: 19,
     num_of_beds: 8,
     images: [
@@ -735,7 +735,7 @@ listing1 = Listing.create!([
     postal_code: 97009,
     country: 'USA',
     latitude: 45.434817,
-    longitude: -122.372824,,
+    longitude: -122.372824,
     price: 87,
     num_of_beds: 9,
     images: [
@@ -793,7 +793,7 @@ listing1 = Listing.create!([
   },
   {
     title: "Howl I ever live without you?",
-    description: "I've owned dogs for many years from rescued to puppies. Currently own 3 corgis but my all time favorite is german shepards. Ive had as many as 5 dogs at one time. My favorite saying is by Immanuel Kant " We can judge heart of a man by his treatment of animals" firm believer in this.
+    description: "I've owned dogs for many years from rescued to puppies. Currently own 3 corgis but my all time favorite is german shepards. Ive had as many as 5 dogs at one time. My favorite saying is by Immanuel Kant; We can judge heart of a man by his treatment of animals; firm believer in this.
     Also have a few other sayings as well.
     Some of my best friends never say a word to me. They bring pleasure by just being there not saying anything.
     I also have 3 cats and a husband. My favorite saying at work is that I live in a zoo. But I wouldn't want it any other way.
@@ -874,7 +874,7 @@ listing1 = Listing.create!([
     host_id: dummer.id,
     street_address: "89 Hill Rd",
     city: 'DUMMER',
-    postal_code: 03588,
+    postal_code: 3588,
     latitude: 44.609648, 
     longitude: -71.201657,
     country: 'USA',
@@ -900,7 +900,7 @@ listing1 = Listing.create!([
     host_id: dummer.id,
     street_address: "112 Bale Rd",
     city: 'DUMMER',
-    postal_code: 03588,
+    postal_code: 3588,
     latitude: 44.612785, 
     longitude: -71.191979,
     country: 'USA',
@@ -920,7 +920,7 @@ listing1 = Listing.create!([
     host_id: dummer.id,
     street_address: "782-1258 Dummer Pond Rd",
     city: 'DUMMER',
-    postal_code: 03599,
+    postal_code: 3599,
     latitude: 44.687466,
     longitude: -71.289351,
     country: 'USA',
