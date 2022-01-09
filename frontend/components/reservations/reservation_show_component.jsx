@@ -40,7 +40,7 @@ class ReservationShowComponent extends React.Component{
           </div>
           <div className="user-reservations-header">Upcoming Trips</div>
           <div className="user-reservations">
-            {this.upcomingReservations ? 
+            {this.upcomingReservations.length > 0 ? 
               this.upcomingReservations.map((reservation, idx) => 
                 <ReservationShowItem 
                   key={idx} 
@@ -50,7 +50,7 @@ class ReservationShowComponent extends React.Component{
                 />
               )
             :
-            <div>You don't have any upcoming trips at the moment</div>
+              <div className="no-trips">You don't have any upcoming trips at the moment.</div>
             }
             </div>
           
