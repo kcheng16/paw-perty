@@ -34,8 +34,8 @@ class SplashComponent extends React.Component{
           </Link>
           <Link className="flippen" to={"/search/FLIPPEN"}>
             <div className="inspiration-img"></div>
-            <h3>Flippen</h3>
-            <h5>Georgia</h5>
+            <h3>Flippin</h3>
+            <h5>Arkansas</h5>
           </Link>
           <Link className="dummer" to={"/search/DUMMER"}>
             <div className="inspiration-img"></div>

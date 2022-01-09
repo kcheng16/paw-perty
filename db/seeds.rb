@@ -17,7 +17,7 @@ sydney = User.create!(username: 'Nicole', password: 'password', email: 'demo@paw
 capetown = User.create!(username: 'Daniel', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
 boring = User.create!(username: 'Jeff', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
 okay = User.create!(username: 'Hendrick', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
-flippen = User.create!(username: 'James', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
+flippin = User.create!(username: 'James', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
 dummer = User.create!(username: 'Patrick', password: 'password', email: 'demo@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
 
 listing1 = Listing.create!([
@@ -839,6 +839,33 @@ listing1 = Listing.create!([
             "https://res.cloudinary.com/de8carnhu/image/upload/v1641704624/okay3/r-architecture-8oNhTvuBZ7g-unsplash_alymxr.jpg"
           ]
   },
+  # ========================Flippin
+  {
+    title: "FIRST!",
+    description: "We chose to dog sit because we love dogs and enjoy spending time with them. When we first started out we where working from home and caring for my mom who had cancer but she has since passed away. So now we do this as full time income. I wouldn’t even dare call it a job because we love what we do it’s so fun and rewarding. Over the course of our time here with Rover we have taken care of the Tea cup Yorkie all the way up to the Great Dane, 8 week old puppies to 16 + year seniors and shy to hyper dogs and everything in between. We know dogs do not like to be left alone for long periods of time so we are here to help. We have owned rescue dogs of all sizes, ages and breeds for the past 40 years. We have a genuine love for animals we will pick up a stray animal on the road and find it a home without thinking twice about it. We have a large fenced yard where your dog can play fetch, run around and bask in the sun. We have dog sat many of our friends and families dogs over the years. My husband and I have a wonderful routine. In the morning we let them out in the back yard to use the bathroom, after that we feed them and let them go for a long walk around the neighborhood. After the walk they usually take a nap in the house or we have a belly rubbing session. Later on they go back outside, eat again and go for another walk then more playtime and belly rubbing before bed. We also like to simulate their home life so if your routine differs from ours we will adjust to fit your dog. Boss loves meeting new friends it helps keep him young. He can not wait for you to bring your dog over so he can play. We hope to meet your fur babies soon.
+
+    Strict Drop off and pickup times begin at 6am and end promptly at 6:30pm. Pickups after 6:30pm will be charged an additonal nights stay.
+    
+    This is our full-time occupation so we’re always home to give your pet the care that he needs. The the only time we leave the house is when we go to church.
+    
+    I have a fully fenced yard and a very sweet Frenchie that loves to meet new friends. I can crate your dog if that’s what is needed. I adjust to your routine at home.",
+    host_id: flippin.id,
+    street_address: "203 South St",
+    city: 'FLIPPIN',
+    postal_code: 72634,
+    latitude: 36.276362,
+    longitude:  -92.596866,
+    country: 'USA',
+    price: 1,
+    num_of_beds: 1,
+    images: [
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641705101/flippin1/r-architecture-Y8MJFQYYjh8-unsplash_kb3pdu.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641705101/flippin1/spacejoy-XpbtQfr9Skg-unsplash_t8qe3o.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641705101/flippin1/spacejoy-umAXneH4GhA-unsplash_wljptq.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641705100/flippin1/yogendra-singh-K8JxScoZb4A-unsplash_csiwjb.jpg",
+            "https://res.cloudinary.com/de8carnhu/image/upload/v1641705100/flippin1/roberto-nickson-V6G2m3D9IDI-unsplash_kfylak.jpg"
+          ]
+    },
 ])
 
 
