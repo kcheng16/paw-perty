@@ -10,7 +10,7 @@
 User.destroy_all
 Listing.destroy_all
 
-sf = User.create!(username: 'Abraham', password: 'password', email: 'demo1@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!')
+sf = User.create!(username: 'Demo', password: 'password', email: 'demo1@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!')
 newyork = User.create!(username: 'Serena', password: 'password', email: 'demo2@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
 paris = User.create!(username: 'Jamie', password: 'password', email: 'demo3@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
 sydney = User.create!(username: 'Nicole', password: 'password', email: 'demo4@pawpertymail.com', bio: 'Playful dog looking for a big park, and lots of treats!') 
