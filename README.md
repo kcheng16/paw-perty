@@ -1,4 +1,4 @@
-[Paw-perty - Live Link](http://paw-perty.herokuapp.com/)
+[Paw-perty - Try it live!](http://paw-perty.herokuapp.com/)
 ![pawperty-logo-github](https://user-images.githubusercontent.com/88124383/148818540-49e0350b-1158-4501-bdcf-2ab00569bb94.png)
 
 Paw-perty, an AirBnB clone, is a dog-siting booking application that allows users to:
@@ -7,25 +7,17 @@ Paw-perty, an AirBnB clone, is a dog-siting booking application that allows user
 * Become a super-host by creating your own listing
 * Leave a trail of ratings and reviews of a previous stay
 
-# Installation
-* **Clone this repo git clone:** https://github.com/kcheng16/paw-perty
-* **Ensure to have postgreSQL installed and running**
-* **Install NPM packages:** *npm install*
-* **Install Ruby gems:** *bundle install*
-* **Create the Database:** *rails db:create*
-* **Setup the datebase:** *rails db:setup*
-* **Start your local server:** *rails s*
-* **Start webpack bundlers:** *npm run start*
-
-
-# Technologies Used
+# Table of Contents
+* [Technologies](#technologies)
+* [Installation](#installation)
+* [Features](#features)
+* 
+# Technologies
 ### Frontend
 * Javascript
-* React
+* React.js
 * Redux
-* HTML5
-* CSS
-* Sass
+* HTML5 / CSS / Sass
 * JQuery
 * JBuilder
 
@@ -37,8 +29,16 @@ Paw-perty, an AirBnB clone, is a dog-siting booking application that allows user
 * Google Maps API
 * Amazon Web Services - S3
 * Webpack
-* Git
-* Babel
+
+# Installation
+* **Clone this repo git clone:** https://github.com/kcheng16/paw-perty
+* **Ensure to have postgreSQL installed and running**
+* **Install NPM packages:** *npm install*
+* **Install Ruby gems:** *bundle install*
+* **Create the Database:** *rails db:create*
+* **Setup the datebase:** *rails db:setup*
+* **Start your local server:** *rails s*
+* **Start webpack bundlers:** *npm run start*
 
 # Features
 * Create a personal account
