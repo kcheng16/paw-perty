@@ -37,6 +37,11 @@
   .title{
     margin-bottom: 20px;
     width: 80%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
   
 }
