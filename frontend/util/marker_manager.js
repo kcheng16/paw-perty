@@ -79,7 +79,6 @@ class MarkerManager {
         marker.setMap(thisMap)
       }
     });
-
   }
 
   createMarkerFromListing(listing){
