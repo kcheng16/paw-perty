@@ -47,7 +47,8 @@ Paw-perty, an AirBnB clone, is a dog-siting booking application that allows user
 ## Multi-page experience for creating a listing using a single form
 Users are given a similar AirBnB experience of filling in a form and publishing a listing. Each page is displayed using the component's state to determine which information to render by taking advantage of Reacts single-page application feature. 
 
-* User will be allowed to change to the next "page" once the input field is filled and clicking the "Next" button which adds or subtracts the component's state: page index. The form can be submitted once they reach the "final page".
+User will be allowed to change to the next "page" once the current page's input field is filled and saved into the component's state. The "Next" button will appear which adds or subtracts the component's state: page index. The button will change to a submit button and all information from previous pages can be submitted once they reach the "final page".
+![button](https://user-images.githubusercontent.com/88124383/149002247-ef5c79e5-4716-4278-8fed-7b1934abc1aa.png)
 
 ```  
   isCurrentPageInputFilled(){
@@ -91,14 +92,71 @@ Users are given a similar AirBnB experience of filling in a form and publishing 
   } 
   ```
 ## Search for listings by city name
-Listings are fetched depending on the search field city name input. Only listings similar to that city name will be displayed and marked within Google Maps API.
-![search](https://github.com/kcheng16/paw-perty/blob/main/app/assets/images/search.gif)
-The app reads the `:city` wildcard from the URL to construct its query. 
+Listings are fetched depending on the search field city name input. The app reads the `:city` wildcard from the URL to construct its query to the database. Only listings similar to that city name will be displayed and marked within Google Maps. The map will pan over to the closest city to the user's input. Users can then click on the customized marker and view the information window about that listing.
 
-## Google Maps marker manager
-Map markers are created using a single function managed by the marker manager utility, and set onto the map for each listing provided within the user's city search. 
+![search](https://github.com/kcheng16/paw-perty/blob/main/app/assets/images/search.gif)
+``` 
+/app/controllers/api/listings_controller.rb
+
+  def index
+    @listings = Listing.with_attached_photos.all
+    if params[:city]
+      @listings = Listing.where(city: params[:city])
+      render :index
+    else 
+        render :index
+    end
+  end
 ```
-#frontend/util/marker_manager.js
+
+## Google Maps 
+### Geocoding
+The listing being created will be marked on the map using geocoding, searching for the best possible result on the map using the listings: address, city, postal code, and country.
+```
+/frontend/components/listings/listings_create_form.jsx
+
+  handleSubmit(e){
+    e.preventDefault();
+    let geocoder = new google.maps.Geocoder()
+
+    geocoder.geocode(
+      {address: `${this.state.street_address},${this.state.city}, ${this.state.postal_code},${this.state.country}`},
+      (results, status) => {
+        if (status == 'OK') {
+          this.setState(
+            {longitude: results[0].geometry.location.lng(), latitude: results[0].geometry.location.lat()},
+            () => {
+              const formData = new FormData();
+                formData.append("listing[host_id]", this.state.host_id);
+                formData.append("listing[title]", this.state.title);
+                formData.append("listing[description]", this.state.description);
+                formData.append("listing[street_address]", this.state.street_address);
+                formData.append("listing[city]", this.state.city);
+                formData.append("listing[country]", this.state.country);
+                formData.append("listing[price]", this.state.price);
+                formData.append("listing[num_of_beds]", this.state.num_of_beds);
+                formData.append("listing[longitude]", this.state.longitude);
+                formData.append("listing[latitude]", this.state.latitude);
+                formData.append("listing[postal_code]", this.state.postal_code);
+          
+              if (this.state.photoFile.length === 5) {
+                for (let i = 0; i < this.state.photoFile.length; i++) {
+                  formData.append("listing[photos][]", this.state.photoFile[i]);
+                }
+              }
+
+              this.props.createListing(formData)
+              .then((res) => {this.props.history.push(`/listings/${res.payload.listing.id}`)})
+          })
+        }
+      }
+    )
+  }
+ ```
+ ### Marker Manager
+ Map markers are created using a single imported function managed from the marker manager utility. Markers are set onto the map using the longitude and latitude for each listing provided within the user's city search. Event listeners are provided to only display a single info-window at a time before being set to the map.
+ ``` 
+  #frontend/util/marker_manager.js
 
   updateMarkers(listings) {
     let thisMap = this.map
@@ -109,20 +167,19 @@ Map markers are created using a single function managed by the marker manager ut
         this.markers[listing.id] = listing
         marker = this.createMarker(listing)
 
-        // marker's event listener to close PREVIOUS infoWindow
         marker.addListener("click", () => {
           if(this.infoWindow){
             this.infoWindow.close()
           }
         })
         this.createMarkerInfoWindow(listing, marker, thisMap)
-        // set marker into map
         marker.setMap(thisMap)
       }
     });
   }
  ```
-* Newly created markers are given its own information window. Information windows will hold content on how that listings information will be displayed upon triggering of an on-click event listener. It's marker location will then be set onto the map using the listings longitude and latitude. Upon opening a new information window, the previous information window will be closed.
+### Marker information window
+Newly created markers are given its own information window. Information windows will hold content on how that listings information will be displayed upon triggering of an on-click event listener. It's marker location will then be set onto the map using the listings longitude and latitude. Upon opening a new information window, the previous information window will be closed.
 ```
 createMarkerInfoWindow(listing, marker, thisMap){
     const contentString =
@@ -154,6 +211,8 @@ createMarkerInfoWindow(listing, marker, thisMap){
   }
 ```
 
+# Future Features
+* Update listing images using Active Storage
+* Reservation black-out dates
 
-* Create, update, and delete a review on a listing
-* Create, update, and delete upcoming reservations 
+
