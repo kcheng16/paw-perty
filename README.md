@@ -1,5 +1,6 @@
 [Paw-perty - Try it live!](http://paw-perty.herokuapp.com/)
 ![pawperty-logo-github](https://user-images.githubusercontent.com/88124383/148818540-49e0350b-1158-4501-bdcf-2ab00569bb94.png)
+![splash](https://github.com/kcheng16/paw-perty/blob/main/app/assets/images/splash_1.gif)
 
 Paw-perty, an AirBnB clone, is a dog-siting booking application that allows users to:
 * Freely explore listings in various cities
@@ -43,6 +44,7 @@ Paw-perty, an AirBnB clone, is a dog-siting booking application that allows user
 # Features
 #### Search for listings by city name
 Listings are fetched depending on the search field city name input. Only listings similar to that city name will be displayed and marked within Google Maps API.
+![search](https://github.com/kcheng16/paw-perty/blob/main/app/assets/images/search.gif)
 The app reads the `:city` wildcard from the URL to construct its query. 
 
 * Create, update, and delete own listings and attach 5 pictures
