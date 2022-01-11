@@ -5,7 +5,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    
+    <meta property="og:title" content="Paw-perty" />
+    <meta property='og:image' content="<%= image_url('linkedin_img.jpg') %>"/>
+    <meta property="og:description"
+      content="Dog-sitting reservation app, an inspired full-stack clone of AirBnB."
+    />
+    <meta property="og:url"
+      content="http://paw-perty.herokuapp.com/?#/"
+    />
 
     <!--<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %>-->
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google[:api_key]}" %>
