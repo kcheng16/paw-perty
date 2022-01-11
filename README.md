@@ -1,7 +1,8 @@
 [Paw-perty - Try it live!](http://paw-perty.herokuapp.com/)
 ![pawperty-logo-github](https://user-images.githubusercontent.com/88124383/148818540-49e0350b-1158-4501-bdcf-2ab00569bb94.png)
-![splash](https://github.com/kcheng16/paw-perty/blob/main/app/assets/images/splash_1.gif)
-
+<p align="center">
+  <img src="https://github.com/kcheng16/paw-perty/blob/main/app/assets/images/splash.gif">
+</p>
 Paw-perty, an AirBnB clone, is a dog-siting booking application that allows users to:
 * Freely explore listings in various cities
 * Reserve a spot in a friendly new home
