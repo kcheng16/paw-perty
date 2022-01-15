@@ -169,7 +169,6 @@ class ListingsCreateForm extends React.Component{
   }
 
   render(){
-    console.log("STATE:",this.state)
     return(
       <div className="listings-create">
         <div className="sidebar">

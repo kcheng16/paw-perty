@@ -845,7 +845,6 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      console.log("STATE:", this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1206,7 +1205,8 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
           });
         }
       });
-    } // handleFile(e){
+    } // ===========================FOR UPDATING IMAGES:
+    // handleFile(e){
     //   for (let i = 0; i < e.target.files.length; i++) {
     //     this.photos.push(URL.createObjectURL(e.target.files[i]));
     //   }
@@ -1326,7 +1326,6 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
       var _this4 = this;
 
       if (!this.state) return "loading";
-      console.log(this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -4369,9 +4368,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
 
       e.preventDefault();
       var user = this.state;
-      this.props.processForm(user).then(function (res) {
-        console.log(res);
-
+      this.props.processForm(user).then(function () {
         _this3.props.closeModal();
       });
     }
@@ -5468,8 +5465,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return (0,redux__WEBPACK_IMPORTED_MODULE_2__.createStore)(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, (0,redux__WEBPACK_IMPORTED_MODULE_2__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"], (redux_logger__WEBPACK_IMPORTED_MODULE_0___default())));
-}; //logger taken out for heroku submit
+  return (0,redux__WEBPACK_IMPORTED_MODULE_2__.createStore)(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, (0,redux__WEBPACK_IMPORTED_MODULE_2__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"]));
+}; //'logger' taken out for heroku submit: applyMiddleware(thunk, logger)
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configureStore);
@@ -5740,7 +5737,7 @@ var createReview = function createReview(review) {
   });
 };
 var updateReview = function updateReview(review) {
-  return console.log("REVIEW_UTIL:", review), $.ajax({
+  return $.ajax({
     method: 'PATCH',
     // url: `/api/reviews/${review.get('id')}`,
     url: "/api/reviews/".concat(review.id),

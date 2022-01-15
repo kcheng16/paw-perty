@@ -73,7 +73,7 @@ class ListingEditComponent extends React.Component{
       }
     )
   }
-
+// ===========================FOR UPDATING IMAGES:
   // handleFile(e){
   //   for (let i = 0; i < e.target.files.length; i++) {
   //     this.photos.push(URL.createObjectURL(e.target.files[i]));
@@ -172,7 +172,6 @@ class ListingEditComponent extends React.Component{
 
   render(){
     if(!this.state) return "loading";
-    console.log(this.state)
     return(
       <div className="listings-create">
         <div className="sidebar">

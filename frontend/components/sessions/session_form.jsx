@@ -33,7 +33,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.processForm(user)
-      .then((res) => {console.log(res); this.props.closeModal()});
+      .then(() => {this.props.closeModal()});
   }
 
   componentWillUnmount(){
