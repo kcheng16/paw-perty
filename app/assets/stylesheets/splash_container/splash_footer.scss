@@ -12,8 +12,18 @@
 }
 
 .social{
+  width: 10%;
+
+  .links{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+  >.links>a{
+    width: 100%;    
+  }
   >.links >a >.link-img{
-    width: 30%;
     padding: 2% 0;
   }
 }
@@ -21,6 +31,16 @@
 .contact{
   .info > div{
     padding: 2% 0;
+  }
+  .info>div:first-child{
+    font-weight: 600;
+  }
+  .info>a{
+    color: blue;
+    padding: 2% 0;
+  }
+  .info>a:hover{
+    color: red;
   }
 }
 

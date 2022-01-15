@@ -61,19 +61,18 @@ class SplashComponent extends React.Component{
           <div className="social">
             <div className="footer-title">Social</div>
             <div className="links">
-              <a href="https://www.linkedin.com/in/kcheng16/">
+              <a target="_blank" href="https://www.linkedin.com/in/kcheng16/">
                 <img className="link-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/linkedinbutton_r8xeco.png"/>
               </a>
-              <a href="https://github.com/kcheng16">
+              <a target="_blank" href="https://github.com/kcheng16">
                 <img className="link-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1638510015/githubicon_w6ympq.png"/>
               </a>
-              <a href="https://angel.co/u/kcheng16">
+              <a target="_blank" href="https://angel.co/u/kcheng16">
                 <img className="link-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1641681845/angellist-icon_kgfh2a.png"/>
               </a>
-              {/* PORTFOLIO LINK
-              <a href="">
-                <img className="link-img" src=""/>
-              </a> */}
+              <a target="_blank" href="https://kcheng16.github.io/">
+                <img className="link-img" src="https://res.cloudinary.com/de8carnhu/image/upload/v1642221506/personal-button_pfohav.png"/>
+              </a>
             </div>
           </div>
 
@@ -81,7 +80,7 @@ class SplashComponent extends React.Component{
             <div className="footer-title">Contact</div>
             <div className="info">
               <div>Kenny Cheng</div>
-              <div>kcheng16@gmail.com</div>
+              <a target="_blank" href="mailto:kcheng16@gmail.com">kcheng16@gmail.com</a >
               <div>510-674-6668</div>
               <div>San Francisco Bay Area, CA</div>
             </div>
@@ -89,15 +88,14 @@ class SplashComponent extends React.Component{
 
           <div className="projects">
             <div className="footer-title">Projects</div>
-            <a target="blank" href="https://code-op.herokuapp.com/">
+            <a target="_blank" href="https://code-op.herokuapp.com/">
               <div>Code-Op</div>
               <div>Software programming project collaboration and management application</div>
             </a>
-            <a target="blank" href="https://kcheng16.github.io/cho-plate-project/">
+            <a target="_blank" href="https://kcheng16.github.io/cho-plate-project/">
               <div>Build-CHO-Plate</div>
               <div>Interactive game exploring fundamentals of carbohydrate counting for diabetic management</div>
             </a>
-            <a href=""></a>
           </div>
 
           <div className="tech">
