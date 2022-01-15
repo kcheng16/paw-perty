@@ -1990,11 +1990,14 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "createReservation",
     value: function createReservation(e) {
+      var _this2 = this;
+
       e.preventDefault();
 
       if (this.props.session.id) {
-        this.props.createReservation(this.state.reservation);
-        this.props.history.push("/user/".concat(this.props.session.id, "/reservations/"));
+        this.props.createReservation(this.state.reservation).then(function () {
+          return _this2.props.history.push("/user/".concat(_this2.props.session.id, "/reservations/"));
+        });
       } else {
         this.props.openLoginModal();
       }
@@ -2002,7 +2005,7 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (!this.props.listing) return "loading...";
       var choices = [];
@@ -2019,13 +2022,13 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
       }, this.props.listing.host_id === this.props.session.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "update-button",
         onClick: function onClick() {
-          return _this2.props.history.push("/listings/".concat(_this2.props.listing.id, "/edit"));
+          return _this3.props.history.push("/listings/".concat(_this3.props.listing.id, "/edit"));
         }
       }, "Update Listing"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "delete-button",
         onClick: function onClick() {
-          _this2.props.deleteListing(_this2.props.listing.id).then(function () {
-            return _this2.props.history.push("/user/".concat(_this2.props.session.id, "/listings"));
+          _this3.props.deleteListing(_this3.props.listing.id).then(function () {
+            return _this3.props.history.push("/user/".concat(_this3.props.session.id, "/listings"));
           });
         }
       }, "Delete Listing")) : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
@@ -2117,15 +2120,15 @@ var ListingsShow = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           review: review,
           key: idx,
-          sessionId: _this2.props.session.id,
+          sessionId: _this3.props.session.id,
           reviewerId: review.reviewer_id,
-          updateReview: _this2.props.updateReview,
-          deleteReview: _this2.props.deleteReview
+          updateReview: _this3.props.updateReview,
+          deleteReview: _this3.props.deleteReview
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "line"
       }), this.props.reviews.some(function (review) {
-        return review.reviewer_id === _this2.props.session.id;
+        return review.reviewer_id === _this3.props.session.id;
       }) || this.props.listing.host_id === this.props.session.id || this.props.session.id === null ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reviews_reviews_create_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         listing: this.props.listing
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_reservations_reservation_create_component__WEBPACK_IMPORTED_MODULE_3__["default"], {
