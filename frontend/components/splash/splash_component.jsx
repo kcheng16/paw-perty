@@ -89,11 +89,11 @@ class SplashComponent extends React.Component{
 
           <div className="projects">
             <div className="footer-title">Projects</div>
-            <a href="https://code-op.herokuapp.com/">
+            <a target="blank" href="https://code-op.herokuapp.com/">
               <div>Code-Op</div>
               <div>Software programming project collaboration and management application</div>
             </a>
-            <a href="https://kcheng16.github.io/cho-plate-project/">
+            <a target="blank" href="https://kcheng16.github.io/cho-plate-project/">
               <div>Build-CHO-Plate</div>
               <div>Interactive game exploring fundamentals of carbohydrate counting for diabetic management</div>
             </a>
