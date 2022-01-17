@@ -110,6 +110,8 @@ Listings are fetched depending on the search field city name input. The app read
 ```
 
 ## Google Maps 
+![googlemap](https://user-images.githubusercontent.com/88124383/149833453-2f8e8029-a170-4e4c-ba21-b211c9243b5a.jpg)
+
 ### Geocoding
 The listing being created will be marked on the map using geocoding, searching for the best possible result on the map using the listings: address, city, postal code, and country.
 ```
