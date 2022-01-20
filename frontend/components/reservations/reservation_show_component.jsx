@@ -8,13 +8,14 @@ class ReservationShowComponent extends React.Component{
     this.pastReservations = []
   }
   // No longer need componentDidMount 2/2 putting listing+reservations nested within partial for user
-
+  
   reservationHasExpired(endDate){
     let today = new Date()
     return today.toLocaleDateString() > endDate.toLocaleDateString()
   }
 
   render(){
+    if(!this.props.reservations) return "loading..."
     // filter listings to see if date has passed TODAYS date
     this.props.reservations.map( reservation => {
       let endDate = new Date(reservation.end_date)

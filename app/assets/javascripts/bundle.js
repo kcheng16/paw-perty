@@ -3007,7 +3007,8 @@ var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      // filter listings to see if date has passed TODAYS date
+      if (!this.props.reservations) return "loading..."; // filter listings to see if date has passed TODAYS date
+
       this.props.reservations.map(function (reservation) {
         var endDate = new Date(reservation.end_date);
 
@@ -3096,7 +3097,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   return {
     currentUser: state.entities.users[state.session.id],
-    reservations: Object.values(state.entities.reservations)
+    reservations: Object.values(Object.values(state.entities.users)[0].reservations)
   };
 };
 

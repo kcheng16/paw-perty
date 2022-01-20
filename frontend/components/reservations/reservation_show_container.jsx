@@ -7,7 +7,7 @@ import ReservationShowComponent from "./reservation_show_component"
 const mSTP = (state, ownProps) => {
   return {
   currentUser: state.entities.users[state.session.id],
-  reservations: Object.values(state.entities.reservations),
+  reservations: Object.values(Object.values(state.entities.users)[0].reservations),
 }}
 
 const mDTP = (dispatch) => ({
