@@ -78,6 +78,13 @@
   font-size: 150%;
 }
 
+.past-reservations{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px 0;
+  margin-bottom: 1vw;
+}
+
 .user-reservations{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
