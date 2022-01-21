@@ -111,3 +111,37 @@
     background-color: #F50B7C;
   }
 }
+
+.no-listing-container{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+
+  .no-listing-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .no-listing-header{
+      font-size: 40px;
+    }
+    >button{
+      background-color: #F50B7C;
+      color: white;
+      width: fit-content;
+      font-weight: 600;
+      border-radius: 5px;
+      margin-top: 20px;
+      padding: 15px;
+    }
+    >button:hover{
+      background-color: #E30C79;
+    }
+  }
+  .no-listing-bg{
+    background-image: url(https://res.cloudinary.com/de8carnhu/image/upload/v1642788330/cole-keister-cX-KEISwDIw-unsplash_m69vze.jpg);
+    background-size: cover;
+    width: 90vh;
+    height: 60vh;
+  }
+}

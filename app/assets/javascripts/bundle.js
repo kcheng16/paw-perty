@@ -4778,13 +4778,20 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      listings: Object.values(_this.props.currentUser.listings)
+      listings: []
     };
     return _this;
   } // No longer need componentDidMount 2/2 putting listing+reservations within partial
 
 
   _createClass(UserListings, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.currentUser.listings ? this.setState({
+        listings: Object.values(this.props.currentUser.listings)
+      }) : "";
+    }
+  }, {
     key: "removeUserListing",
     value: function removeUserListing(listingId, idx) {
       var listings = this.state.listings;
@@ -4795,9 +4802,28 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
       this.props.deleteListing(listingId);
     }
   }, {
+    key: "noListings",
+    value: function noListings() {
+      var _this2 = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "no-listing-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "no-listing-text"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "no-listing-header"
+      }, "You currently have no listings."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          return _this2.props.history.push("/listings/new");
+        }
+      }, "Become a host")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "no-listing-bg"
+      }));
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-container"
@@ -4805,7 +4831,7 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
         className: "listing-text"
       }, "Manage listings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-listings"
-      }, this.state.listings.map(function (listing, idx) {
+      }, this.state.listings.length !== 0 ? this.state.listings.map(function (listing, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: idx
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -4830,15 +4856,15 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           className: "update-button",
           onClick: function onClick() {
-            return _this2.props.history.push("/listings/".concat(listing.id, "/edit"));
+            return _this3.props.history.push("/listings/".concat(listing.id, "/edit"));
           }
         }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           className: "delete-button",
           onClick: function onClick() {
-            _this2.removeUserListing(listing.id, idx);
+            _this3.removeUserListing(listing.id, idx);
           }
         }, "Delete")));
-      })));
+      }) : this.noListings()));
     }
   }]);
 
@@ -5458,9 +5484,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 /* harmony import */ var _reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reducers/root_reducer */ "./frontend/reducers/root_reducer.js");
 
 
@@ -5469,7 +5495,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return (0,redux__WEBPACK_IMPORTED_MODULE_2__.createStore)(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, (0,redux__WEBPACK_IMPORTED_MODULE_2__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"]));
+  return (0,redux__WEBPACK_IMPORTED_MODULE_2__.createStore)(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, (0,redux__WEBPACK_IMPORTED_MODULE_2__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"], (redux_logger__WEBPACK_IMPORTED_MODULE_0___default())));
 }; //'logger' taken out for heroku submit: applyMiddleware(thunk, logger)
 
 

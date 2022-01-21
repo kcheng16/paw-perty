@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware } from "redux";
-import logger from "redux-logger";
 import thunk from "redux-thunk";
+import logger from "redux-logger";
 import rootReducer from "../reducers/root_reducer";
 
 const configureStore = (preloadedState = {}) =>
-  createStore(rootReducer, preloadedState, applyMiddleware(thunk)); //'logger' taken out for heroku submit: applyMiddleware(thunk, logger)
+  createStore(rootReducer, preloadedState, applyMiddleware(thunk, logger)); //'logger' taken out for heroku submit: applyMiddleware(thunk, logger)
 
 export default configureStore;

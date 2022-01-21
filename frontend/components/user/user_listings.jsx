@@ -5,11 +5,13 @@ class UserListings extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      listings: Object.values(this.props.currentUser.listings)
+      listings: []
     }
-
   }
   // No longer need componentDidMount 2/2 putting listing+reservations within partial
+  componentDidMount(){
+    this.props.currentUser.listings ? this.setState({listings: Object.values(this.props.currentUser.listings)}) : ""
+  }
 
   removeUserListing(listingId, idx){
     let listings = this.state.listings
@@ -19,12 +21,24 @@ class UserListings extends React.Component{
     this.props.deleteListing(listingId)
   }
 
+  noListings(){
+    return(
+      <div className="no-listing-container">
+        <div className="no-listing-text">
+          <div className="no-listing-header">You currently have no listings.</div>
+          <button onClick={() => this.props.history.push("/listings/new")}>Become a host</button>
+        </div>
+        <div className="no-listing-bg"></div>
+      </div>
+    )
+  }
+
   render(){
     return(
         <div className="listings-container">
           <p className="listing-text">Manage listings</p>
           <div className="user-listings">
-            {this.state.listings.map((listing, idx) => 
+            {this.state.listings.length !== 0 ? this.state.listings.map((listing, idx) => 
               <div key={idx} >
                 <Link key={idx} to={`/listings/${listing.id}`} className="user-listing">
                   <img className="user-listing-icon" src={listing.images[0] ? listing.images[0] : listing.photos[0]}/>
@@ -52,7 +66,7 @@ class UserListings extends React.Component{
                   </button>
                 </div>
               </div>
-            )}
+              ): this.noListings()}
             </div>
           </div>
     )
