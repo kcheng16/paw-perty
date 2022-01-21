@@ -3007,17 +3007,20 @@ var ReservationShowComponent = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      if (!this.props.reservations) return "loading..."; // filter listings to see if date has passed TODAYS date
+      console.log(this.props.reservations); // filter listings to see if date has passed TODAYS date
 
-      this.props.reservations.map(function (reservation) {
-        var endDate = new Date(reservation.end_date);
+      if (this.props.reservations.length > 0) {
+        this.props.reservations.map(function (reservation) {
+          var endDate = new Date(reservation.end_date);
 
-        if (_this2.reservationHasExpired(endDate)) {
-          _this2.pastReservations.push(reservation);
-        } else {
-          _this2.upcomingReservations.push(reservation);
-        }
-      });
+          if (_this2.reservationHasExpired(endDate)) {
+            _this2.pastReservations.push(reservation);
+          } else {
+            _this2.upcomingReservations.push(reservation);
+          }
+        });
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "reservation-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
@@ -3095,9 +3098,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
+  var currentUser = state.entities.users[state.session.id];
   return {
-    currentUser: state.entities.users[state.session.id],
-    reservations: Object.values(Object.values(state.entities.users)[0].reservations)
+    currentUser: currentUser,
+    reservations: currentUser.reservations ? Object.values(Object.values(currentUser.reservations)) : ""
   };
 };
 
@@ -4831,7 +4835,7 @@ var UserListings = /*#__PURE__*/function (_React$Component) {
         className: "listing-text"
       }, "Manage listings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "user-listings"
-      }, this.state.listings.length !== 0 ? this.state.listings.map(function (listing, idx) {
+      }, this.state.listings.length > 0 ? this.state.listings.map(function (listing, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: idx
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom_Link__WEBPACK_IMPORTED_MODULE_1__["default"], {

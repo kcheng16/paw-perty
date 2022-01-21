@@ -38,7 +38,7 @@ class UserListings extends React.Component{
         <div className="listings-container">
           <p className="listing-text">Manage listings</p>
           <div className="user-listings">
-            {this.state.listings.length !== 0 ? this.state.listings.map((listing, idx) => 
+            {this.state.listings.length > 0 ? this.state.listings.map((listing, idx) => 
               <div key={idx} >
                 <Link key={idx} to={`/listings/${listing.id}`} className="user-listing">
                   <img className="user-listing-icon" src={listing.images[0] ? listing.images[0] : listing.photos[0]}/>

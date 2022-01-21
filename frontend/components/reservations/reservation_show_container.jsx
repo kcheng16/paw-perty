@@ -5,9 +5,10 @@ import { updateReservation, deleteReservation, requestReservation } from "../../
 import ReservationShowComponent from "./reservation_show_component"
 
 const mSTP = (state, ownProps) => {
+  const currentUser = state.entities.users[state.session.id]
   return {
-  currentUser: state.entities.users[state.session.id],
-  reservations: Object.values(Object.values(state.entities.users)[0].reservations),
+    currentUser,
+    reservations: currentUser.reservations ? Object.values(Object.values(currentUser.reservations)) : ""
 }}
 
 const mDTP = (dispatch) => ({

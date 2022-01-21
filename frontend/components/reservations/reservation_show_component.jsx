@@ -15,17 +15,19 @@ class ReservationShowComponent extends React.Component{
   }
 
   render(){
-    if(!this.props.reservations) return "loading..."
+    console.log(this.props.reservations)
     // filter listings to see if date has passed TODAYS date
-    this.props.reservations.map( reservation => {
-      let endDate = new Date(reservation.end_date)
+    if (this.props.reservations.length > 0){ 
+      this.props.reservations.map( reservation => {
+        let endDate = new Date(reservation.end_date)
 
-      if(this.reservationHasExpired(endDate)){
-        this.pastReservations.push(reservation)
-      } else {
-        this.upcomingReservations.push(reservation)
-      }
-    })
+        if(this.reservationHasExpired(endDate)){
+          this.pastReservations.push(reservation)
+        } else {
+          this.upcomingReservations.push(reservation)
+        }
+      })
+    }
 
     return(
         <div className="reservation-container">
@@ -68,8 +70,7 @@ class ReservationShowComponent extends React.Component{
                 )}
                 </div>
               </>
-              :
-              ""
+              : ""
             }
           </div>
     )
