@@ -171,7 +171,7 @@ class ListingEditComponent extends React.Component{
   }
 
   render(){
-    if(!this.state) return "loading";
+    if(!this.props.listing) return "loading";
     return(
       <div className="listings-create">
         <div className="sidebar">

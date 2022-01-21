@@ -1320,7 +1320,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      if (!this.state) return "loading";
+      if (!this.props.listing) return "loading";
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "listings-create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1522,10 +1522,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
+  var currentUserId = state.session.id;
   return {
-    sessionId: state.session.id,
+    sessionId: currentUserId,
     errors: state.errors.listing,
-    listing: state.entities.listings[ownProps.match.params.id]
+    // listing: state.entities.listings[ownProps.match.params.id]
+    listing: state.entities.users[currentUserId].listings[ownProps.match.params.id]
   };
 };
 
