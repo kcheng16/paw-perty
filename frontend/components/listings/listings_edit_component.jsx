@@ -3,7 +3,7 @@ import React from "react";
 class ListingEditComponent extends React.Component{
   constructor(props){
     super(props)
-    const localState = {localState: {pageIndex: 0}}
+    const localState = {localState: {pageIndex: 1}}
     const newState = Object.assign({}, this.props.listing, localState)
     this.state = newState
     this.photos = this.state.photos
@@ -13,8 +13,8 @@ class ListingEditComponent extends React.Component{
     this.style2 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638257975/alvan-nee-T-0EW-SEbsE-unsplash_jlyvgo.jpg)`}
     this.style3 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638259085/chris-osmond-v3vQRPbiwL8-unsplash_kp9gzl.jpg)`}
     this.style4 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638258964/hannah-lim-U6nlG0Y5sfs-unsplash_rdz9wu.jpg)`}
-    this.style5 = { display: "block", backgroundImage: `url(http://res.cloudinary.com/de8carnhu/image/upload/v1638322488/sarandy-westfall-fLKRaBoa4-E-unsplash_jw2zee.jpg)`}
-    this.style6 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638258925/avi-naim-JfpjgnVhpmM-unsplash_g4eovt.jpg)`}
+    // this.style5 = { display: "block", backgroundImage: `url(http://res.cloudinary.com/de8carnhu/image/upload/v1638322488/sarandy-westfall-fLKRaBoa4-E-unsplash_jw2zee.jpg)`}
+    this.style5 = { display: "block", backgroundImage: `url(https://res.cloudinary.com/de8carnhu/image/upload/v1638258925/avi-naim-JfpjgnVhpmM-unsplash_g4eovt.jpg)`}
     
     this.num1 = Math.floor(Math.random() * 30) + 1
     this.num2 = Math.floor(Math.random() * 100) + 30
@@ -117,7 +117,7 @@ class ListingEditComponent extends React.Component{
   }
 
   subPageIndex(){
-    if (this.state.localState.pageIndex > 0) {
+    if (this.state.localState.pageIndex > 1) {
       this.setState({
         ...this.state,
         localState: {
@@ -149,19 +149,19 @@ class ListingEditComponent extends React.Component{
 
   isCurrentPageInputFilled(){
     switch (this.state.localState.pageIndex){
-      case 0:
-        return this.state.title.length !== 0
       case 1:
-        return this.state.description.length !== 0
+        return this.state.title.length !== 0
       case 2:
+        return this.state.description.length !== 0
+      case 3:
         return this.state.street_address.length !== 0 &&
           this.state.city.length !== 0 &&
           this.state.postal_code.length !== 0 &&
           this.state.country.length !== 0
-      case 3:
-        return this.state.num_of_beds !== 0
       case 4:
-        return this.state.photos.length >= 5 //GREATER THAN 5, not EQUAL
+        return this.state.num_of_beds !== 0
+      // case 5:
+      //   return this.state.photos.length >= 5 //GREATER THAN 5, not EQUAL
       case 5:
         return this.state.price !== 0
       
@@ -176,12 +176,12 @@ class ListingEditComponent extends React.Component{
       <div className="listings-create">
         <div className="sidebar">
           <div className="sidebar-bg">
-            <h1 style={this.state.localState.pageIndex === 0 ? this.style1 : { display: "none" }}>Let's give your place a name</h1>
-            <h1 style={this.state.localState.pageIndex === 1 ? this.style2 : { display: "none" }}>Now, let's describe your place</h1>
-            <h1 style={this.state.localState.pageIndex === 2 ? this.style3 : { display: "none" }}>Where's your place located?</h1>
-            <h1 style={this.state.localState.pageIndex === 3 ? this.style4 : { display: "none" }}>How many dogs would you like to welcome?</h1>
-            <h1 style={this.state.localState.pageIndex === 4 ? this.style5 : { display: "none" }}>Next, let's add some photos of your place</h1>
-            <h1 style={this.state.localState.pageIndex === 5 ? this.style6 : { display: "none" }}>Now for the fun part - set your price</h1>
+            <h1 style={this.state.localState.pageIndex === 1 ? this.style1 : { display: "none" }}>Let's give your place a name</h1>
+            <h1 style={this.state.localState.pageIndex === 2 ? this.style2 : { display: "none" }}>Now, let's describe your place</h1>
+            <h1 style={this.state.localState.pageIndex === 3 ? this.style3 : { display: "none" }}>Where's your place located?</h1>
+            <h1 style={this.state.localState.pageIndex === 4 ? this.style4 : { display: "none" }}>How many dogs would you like to welcome?</h1>
+            {/* <h1 style={this.state.localState.pageIndex === 4 ? this.style5 : { display: "none" }}>Next, let's add some photos of your place</h1> */}
+            <h1 style={this.state.localState.pageIndex === 5 ? this.style5 : { display: "none" }}>Now for the fun part - set your price</h1>
           </div>
         </div>
 
@@ -191,7 +191,7 @@ class ListingEditComponent extends React.Component{
 
           {/* TITLE */}
           <div 
-            style={this.state.localState.pageIndex === 0 ? { display: "block" } : { display: "none" }}
+            style={this.state.localState.pageIndex === 1 ? { display: "block" } : { display: "none" }}
             className="listing-title"
           >
             <h1>Create your title</h1>
@@ -200,7 +200,7 @@ class ListingEditComponent extends React.Component{
 
           {/* DESCRIPTION */}
           <div 
-            style={this.state.localState.pageIndex === 1 ? { display: "block" } : { display: "none" }}
+            style={this.state.localState.pageIndex === 2 ? { display: "block" } : { display: "none" }}
             className="listing-title">
               <h1>Create your description</h1>
               <textarea onChange={this.update('description')} name='listing-description' type="text" placeholder="We provide pacious area for zoomies, and natural delicious treats. " value={this.state.description}/>
@@ -208,7 +208,7 @@ class ListingEditComponent extends React.Component{
 
           {/* LOCATION */}
             <div 
-              style={this.state.localState.pageIndex === 2 ? { display: "block" } : { display: "none" }}
+              style={this.state.localState.pageIndex === 3 ? { display: "block" } : { display: "none" }}
               className="listing-address-bg"
             >
               <div className="listing-box">
@@ -236,7 +236,7 @@ class ListingEditComponent extends React.Component{
 
           {/* GUESTS */}
             <div 
-              style={this.state.localState.pageIndex === 3 ? { display: "grid" } : { display: "none" }}
+              style={this.state.localState.pageIndex === 4 ? { display: "grid" } : { display: "none" }}
               className="add-guest"
             >
               <h1>Dogs</h1>
@@ -274,7 +274,7 @@ class ListingEditComponent extends React.Component{
             </div> */}
             {/* PRICE */}
             <div
-              style={this.state.localState.pageIndex === 4 ? { display: "flex" } : { display: "none" }}
+              style={this.state.localState.pageIndex === 5 ? { display: "flex" } : { display: "none" }}
               className="price"
             >
               <div className="price-counter">
@@ -293,23 +293,23 @@ class ListingEditComponent extends React.Component{
           <div className="buttons-container">
             <div className="buttons">
               <button style={
-                this.state.localState.pageIndex === 0 ? {opacity: "0%", cursor: "auto"} : {display: "block"}} 
-                onClick={() => this.state.localState.pageIndex === 0 ? "" : this.subPageIndex()}
+                this.state.localState.pageIndex === 1 ? {opacity: "0%", cursor: "auto"} : {display: "block"}} 
+                onClick={() => this.state.localState.pageIndex === 1 ? "" : this.subPageIndex()}
               >Back
               </button>
               <div></div>
               {this.isCurrentPageInputFilled() ? 
                 <button 
-                  style={ this.state.localState.pageIndex !== 4 ? {backgroundColor: "black"} : {backgroundColor: "#E30C79"}}
+                  style={ this.state.localState.pageIndex !== 5 ? {backgroundColor: "black"} : {backgroundColor: "#E30C79"}}
                   onClick={(e) => {
-                    if (this.state.localState.pageIndex !== 4 ) {
+                    if (this.state.localState.pageIndex !== 5 ) {
                       this.addPageIndex();
                     } else {
                       this.handleSubmit(e);
                     }
                   }}
                 >
-                  {this.state.localState.pageIndex !== 4 ? "Next" : "Submit"}
+                  {this.state.localState.pageIndex !== 5 ? "Next" : "Submit"}
                 </button>
                 : ""
               } 

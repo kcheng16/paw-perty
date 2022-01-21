@@ -1114,7 +1114,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     var localState = {
       localState: {
-        pageIndex: 0
+        pageIndex: 1
       }
     };
     var newState = Object.assign({}, _this.props.listing, localState);
@@ -1136,12 +1136,9 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
     _this.style4 = {
       display: "block",
       backgroundImage: "url(https://res.cloudinary.com/de8carnhu/image/upload/v1638258964/hannah-lim-U6nlG0Y5sfs-unsplash_rdz9wu.jpg)"
-    };
+    }; // this.style5 = { display: "block", backgroundImage: `url(http://res.cloudinary.com/de8carnhu/image/upload/v1638322488/sarandy-westfall-fLKRaBoa4-E-unsplash_jw2zee.jpg)`}
+
     _this.style5 = {
-      display: "block",
-      backgroundImage: "url(http://res.cloudinary.com/de8carnhu/image/upload/v1638322488/sarandy-westfall-fLKRaBoa4-E-unsplash_jw2zee.jpg)"
-    };
-    _this.style6 = {
       display: "block",
       backgroundImage: "url(https://res.cloudinary.com/de8carnhu/image/upload/v1638258925/avi-naim-JfpjgnVhpmM-unsplash_g4eovt.jpg)"
     };
@@ -1251,7 +1248,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "subPageIndex",
     value: function subPageIndex() {
-      if (this.state.localState.pageIndex > 0) {
+      if (this.state.localState.pageIndex > 1) {
         this.setState(_objectSpread(_objectSpread({}, this.state), {}, {
           localState: _objectSpread(_objectSpread({}, this.state.localState), {}, {
             pageIndex: this.state.localState.pageIndex - 1
@@ -1297,21 +1294,19 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
     key: "isCurrentPageInputFilled",
     value: function isCurrentPageInputFilled() {
       switch (this.state.localState.pageIndex) {
-        case 0:
+        case 1:
           return this.state.title.length !== 0;
 
-        case 1:
+        case 2:
           return this.state.description.length !== 0;
 
-        case 2:
+        case 3:
           return this.state.street_address.length !== 0 && this.state.city.length !== 0 && this.state.postal_code.length !== 0 && this.state.country.length !== 0;
 
-        case 3:
-          return this.state.num_of_beds !== 0;
-
         case 4:
-          return this.state.photos.length >= 5;
-        //GREATER THAN 5, not EQUAL
+          return this.state.num_of_beds !== 0;
+        // case 5:
+        //   return this.state.photos.length >= 5 //GREATER THAN 5, not EQUAL
 
         case 5:
           return this.state.price !== 0;
@@ -1333,27 +1328,23 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "sidebar-bg"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-        style: this.state.localState.pageIndex === 0 ? this.style1 : {
+        style: this.state.localState.pageIndex === 1 ? this.style1 : {
           display: "none"
         }
       }, "Let's give your place a name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-        style: this.state.localState.pageIndex === 1 ? this.style2 : {
+        style: this.state.localState.pageIndex === 2 ? this.style2 : {
           display: "none"
         }
       }, "Now, let's describe your place"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-        style: this.state.localState.pageIndex === 2 ? this.style3 : {
+        style: this.state.localState.pageIndex === 3 ? this.style3 : {
           display: "none"
         }
       }, "Where's your place located?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-        style: this.state.localState.pageIndex === 3 ? this.style4 : {
+        style: this.state.localState.pageIndex === 4 ? this.style4 : {
           display: "none"
         }
       }, "How many dogs would you like to welcome?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-        style: this.state.localState.pageIndex === 4 ? this.style5 : {
-          display: "none"
-        }
-      }, "Next, let's add some photos of your place"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-        style: this.state.localState.pageIndex === 5 ? this.style6 : {
+        style: this.state.localState.pageIndex === 5 ? this.style5 : {
           display: "none"
         }
       }, "Now for the fun part - set your price"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
@@ -1362,7 +1353,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         },
         className: "listings-new-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        style: this.state.localState.pageIndex === 0 ? {
+        style: this.state.localState.pageIndex === 1 ? {
           display: "block"
         } : {
           display: "none"
@@ -1375,7 +1366,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         placeholder: "Relax your paws with us!",
         value: this.state.title
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        style: this.state.localState.pageIndex === 1 ? {
+        style: this.state.localState.pageIndex === 2 ? {
           display: "block"
         } : {
           display: "none"
@@ -1388,7 +1379,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         placeholder: "We provide pacious area for zoomies, and natural delicious treats. ",
         value: this.state.description
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        style: this.state.localState.pageIndex === 2 ? {
+        style: this.state.localState.pageIndex === 3 ? {
           display: "block"
         } : {
           display: "none"
@@ -1427,7 +1418,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: this.state.country
       }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        style: this.state.localState.pageIndex === 3 ? {
+        style: this.state.localState.pageIndex === 4 ? {
           display: "grid"
         } : {
           display: "none"
@@ -1446,7 +1437,7 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
           return _this4.addDogs();
         }
       }, "+"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        style: this.state.localState.pageIndex === 4 ? {
+        style: this.state.localState.pageIndex === 5 ? {
           display: "flex"
         } : {
           display: "none"
@@ -1471,29 +1462,29 @@ var ListingEditComponent = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "buttons"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        style: this.state.localState.pageIndex === 0 ? {
+        style: this.state.localState.pageIndex === 1 ? {
           opacity: "0%",
           cursor: "auto"
         } : {
           display: "block"
         },
         onClick: function onClick() {
-          return _this4.state.localState.pageIndex === 0 ? "" : _this4.subPageIndex();
+          return _this4.state.localState.pageIndex === 1 ? "" : _this4.subPageIndex();
         }
       }, "Back"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), this.isCurrentPageInputFilled() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        style: this.state.localState.pageIndex !== 4 ? {
+        style: this.state.localState.pageIndex !== 5 ? {
           backgroundColor: "black"
         } : {
           backgroundColor: "#E30C79"
         },
         onClick: function onClick(e) {
-          if (_this4.state.localState.pageIndex !== 4) {
+          if (_this4.state.localState.pageIndex !== 5) {
             _this4.addPageIndex();
           } else {
             _this4.handleSubmit(e);
           }
         }
-      }, this.state.localState.pageIndex !== 4 ? "Next" : "Submit") : ""))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      }, this.state.localState.pageIndex !== 5 ? "Next" : "Submit") : ""))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "listing-create-errors"
       }, Array.isArray(this.props.errors) ? this.props.errors.map(function (error, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
