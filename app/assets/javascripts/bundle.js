@@ -49783,14 +49783,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }), root); // we don't put the store directly on the window because
   // it can be confusing when debugging, sometimes giving you access to state
   // when you shouldn't
-
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
-  window.login = _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__.login;
-  window.logout = _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__.logout;
-  window.signup = _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__.signup;
-  window.requestListings = _actions_listing_actions__WEBPACK_IMPORTED_MODULE_5__.requestListings;
-  window.store = store;
+  // window.dispatch = store.dispatch;
+  // window.getState = store.getState
+  // window.login = login;
+  // window.logout = logout;
+  // window.signup = signup;
+  // window.requestListings = requestListings
+  // window.store = store
 });
 })();
 

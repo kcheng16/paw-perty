@@ -1,11 +1,5 @@
 //Listings===================
 .listings-container{
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-  0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-  0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-
-  border: 0.5px solid #d5d3d3;
-  border-radius: 15px;
   margin: 1vw;
 }
 
@@ -26,10 +20,8 @@
   .user-listing{
     font-size: 2vw;
     width: 22vw;
+    border: 1px solid #b8b7b7;
     border-radius: 17px;
-    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-    0px 1px 18px 0px rgba(0, 0, 0, 0.12);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -38,6 +30,12 @@
       width: 2vw;
       height: 2vw;
     }
+  }
+
+  .user-listing:hover{
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12);
   }
 
 }
@@ -114,13 +112,16 @@
 
 .no-listing-container{
   display: flex;
-  justify-content: space-evenly;
-  width: 100vw;
+  justify-content: space-between;
+  width: 90vw;
+  border: 1px solid #b8b7b7;
+  border-radius: 17px;
 
   .no-listing-text{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: auto;
 
     .no-listing-header{
       font-size: 40px;
@@ -131,7 +132,7 @@
       width: fit-content;
       font-weight: 600;
       border-radius: 5px;
-      margin-top: 20px;
+      margin-top: 5vh;
       padding: 15px;
     }
     >button:hover{
@@ -143,5 +144,6 @@
     background-size: cover;
     width: 90vh;
     height: 60vh;
+    border-radius: 0 17px 17px 0;
   }
 }

@@ -35,11 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // we don't put the store directly on the window because
   // it can be confusing when debugging, sometimes giving you access to state
   // when you shouldn't
-  window.dispatch = store.dispatch;
-  window.getState = store.getState
-  window.login = login;
-  window.logout = logout;
-  window.signup = signup;
-  window.requestListings = requestListings
-  window.store = store
+  
+  // window.dispatch = store.dispatch;
+  // window.getState = store.getState
+  // window.login = login;
+  // window.logout = logout;
+  // window.signup = signup;
+  // window.requestListings = requestListings
+  // window.store = store
 });
