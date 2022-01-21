@@ -7,6 +7,7 @@ class UserListings extends React.Component{
     this.state = {
       listings: Object.values(this.props.currentUser.listings)
     }
+
   }
   // No longer need componentDidMount 2/2 putting listing+reservations within partial
 
