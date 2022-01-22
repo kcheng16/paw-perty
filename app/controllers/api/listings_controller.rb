@@ -27,7 +27,7 @@ class Api::ListingsController < ApplicationController
   def index
     @listings = Listing.with_attached_photos.all
     if params[:city]
-      @listings = Listing.where(city: params[:city])
+      @listings = Listing.where(city: params[:city]).limit(100)
       render :index
     else 
         render :index
