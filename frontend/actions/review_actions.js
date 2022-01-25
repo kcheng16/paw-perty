@@ -27,11 +27,6 @@ export const requestReviews = () => dispatch => (
     .then(reviews => dispatch(receiveReviews(reviews)))
 )
 
-// export const requestReview = (reviewId) => dispatch => (
-//   reviewApiUtil.fetchReview(reviewId)
-//     .then(review => dispatch(receiveReview(review)))
-// )
-
 export const createReview = (review) => dispatch => (
   reviewApiUtil.createReview(review)
     .then(review => dispatch(receiveReview(review)))
