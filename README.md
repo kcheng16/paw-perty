@@ -22,14 +22,15 @@ Paw-perty, an AirBnB clone, is a dog-siting booking application that allows user
 * Redux
 * HTML5 / CSS / Sass
 * JQuery
-* JBuilder
 
 ### Backend
 * Ruby on Rails
 * PostgreSQL
+* JBuilder
 
 ### Additional Technologies
 * Google Maps API
+* Googlle Geocoding API
 * Amazon Web Services - S3
 * Webpack
 
