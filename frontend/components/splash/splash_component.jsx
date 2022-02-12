@@ -20,6 +20,7 @@ class SplashComponent extends React.Component{
             I'm flexible
           </div>
         </div>
+        
         <h1 className="inspiration-header">Inspiration for your next trip</h1>
         <div className="splash-inspiration-container">
           <Link className="boring" to={"/search/BORING,OREGON"}>
