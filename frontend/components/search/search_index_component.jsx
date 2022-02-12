@@ -7,12 +7,7 @@ class SearchIndexComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listings: this.props.city === "ALL" ? 
-        this.props.listings
-        :
-        this.props.listings.filter(
-          listing => listing.city === this.props.city
-        ),
+      listings: this.props.listings
     };
   }
 

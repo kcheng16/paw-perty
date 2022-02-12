@@ -3891,9 +3891,7 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      listings: _this.props.city === "ALL" ? _this.props.listings : _this.props.listings.filter(function (listing) {
-        return listing.city === _this.props.city;
-      })
+      listings: _this.props.listings
     };
     return _this;
   }
