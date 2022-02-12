@@ -272,11 +272,7 @@ var requestReviews = function requestReviews() {
       return dispatch(receiveReviews(reviews));
     });
   };
-}; // export const requestReview = (reviewId) => dispatch => (
-//   reviewApiUtil.fetchReview(reviewId)
-//     .then(review => dispatch(receiveReview(review)))
-// )
-
+};
 var createReview = function createReview(review) {
   return function (dispatch) {
     return _util_reviews_util__WEBPACK_IMPORTED_MODULE_0__.createReview(review).then(function (review) {
@@ -344,7 +340,8 @@ var receiveErrors = function receiveErrors(errors) {
     type: RECEIVE_ERRORS,
     errors: errors
   };
-};
+}; //================================================
+
 
 var clearErrors = function clearErrors() {
   return {
@@ -642,7 +639,8 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
         pageIndex: 0
       }
     };
-    _this.photos = [];
+    _this.photos = []; // Create form left side image
+
     _this.style1 = {
       display: "block",
       backgroundImage: "url(https://res.cloudinary.com/de8carnhu/image/upload/c_scale,h_2232/v1638254345/linda-segerfeldt-oEcsvUfCr1c-unsplash_l8e34q.jpg)"
@@ -666,7 +664,8 @@ var ListingsCreateForm = /*#__PURE__*/function (_React$Component) {
     _this.style6 = {
       display: "block",
       backgroundImage: "url(https://res.cloudinary.com/de8carnhu/image/upload/v1638258925/avi-naim-JfpjgnVhpmM-unsplash_g4eovt.jpg)"
-    };
+    }; // Random number for 'average cost per night'
+
     _this.num1 = Math.floor(Math.random() * 30) + 1;
     _this.num2 = Math.floor(Math.random() * 100) + 30;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -1526,7 +1525,6 @@ var mSTP = function mSTP(state, ownProps) {
   return {
     sessionId: currentUserId,
     errors: state.errors.listing,
-    // listing: state.entities.listings[ownProps.match.params.id]
     listing: state.entities.users[currentUserId].listings[ownProps.match.params.id]
   };
 };
@@ -3925,6 +3923,7 @@ var SearchIndexComponent = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       if (this.props.city === "ALL" && this.props.city !== prevProps.city) {
+        //checking if new search (not initial search) is 'ALL', and if there was a previous search before 'ALL, if not, will continue to requestListing() from mounting & updating for only checking if city == 'ALL'
         this.props.requestListings().then(function (res) {
           return _this3.setState({
             listings: Object.values(res.listings)
@@ -5568,14 +5567,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
 
 var MarkerManager = /*#__PURE__*/function () {
   function MarkerManager(map) {

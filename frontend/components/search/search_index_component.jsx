@@ -27,7 +27,7 @@ class SearchIndexComponent extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.city === "ALL" && this.props.city !== prevProps.city){
+    if(this.props.city === "ALL" && this.props.city !== prevProps.city){ //checking if new search (not initial search) is 'ALL', and if there was a previous search before 'ALL, if not, will continue to requestListing() from mounting & updating for only checking if city == 'ALL'
       this.props.requestListings()
         .then( res => this.setState({listings: Object.values(res.listings)})) 
     } else if(this.props.city !== prevProps.city){
