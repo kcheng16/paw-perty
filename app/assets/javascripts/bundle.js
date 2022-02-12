@@ -2293,8 +2293,6 @@ var Map = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      // var latLng = new google.maps.LatLng(51.433373, -0.712251);
-      // map.panTo(latLng);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "map-container",
         ref: function ref(map) {
@@ -4591,7 +4589,7 @@ var SplashComponent = /*#__PURE__*/function (_React$Component) {
         className: "splash-inspiration-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
         className: "boring",
-        to: "/search/BORING"
+        to: "/search/BORING,OREGON"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "inspiration-img"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Boring"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, "Oregon")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -5581,27 +5579,28 @@ var MarkerManager = /*#__PURE__*/function () {
   }
 
   _createClass(MarkerManager, [{
-    key: "createMarkerInfoWindow",
-    value: function createMarkerInfoWindow(listing, marker, thisMap) {
+    key: "updateMarkers",
+    value: function updateMarkers(listings) {
       var _this = this;
 
-      var contentString = "<a className=\"info-window\" href=\"/#/listings/".concat(listing.id, "\">") + "<div><img style=\"display: inline-block; height: 200px; width: 100%; object-fit: cover;\" src=\"".concat(listing.images[0] ? listing.images[0] : listing.photos[0], "\"/></div>") + "<div class=\"info-window-text\">" + "<div>".concat(listing.average_rating ? listing.average_rating : "0 reviews", "</div>") + "<div style=\"padding: 5px 0 10px 0; font-size: 18px;\">".concat(listing.title, "</div>") + "<div style=\"font-weight: 800;\">".concat(listing.price, " Doge coins / night</div>") + "</div>" + "</a>"; // set info window
+      var thisMap = this.map;
+      var marker;
+      listings.forEach(function (listing) {
+        if (!(listing.id in _this.markers)) {
+          _this.markers[listing.id] = listing;
+          marker = _this.createMarker(listing); // marker's event listener to close PREVIOUS infoWindow
 
-      var infoWindow = new google.maps.InfoWindow({
-        content: contentString
-      }); // add event listener for info window:
+          marker.addListener("click", function () {
+            if (_this.infoWindow) {
+              _this.infoWindow.close();
+            }
+          });
 
-      marker.addListener("click", function () {
-        infoWindow.open({
-          anchor: marker,
-          thisMap: thisMap,
-          shouldFocus: true
-        });
-        _this.infoWindow = infoWindow;
-      }); // Click of the map closes all infoWindows
+          _this.createMarkerInfoWindow(listing, marker, thisMap); // set marker into map
 
-      thisMap.addListener('click', function () {
-        if (infoWindow) infoWindow.close();
+
+          marker.setMap(thisMap);
+        }
       });
     }
   }, {
@@ -5626,28 +5625,27 @@ var MarkerManager = /*#__PURE__*/function () {
       });
     }
   }, {
-    key: "updateMarkers",
-    value: function updateMarkers(listings) {
+    key: "createMarkerInfoWindow",
+    value: function createMarkerInfoWindow(listing, marker, thisMap) {
       var _this2 = this;
 
-      var thisMap = this.map;
-      var marker;
-      listings.forEach(function (listing) {
-        if (!(listing.id in _this2.markers)) {
-          _this2.markers[listing.id] = listing;
-          marker = _this2.createMarker(listing); // marker's event listener to close PREVIOUS infoWindow
+      var contentString = "<a className=\"info-window\" href=\"/#/listings/".concat(listing.id, "\">") + "<div><img style=\"display: inline-block; height: 200px; width: 100%; object-fit: cover;\" src=\"".concat(listing.images[0] ? listing.images[0] : listing.photos[0], "\"/></div>") + "<div class=\"info-window-text\">" + "<div>".concat(listing.average_rating ? listing.average_rating : "0 reviews", "</div>") + "<div style=\"padding: 5px 0 10px 0; font-size: 18px;\">".concat(listing.title, "</div>") + "<div style=\"font-weight: 800;\">".concat(listing.price, " Doge coins / night</div>") + "</div>" + "</a>"; // set info window
 
-          marker.addListener("click", function () {
-            if (_this2.infoWindow) {
-              _this2.infoWindow.close();
-            }
-          });
+      var infoWindow = new google.maps.InfoWindow({
+        content: contentString
+      }); // add event listener for info window:
 
-          _this2.createMarkerInfoWindow(listing, marker, thisMap); // set marker into map
+      marker.addListener("click", function () {
+        infoWindow.open({
+          anchor: marker,
+          thisMap: thisMap,
+          shouldFocus: true
+        });
+        _this2.infoWindow = infoWindow;
+      }); // Click of the map closes all infoWindows
 
-
-          marker.setMap(thisMap);
-        }
+      thisMap.addListener('click', function () {
+        if (infoWindow) infoWindow.close();
       });
     }
   }, {

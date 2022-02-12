@@ -36,8 +36,6 @@ class Map extends React.Component{
   }
   
   render(){
-    // var latLng = new google.maps.LatLng(51.433373, -0.712251);
-    // map.panTo(latLng);
     return(
       <div id='map-container' ref={ map => this.mapNode = map }>
         {/* // this ref gives us access to the map dom node */}
